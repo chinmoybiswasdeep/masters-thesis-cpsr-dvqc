@@ -1,0 +1,3751 @@
+
+\documentclass[final,1p,times]{elsarticle}
+
+% elsarticle already loads geometry
+\geometry{
+    left=0.55in,
+    right=0.55in,
+    top=0.40in,
+    bottom=0.45in
+}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\allowdisplaybreaks
+
+\newcommand{\ket}[1]{\left|#1\right\rangle}
+\newcommand{\bra}[1]{\left\langle#1\right|}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+
+\algrenewcommand\algorithmicrequire{\textbf{Input:}}
+\algrenewcommand\algorithmicensure{\textbf{Output:}}
+
+% ---------------------------------------------------------------------
+% Breakable, non-floating algorithm environment.
+% Unlike the standard algorithm float, this environment:
+% (i) stays exactly where it is written in the source, and
+% (ii) can continue across page boundaries.
+% ---------------------------------------------------------------------
+\makeatletter
+\newenvironment{breakablealgorithm}
+{%
+  \par\addvspace{0.75\baselineskip}%
+  \refstepcounter{algorithm}%
+  \hrule height 0.6pt depth 0pt
+  \kern 3pt
+  \renewcommand{\caption}[2][\relax]{%
+    \noindent\textbf{Algorithm~\thealgorithm. ##2}\par
+    \ifx\relax##1\relax
+      \addcontentsline{loa}{algorithm}{\protect\numberline{\thealgorithm}##2}%
+    \else
+      \addcontentsline{loa}{algorithm}{\protect\numberline{\thealgorithm}##1}%
+    \fi
+    \kern 3pt
+    \hrule height 0.4pt depth 0pt
+    \kern 4pt
+  }%
+}
+{%
+  \kern 4pt
+  \hrule height 0.6pt depth 0pt
+  \par\addvspace{0.75\baselineskip}%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Critical Phase Shadow Reservoirs}
+
+\author{Chinmoy Biswas}
+
+\end{frontmatter}
+
+% =====================================================================
+\section{Methodological Overview}
+\label{sec:overview}
+% =====================================================================
+
+The central object studied in this work is a hardware-aware,
+window-encoded quantum reservoir implemented on an IBM Heron-compatible
+coupling graph. The proposed Critical Phase Shadow Reservoir (PCSR) is
+not a separate reservoir architecture introduced after the baseline
+model; rather, it is a controlled extension of the same reservoir
+backbone. The baseline uses full controlled-$Z$ interactions on the
+selected topology, whereas PCSR replaces each controlled-$Z$ gate by a
+tunable controlled-phase interaction $CP(2g)$. Thus, the interaction
+parameter $g$ continuously connects a non-interacting reservoir
+($g=0$) to the full-CZ limit ($g=\pi/2$).
+
+The methodology is organized around one question: how does the
+interaction regime of a hardware-constrained quantum reservoir affect
+(i) information spreading and entanglement, (ii) temporal memory, and
+(iii) the usefulness of the resulting quantum features for supervised
+prediction? Classical-shadow-style observable extraction is then used
+to connect the quantum reservoir to the LUQPI readout and to test
+finite-shot and noisy-hardware robustness.
+
+The complete logical flow is
+
+\begin{equation}
+\boxed{
+\text{hardware topology}
+\rightarrow
+\text{window encoding}
+\rightarrow
+U_{\mathcal R}(g)
+\rightarrow
+\ket{\psi_t(g)}
+\rightarrow
+\text{Pauli/shadow features}
+\rightarrow
+\text{LUQPI readout}
+}
+\label{eq:main_pipeline}
+\end{equation}
+
+The following sections first define the common reservoir backbone and
+benchmark tasks. PCSR is then introduced only as the critical-phase
+generalization of that backbone. This ordering avoids redefining the
+same temporal encoder, topology, and evaluation metrics in each
+experiment.
+
+% =====================================================================
+\section{Shared Hardware-Aware Reservoir Backbone}
+\label{sec:backbone}
+% =====================================================================
+
+\subsection{Hardware topology selection}
+
+Let the device coupling graph be
+$\mathcal G=(\mathcal V,\mathcal E_{\mathrm{HW}})$, where vertices are
+physical qubits and edges are native two-qubit couplers. A reservoir
+topology is represented by the selected physical-qubit set
+$\mathcal Q$ and the corresponding interaction edge set
+$\mathcal E_{\mathcal R}$. The implementation considers disconnected,
+zigzag, star-hub, single-hub chain, double-hub ladder, and heavy-hex
+ring motifs. Hardware-native constructions preferentially select
+low-readout-error qubits while preserving the desired connectivity.
+The star-hub configuration is retained as a comparison topology and
+records the number of requested edges that are not native.
+
+\begin{breakablealgorithm}
+\caption{Hardware-aware reservoir topology construction}
+\label{alg:topology}
+\begin{algorithmic}[1]
+
+\Require Hardware graph
+$\mathcal{G}=(\mathcal{V},\mathcal{E}_{\mathrm{HW}})$,
+reservoir size $N$, topology $\mathcal{T}$,
+readout errors $\epsilon_q$
+
+\Ensure Selected qubits $\mathcal{Q}$ and
+reservoir edges $\mathcal{E}_{\mathcal{R}}$
+
+\If{$\mathcal{T}=\mathrm{Disconnected}$}
+    \State $\mathcal{Q}\gets$
+    low-error native path of $N$ qubits
+    \State $\mathcal{E}_{\mathcal{R}}\gets\emptyset$
+
+\ElsIf{$\mathcal{T}=\mathrm{Zigzag}$}
+    \State $\mathcal{Q}\gets$
+    low-error native path of $N$ qubits
+    \State $\mathcal{E}_{\mathcal{R}}
+    \gets$ native edges induced by $\mathcal{Q}$
+
+\ElsIf{$\mathcal{T}=\mathrm{StarHub}$}
+    \State Select lowest-error degree-$3$ qubit $h$
+    \State Expand $\mathcal{Q}$ from $h$ until
+    $|\mathcal{Q}|=N$
+    \State $\mathcal{E}_{\mathcal{R}}
+    \gets \{(h,q):q\in\mathcal{Q}\setminus\{h\}\}$
+    \State Count non-native edges as routing overhead
+
+\ElsIf{$\mathcal{T}=\mathrm{Chain}$}
+    \State Select lowest-error degree-$3$ hub $h$
+    \State $\mathcal{Q}\gets\{h\}$
+
+    \While{$|\mathcal{Q}|<N$}
+        \State Construct unselected neighboring frontier
+        $\mathcal{F}$
+        \State Select $q^\star\in\mathcal{F}$ favoring
+        high degree, connectivity, and low error
+        \State $\mathcal{Q}\gets
+        \mathcal{Q}\cup\{q^\star\}$
+    \EndWhile
+
+    \State $\mathcal{E}_{\mathcal{R}}
+    \gets$ native edges induced by $\mathcal{Q}$
+
+\ElsIf{$\mathcal{T}=\mathrm{Ladder}$}
+    \State Find degree-$3$ hubs $(h_1,h_2)$ satisfying
+    $d_{\mathcal{G}}(h_1,h_2)=2$
+    \State Select pair minimizing
+    $\epsilon_{h_1}+\epsilon_{h_2}$
+    \State Find common bridge qubit $b$
+    \State $\mathcal{Q}\gets\{h_1,b,h_2\}$
+
+    \While{$|\mathcal{Q}|<N$}
+        \State Add a neighboring qubit with lowest
+        readout error
+    \EndWhile
+
+    \State $\mathcal{E}_{\mathcal{R}}
+    \gets$ native edges induced by $\mathcal{Q}$
+
+\ElsIf{$\mathcal{T}=\mathrm{HexRing}$}
+    \State Find hardware cycles with length $\geq 12$
+    \State Select
+    $C^\star=
+    \argmin_C\sum_{q\in C}\epsilon_q$
+    \State $\mathcal{Q}\gets$ ordered qubits of $C^\star$
+    \State $\mathcal{E}_{\mathcal{R}}
+    \gets$ native edges induced by $\mathcal{Q}$
+
+\EndIf
+
+\State \Return
+$(\mathcal{Q},\mathcal{E}_{\mathcal{R}})$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+\subsection{Temporal-window encoding}
+
+All reservoir variants in this work use the same temporal encoder. For
+time step $t$, the latest $W$ samples are right-aligned in the
+zero-padded window
+
+\begin{equation}
+\bm w_t =
+[u_{t-W+1},\ldots,u_t],
+\label{eq:shared_window}
+\end{equation}
+
+with unavailable early-time samples replaced by zero. Window position
+$w$ is mapped cyclically to reservoir qubit
+
+\begin{equation}
+q(w)=w\bmod N.
+\label{eq:shared_slot}
+\end{equation}
+
+The position weights $\phi_w$ are linearly spaced over $[0.5,1]$. The
+accumulated rotation angle on qubit $i$ is
+
+\begin{equation}
+\theta_i^{(t)}
+=
+\pi
+\sum_{\substack{w=0\\q(w)=i}}^{W-1}
+w_{t,w}\phi_w ,
+\label{eq:shared_theta}
+\end{equation}
+
+and the input-dependent encoder is
+
+\begin{equation}
+U_{\mathrm{enc}}(\bm w_t)
+=
+\bigotimes_{i=1}^{N}
+R_y\!\left(\theta_i^{(t)}\right).
+\label{eq:shared_encoder}
+\end{equation}
+
+This explicit temporal window is the source of history dependence in
+the present implementation. The reservoir is initialized from
+$\ket{0}^{\otimes N}$ for every $t$ rather than propagating
+$\ket{\psi_{t-1}}$ into the next step.
+
+\subsection{Baseline full-CZ reservoir}
+
+The baseline reservoir applies the native topology-dependent CZ layer
+followed by fixed local rotations. With fixed biases
+$\beta_i^{(z)}$ and $\beta_i^{(x)}$, one step can be written as
+
+\begin{equation}
+U_{\mathrm{base}}
+=
+\left[
+\prod_{i=1}^{N}
+R_x(\beta_i^{(x)})
+R_z(\beta_i^{(z)})
+\right]
+\left[
+\prod_{(i,j)\in\mathcal E_{\mathcal R}}
+CZ_{ij}
+\right].
+\label{eq:baseline_unitary}
+\end{equation}
+
+For $R$ repetitions,
+
+\begin{equation}
+U_{\mathcal R}^{\mathrm{base}}
+=
+U_{\mathrm{base}}^R ,
+\end{equation}
+
+and the state generated from the common encoder is
+
+\begin{equation}
+\ket{\psi_t^{\mathrm{base}}}
+=
+U_{\mathcal R}^{\mathrm{base}}
+U_{\mathrm{enc}}(\bm w_t)
+\ket{0}^{\otimes N}.
+\label{eq:baseline_state}
+\end{equation}
+
+Algorithm~\ref{alg:qrc} gives the implementation of this baseline
+window-encoded reservoir.
+
+\begin{breakablealgorithm}
+\caption{Sliding-window quantum reservoir evolution}
+\label{alg:qrc}
+\begin{algorithmic}[1]
+
+\Require Input sequence
+$\bm{u}=\{u_1,\ldots,u_T\}$,
+topology $(\mathcal{Q},\mathcal{E}_{\mathcal{R}})$,
+number of qubits $N$, window size $W$,
+reservoir repetitions $R$
+
+\Ensure Reservoir feature matrix $\bm{X}$
+
+\State Draw fixed random biases
+$\beta_i^{(z)}\sim\mathcal{U}(0,2\pi)$ and
+$\beta_i^{(x)}\sim\mathcal{U}(0.4,1.2)$
+
+\State Construct topology-dependent CZ circuit
+from $\mathcal{E}_{\mathcal{R}}$
+
+\For{$i=1,\ldots,N$}
+    \State Apply $R_z(\beta_i^{(z)})$
+    followed by $R_x(\beta_i^{(x)})$
+\EndFor
+
+\State Obtain fixed reservoir unitary
+$U_{\mathrm{fixed}}$
+
+\State
+$U_{\mathcal{R}}\gets
+(U_{\mathrm{fixed}})^R$
+
+\State Define
+$q(w)=w\bmod N$
+
+\State Define temporal weights
+$\phi_w\in[0.5,1]$
+
+\For{$t=1,\ldots,T$}
+
+    \State Construct zero-padded window
+    $\bm{w}_t$ containing the latest $W$ inputs
+
+    \State $\theta_i\gets0$,
+    $i=1,\ldots,N$
+
+    \For{$w=0,\ldots,W-1$}
+        \State $i\gets q(w)$
+        \State
+        $\theta_i\gets
+        \theta_i+\pi w_{t,w}\phi_w$
+    \EndFor
+
+    \State Construct
+    \[
+    U_{\mathrm{enc}}(\bm{w}_t)
+    =
+    \bigotimes_{i=1}^{N}R_y(\theta_i)
+    \]
+
+    \State
+    \[
+    \ket{\psi_t}
+    \gets
+    U_{\mathcal{R}}
+    U_{\mathrm{enc}}(\bm{w}_t)
+    \ket{0}^{\otimes N}
+    \]
+
+    \If{density-matrix simulation}
+        \State
+        $\rho_t\gets
+        \ket{\psi_t}\bra{\psi_t}$
+        \State Apply selected noise channels
+        \State
+        $\bm{x}_t\gets
+        \textsc{ExtractFeatures}(\rho_t)$
+    \Else
+        \State
+        $\bm{x}_t\gets
+        \textsc{ExtractFeatures}(\ket{\psi_t})$
+    \EndIf
+
+    \State
+    $\bm{X}_{t,:}\gets\bm{x}_t$
+
+\EndFor
+
+\State \Return $\bm{X}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+\subsection{Baseline observable representation and readout}
+
+For the baseline comparison, each state is represented using all local
+Pauli expectations and pairwise $ZZ$ correlations,
+
+\begin{equation}
+\bm x_t^{\mathrm{base}}
+=
+[
+\langle X_1\rangle,\langle Y_1\rangle,\langle Z_1\rangle,
+\ldots,
+\langle X_N\rangle,\langle Y_N\rangle,\langle Z_N\rangle,
+\{\langle Z_iZ_j\rangle\}_{i<j}
+],
+\label{eq:baseline_features}
+\end{equation}
+
+with dimension
+
+\begin{equation}
+D_{\mathrm{base}}
+=
+3N+\binom{N}{2}.
+\end{equation}
+
+\begin{breakablealgorithm}
+\caption{Quantum reservoir feature extraction}
+\label{alg:feature}
+\begin{algorithmic}[1]
+
+\Require Quantum state $\ket{\psi}$ or
+density matrix $\rho$, number of qubits $N$
+
+\Ensure Feature vector
+$\bm{x}\in
+\mathbb{R}^{3N+N(N-1)/2}$
+
+\State $\bm{x}\gets[\;]$
+
+\For{$i=1,\ldots,N$}
+
+    \If{state-vector representation}
+        \State
+        $x_i\gets\bra{\psi}X_i\ket{\psi}$
+        \State
+        $y_i\gets\bra{\psi}Y_i\ket{\psi}$
+        \State
+        $z_i\gets\bra{\psi}Z_i\ket{\psi}$
+    \Else
+        \State
+        $x_i\gets\Tr(\rho X_i)$
+        \State
+        $y_i\gets\Tr(\rho Y_i)$
+        \State
+        $z_i\gets\Tr(\rho Z_i)$
+    \EndIf
+
+    \State Append
+    $(x_i,y_i,z_i)$ to $\bm{x}$
+
+\EndFor
+
+\For{$i=1,\ldots,N$}
+    \For{$j=i+1,\ldots,N$}
+
+        \If{state-vector representation}
+            \State
+            $c_{ij}\gets
+            \bra{\psi}Z_iZ_j\ket{\psi}$
+        \Else
+            \State
+            $c_{ij}\gets
+            \Tr(\rho Z_iZ_j)$
+        \EndIf
+
+        \State Append $c_{ij}$ to $\bm{x}$
+
+    \EndFor
+\EndFor
+
+\State \Return $\bm{x}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+Only the classical readout is trained. Ridge regression is used where
+a linear readout is required,
+
+\begin{equation}
+\hat{\bm w}
+=
+\argmin_{\bm w}
+\left[
+\|\bm X_{\mathrm{tr}}\bm w-\bm y_{\mathrm{tr}}\|_2^2
++
+\alpha\|\bm w\|_2^2
+\right],
+\label{eq:ridge}
+\end{equation}
+
+and predictive performance is reported using
+
+\begin{equation}
+\mathrm{NRMSE}
+=
+\sqrt{
+\frac{
+\operatorname{mean}
+[(\hat{\bm y}-\bm y)^2]
+}{
+\Var(\bm y)+10^{-12}
+}
+}.
+\label{eq:nrmse}
+\end{equation}
+
+Two reservoir-level diagnostics are used repeatedly later. The
+delay-$k$ memory coefficient measures how accurately the current
+feature vector reconstructs $u_{t-k}$,
+
+\begin{equation}
+MC_k
+=
+\frac{
+\Cov(\hat u_{t-k},u_{t-k})^2
+}{
+\Var(\hat u_{t-k})\Var(u_{t-k})+10^{-12}
+},
+\label{eq:mc}
+\end{equation}
+
+while kernel quality is the numerical rank of the stacked state or
+feature matrix, with singular values retained when
+$\sigma_i>10^{-6}\sigma_1$. These definitions are used throughout the
+PCSR experiments without being redefined in each subsection.
+
+\begin{breakablealgorithm}
+\caption{Classical readout and memory-capacity evaluation}
+\label{alg:memory}
+\begin{algorithmic}[1]
+
+\Require Reservoir features $\bm{X}$,
+target $\bm{y}$, input $\bm{u}$,
+regularization $\alpha$, maximum delay $K$
+
+\Ensure Prediction $\hat{\bm{y}}$,
+NRMSE, and $\{MC_k\}_{k=1}^{K}$
+
+\State Split $\bm{X}$ and $\bm{y}$
+into training and testing sets
+
+\State Train ridge regression:
+\[
+\hat{\bm{w}}
+=
+\argmin_{\bm{w}}
+\left[
+\|\bm{X}_{\mathrm{tr}}\bm{w}
+-\bm{y}_{\mathrm{tr}}\|_2^2
++
+\alpha\|\bm{w}\|_2^2
+\right]
+\]
+
+\State
+$\hat{\bm{y}}\gets
+\bm{X}_{\mathrm{te}}\hat{\bm{w}}$
+
+\State
+\[
+\mathrm{NRMSE}
+\gets
+\sqrt{
+\frac{
+\mathrm{mean}
+[(\hat{\bm{y}}-\bm{y}_{\mathrm{te}})^2]
+}{
+\Var(\bm{y}_{\mathrm{te}})+10^{-12}
+}
+}
+\]
+
+\For{$k=1,\ldots,K$}
+
+    \State
+    $\bm{y}^{(k)}
+    \gets
+    \{u_1,\ldots,u_{T-k}\}$
+
+    \State
+    $\bm{X}^{(k)}
+    \gets
+    \{\bm{x}_{k+1},\ldots,\bm{x}_T\}$
+
+    \State Align the two sequences
+
+    \State Train ridge model
+    $\bm{X}^{(k)}\rightarrow\bm{y}^{(k)}$
+
+    \State Predict delayed input
+    $\hat{\bm{u}}^{(k)}$
+
+    \State
+    \[
+    MC_k
+    \gets
+    \frac{
+    \Cov(\hat{\bm{u}}^{(k)},\bm{u}^{(k)})^2
+    }{
+    \Var(\hat{\bm{u}}^{(k)})
+    \Var(\bm{u}^{(k)})
+    +10^{-12}
+    }
+    \]
+
+\EndFor
+
+\State \Return
+$\hat{\bm{y}}$, NRMSE,
+$\{MC_k\}_{k=1}^{K}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+\begin{breakablealgorithm}
+\caption{Effective kernel-quality evaluation}
+\label{alg:kernel}
+\begin{algorithmic}[1]
+
+\Require Reservoir representations
+$\{\bm{s}_1,\ldots,\bm{s}_M\}$
+
+\Ensure Effective kernel rank $K_Q$
+
+\State Construct
+\[
+\bm{S}
+\gets
+[\bm{s}_1,\bm{s}_2,\ldots,\bm{s}_M]
+\]
+
+\State Compute singular values
+\[
+\{\sigma_i\}
+\gets
+\operatorname{SVD}(\bm{S})
+\]
+
+\State
+$\sigma_{\max}\gets\max_i\sigma_i$
+
+\State $K_Q\gets0$
+
+\For{each $\sigma_i$}
+    \If{$\sigma_i>10^{-6}\sigma_{\max}$}
+        \State $K_Q\gets K_Q+1$
+    \EndIf
+\EndFor
+
+\State \Return $K_Q$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+% =====================================================================
+\section{Benchmark Tasks}
+\label{sec:benchmark_tasks}
+% =====================================================================
+
+The same benchmark family is used for the baseline reservoir and for
+PCSR, allowing changes in performance to be attributed to the
+reservoir/readout construction rather than to different data. Unless
+otherwise stated, the input is reproducibly generated as
+
+\begin{equation}
+u_t\sim\mathcal U(0,1),\qquad t=0,\ldots,T-1.
+\label{eq:random_input}
+\end{equation}
+
+\begin{breakablealgorithm}
+\caption{Random input sequence generation}
+\label{alg:random_input}
+\begin{algorithmic}[1]
+
+\Require Sequence length $T$, random seed $s$
+\Ensure Input sequence
+$\bm{u}=\{u_0,u_1,\ldots,u_{T-1}\}$
+
+\State Initialize pseudorandom generator using seed $s$
+
+\For{$t=0,\ldots,T-1$}
+    \State Draw
+    $u_t\sim\mathcal{U}(0,1)$
+\EndFor
+
+\State \Return $\bm{u}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+\subsection{$k$-body Pauli-product task}
+
+This task probes multiplicative nonlinear processing across a temporal
+depth $k$,
+
+\begin{equation}
+y_t=
+\begin{cases}
+\displaystyle\prod_{j=1}^{k}
+\cos(\pi u_{t-j}), & t\ge k,\\[4pt]
+0, & t<k.
+\end{cases}
+\label{eq:kbody}
+\end{equation}
+
+\begin{breakablealgorithm}
+\caption{$k$-Body Pauli Product Benchmark}
+\label{alg:kbody}
+\begin{algorithmic}[1]
+
+\Require Sequence length $T$, temporal order $k$,
+random seed $s$
+
+\Ensure Input sequence $\bm{u}$ and target sequence $\bm{y}$
+
+\State
+$\bm{u}\gets\Call{RandomInput}{T,s}$
+
+\State
+$\bm{y}\gets\bm{0}_{T}$
+
+\For{$t=k,\ldots,T-1$}
+
+    \State $p\gets1$
+
+    \For{$j=1,\ldots,k$}
+
+        \State
+        $p\gets
+        p\cos(\pi u_{t-j})$
+
+    \EndFor
+
+    \State
+    $y_t\gets p$
+
+\EndFor
+
+\State \Return $\bm{u},\bm{y}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+\subsection{Temporal parity task}
+
+The continuous input is thresholded as
+$b_t=\mathbb I(u_t>0.5)$. The target is the parity of the previous
+$k$ bits,
+
+\begin{equation}
+p_t=b_{t-1}\oplus\cdots\oplus b_{t-k},
+\qquad
+y_t=
+\begin{cases}
+2p_t-1, & t\ge k,\\
+0, & t<k.
+\end{cases}
+\label{eq:parity_target}
+\end{equation}
+
+\begin{breakablealgorithm}
+\caption{Temporal Parity ($k$-XOR) Benchmark}
+\label{alg:parity}
+\begin{algorithmic}[1]
+
+\Require Sequence length $T$, temporal order $k$,
+random seed $s$
+
+\Ensure Input sequence $\bm{u}$ and target sequence $\bm{y}$
+
+\State
+$\bm{u}\gets\Call{RandomInput}{T,s}$
+
+\For{$t=0,\ldots,T-1$}
+
+    \If{$u_t>0.5$}
+        \State $b_t\gets1$
+    \Else
+        \State $b_t\gets0$
+    \EndIf
+
+\EndFor
+
+\State
+$\bm{y}\gets\bm{0}_{T}$
+
+\For{$t=k,\ldots,T-1$}
+
+    \State $x\gets0$
+
+    \For{$j=1,\ldots,k$}
+
+        \State
+        $x\gets x\oplus b_{t-j}$
+
+    \EndFor
+
+    \State
+    $y_t\gets2x-1$
+
+\EndFor
+
+\State \Return $\bm{u},\bm{y}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+\subsection{Sparse Volterra task}
+
+This benchmark probes sparse nonlinear interactions between delayed
+samples,
+
+\begin{equation}
+y_t=
+\begin{cases}
+u_{t-1}u_{t-k},
+& k\le5,\; t\ge\max(1,k),\\[3pt]
+u_{t-1}u_{t-5}u_{t-k},
+& k>5,\; t\ge k,\\[3pt]
+0, & \text{otherwise}.
+\end{cases}
+\label{eq:sparse_volterra}
+\end{equation}
+
+\begin{breakablealgorithm}
+\caption{Sparse Volterra Kernel Benchmark}
+\label{alg:volterra}
+\begin{algorithmic}[1]
+
+\Require Sequence length $T$, temporal order $k$,
+random seed $s$
+
+\Ensure Input sequence $\bm{u}$ and target sequence $\bm{y}$
+
+\State
+$\bm{u}\gets\Call{RandomInput}{T,s}$
+
+\State
+$\bm{y}\gets\bm{0}_{T}$
+
+\If{$k\leq5$}
+
+    \For{$t=\max(1,k),\ldots,T-1$}
+
+        \State
+        $y_t\gets
+        u_{t-1}u_{t-k}$
+
+    \EndFor
+
+\Else
+
+    \For{$t=k,\ldots,T-1$}
+
+        \State
+        $y_t\gets
+        u_{t-1}u_{t-5}u_{t-k}$
+
+    \EndFor
+
+\EndIf
+
+\State \Return $\bm{u},\bm{y}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+\subsection{Dynamical phase-correlation task}
+
+The fourth benchmark uses ten alternating stochastic segments. Phase A
+is a first-order autoregressive process,
+
+\begin{equation}
+u_\tau^{(A)}
+=
+0.3\,u_{\tau-1}^{(A)}
++
+0.7\,\xi_\tau,
+\qquad
+\xi_\tau\sim\mathcal U(0,1),
+\label{eq:phaseA}
+\end{equation}
+
+whereas Phase B uses a $k$-tap recurrence,
+
+\begin{equation}
+u_\tau^{(B)}
+=
+\sum_{j=0}^{k-1}
+\frac{0.85}{k}u_{\tau-1-j}^{(B)}
++
+0.15\,\xi_\tau ,
+\qquad \tau\ge k,
+\label{eq:phaseB}
+\end{equation}
+
+with early samples drawn uniformly and the resulting sequence clipped
+to $[0,1]$. After centering
+$\tilde u_t=u_t-\bar u$, the target is a normalized lag-$k$
+correlation over a $20$-sample window,
+
+\begin{equation}
+y_t
+=
+\frac{
+\displaystyle
+\sum_{\tau=\ell_t}^{t}
+\tilde u_\tau\tilde u_{\tau-k}
+}{
+(t-\ell_t+1)
+[\Var(\bm u)+10^{-9}]
+},
+\qquad
+\ell_t=\max(k,t-19),
+\label{eq:phase_target}
+\end{equation}
+
+whenever $\ell_t\le t$, and zero otherwise. Thus, despite the
+``phase'' terminology in the code, the target is a continuous
+correlation statistic rather than a binary phase label.
+
+\begin{breakablealgorithm}
+\caption{Quantum Phase Recognition Benchmark}
+\label{alg:quantum_phase}
+\begin{algorithmic}[1]
+
+\Require Sequence length $T$, correlation delay $k$,
+random seed $s$
+
+\Ensure Input sequence $\bm{u}$ and target sequence $\bm{y}$
+
+\State Initialize pseudorandom generator using seed $s$
+
+\State
+$\alpha_A\gets0.3$
+
+\State
+$N_{\mathrm{seg}}\gets10$
+
+\State
+$L\gets\lfloor T/N_{\mathrm{seg}}\rfloor$
+
+\State
+$\bm{u}\gets\bm{0}_{T}$
+
+\For{$r=0,\ldots,N_{\mathrm{seg}}-1$}
+
+    \State
+    $\ell\gets rL$
+
+    \If{$r<N_{\mathrm{seg}}-1$}
+        \State $h\gets\ell+L$
+    \Else
+        \State $h\gets T$
+    \EndIf
+
+    \State
+    $M\gets h-\ell$
+
+    \If{$r\bmod2=0$}
+
+        \Comment{Phase A}
+
+        \State
+        $v_0\sim\mathcal{U}(0,1)$
+
+        \For{$\tau=1,\ldots,M-1$}
+
+            \State
+            $\xi\sim\mathcal{U}(0,1)$
+
+            \State
+            $v_\tau
+            \gets
+            \alpha_Av_{\tau-1}
+            +(1-\alpha_A)\xi$
+
+        \EndFor
+
+    \Else
+
+        \Comment{Phase B}
+
+        \For{$j=0,\ldots,k-1$}
+            \State
+            $c_j\gets0.85/k$
+        \EndFor
+
+        \For{$\tau=0,\ldots,M-1$}
+
+            \State
+            $\xi\sim\mathcal{U}(0,1)$
+
+            \If{$\tau<k$}
+
+                \State
+                $v_\tau\gets\xi$
+
+            \Else
+
+                \State
+                \[
+                v_\tau
+                \gets
+                \sum_{j=0}^{k-1}
+                c_jv_{\tau-1-j}
+                +0.15\xi
+                \]
+
+            \EndIf
+
+        \EndFor
+
+        \For{$\tau=0,\ldots,M-1$}
+            \State
+            $v_\tau
+            \gets
+            \min(1,\max(0,v_\tau))$
+        \EndFor
+
+    \EndIf
+
+    \For{$\tau=0,\ldots,M-1$}
+        \State
+        $u_{\ell+\tau}\gets v_\tau$
+    \EndFor
+
+\EndFor
+
+\State Compute
+$\bar{u}\gets
+T^{-1}\sum_{t=0}^{T-1}u_t$
+
+\For{$t=0,\ldots,T-1$}
+    \State
+    $\tilde{u}_t\gets u_t-\bar{u}$
+\EndFor
+
+\State
+$\sigma_u^2
+\gets
+\operatorname{Var}(\bm{u})+10^{-9}$
+
+\State
+$W_Q\gets20$
+
+\State
+$\bm{y}\gets\bm{0}_{T}$
+
+\For{$t=0,\ldots,T-1$}
+
+    \State
+    $\ell_t
+    \gets
+    \max(k,t-W_Q+1)$
+
+    \If{$\ell_t\leq t$}
+
+        \State $A\gets0$
+
+        \For{$\tau=\ell_t,\ldots,t$}
+
+            \State
+            $A
+            \gets
+            A+
+            \tilde{u}_{\tau}
+            \tilde{u}_{\tau-k}$
+
+        \EndFor
+
+        \State
+        \[
+        y_t
+        \gets
+        \frac{A}
+        {(t-\ell_t+1)\sigma_u^2}
+        \]
+
+    \EndIf
+
+\EndFor
+
+\State \Return $\bm{u},\bm{y}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+Together, the four benchmarks span multiplicative nonlinearity,
+nonlinearly separable temporal parity, sparse high-order memory, and
+changes in temporal-correlation structure. The parameter $k$ changes
+the effective temporal difficulty, but its precise role depends on the
+benchmark.
+
+% =====================================================================
+\section{PCSR: Critical-Phase Extension and Shadow Readout}
+\label{sec:pcsr}
+% =====================================================================
+
+PCSR keeps the hardware topology and temporal encoder of
+Section~\ref{sec:backbone}. Its defining change is to replace every
+full CZ interaction by a continuously tunable controlled-phase gate.
+Therefore, PCSR should be interpreted as a one-parameter family built
+on the baseline reservoir, not as a second unrelated architecture.
+
+\subsection{Critical-phase reservoir evolution}
+
+For every reservoir edge,
+
+\begin{equation}
+CP(2g)
+=
+\operatorname{diag}(1,1,1,e^{i2g}).
+\label{eq:critical_cp}
+\end{equation}
+
+The two limiting cases are
+
+\begin{equation}
+g=0:\;CP(0)=I,
+\qquad
+g=\frac{\pi}{2}:\;CP(\pi)=CZ.
+\label{eq:g_limits}
+\end{equation}
+
+Hence, $g=\pi/2$ recovers the interaction structure of the baseline
+full-CZ reservoir, while intermediate $g$ values continuously tune the
+interaction phase. PCSR experiments use fixed local biases
+$\beta_i^{(z)}\sim\mathcal U(0,2\pi)$ and
+$\beta_i^{(x)}\sim\mathcal U(0.3,0.7)$.
+
+Let $U_{\mathrm{step}}(g)$ denote one topology-dependent controlled-phase
+layer followed by these fixed local rotations. For $R$ repetitions,
+
+\begin{equation}
+U_{\mathcal R}(g)
+=
+[U_{\mathrm{step}}(g)]^R.
+\label{eq:pcsr_repeated_unitary}
+\end{equation}
+
+Crucially, the temporal encoder is exactly the encoder already defined
+in Eq.~\eqref{eq:shared_encoder}; it is not redefined for PCSR. The
+state is
+
+\begin{equation}
+\ket{\psi_t(g)}
+=
+U_{\mathcal R}(g)
+U_{\mathrm{enc}}(\bm w_t)
+\ket{0}^{\otimes N}.
+\label{eq:pcsr_state}
+\end{equation}
+
+\begin{breakablealgorithm}
+\caption{Critical Reservoir Unitary Construction}
+\label{alg:critical_unitary}
+\small
+\begin{algorithmic}[1]
+
+\Require Reservoir topology
+$\mathcal{T}=(\mathcal{Q},\mathcal{E}_{\mathcal{R}})$,
+interaction parameter $g$,
+rotation biases
+$\bm{\beta}^{(z)}$ and $\bm{\beta}^{(x)}$,
+fixed-layer flag $F$
+
+\Ensure Reservoir-step unitary $U_{\mathrm{step}}$
+
+\State $N\gets|\mathcal{Q}|$
+
+\State Initialize an $N$-qubit quantum circuit
+
+\State Partition $\mathcal{E}_{\mathcal{R}}$
+into non-overlapping interaction moments
+
+\For{each interaction moment $\mathcal{M}$}
+
+    \For{each edge $(i,j)\in\mathcal{M}$}
+
+        \State Apply
+        $CP_{ij}(2g)$
+
+    \EndFor
+
+\EndFor
+
+\If{$F=\mathrm{true}$}
+
+    \For{$i=1,\ldots,N$}
+        \State Apply
+        $R_z(\beta_i^{(z)})$
+    \EndFor
+
+    \For{$i=1,\ldots,N$}
+        \State Apply
+        $R_x(\beta_i^{(x)})$
+    \EndFor
+
+\EndIf
+
+\State Convert the circuit to the corresponding
+big-endian unitary $U_{\mathrm{step}}$
+
+\State \Return $U_{\mathrm{step}}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+\begin{breakablealgorithm}
+\caption{PCSR Reservoir Evolution}
+\label{alg:pcsr_reservoir}
+\small
+\begin{algorithmic}[1]
+
+\Require Topology $\mathcal{T}$,
+input sequence $\bm{u}$,
+interaction parameter $g$,
+window size $W$,
+reservoir repetitions $R$,
+random seed $s$
+
+\Ensure Reservoir states
+$\{\ket{\psi_t}\}_{t=0}^{T-1}$
+
+\State $N\gets|\mathcal{Q}|$,
+$T\gets|\bm{u}|$
+
+\State Initialize pseudorandom generator with seed $s$
+
+\State Draw
+$\beta_i^{(z)}\sim\mathcal{U}(0,2\pi)$
+
+\State Draw
+$\beta_i^{(x)}\sim\mathcal{U}(0.3,0.7)$
+
+\State
+$U_{\mathrm{step}}
+\gets
+\Call{CriticalReservoirUnitary}
+{\mathcal{T},g,\bm{\beta}^{(z)},\bm{\beta}^{(x)}}$
+
+\State
+$U_{\mathcal{R}}
+\gets
+(U_{\mathrm{step}})^R$
+
+\State Define
+$\phi_w$ linearly over $[0.5,1]$
+
+\State Define
+$q(w)=w\bmod N$
+
+\State
+$\ket{\psi_0^{\mathrm{init}}}
+\gets
+\ket{0}^{\otimes N}$
+
+\For{$t=0,\ldots,T-1$}
+
+    \State
+    $\ell\gets\max(0,t-W+1)$
+
+    \State Construct a zero-padded window
+    $\bm{w}_t$ containing
+    $\{u_{\ell},\ldots,u_t\}$
+
+    \State
+    $\theta_i\gets0$,
+    $i=1,\ldots,N$
+
+    \For{$w=0,\ldots,W-1$}
+
+        \State $i\gets q(w)$
+
+        \State
+        $\theta_i
+        \gets
+        \theta_i+\pi w_{t,w}\phi_w$
+
+    \EndFor
+
+    \State
+    $U_{\mathrm{enc}}
+    \gets
+    \bigotimes_{i=1}^{N}R_y(\theta_i)$
+
+    \State
+    $\ket{\psi_t}
+    \gets
+    U_{\mathcal{R}}
+    U_{\mathrm{enc}}
+    \ket{\psi_0^{\mathrm{init}}}$
+
+\EndFor
+
+\State
+\Return
+$\{\ket{\psi_t}\}_{t=0}^{T-1}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+\subsection{Dynamical diagnostics}
+
+The phase scan is interpreted using state and operator diagnostics. For
+a bipartition with
+$N_A=\lfloor N/2\rfloor$ and $N_B=N-N_A$, reshape the state amplitudes
+into
+$\Psi\in\mathbb C^{2^{N_A}\times2^{N_B}}$. If
+$\sigma_i$ are its singular values, the half-system entropy is
+
+\begin{equation}
+S_{\mathrm{half}}
+=
+-\sum_{i:p_i>10^{-12}}p_i\ln p_i,
+\qquad
+p_i=\sigma_i^2.
+\label{eq:half_entropy}
+\end{equation}
+
+Operator entanglement is obtained by realigning the unitary across the
+same bipartition, normalizing the squared singular values, and
+computing the same Shannon/von-Neumann form,
+
+\begin{equation}
+S_{\mathrm{op}}
+=
+-\sum_{i:p_i>10^{-12}}p_i\ln p_i,
+\qquad
+p_i=
+\frac{\sigma_i^2}{\sum_j\sigma_j^2}.
+\label{eq:operator_entropy}
+\end{equation}
+
+The implementation also defines the single-step spectral form factor
+
+\begin{equation}
+K(U)
+=
+\frac{|\Tr(U)|^2}{d},
+\qquad d=2^N.
+\label{eq:sff}
+\end{equation}
+
+\begin{breakablealgorithm}
+\caption{Half-System Entanglement Entropy}
+\label{alg:half_entropy}
+\small
+\begin{algorithmic}[1]
+
+\Require Quantum state $\ket{\psi}$,
+number of qubits $N$
+
+\Ensure Half-system entropy $S_{\mathrm{half}}$
+
+\State
+$N_A\gets\lfloor N/2\rfloor$
+
+\State
+$N_B\gets N-N_A$
+
+\State Reshape $\ket{\psi}$ into
+\[
+\Psi
+\in
+\mathbb{C}^{2^{N_A}\times2^{N_B}}
+\]
+
+\State Compute singular values
+$\{\sigma_i\}$ of $\Psi$
+
+\For{each $\sigma_i$}
+
+    \State
+    $p_i\gets\sigma_i^2$
+
+\EndFor
+
+\State Remove all $p_i\leq10^{-12}$
+
+\State
+$S_{\mathrm{half}}
+\gets
+-\sum_i p_i\ln p_i$
+
+\State
+\Return $S_{\mathrm{half}}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+\begin{breakablealgorithm}
+\caption{Operator Entanglement}
+\label{alg:operator_entanglement}
+\small
+\begin{algorithmic}[1]
+
+\Require Reservoir unitary $U$,
+even number of qubits $N$
+
+\Ensure Operator entanglement $S_{\mathrm{op}}$
+
+\State
+$d_h\gets2^{N/2}$
+
+\State Reshape
+$U$ into a rank-$4$ tensor of dimensions
+$d_h\times d_h\times d_h\times d_h$
+
+\State Permute tensor indices according to
+$(1,3,2,4)$
+
+\State Reshape the result into
+\[
+\widetilde{U}
+\in
+\mathbb{C}^{d_h^2\times d_h^2}
+\]
+
+\State Compute singular values
+$\{\sigma_i\}$ of $\widetilde{U}$
+
+\State
+$p_i
+\gets
+\sigma_i^2/
+\sum_j\sigma_j^2$
+
+\State Remove all $p_i\leq10^{-12}$
+
+\State
+$S_{\mathrm{op}}
+\gets
+-\sum_i p_i\ln p_i$
+
+\State
+\Return $S_{\mathrm{op}}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+\begin{breakablealgorithm}
+\caption{Spectral Form Factor}
+\label{alg:sff}
+\small
+\begin{algorithmic}[1]
+
+\Require Reservoir unitary $U$
+
+\Ensure Spectral form factor $K$
+
+\State
+$d\gets$ dimension of $U$
+
+\State
+$\tau\gets\operatorname{Tr}(U)$
+
+\State
+$K\gets|\tau|^2/d$
+
+\State
+\Return $K$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+\subsection{From exact Pauli features to shadow features}
+
+PCSR expands the observable representation from the baseline
+$\{X_i,Y_i,Z_i,Z_iZ_j\}$ set to all same-axis one- and two-body
+observables implemented by the code,
+
+\begin{equation}
+\mathcal P_2
+=
+\{X_i,Y_i,Z_i\}_{i=1}^{N}
+\cup
+\{X_iX_j,Y_iY_j,Z_iZ_j\}_{i<j}.
+\label{eq:pcsr_pauli_set}
+\end{equation}
+
+The resulting feature dimension is
+
+\begin{equation}
+D_{\mathrm{PCSR}}
+=
+3N+3\binom{N}{2}.
+\label{eq:pcsr_feature_dim}
+\end{equation}
+
+Algorithm~\ref{alg:exact_pauli} computes these expectations exactly from
+a state vector.
+
+\begin{breakablealgorithm}
+\caption{Exact Pauli Expectation Extraction}
+\label{alg:exact_pauli}
+\small
+\begin{algorithmic}[1]
+
+\Require Quantum state $\ket{\psi}$,
+number of qubits $N$,
+maximum Pauli weight $w_{\max}$
+
+\Ensure Observable labels $\mathcal{L}$ and
+expectation vector $\bm{v}$
+
+\State
+$\mathcal{L}\gets[\;]$,
+$\bm{v}\gets[\;]$
+
+\For{$i=1,\ldots,N$}
+
+    \State Compute $\langle Z_i\rangle$
+
+    \State Append $Z_i$ and $\langle Z_i\rangle$
+
+    \State Compute $\langle X_i\rangle$
+
+    \State Append $X_i$ and $\langle X_i\rangle$
+
+    \State Compute $\langle Y_i\rangle$
+
+    \State Append $Y_i$ and $\langle Y_i\rangle$
+
+\EndFor
+
+\If{$w_{\max}\geq2$}
+
+    \For{$i=1,\ldots,N$}
+
+        \For{$j=i+1,\ldots,N$}
+
+            \State Compute $\langle Z_iZ_j\rangle$
+
+            \State Append $Z_iZ_j$ and its expectation
+
+            \State Compute $\langle X_iX_j\rangle$
+
+            \State Append $X_iX_j$ and its expectation
+
+            \State Compute the implemented
+            $Y_iY_j$ correlation estimator
+
+            \State Append $Y_iY_j$ and its value
+
+        \EndFor
+
+    \EndFor
+
+\EndIf
+
+\State
+\Return $\mathcal{L},\bm{v}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+Two finite-measurement routes are then distinguished. The first is a
+shot-noise surrogate used in ideal simulations: the exact expectation
+of a Pauli string $P$ of weight $w(P)$ is perturbed as
+
+\begin{equation}
+\widetilde P
+=
+\langle P\rangle
++
+\sqrt{\frac{3^{w(P)}}{M}}\,
+\xi,
+\qquad
+\xi\sim\mathcal N(0,1).
+\label{eq:shadow_noise}
+\end{equation}
+
+This routine emulates the shot dependence of the feature vector but
+does not explicitly sample measurement bases.
+
+\begin{breakablealgorithm}
+\caption{Shadow-Feature Construction}
+\label{alg:shadow_features}
+\small
+\begin{algorithmic}[1]
+
+\Require Reservoir states
+$\{\ket{\psi_t}\}_{t=0}^{T-1}$,
+number of qubits $N$,
+shot number $M$,
+maximum Pauli weight $w_{\max}$,
+random seed $s$
+
+\Ensure Observable labels $\mathcal{L}$ and
+feature matrix $\bm{X}_{\mathrm{sh}}$
+
+\State Initialize pseudorandom generator with seed $s$
+
+\State
+$(\mathcal{L},\cdot)
+\gets
+\Call{ExactPauliExpectations}
+{\ket{\psi_0},N,w_{\max}}$
+
+\State Initialize
+$\bm{X}_{\mathrm{sh}}$
+
+\For{$t=0,\ldots,T-1$}
+
+    \State
+    $(\cdot,\bm{v}_t)
+    \gets
+    \Call{ExactPauliExpectations}
+    {\ket{\psi_t},N,w_{\max}}$
+
+    \If{$M>0$}
+
+        \For{$k=1,\ldots,|\mathcal{L}|$}
+
+            \State Determine Pauli weight
+            $w_k$ of observable $\mathcal{L}_k$
+
+            \State
+            $\sigma_k
+            \gets
+            \sqrt{3^{w_k}/M}$
+
+            \State Draw
+            $\xi\sim\mathcal{N}(0,1)$
+
+            \State
+            $X_{\mathrm{sh}}[t,k]
+            \gets
+            v_{t,k}+\sigma_k\xi$
+
+        \EndFor
+
+    \Else
+
+        \State
+        $\bm{X}_{\mathrm{sh}}[t,:]
+        \gets
+        \bm{v}_t$
+
+    \EndIf
+
+\EndFor
+
+\State
+\Return
+$\mathcal{L},\bm{X}_{\mathrm{sh}}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+The second route explicitly samples random local bases. Each qubit
+chooses one basis transformation from
+
+\begin{equation}
+B_i\in\{I,H,S^\dagger H\},
+\end{equation}
+
+a computational-basis outcome is sampled after
+$U_B=\bigotimes_i B_i$, and matched Pauli estimators receive the
+standard $3^{w(P)}$ inverse-measurement factor. This is the route used
+to formulate the hardware-level shadow reconstruction.
+
+\begin{breakablealgorithm}
+\caption{Randomized Measurement Feature Estimation}
+\label{alg:random_measurement}
+\small
+\begin{algorithmic}[1]
+
+\Require State $\ket{\psi}$,
+number of qubits $N$,
+number of shots $M$,
+random seed $s$
+
+\Ensure Estimated Pauli feature vector
+$\widehat{\bm{v}}$
+
+\State Define local basis transformations
+\[
+B_0=I,\qquad
+B_1=H,\qquad
+B_2=S^\dagger H
+\]
+
+\State Construct all single-qubit observables
+from basis labels $\{1,2,0\}$
+
+\State Construct all two-qubit observable pairs
+from the same basis labels
+
+\State Initialize
+$\widehat{\bm{v}}\gets\bm{0}$
+
+\For{$m=1,\ldots,M$}
+
+    \For{$i=1,\ldots,N$}
+
+        \State Randomly choose
+        $b_i\in\{0,1,2\}$
+
+    \EndFor
+
+    \State
+    $U_B
+    \gets
+    \bigotimes_{i=1}^{N}B_{b_i}$
+
+    \State
+    $\bm{p}\gets
+    |U_B\ket{\psi}|^2$
+
+    \State Normalize $\bm{p}$
+
+    \State Sample computational-basis outcome
+    $z\sim\bm{p}$
+
+    \For{each target Pauli observable $P_k$}
+
+        \If{all required bases match $P_k$}
+
+            \State
+            $s_k\gets1$
+
+            \For{each qubit $i$ in
+            $\operatorname{supp}(P_k)$}
+
+                \State
+                $s_k\gets
+                s_k(-1)^{z_i}$
+
+            \EndFor
+
+            \State
+            $\widehat{v}_k
+            \gets
+            \widehat{v}_k+
+            3^{w(P_k)}s_k$
+
+        \EndIf
+
+    \EndFor
+
+\EndFor
+
+\State
+$\widehat{\bm{v}}
+\gets
+\widehat{\bm{v}}/M$
+
+\State
+\Return $\widehat{\bm{v}}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+\subsection{LUQPI readout and classical comparison}
+
+After a washout period $W_0$, the usable indices are shuffled and split
+into training and test sets. This interleaved split is used by the
+generic LUQPI evaluation routine.
+
+\begin{breakablealgorithm}
+\caption{Interleaved Train--Test Partition}
+\label{alg:interleaved_split}
+\small
+\begin{algorithmic}[1]
+
+\Require Sequence length $T$,
+training fraction $\eta$,
+washout $W_0$,
+random seed $s$
+
+\Ensure Training indices $\mathcal{I}_{\mathrm{tr}}$
+and test indices $\mathcal{I}_{\mathrm{te}}$
+
+\State
+$\mathcal{I}
+\gets
+\{W_0,\ldots,T-1\}$
+
+\State Initialize pseudorandom generator
+with seed $s+7$
+
+\State Randomly shuffle $\mathcal{I}$
+
+\State
+$N_{\mathrm{tr}}
+\gets
+\lfloor\eta|\mathcal{I}|\rfloor$
+
+\State
+$\mathcal{I}_{\mathrm{tr}}
+\gets
+\mathcal{I}[1:N_{\mathrm{tr}}]$
+
+\State
+$\mathcal{I}_{\mathrm{te}}
+\gets
+\mathcal{I}[N_{\mathrm{tr}}+1:|\mathcal{I}|]$
+
+\State
+\Return
+$\mathcal{I}_{\mathrm{tr}},
+\mathcal{I}_{\mathrm{te}}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+The shadow-derived features are passed either to a two-layer MLP or to
+Ridge regression. The error metric remains the NRMSE in
+Eq.~\eqref{eq:nrmse}; it is not a new PCSR-specific metric.
+
+\begin{breakablealgorithm}
+\caption{LUQPI Training and Evaluation}
+\label{alg:luqpi}
+\small
+\begin{algorithmic}[1]
+
+\Require Shadow feature matrix
+$\bm{X}_{\mathrm{sh}}$,
+target $\bm{y}$,
+model type $\mathcal{M}$,
+regularization $\alpha$,
+hidden architecture $\bm{h}$,
+training fraction $\eta$,
+washout $W_0$,
+seed $s$
+
+\Ensure NRMSE, trained model $f$, predictions
+$\hat{\bm{y}}$
+
+\State
+$(\mathcal{I}_{\mathrm{tr}},
+\mathcal{I}_{\mathrm{te}})
+\gets
+\Call{InterleavedSplit}
+{T,\eta,W_0,s}$
+
+\If{$\mathcal{M}=\mathrm{MLP}$}
+
+    \State Initialize MLP with hidden layers $\bm{h}$,
+    regularization $\alpha$, and maximum $500$ iterations
+
+\Else
+
+    \State Initialize Ridge regression
+    with regularization $\alpha$
+
+\EndIf
+
+\State Fit
+\[
+f:
+\bm{X}_{\mathrm{sh}}
+[\mathcal{I}_{\mathrm{tr}}]
+\rightarrow
+\bm{y}
+[\mathcal{I}_{\mathrm{tr}}]
+\]
+
+\State Predict
+\[
+\hat{\bm{y}}
+\gets
+f
+\left(
+\bm{X}_{\mathrm{sh}}
+[\mathcal{I}_{\mathrm{te}}]
+\right)
+\]
+
+\State
+$\bm{y}_{\mathrm{te}}
+\gets
+\bm{y}[\mathcal{I}_{\mathrm{te}}]$
+
+\State Compute
+\[
+\mathrm{NRMSE}
+\gets
+\sqrt{
+\frac{
+\operatorname{mean}
+[
+(\hat{\bm{y}}
+-\bm{y}_{\mathrm{te}})^2
+]
+}{
+\operatorname{Var}
+(\bm{y}_{\mathrm{te}})
++10^{-12}
+}
+}
+\]
+
+\State
+\Return
+NRMSE, $f$, $\hat{\bm{y}}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+To determine whether the quantum representation adds information
+beyond direct access to the input history, a classical-only baseline is
+constructed from $L$ lagged inputs,
+
+\begin{equation}
+\bm x_t^{(\mathrm C)}
+=
+[u_t,u_{t-1},\ldots,u_{t-L+1}],
+\label{eq:classical_lags}
+\end{equation}
+
+with early entries zero padded.
+
+\begin{breakablealgorithm}
+\caption{Classical-Only Lagged Baseline}
+\label{alg:classical_baseline}
+\small
+\begin{algorithmic}[1]
+
+\Require Input sequence $\bm{u}$,
+target sequence $\bm{y}$,
+number of lags $L$,
+model type $\mathcal{M}$,
+hidden architecture $\bm{h}$,
+training fraction $\eta$,
+washout $W_0$,
+regularization $\alpha$,
+seed $s$
+
+\Ensure Baseline NRMSE and trained model $f_{\mathrm{cl}}$
+
+\State
+$T\gets|\bm{u}|$
+
+\State Initialize
+\[
+\bm{X}_{\mathrm{cl}}
+\gets
+\bm{0}_{T\times L}
+\]
+
+\For{$i=0,\ldots,L-1$}
+
+    \For{$t=i,\ldots,T-1$}
+
+        \State
+        $X_{\mathrm{cl}}[t,i]
+        \gets
+        u_{t-i}$
+
+    \EndFor
+
+\EndFor
+
+\State
+$(\mathcal{I}_{\mathrm{tr}},
+\mathcal{I}_{\mathrm{te}})
+\gets
+\Call{InterleavedSplit}
+{T,\eta,W_0,s}$
+
+\If{$\mathcal{M}=\mathrm{MLP}$}
+
+    \State Initialize MLP with hidden layers $\bm{h}$,
+    regularization $\alpha$, and maximum $500$ iterations
+
+\Else
+
+    \State Initialize Ridge regression
+    with regularization $\alpha$
+
+\EndIf
+
+\State Fit
+$f_{\mathrm{cl}}$ using
+$\bm{X}_{\mathrm{cl}}
+[\mathcal{I}_{\mathrm{tr}}]$
+and
+$\bm{y}[\mathcal{I}_{\mathrm{tr}}]$
+
+\State
+$\hat{\bm{y}}_{\mathrm{cl}}
+\gets
+f_{\mathrm{cl}}
+(
+\bm{X}_{\mathrm{cl}}
+[\mathcal{I}_{\mathrm{te}}]
+)$
+
+\State Compute
+\[
+\mathrm{NRMSE}_{\mathrm{cl}}
+=
+\sqrt{
+\frac{
+\operatorname{mean}
+[
+(\hat{\bm{y}}_{\mathrm{cl}}
+-\bm{y}_{\mathrm{te}})^2
+]
+}{
+\operatorname{Var}
+(\bm{y}_{\mathrm{te}})
++10^{-12}
+}
+}
+\]
+
+\State
+\Return
+$\mathrm{NRMSE}_{\mathrm{cl}},
+f_{\mathrm{cl}}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+The PCSR processing chain is therefore
+
+\begin{equation}
+\bm u
+\rightarrow
+U_{\mathrm{enc}}(\bm w_t)
+\rightarrow
+U_{\mathcal R}(g)
+\rightarrow
+\ket{\psi_t(g)}
+\rightarrow
+\bm X_{\mathrm Q}
+\rightarrow
+f_{\mathrm{LUQPI}}
+\rightarrow
+\hat{\bm y},
+\label{eq:pcsr_pipeline}
+\end{equation}
+
+where $\bm X_{\mathrm Q}$ denotes the exact or shadow-derived quantum
+feature matrix. The experiments below vary only selected parts of this
+chain while keeping the common definitions fixed.
+
+% =====================================================================
+\section{Experimental Protocol}
+\label{sec:experiments}
+% =====================================================================
+
+The experiments are designed to answer three progressively stronger
+questions. First, does changing $g$ alter both quantum-information
+diagnostics and task performance? Second, do PCSR features add
+predictive information beyond a classical lag vector, and is that
+advantage stable across training sizes and random seeds? Third, does
+the representation remain useful under finite-shot noise and
+hardware-realistic execution?
+
+\subsection{Interaction-phase scan}
+
+For the PCSR-specific memory analysis, delayed targets are formed on
+the same interleaved train/test indices used by the LUQPI routines and
+Eq.~\eqref{eq:mc} is evaluated for each delay. The total memory
+reported in the scan is
+
+\begin{equation}
+MC_{\mathrm{tot}}
+=
+\sum_{k=1}^{K_{\max}}MC_k.
+\label{eq:mc_total}
+\end{equation}
+
+\begin{breakablealgorithm}
+\caption{Delay-Dependent PCSR Memory Capacity}
+\label{alg:pcsr_memory}
+\small
+\begin{algorithmic}[1]
+
+\Require PCSR feature matrix $\bm{X}$,
+input sequence $\bm{u}$,
+maximum delay $K_{\max}$,
+training fraction $\eta$,
+washout $W_0$
+
+\Ensure Memory coefficients
+$\{MC_k\}_{k=1}^{K_{\max}}$
+
+\State $T\gets|\bm{u}|$
+
+\State
+$(\mathcal{I}_{\mathrm{tr}},
+\mathcal{I}_{\mathrm{te}})
+\gets
+\Call{InterleavedSplit}
+{T,\eta,W_0}$
+
+\State Initialize
+$MC_k\gets0$,
+$k=1,\ldots,K_{\max}$
+
+\For{$k=1,\ldots,K_{\max}$}
+
+    \If{$k\geq T-W_0-5$}
+        \State \textbf{break}
+    \EndIf
+
+    \State Initialize
+    $\bm{d}^{(k)}\gets\bm{0}_T$
+
+    \For{$t=k,\ldots,T-1$}
+        \State
+        $d_t^{(k)}\gets u_{t-k}$
+    \EndFor
+
+    \State Initialize Ridge regression with
+    $\alpha=10^{-6}$
+
+    \State Fit the model using
+    \[
+    \bm{X}[\mathcal{I}_{\mathrm{tr}}]
+    \rightarrow
+    \bm{d}^{(k)}[\mathcal{I}_{\mathrm{tr}}]
+    \]
+
+    \State Predict
+    \[
+    \hat{\bm{d}}^{(k)}
+    \gets
+    f_k
+    \left(
+    \bm{X}[\mathcal{I}_{\mathrm{te}}]
+    \right)
+    \]
+
+    \State
+    $\bm{d}^{(k)}_{\mathrm{te}}
+    \gets
+    \bm{d}^{(k)}
+    [\mathcal{I}_{\mathrm{te}}]$
+
+    \State Compute
+    \[
+    MC_k
+    \gets
+    \frac{
+    \Cov
+    \left(
+    \hat{\bm{d}}^{(k)},
+    \bm{d}^{(k)}_{\mathrm{te}}
+    \right)^2
+    }{
+    \Var
+    \left(
+    \hat{\bm{d}}^{(k)}
+    \right)
+    \Var
+    \left(
+    \bm{d}^{(k)}_{\mathrm{te}}
+    \right)
+    +10^{-12}
+    }
+    \]
+
+\EndFor
+
+\State
+\Return
+$\{MC_k\}_{k=1}^{K_{\max}}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+The interaction strength is scanned over
+$g\in[0,\pi/2]$, using eleven equally spaced points when no custom grid
+is supplied. The same topology and local biases are retained across
+the scan. For each $g$, the experiment records mean half-system entropy
+over the final 30 random-input states, operator entanglement of
+$U_{\mathrm{step}}^2$, total memory capacity, and task NRMSE for the
+$k$-body Pauli and parity benchmarks. This directly links the
+interaction regime to both physical and computational observables.
+
+\begin{breakablealgorithm}
+\caption{PCSR Interaction-Phase Scan}
+\label{alg:phase_scan}
+\small
+\begin{algorithmic}[1]
+
+\Require Topology type $\mathcal{T}$,
+number of qubits $N$,
+sequence length $T$,
+interaction values $\mathcal{G}$,
+$k$-body order $k_{\mathrm{P}}$,
+seed $s$
+
+\Ensure Entanglement, memory, and task-performance
+metrics as functions of $g$
+
+\If{$\mathcal{G}$ is not specified}
+    \State
+    $\mathcal{G}\gets
+    \operatorname{linspace}(0,\pi/2,11)$
+\EndIf
+
+\State
+$\mathcal{R}\gets
+\Call{BuildTopology}{\mathcal{T},N}$
+
+\State Initialize pseudorandom generator with seed $s$
+
+\State Draw fixed
+$\beta_i^{(z)}\sim\mathcal{U}(0,2\pi)$
+
+\State Draw fixed
+$\beta_i^{(x)}\sim\mathcal{U}(0.3,0.7)$
+
+\State Generate $k$-body benchmark
+\[
+(\bm{u}_{\mathrm{kP}},\bm{y}_{\mathrm{kP}})
+\gets
+\Call{KBodyPauli}{T,k_{\mathrm{P}},s}
+\]
+
+\State Generate parity benchmark with $k=3$
+\[
+(\bm{u}_{\mathrm{par}},\bm{y}_{\mathrm{par}})
+\gets
+\Call{TemporalParity}{T,3,s}
+\]
+
+\State Generate independent random sequence
+\[
+\bm{u}_{\mathrm{rand}}
+\sim
+\mathcal{U}(0,1)^T
+\]
+using seed $s+1$
+
+\For{each $g\in\mathcal{G}$}
+
+    \State
+    $\Psi_{\mathrm{kP}}
+    \gets
+    \Call{PCSRReservoir}
+    {\mathcal{R},\bm{u}_{\mathrm{kP}},g}$
+
+    \State
+    $\Psi_{\mathrm{par}}
+    \gets
+    \Call{PCSRReservoir}
+    {\mathcal{R},\bm{u}_{\mathrm{par}},g}$
+
+    \State
+    $\Psi_{\mathrm{rand}}
+    \gets
+    \Call{PCSRReservoir}
+    {\mathcal{R},\bm{u}_{\mathrm{rand}},g}$
+
+    \State Compute
+    \[
+    \overline{S}_{1/2}
+    \gets
+    \frac{1}{30}
+    \sum_{t=T-30}^{T-1}
+    S_{1/2}
+    (\Psi_{\mathrm{rand},t})
+    \]
+
+    \State
+    $U
+    \gets
+    \Call{CriticalReservoirUnitary}
+    {\mathcal{R},g,
+    \bm{\beta}^{(z)},\bm{\beta}^{(x)}}$
+
+    \State
+    $S_{\mathrm{op}}
+    \gets
+    \Call{OperatorEntanglement}{U^2,N}$
+
+    \State
+    $\bm{X}_{\mathrm{kP}}
+    \gets
+    \Call{ShadowFeatures}
+    {\Psi_{\mathrm{kP}},N,M=0}$
+
+    \State
+    $\bm{X}_{\mathrm{par}}
+    \gets
+    \Call{ShadowFeatures}
+    {\Psi_{\mathrm{par}},N,M=0}$
+
+    \State
+    $\bm{X}_{\mathrm{rand}}
+    \gets
+    \Call{ShadowFeatures}
+    {\Psi_{\mathrm{rand}},N,M=0}$
+
+    \State Train Ridge readout on
+    $(\bm{X}_{\mathrm{kP}},
+    \bm{y}_{\mathrm{kP}})$
+    with $\alpha=10^{-4}$
+
+    \State Record
+    $\mathrm{NRMSE}_{\mathrm{kP}}$
+
+    \State Train MLP readout with hidden layers
+    $(64,32)$ on
+    $(\bm{X}_{\mathrm{par}},
+    \bm{y}_{\mathrm{par}})$
+
+    \State Record
+    $\mathrm{NRMSE}_{\mathrm{par}}$
+
+    \State
+    $\{MC_k\}
+    \gets
+    \Call{PCSRCMemory}
+    {\bm{X}_{\mathrm{rand}},
+    \bm{u}_{\mathrm{rand}},10}$
+
+    \State
+    $MC_{\mathrm{tot}}
+    \gets
+    \sum_{k=1}^{10}MC_k$
+
+    \State Store
+    \[
+    \left(
+    g,
+    \overline{S}_{1/2},
+    S_{\mathrm{op}},
+    MC_{\mathrm{tot}},
+    \mathrm{NRMSE}_{\mathrm{kP}},
+    \mathrm{NRMSE}_{\mathrm{par}}
+    \right)
+    \]
+
+\EndFor
+
+\State \Return all phase-scan results
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+\subsection{Classical--quantum representation separation}
+
+Three representations are compared on exactly the same training and
+test indices:
+
+\begin{equation}
+\bm X_{\mathrm C}
+=
+\text{eight-lag classical input features},
+\qquad
+\bm X_{\mathrm Q}
+=
+\text{PCSR shadow features},
+\end{equation}
+
+and
+
+\begin{equation}
+\bm X_{\mathrm{CQ}}
+=
+[\bm X_{\mathrm Q},\bm X_{\mathrm C}].
+\label{eq:combined_features}
+\end{equation}
+
+The final 100 samples are held out for testing, while training examples
+are sampled from the post-washout region preceding that test block.
+The single-seed sweep measures sample efficiency as the training size
+changes.
+
+\begin{breakablealgorithm}
+\caption{LUQPI Representation-Separation Sweep}
+\label{alg:luqpi_separation}
+\small
+\begin{algorithmic}[1]
+
+\Require Topology $\mathcal{T}$,
+qubit number $N$,
+sequence length $T$,
+interaction strength $g$,
+training sizes $\mathcal{N}_{\mathrm{tr}}$,
+task set $\mathcal{B}$,
+seed $s$
+
+\Ensure NRMSE versus training size for classical,
+shadow, and combined representations
+
+\State
+$\mathcal{R}
+\gets
+\Call{BuildTopology}{\mathcal{T},N}$
+
+\State Draw fixed biases
+$\bm{\beta}^{(z)}$ and
+$\bm{\beta}^{(x)}$
+
+\For{each benchmark $b\in\mathcal{B}$}
+
+    \State Select benchmark parameters:
+    \[
+    \begin{array}{ll}
+    \mathrm{kPauli}: & k=3,\\
+    \mathrm{Parity}: & k=3,\\
+    \mathrm{Volterra}: & k=4,\\
+    \mathrm{QPhase}: & k=4
+    \end{array}
+    \]
+
+    \State Generate
+    $(\bm{u},\bm{y})$
+    for benchmark $b$
+
+    \State
+    $\Psi
+    \gets
+    \Call{PCSRReservoir}
+    {\mathcal{R},\bm{u},g}$
+
+    \State
+    $\bm{X}_{\mathrm{Q}}
+    \gets
+    \Call{ShadowFeatures}{\Psi,N,M=0}$
+
+    \State Initialize
+    $\bm{X}_{\mathrm{C}}
+    \gets
+    \bm{0}_{T\times8}$
+
+    \For{$i=0,\ldots,7$}
+        \For{$t=i,\ldots,T-1$}
+            \State
+            $X_{\mathrm{C}}[t,i]
+            \gets u_{t-i}$
+        \EndFor
+    \EndFor
+
+    \State
+    $\bm{X}_{\mathrm{CQ}}
+    \gets
+    [
+    \bm{X}_{\mathrm{Q}},
+    \bm{X}_{\mathrm{C}}
+    ]$
+
+    \For{each training size
+    $n_{\mathrm{tr}}\in
+    \mathcal{N}_{\mathrm{tr}}$}
+
+        \State
+        $\mathcal{I}_{\mathrm{pool}}
+        \gets
+        \{30,\ldots,T-101\}$
+
+        \State Shuffle
+        $\mathcal{I}_{\mathrm{pool}}$
+        using seed $s+7$
+
+        \State
+        $\mathcal{I}_{\mathrm{tr}}
+        \gets$
+        first $n_{\mathrm{tr}}$ shuffled indices
+
+        \State
+        $\mathcal{I}_{\mathrm{te}}
+        \gets
+        \{T-100,\ldots,T-1\}$
+
+        \For{each
+        $\bm{X}\in
+        \{
+        \bm{X}_{\mathrm{C}},
+        \bm{X}_{\mathrm{Q}},
+        \bm{X}_{\mathrm{CQ}}
+        \}$}
+
+            \State Initialize MLP with hidden layers
+            $(64,32)$,
+            $\alpha=10^{-3}$,
+            and $400$ maximum iterations
+
+            \State Fit using
+            $\bm{X}[\mathcal{I}_{\mathrm{tr}}]$
+            and
+            $\bm{y}[\mathcal{I}_{\mathrm{tr}}]$
+
+            \State Predict on
+            $\mathcal{I}_{\mathrm{te}}$
+
+            \State Compute and store
+            \[
+            \mathrm{NRMSE}
+            =
+            \sqrt{
+            \frac{
+            \operatorname{mean}
+            [(\hat{\bm{y}}-\bm{y}_{\mathrm{te}})^2]
+            }{
+            \Var(\bm{y}_{\mathrm{te}})
+            +10^{-12}
+            }
+            }
+            \]
+
+        \EndFor
+
+    \EndFor
+
+\EndFor
+
+\State \Return all NRMSE curves
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+The same separation test is then repeated over multiple independent
+seeds. For a fixed seed and training size, all three representations
+use the same shuffled training indices, making the comparison paired.
+If $e_{m,s}(n)$ is the NRMSE of method $m$ at training size $n$ and
+seed $s$, the reported statistics are
+
+\begin{equation}
+\bar e_m(n)
+=
+\frac{1}{S}\sum_{s=1}^{S} e_{m,s}(n),
+\qquad
+\sigma_m(n)
+=
+\sqrt{
+\frac{1}{S}
+\sum_{s=1}^{S}
+[e_{m,s}(n)-\bar e_m(n)]^2
+}.
+\label{eq:multiseed_stats}
+\end{equation}
+
+\begin{breakablealgorithm}
+\caption{Multi-Seed LUQPI Separation Analysis}
+\label{alg:multiseed_luqpi}
+\small
+\begin{algorithmic}[1]
+
+\Require Benchmark task $\mathcal{B}$,
+number of qubits $N$,
+sequence length $T$,
+interaction strength $g$,
+training sizes $\mathcal{N}_{\mathrm{tr}}$,
+number of seeds $S$,
+task order $k$,
+topology $\mathcal{T}$
+
+\Ensure Mean and standard deviation of NRMSE for
+classical, shadow, and combined representations
+
+\State Initialize result sets
+\[
+\mathcal{R}_{\mathrm{C}},
+\mathcal{R}_{\mathrm{Q}},
+\mathcal{R}_{\mathrm{CQ}}
+\gets [\;]
+\]
+
+\For{$s=0,\ldots,S-1$}
+
+    \State
+    $\mathcal{R}
+    \gets
+    \Call{BuildTopology}{\mathcal{T},N}$
+
+    \State Initialize reservoir random generator
+    using seed $s+100$
+
+    \For{$i=1,\ldots,N$}
+        \State
+        $\beta_i^{(z)}
+        \sim
+        \mathcal{U}(0,2\pi)$
+        \State
+        $\beta_i^{(x)}
+        \sim
+        \mathcal{U}(0.3,0.7)$
+    \EndFor
+
+    \State Generate benchmark sequence
+    \[
+    (\mathbf{u},\mathbf{y})
+    \gets
+    \Call{BenchmarkTask}{\mathcal{B},T,k,s}
+    \]
+
+    \State Generate PCSR reservoir states
+    \[
+    \Psi
+    \gets
+    \Call{PCSRReservoir}
+    {
+    \mathcal{R},
+    \mathbf{u},
+    g,
+    \boldsymbol{\beta}^{(z)},
+    \boldsymbol{\beta}^{(x)}
+    }
+    \]
+
+    \State Extract exact shadow representation
+    \[
+    \mathbf{X}_{\mathrm{Q}}
+    \gets
+    \Call{ShadowFeatures}{\Psi,N,M=0}
+    \]
+
+    \State Initialize
+    \[
+    \mathbf{X}_{\mathrm{C}}
+    \gets
+    \mathbf{0}_{T\times 8}
+    \]
+
+    \For{$i=0,\ldots,7$}
+
+        \For{$t=i,\ldots,T-1$}
+
+            \State
+            $X_{\mathrm{C}}[t,i]
+            \gets
+            u_{t-i}$
+
+        \EndFor
+
+    \EndFor
+
+    \State Construct combined representation
+    \[
+    \mathbf{X}_{\mathrm{CQ}}
+    \gets
+    [
+    \mathbf{X}_{\mathrm{Q}},
+    \mathbf{X}_{\mathrm{C}}
+    ]
+    \]
+
+    \State Initialize per-seed NRMSE arrays
+    $\mathbf{r}_{\mathrm{C}}$,
+    $\mathbf{r}_{\mathrm{Q}}$,
+    and
+    $\mathbf{r}_{\mathrm{CQ}}$
+
+    \For{each training size
+    $n_{\mathrm{tr}}\in\mathcal{N}_{\mathrm{tr}}$}
+
+        \State Set washout
+        $W_0\gets30$
+
+        \State Define fixed test indices
+        \[
+        \mathcal{I}_{\mathrm{te}}
+        \gets
+        \{T-100,\ldots,T-1\}
+        \]
+
+        \State Define training pool
+        \[
+        \mathcal{I}_{\mathrm{pool}}
+        \gets
+        \{W_0,\ldots,T-101\}
+        \]
+
+        \State Shuffle
+        $\mathcal{I}_{\mathrm{pool}}$
+        using seed $s+7$
+
+        \State
+        $\mathcal{I}_{\mathrm{tr}}
+        \gets$
+        first $n_{\mathrm{tr}}$ shuffled indices
+
+        \For{each representation
+        $\mathbf{X}\in
+        \{
+        \mathbf{X}_{\mathrm{C}},
+        \mathbf{X}_{\mathrm{Q}},
+        \mathbf{X}_{\mathrm{CQ}}
+        \}$}
+
+            \State Initialize MLP with hidden layers
+            $(64,32)$,
+            regularization
+            $\alpha=10^{-3}$,
+            and maximum $500$ iterations
+
+            \State Fit
+            \[
+            f:
+            \mathbf{X}[\mathcal{I}_{\mathrm{tr}}]
+            \rightarrow
+            \mathbf{y}[\mathcal{I}_{\mathrm{tr}}]
+            \]
+
+            \State Predict
+            \[
+            \hat{\mathbf{y}}
+            \gets
+            f
+            \left(
+            \mathbf{X}[\mathcal{I}_{\mathrm{te}}]
+            \right)
+            \]
+
+            \State Compute
+            \[
+            \mathrm{NRMSE}
+            \gets
+            \sqrt{
+            \frac{
+            \operatorname{mean}
+            \left[
+            (\hat{\mathbf{y}}
+            -
+            \mathbf{y}_{\mathrm{te}})^2
+            \right]
+            }{
+            \operatorname{Var}
+            (\mathbf{y}_{\mathrm{te}})
+            +10^{-12}
+            }
+            }
+            \]
+
+            \State Append NRMSE to the corresponding
+            representation array
+
+        \EndFor
+
+    \EndFor
+
+    \State Append
+    $\mathbf{r}_{\mathrm{C}}$,
+    $\mathbf{r}_{\mathrm{Q}}$,
+    and
+    $\mathbf{r}_{\mathrm{CQ}}$
+    to their multi-seed result matrices
+
+\EndFor
+
+\For{each method
+$m\in
+\{\mathrm{C},\mathrm{Q},\mathrm{CQ}\}$}
+
+    \State Compute training-size-wise mean
+    \[
+    \mu_m(n)
+    =
+    \frac{1}{S}
+    \sum_{s=1}^{S}
+    R_{m,s}(n)
+    \]
+
+    \State Compute training-size-wise standard deviation
+    \[
+    \sigma_m(n)
+    =
+    \sqrt{
+    \frac{1}{S}
+    \sum_{s=1}^{S}
+    \left(
+    R_{m,s}(n)-\mu_m(n)
+    \right)^2
+    }
+    \]
+
+\EndFor
+
+\State \Return
+$\{
+\mu_{\mathrm{C}},
+\sigma_{\mathrm{C}},
+\mu_{\mathrm{Q}},
+\sigma_{\mathrm{Q}},
+\mu_{\mathrm{CQ}},
+\sigma_{\mathrm{CQ}}
+\}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+\subsection{Finite-shot robustness}
+
+The finite-shot experiment reuses the same PCSR states but changes the
+feature-extraction noise level. Exact expectations ($M=0$) define the
+reference, and shot-noise-surrogate features are evaluated at
+$M\in\{50,100,250,500,1000,5000\}$. The tested tasks are
+$k$-body Pauli ($k=3$), parity ($k=3$), and sparse Volterra ($k=4$).
+
+\begin{breakablealgorithm}
+\caption{Shadow Shot-Robustness Evaluation}
+\label{alg:shot_robustness}
+\small
+\begin{algorithmic}[1]
+
+\Require Topology $\mathcal{T}$,
+qubit number $N$,
+sequence length $T$,
+interaction parameter $g$,
+shot levels $\mathcal{K}$,
+seed $s$
+
+\Ensure Exact and finite-shot NRMSE for each task
+
+\State
+$\mathcal{R}
+\gets
+\Call{BuildTopology}{\mathcal{T},N}$
+
+\State Draw fixed biases
+$\bm{\beta}^{(z)}$ and
+$\bm{\beta}^{(x)}$
+
+\State Define benchmark set
+\[
+\mathcal{B}
+=
+\{
+(\mathrm{kPauli},3),
+(\mathrm{Parity},3),
+(\mathrm{Volterra},4)
+\}
+\]
+
+\For{each $(b,k)\in\mathcal{B}$}
+
+    \State Generate benchmark
+    $(\bm{u},\bm{y})$
+
+    \State
+    $\Psi
+    \gets
+    \Call{PCSRReservoir}
+    {\mathcal{R},\bm{u},g}$
+
+    \State Obtain exact features
+    \[
+    \bm{X}_{\mathrm{exact}}
+    \gets
+    \Call{ShadowFeatures}
+    {\Psi,N,M=0}
+    \]
+
+    \State Train MLP with hidden layers $(64,32)$
+    using $\bm{X}_{\mathrm{exact}}$
+
+    \State Store exact-reference NRMSE
+    $\mathrm{NRMSE}_{\mathrm{exact}}$
+
+    \For{each shot level $K\in\mathcal{K}$}
+
+        \State Generate noisy shadow features
+        \[
+        \bm{X}_K
+        \gets
+        \Call{ShadowFeatures}
+        {\Psi,N,M=K,s+K}
+        \]
+
+        \State Train MLP with hidden layers $(64,32)$
+        using $\bm{X}_K$
+
+        \State Compute
+        $\mathrm{NRMSE}_K$
+
+        \State Store
+        $\mathrm{NRMSE}_K$
+
+    \EndFor
+
+\EndFor
+
+\State
+\Return exact and finite-shot NRMSE results
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+\subsection{Inference latency}
+
+Latency is reported for four deployment situations:
+(i) classical MLP prediction on precomputed lag features,
+(ii) PCSR MLP prediction on precomputed shadow features,
+(iii) an end-to-end state-vector reservoir path that includes window
+encoding, state evolution, Pauli extraction, and MLP prediction, and
+(iv) a real-QPU estimate based on an assumed circuit-execution rate.
+
+The first two quantities are therefore \emph{cached-feature readout
+latencies}, whereas the third includes reservoir computation and is not
+directly the same timing quantity. The real-QPU estimate is
+
+\begin{equation}
+\tau_{\mathrm{QPU}}
+=
+\frac{M_{\mathrm{shot}}}
+{R_{\mathrm{QPU}}},
+\qquad
+R_{\mathrm{QPU}}=5000~\mathrm{s}^{-1},
+\label{eq:qpu_latency}
+\end{equation}
+
+where $R_{\mathrm{QPU}}$ is an assumed implementation constant rather
+than a measured device rate in this routine.
+
+\begin{breakablealgorithm}
+\caption{Inference-Latency Benchmark}
+\label{alg:latency}
+\small
+\begin{algorithmic}[1]
+
+\Require Number of qubits $N$,
+number of timed predictions $M_{\mathrm{test}}$,
+QPU shots $M_{\mathrm{shot}}$,
+seed $s$
+
+\Ensure Latencies for classical-only, cached-PCSR,
+simulated reservoir, and estimated real-QPU inference
+
+\State Construct Chain topology with $N$ qubits
+
+\State Draw fixed reservoir biases
+
+\State Set
+$g\gets\pi/4$
+
+\State Generate $k$-body training task with
+$T=300$ and $k=3$
+
+\State Generate PCSR states for the training input
+
+\State Extract exact shadow features
+$\bm{X}_{\mathrm{Q,tr}}$
+
+\State Train PCSR MLP with hidden layers $(64,32)$
+after a washout of $30$
+
+\State Construct eight-lag classical features
+$\bm{X}_{\mathrm{C,tr}}$
+
+\State Train classical MLP with hidden layers $(64,32)$
+after a washout of $30$
+
+\State Generate random test sequence
+$\bm{u}_{\mathrm{te}}$
+
+\State Precompute PCSR states and exact shadow features
+$\bm{X}_{\mathrm{Q,te}}$
+
+\State Precompute classical lag features
+$\bm{X}_{\mathrm{C,te}}$
+
+\State Start timer
+
+\For{$m=1,\ldots,M_{\mathrm{test}}$}
+    \State Evaluate classical MLP on one
+    precomputed classical feature vector
+\EndFor
+
+\State Compute
+\[
+\tau_{\mathrm{C}}
+\gets
+\frac{\Delta t_{\mathrm{C}}}
+{M_{\mathrm{test}}}\times1000
+\]
+
+\State Start timer
+
+\For{$m=1,\ldots,M_{\mathrm{test}}$}
+    \State Evaluate PCSR MLP on one
+    precomputed shadow feature vector
+\EndFor
+
+\State Compute
+\[
+\tau_{\mathrm{PCSR}}
+\gets
+\frac{\Delta t_{\mathrm{PCSR}}}
+{M_{\mathrm{test}}}\times1000
+\]
+
+\State Construct
+\[
+U_{\mathrm{step}}
+\gets
+\left[
+\Call{CriticalReservoirUnitary}
+{\mathcal{R},g}
+\right]^2
+\]
+
+\State Set window size $W=8$
+
+\State
+$M_{\mathrm{sim}}
+\gets
+\min(M_{\mathrm{test}},20)$
+
+\State Start timer
+
+\For{$m=0,\ldots,M_{\mathrm{sim}}-1$}
+
+    \State Construct the current zero-padded
+    temporal window
+
+    \State Construct
+    $U_{\mathrm{enc}}$
+
+    \State Simulate
+    \[
+    \ket{\psi_m}
+    \gets
+    U_{\mathrm{step}}
+    U_{\mathrm{enc}}
+    \ket{0}^{\otimes N}
+    \]
+
+    \State Extract exact one- and two-body
+    Pauli features $\bm{x}_m$
+
+    \State Evaluate PCSR MLP using $\bm{x}_m$
+
+\EndFor
+
+\State Compute
+\[
+\tau_{\mathrm{sim}}
+\gets
+\frac{\Delta t_{\mathrm{sim}}}
+{M_{\mathrm{sim}}}\times1000
+\]
+
+\State Set assumed real-QPU execution rate
+\[
+R_{\mathrm{QPU}}\gets5000~\mathrm{s}^{-1}
+\]
+
+\State Estimate
+\[
+\tau_{\mathrm{QPU}}
+\gets
+\frac{M_{\mathrm{shot}}}
+{R_{\mathrm{QPU}}}
+\times1000
+\]
+
+\State \Return
+$\tau_{\mathrm{C}}$,
+$\tau_{\mathrm{PCSR}}$,
+$\tau_{\mathrm{sim}}$,
+$\tau_{\mathrm{QPU}}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+% =====================================================================
+\section{IBM Heron Noisy-Hardware Validation}
+\label{sec:ibm_validation}
+% =====================================================================
+
+The final stage validates the same PCSR construction under a calibrated
+IBM Heron execution model. When real-hardware execution is disabled,
+the sampler is backed by an Aer simulator instantiated from the backend
+snapshot; when enabled, the runtime sampler is bound to the physical
+backend. This section therefore changes the execution and measurement
+model, not the mathematical definition of the PCSR reservoir.
+
+\subsection{Backend and hardware-level circuit}
+
+\begin{breakablealgorithm}
+\caption{IBM Heron Noisy Sampler Initialization}
+\label{alg:ibm_sampler}
+\small
+\begin{algorithmic}[1]
+
+\Require IBM backend $B$ and
+hardware-execution flag $F_{\mathrm{real}}$
+
+\Ensure Configured sampler $\mathcal{S}$
+
+\If{a sampler is already cached}
+    \State \Return cached sampler
+\EndIf
+
+\State
+$B\gets\Call{GetIBMBackend}{}$
+
+\If{$F_{\mathrm{real}}=\mathrm{true}$}
+
+    \State
+    $\mathcal{S}
+    \gets
+    \Call{SamplerV2}{B}$
+
+    \State Store execution backend as $B$
+
+\Else
+
+    \State Construct hardware-calibrated noisy simulator
+    \[
+    B_{\mathrm{sim}}
+    \gets
+    \Call{AerSimulator.from\_backend}{B}
+    \]
+
+    \State
+    $\mathcal{S}
+    \gets
+    \Call{SamplerV2}{B_{\mathrm{sim}}}$
+
+    \State Store original backend $B$ as the
+    compilation target
+
+\EndIf
+
+\State Cache $\mathcal{S}$
+
+\State \Return $\mathcal{S}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+For each time step, the hardware circuit implements the same
+zero-padded window and the same $R_y$ encoder from
+Eqs.~\eqref{eq:shared_window}--\eqref{eq:shared_encoder}. It then applies
+the topology-dependent $CP(2g)$ interactions and fixed
+$R_z$/$R_x$ rotations directly on the selected physical qubits. A
+random local measurement basis is appended, with $I$, $H$, and
+$S^\dagger H$ used for the implemented $Z$, $X$, and $Y$ settings,
+respectively. The complete circuit is optionally transpiled against the
+Heron backend.
+
+\begin{breakablealgorithm}
+\caption{Hardware-Level PCSR Circuit Construction}
+\label{alg:build_ibm_pcsr}
+\small
+\begin{algorithmic}[1]
+
+\Require Reservoir topology $\mathcal{T}$,
+input window $\mathbf{w}$,
+interaction strength $g$,
+fixed biases
+$\boldsymbol{\beta}^{(z)}$ and
+$\boldsymbol{\beta}^{(x)}$,
+measurement basis
+$\mathbf{b}$,
+measurement flag $F_{\mathrm{m}}$,
+native-compilation flag $F_{\mathrm{c}}$
+
+\Ensure Hardware-compatible PCSR circuit $C$
+
+\State Obtain IBM backend $B$
+
+\State
+$N\gets|\mathcal{Q}|$
+
+\State
+$W\gets|\mathbf{w}|$
+
+\State Define linearly spaced weights
+\[
+\phi_r\in[0.5,1],
+\qquad
+r=0,\ldots,W-1
+\]
+
+\State Define
+\[
+q(r)=r\bmod N
+\]
+
+\State Initialize
+$\theta_i\gets0$,
+$i=1,\ldots,N$
+
+\For{$r=0,\ldots,W-1$}
+
+    \State
+    $i\gets q(r)$
+
+    \State
+    $\theta_i
+    \gets
+    \theta_i+\pi w_r\phi_r$
+
+\EndFor
+
+\State Initialize a circuit on all physical device qubits
+and $N$ classical bits
+
+\For{$i=1,\ldots,N$}
+
+    \State Apply
+    $R_y(\theta_i)$
+    to physical reservoir qubit $q_i$
+
+\EndFor
+
+\State Partition topology edges into non-overlapping
+interaction moments
+
+\For{each interaction edge $(a,b)$}
+
+    \State Apply
+    \[
+    CP_{a,b}(2g)
+    \]
+
+\EndFor
+
+\For{$i=1,\ldots,N$}
+
+    \State Apply
+    $R_z(\beta_i^{(z)})$
+    to physical qubit $q_i$
+
+\EndFor
+
+\For{$i=1,\ldots,N$}
+
+    \State Apply
+    $R_x(\beta_i^{(x)})$
+    to physical qubit $q_i$
+
+\EndFor
+
+\For{$i=1,\ldots,N$}
+
+    \If{$b_i=X$}
+
+        \State Apply $H$ to $q_i$
+
+    \ElsIf{$b_i=Y$}
+
+        \State Apply $S^\dagger$ followed by $H$
+        to $q_i$
+
+    \Else
+
+        \State Apply no basis rotation
+
+    \EndIf
+
+\EndFor
+
+\If{$F_{\mathrm{m}}=\mathrm{true}$}
+
+    \For{$i=1,\ldots,N$}
+
+        \State Measure physical reservoir qubit
+        $q_i$ into classical bit $i$
+
+    \EndFor
+
+\EndIf
+
+\If{$F_{\mathrm{c}}=\mathrm{true}$}
+
+    \State Transpile $C$ against backend $B$
+    using optimization level $1$
+
+\EndIf
+
+\State \Return $C$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+\subsection{Measurement decoding and shadow reconstruction}
+
+Sampler bit strings are decoded into an
+$M\times N$ binary matrix, with column $i$ corresponding to reservoir
+qubit $i$.
+
+\begin{breakablealgorithm}
+\caption{IBM Measurement Bitstring Decoding}
+\label{alg:ibm_bit_decode}
+\small
+\begin{algorithmic}[1]
+
+\Require Sampler result $R$ and
+number of reservoir qubits $N$
+
+\Ensure Measurement matrix
+$\mathbf{Z}\in\{0,1\}^{M\times N}$
+
+\State Extract classical-register measurement data
+from $R$
+
+\State Obtain all returned bit strings
+$\{s_m\}_{m=1}^{M}$
+
+\For{$m=1,\ldots,M$}
+
+    \State Reverse bit string $s_m$
+
+    \For{$i=1,\ldots,N$}
+
+        \State
+        $Z_{m,i}
+        \gets$
+        integer value of the $i$th reversed bit
+
+    \EndFor
+
+\EndFor
+
+\State \Return $\mathbf{Z}$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+Across randomized basis circuits, the total number of shots is
+
+\begin{equation}
+M_{\mathrm{tot}}
+=
+\sum_{r=1}^{N_B}M_r.
+\end{equation}
+
+For a matched single-qubit Pauli observable, the implemented estimator
+is
+
+\begin{equation}
+\widehat{\langle P_i\rangle}
+=
+\frac{3}{M_{\mathrm{tot}}}
+\sum_{r=1}^{N_B}
+\mathbb I(b_{r,i}=P)
+\sum_m
+(-1)^{z_{r,m,i}},
+\label{eq:ibm_shadow_one}
+\end{equation}
+
+and for same-axis two-body observables,
+
+\begin{equation}
+\widehat{\langle P_iP_j\rangle}
+=
+\frac{9}{M_{\mathrm{tot}}}
+\sum_{r=1}^{N_B}
+\mathbb I(b_{r,i}=P)
+\mathbb I(b_{r,j}=P)
+\sum_m
+(-1)^{z_{r,m,i}}
+(-1)^{z_{r,m,j}}.
+\label{eq:ibm_shadow_two}
+\end{equation}
+
+These are the sampled counterparts of the exact PCSR feature set in
+Eq.~\eqref{eq:pcsr_pauli_set}.
+
+\begin{breakablealgorithm}
+\caption{Random-Pauli Shadow Reconstruction}
+\label{alg:ibm_shadow_reconstruct}
+\small
+\begin{algorithmic}[1]
+
+\Require Measurement sets
+$\{\mathbf{Z}^{(r)}\}_{r=1}^{N_B}$,
+basis settings
+$\{\mathbf{b}^{(r)}\}_{r=1}^{N_B}$,
+number of qubits $N$
+
+\Ensure Reconstructed one- and two-body Pauli
+expectation estimates
+
+\State Compute total number of shots
+\[
+M_{\mathrm{tot}}
+\gets
+\sum_{r=1}^{N_B}
+\left|
+\mathbf{Z}^{(r)}
+\right|
+\]
+
+\For{$i=1,\ldots,N$}
+
+    \For{$P\in\{Z,X,Y\}$}
+
+        \State $A\gets0$
+
+        \For{$r=1,\ldots,N_B$}
+
+            \If{$b_i^{(r)}=P$}
+
+                \State
+                \[
+                A
+                \gets
+                A+
+                \sum_m
+                \left(
+                1-2Z_{m,i}^{(r)}
+                \right)
+                \]
+
+            \EndIf
+
+        \EndFor
+
+        \State
+        \[
+        \widehat{\langle P_i\rangle}
+        \gets
+        \frac{3A}
+        {\max(M_{\mathrm{tot}},1)}
+        \]
+
+    \EndFor
+
+\EndFor
+
+\For{$i=1,\ldots,N$}
+
+    \For{$j=i+1,\ldots,N$}
+
+        \For{$P\in\{Z,X,Y\}$}
+
+            \State $A\gets0$
+
+            \For{$r=1,\ldots,N_B$}
+
+                \If{
+                $b_i^{(r)}=P$
+                \textbf{and}
+                $b_j^{(r)}=P$
+                }
+
+                    \State
+                    \[
+                    A
+                    \gets
+                    A+
+                    \sum_m
+                    \left(
+                    1-2Z_{m,i}^{(r)}
+                    \right)
+                    \left(
+                    1-2Z_{m,j}^{(r)}
+                    \right)
+                    \]
+
+                \EndIf
+
+            \EndFor
+
+            \State
+            \[
+            \widehat{\langle P_iP_j\rangle}
+            \gets
+            \frac{9A}
+            {\max(M_{\mathrm{tot}},1)}
+            \]
+
+        \EndFor
+
+    \EndFor
+
+\EndFor
+
+\State \Return all reconstructed expectation values
+
+\end{algorithmic}
+\end{breakablealgorithm}
+
+\subsection{End-to-end hardware validation}
+
+For each temporal step, $N_B$ random-basis circuits are executed with
+$M_B$ shots per basis. The reconstructed feature vector follows the
+same ordering as the exact PCSR representation and has dimension
+$D_{\mathrm{PCSR}}$ from Eq.~\eqref{eq:pcsr_feature_dim}. Thus,
+
+\begin{equation}
+M_{\mathrm{step}}=N_BM_B,
+\qquad
+M_{\mathrm{all}}=TN_BM_B.
+\end{equation}
+
+The hardware-derived features incorporate both finite-shot sampling and
+the noise processes represented by the calibrated backend or by the
+physical processor.
+
+\begin{breakablealgorithm}
+\caption{IBM Heron PCSR Shadow Validation}
+\label{alg:run_ibm_pcsr}
+\small
+\begin{algorithmic}[1]
+
+\Require Topology $\mathcal{T}$,
+qubit number $N$,
+sequence length $T$,
+interaction strength $g$,
+number of random bases $N_B$,
+shots per basis $M_B$,
+random seed $s$
+
+\Ensure Hardware-derived feature matrix
+$\mathbf{X}$,
+target $\mathbf{y}$,
+feature labels $\mathcal{L}$,
+total sampler execution time $\tau$
+
+\State
+$\mathcal{S}
+\gets
+\Call{GetIBMSampler}{}$
+
+\State
+$\mathcal{R}
+\gets
+\Call{BuildTopology}{\mathcal{T},N}$
+
+\State Initialize random generator using seed $s$
+
+\For{$i=1,\ldots,N$}
+
+    \State
+    $\beta_i^{(z)}
+    \sim
+    \mathcal{U}(0,2\pi)$
+
+    \State
+    $\beta_i^{(x)}
+    \sim
+    \mathcal{U}(0.3,0.7)$
+
+\EndFor
+
+\State Generate $k$-body Pauli task with $k=2$
+\[
+(\mathbf{u},\mathbf{y})
+\gets
+\Call{KBodyPauli}{T,2,s}
+\]
+
+\State Set temporal window size
+\[
+W\gets8
+\]
+
+\State Initialize feature collection
+$\mathcal{X}\gets[\;]$
+
+\State Initialize total sampler time
+$\tau\gets0$
+
+\For{$t=0,\ldots,T-1$}
+
+    \State
+    $\ell\gets
+    \max(0,t-W+1)$
+
+    \State
+    $L_t\gets t-\ell+1$
+
+    \State Initialize zero-padded window
+    \[
+    \mathbf{w}_t
+    \gets
+    \mathbf{0}_W
+    \]
+
+    \State Right-align
+    $\{u_{\ell},\ldots,u_t\}$
+    inside $\mathbf{w}_t$
+
+    \State Initialize circuit list
+    $\mathcal{C}\gets[\;]$
+
+    \State Initialize basis list
+    $\mathcal{B}\gets[\;]$
+
+    \For{$r=1,\ldots,N_B$}
+
+        \For{$i=1,\ldots,N$}
+
+            \State Randomly draw
+            \[
+            b_i^{(r)}
+            \in
+            \{Z,X,Y\}
+            \]
+
+        \EndFor
+
+        \State
+        \[
+        C_r
+        \gets
+        \Call{BuildPCSRCircuit}
+        {
+        \mathcal{R},
+        \mathbf{w}_t,
+        g,
+        \boldsymbol{\beta}^{(z)},
+        \boldsymbol{\beta}^{(x)},
+        \mathbf{b}^{(r)}
+        }
+        \]
+
+        \State Append $C_r$ to $\mathcal{C}$
+
+        \State Append
+        $\mathbf{b}^{(r)}$
+        to $\mathcal{B}$
+
+    \EndFor
+
+    \State Start execution timer
+
+    \State Submit all circuits simultaneously:
+    \[
+    J
+    \gets
+    \mathcal{S}.
+    \operatorname{run}
+    (\mathcal{C},
+    \mathrm{shots}=M_B)
+    \]
+
+    \State Wait for sampler results
+    $\mathcal{R}_{\mathrm{meas}}$
+
+    \State Update total execution time
+    \[
+    \tau
+    \gets
+    \tau+
+    \Delta t
+    \]
+
+    \For{$r=1,\ldots,N_B$}
+
+        \State
+        \[
+        \mathbf{Z}^{(r)}
+        \gets
+        \Call{DecodeBits}
+        {
+        \mathcal{R}_{\mathrm{meas}}^{(r)},N
+        }
+        \]
+
+    \EndFor
+
+    \State Reconstruct Pauli estimates
+    \[
+    \mathcal{E}_t
+    \gets
+    \Call{ReconstructShadow}
+    {
+    \{\mathbf{Z}^{(r)}\},
+    \{\mathbf{b}^{(r)}\},
+    N
+    }
+    \]
+
+    \State Initialize
+    $\mathbf{x}_t\gets[\;]$
+
+    \For{$i=1,\ldots,N$}
+
+        \State Append
+        $\widehat{\langle Z_i\rangle}$
+
+        \State Append
+        $\widehat{\langle X_i\rangle}$
+
+        \State Append
+        $\widehat{\langle Y_i\rangle}$
+
+    \EndFor
+
+    \For{$i=1,\ldots,N$}
+
+        \For{$j=i+1,\ldots,N$}
+
+            \State Append
+            $\widehat{\langle Z_iZ_j\rangle}$
+
+            \State Append
+            $\widehat{\langle X_iX_j\rangle}$
+
+            \State Append
+            $\widehat{\langle Y_iY_j\rangle}$
+
+        \EndFor
+
+    \EndFor
+
+    \State Append
+    $\mathbf{x}_t$
+    to $\mathcal{X}$
+
+\EndFor
+
+\State Convert feature collection to matrix
+\[
+\mathbf{X}
+\gets
+\operatorname{Array}(\mathcal{X})
+\]
+
+\State \Return
+$\mathcal{L},
+\mathbf{X},
+\mathbf{y},
+\tau$
+
+\end{algorithmic}
+\end{breakablealgorithm}
+% =====================================================================
+\section{Methodological Summary}
+\label{sec:method_summary}
+% =====================================================================
+
+The methodological hierarchy is now explicit. The hardware-aware
+topology and sliding-window encoder define the common reservoir
+backbone. The full-CZ model provides the baseline. PCSR generalizes
+that baseline by replacing $CZ$ with $CP(2g)$ while leaving the
+topology and temporal encoder unchanged. The critical-phase scan then
+tests whether the resulting interaction regime is associated with
+entanglement, memory, and task performance. Exact and shadow-derived
+Pauli features provide the quantum-to-classical interface, LUQPI
+provides the supervised readout, classical lag features provide the
+non-quantum comparison, and the IBM Heron experiment validates the
+same PCSR feature pipeline under sampled noisy execution.
+
+This structure separates definitions from experiments: each mathematical
+object is introduced once and later sections refer back to it rather
+than redefining it.
+
+\bibliographystyle{elsarticle-num}
+% \bibliography{references}
+
+\end{document}

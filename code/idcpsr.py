@@ -8,13 +8,18 @@ for classical and quantum problems", arXiv:2509.09033 (2025), into quantum reser
 computing.
 
 All quantum operations are exact (state-vector or density-matrix); nothing is faked.
+This module is pure numpy and serves as the REFERENCE that the Qiskit-native engine
+(`idcpsr_qiskit`) is verified against to machine precision.
+
+Convention note: this module is BIG-ENDIAN (qubit 0 = most significant bit), matching
+Cirq. The Qiskit engine is little-endian; `reverse_bits()` bridges the two.
 """
 import numpy as np
 from sklearn.linear_model import Ridge
 from sklearn.neural_network import MLPRegressor
 
 # =============================================================================
-#  PART A.  CPSR ENGINE  (faithful numpy reimplementation of the repo's Cirq math)
+#  PART A.  CPSR ENGINE  (faithful numpy reimplementation of the repo's math)
 # =============================================================================
 def chain_edges(N):
     return [(i, i + 1) for i in range(N - 1)]
@@ -97,7 +102,7 @@ def shadow_features(states, N, n_shots=0, seed=42, max_weight=2):
     if max_weight >= 2:
         for i in range(N):
             for j in range(i + 1, N):
-                two_specs.append((i, j, (1 << (N-1-i)) ^ (1 << (N-1-j))))
+                two_specs.append((i, j, (1 << (N - 1 - i)) ^ (1 << (N - 1 - j))))
                 labels += [f'Z{i}Z{j}', f'X{i}X{j}', f'Y{i}Y{j}']
     T = states.shape[0]; X = np.zeros((T, len(labels)))
     for t in range(T):
@@ -201,8 +206,7 @@ def cnot(N, ctrl, targ):
 
 def controlled_basis_copy(N, sys, anc, basis='Z'):
     """Coherently copy the eigenvalue of Pauli `basis` on qubit `sys` onto ancilla `anc`
-       (a von-Neumann pre-measurement / sewing stitch): rotate sys to Z-basis of `basis`,
-       CNOT(sys->anc), rotate back. Leaves a coherent system+ancilla entangled state."""
+       (a von-Neumann pre-measurement / sewing stitch)."""
     pre = np.eye(2 ** N, dtype=np.complex128)
     if basis == 'X':
         pre = op_on(N, {sys: H1})
@@ -214,16 +218,9 @@ def controlled_basis_copy(N, sys, anc, basis='Z'):
 
 # =============================================================================
 #  PART C.  PERSISTENT (recurrent) CPSR with QUANTUM memory + readout channels
-#           Density-matrix simulation: exact measurement back-action.
-#  Protocol (Fujii-Nakajima-style fading memory):
-#    each step:  reset+encode input on qubit 0  ->  U_step^reps  ->  readout channel
-#  Memory register M = qubits {1..N-1} is NEVER directly measured (the coherent
-#  "quantum delay line", per design doc 2b 3.1).  Features are local Pauli
-#  expectations; schemes differ only in the post-readout channel applied to rho.
 # =============================================================================
 def _reset_qubit0(N):
     """Kraus ops that reset qubit 0 to |0> (discard its state) -> fading memory."""
-    dim = 2 ** N
     K0 = op_on(N, {0: np.array([[1, 0], [0, 0]], dtype=np.complex128)})
     K1 = op_on(N, {0: np.array([[0, 1], [0, 0]], dtype=np.complex128)})
     return [K0, K1]
@@ -233,18 +230,14 @@ def _apply_kraus(rho, Ks):
 
 def _local_dephase(rho, N, qubit, basis):
     """Back-action of reading Pauli `basis` on `qubit` via a sewn ancilla:
-       coherent copy to ancilla + ancilla measurement == dephasing of that qubit
-       in the `basis` eigenbasis (proved by deferred measurement).  D(rho)=(rho+P rho P)/2."""
-    if basis == 'Z':  P = op_on(N, {qubit: Z1})
+       coherent copy to ancilla + ancilla discard == dephasing in that eigenbasis."""
+    if basis == 'Z':   P = op_on(N, {qubit: Z1})
     elif basis == 'X': P = op_on(N, {qubit: X1})
     else:              P = op_on(N, {qubit: Y1})
     return 0.5 * (rho + P @ rho @ P)
 
 def _full_projective(rho, N, bases):
-    """Full destructive readout of the memory register in product bases `bases`
-       (dict qubit->'X'/'Y'/'Z'): collapses rho to a classical mixture of basis
-       states -> all inter-qubit / inter-basis coherence destroyed."""
-    # rotate each measured qubit to Z, dephase fully in computational basis, rotate back
+    """Full destructive readout of the memory register in product bases `bases`."""
     rot = np.eye(2 ** N, dtype=np.complex128)
     for q, b in bases.items():
         if b == 'X':   rot = op_on(N, {q: H1}) @ rot
@@ -252,16 +245,15 @@ def _full_projective(rho, N, bases):
             Sd = np.array([[1, 0], [0, -1j]], dtype=np.complex128)
             rot = op_on(N, {q: H1}) @ op_on(N, {q: Sd}) @ rot
     r = rot @ rho @ rot.conj().T
-    d = np.diag(np.diag(r))                      # full computational-basis dephasing
+    d = np.diag(np.diag(r))
     return rot.conj().T @ d @ rot
 
 def _local_paulis(N, qubits):
-    """exact 1-body X,Y,Z expectation operators on the given qubits."""
+    """exact 1-body X,Y,Z expectation operators on the given qubits + adjacent ZZ."""
     ops = []; labels = []
     for q in qubits:
         ops += [op_on(N, {q: Z1}), op_on(N, {q: X1}), op_on(N, {q: Y1})]
         labels += [f'Z{q}', f'X{q}', f'Y{q}']
-    # a couple of 2-body ZZ on adjacent memory qubits for richness
     for a, b in zip(qubits[:-1], qubits[1:]):
         ops.append(op_on(N, {a: Z1, b: Z1})); labels.append(f'Z{a}Z{b}')
     return labels, ops
@@ -269,40 +261,30 @@ def _local_paulis(N, qubits):
 def persistent_reservoir(N, u_seq, g, bias_z, bias_x, reps=2, readout='sewn',
                          n_readout=2, seed=42):
     """Persistent quantum reservoir with a coherent memory register.
-       readout in {'none','sewn','projective'}.
-         none       : record features, no back-action (ideal coherent-memory ceiling)
-         sewn       : read `n_readout` qubits via ancillas -> only those qubits dephase
-         projective : measure whole memory register -> collapse (memory destroyed)
-       Returns feature matrix (T, F) of local Pauli expectations of the memory register.
-    """
+       readout in {'none','sewn','projective'}."""
     dim = 2 ** N
     U = np.linalg.matrix_power(critical_unitary(N, g, bias_z, bias_x), reps)
     Ks = _reset_qubit0(N)
-    mem_qubits = list(range(1, N))                     # M = qubits 1..N-1 (never collapsed under sewn)
+    mem_qubits = list(range(1, N))
     feat_labels, feat_ops = _local_paulis(N, mem_qubits)
-    readout_qubits = mem_qubits[:n_readout]            # which M-qubits the ancillas tap
+    readout_qubits = mem_qubits[:n_readout]
     rng = np.random.RandomState(seed)
     T = len(u_seq); X = np.zeros((T, len(feat_ops)))
     rho = np.zeros((dim, dim), dtype=np.complex128); rho[0, 0] = 1.0
     for t in range(T):
-        # reset + encode input on qubit 0
         rho = _apply_kraus(rho, Ks)
         E = op_on(N, {0: _ry(np.pi * u_seq[t])})
         rho = E @ rho @ E.conj().T
-        # reservoir evolution (persists across steps -> quantum memory)
         rho = U @ rho @ U.conj().T
-        # record features (exact expectations; identical formula for all schemes)
         for c, Op in enumerate(feat_ops):
             X[t, c] = np.real(np.trace(rho @ Op))
-        # post-readout back-action channel
         if readout == 'sewn':
             for q in readout_qubits:
-                b = ['X', 'Y', 'Z'][rng.randint(3)]   # randomized-Pauli (shadow) basis
+                b = ['X', 'Y', 'Z'][rng.randint(3)]
                 rho = _local_dephase(rho, N, q, b)
         elif readout == 'projective':
             bases = {q: ['X', 'Y', 'Z'][rng.randint(3)] for q in mem_qubits}
             rho = _full_projective(rho, N, bases)
-        # 'none': no back-action
     return feat_labels, X
 
 def purity_trace(rho):
@@ -310,14 +292,8 @@ def purity_trace(rho):
 
 # =============================================================================
 #  PART D.  LOCAL-INVERSION SEWING & BARREN-PLATEAU ELIMINATION
-#  Paper's headline: sewing + a LOCAL cost provably removes barren plateaus and
-#  local minima.  We instantiate it in the reservoir's own trainable per-edge-g
-#  parameterization (cf. repo notebook 1, "spatially resolved critical phase").
 # =============================================================================
 def param_reservoir_unitary(N, theta, depth, edge_g):
-    """Trainable reservoir: `depth` layers of [single-qubit Ry(theta) on all qubits]
-       then a critical-phase CZ^(2g/pi) brick layer with per-edge angles edge_g.
-       theta shape (depth, N); edge_g shape (depth, N-1)."""
     dim = 2 ** N
     bits = ((np.arange(dim)[:, None] >> (N - 1 - np.arange(N))[None, :]) & 1)
     U = np.eye(dim, dtype=np.complex128)
@@ -331,11 +307,6 @@ def param_reservoir_unitary(N, theta, depth, edge_g):
     return U
 
 def cost_and_grad_var(N, depth, observable='global', n_samples=80, seed=0):
-    """Estimate Var over random params of the gradient of a reservoir cost
-       C(theta) = <0| U(theta)^dag O U(theta) |0>.
-         observable='global' : O = Z_0 Z_1 ... Z_{N-1}   (barren-plateau prone)
-         observable='local'  : O = (1/N) sum_i Z_i        (sewing local cost)
-       Returns Var of dC/dtheta[0,0] across random parameter settings."""
     dim = 2 ** N
     bits = ((np.arange(dim)[:, None] >> (N - 1 - np.arange(N))[None, :]) & 1)
     if observable == 'global':
@@ -344,7 +315,7 @@ def cost_and_grad_var(N, depth, observable='global', n_samples=80, seed=0):
         zsum = (1 - 2 * bits).mean(axis=1); O = np.diag(zsum.astype(np.complex128))
     rng = np.random.RandomState(seed); psi0 = np.zeros(dim, complex); psi0[0] = 1.0
     grads = []
-    s = np.pi / 2  # parameter-shift
+    s = np.pi / 2
     for _ in range(n_samples):
         th = rng.uniform(0, 2 * np.pi, (depth, N))
         eg = rng.uniform(0, np.pi / 2, (depth, max(N - 1, 1)))
@@ -360,54 +331,39 @@ def cost_and_grad_var(N, depth, observable='global', n_samples=80, seed=0):
 #  PART E.  SEWING IDENTITY (deferred measurement)  &  EFFECTIVE-DEPTH GADGET
 # =============================================================================
 def sewn_readout_channel_check(N, rho, qubit, basis, seed=0):
-    """Verify: (coherent copy onto ancilla, then MEASURE ancilla) == local dephasing.
-       Returns ||rho_via_ancilla - rho_local_dephase||_1-ish (Frobenius)."""
-    # path 1: append ancilla, controlled basis-copy, trace out ancilla (= measure&forget)
-    Na = N + 1
-    rho_big = np.kron(rho, np.array([[1, 0], [0, 0]], dtype=np.complex128))  # ancilla |0>
-    S = controlled_basis_copy(Na, qubit, N, basis=basis)                    # ancilla index = N
+    """Verify: (coherent copy onto ancilla, then discard) == local dephasing."""
+    rho_big = np.kron(rho, np.array([[1, 0], [0, 0]], dtype=np.complex128))
+    S = controlled_basis_copy(N + 1, qubit, N, basis=basis)
     rho_big = S @ rho_big @ S.conj().T
-    # trace out ancilla (last qubit)
     r = rho_big.reshape(2 ** N, 2, 2 ** N, 2)
     rho_anc_traced = r[:, 0, :, 0] + r[:, 1, :, 1]
-    # path 2: direct local dephasing
     rho_deph = _local_dephase(rho, N, qubit, basis)
     return float(np.linalg.norm(rho_anc_traced - rho_deph))
 
 def effective_depth_opent(N, g, bias_z, bias_x, depths):
-    """Operator entanglement of U_step^D vs effective depth D (per-step physical
-       depth is constant).  Shows nonlinearity/scrambling grows with EFFECTIVE depth
-       while PHYSICAL per-step depth stays O(1) -> the reservoir analogue of
-       'instantaneous depth'."""
     U = critical_unitary(N, g, bias_z, bias_x)
-    out = []
-    for D in depths:
-        out.append(operator_entanglement(np.linalg.matrix_power(U, D), N))
-    return out
+    return [operator_entanglement(np.linalg.matrix_power(U, D), N) for D in depths]
 
-# ---- efficient state-vector parameterized reservoir (for barren-plateau scaling) ----
+# ---- efficient state-vector parameterized reservoir ----
 def _apply_ry_sv(psi, N, q, theta):
     psi = psi.reshape([2] * N)
     c, s = np.cos(theta / 2), np.sin(theta / 2)
     a = psi.take(0, axis=q); b = psi.take(1, axis=q)
-    new0 = c * a - s * b; new1 = s * a + c * b
-    out = np.stack([new0, new1], axis=q)
+    out = np.stack([c * a - s * b, s * a + c * b], axis=q)
     return out.reshape(-1)
-
-def _apply_cz_phase_sv(psi, N, bits_edge_cache, edge_g):
-    # diagonal phase exp(2i * sum_e g_e [bit_a & bit_b])
-    cz = np.zeros(psi.shape[0])
-    for e, mask in enumerate(bits_edge_cache):
-        cz += edge_g[e] * mask
-    return psi * np.exp(2j * cz)
 
 def _edge_masks(N):
     dim = 2 ** N
     bits = ((np.arange(dim)[:, None] >> (N - 1 - np.arange(N))[None, :]) & 1)
     return [(bits[:, a] & bits[:, b]).astype(float) for (a, b) in chain_edges(N)]
 
+def _apply_cz_phase_sv(psi, N, masks, edge_g):
+    cz = np.zeros(psi.shape[0])
+    for e, mask in enumerate(masks):
+        cz += edge_g[e] * mask
+    return psi * np.exp(2j * cz)
+
 def cost_grad_var_sv(N, depth, observable='global', n_samples=120, seed=0):
-    """Fast state-vector version of cost_and_grad_var (scales to N~12)."""
     dim = 2 ** N
     bits = ((np.arange(dim)[:, None] >> (N - 1 - np.arange(N))[None, :]) & 1)
     if observable == 'global':
@@ -421,7 +377,7 @@ def cost_grad_var_sv(N, depth, observable='global', n_samples=120, seed=0):
             for i in range(N):
                 psi = _apply_ry_sv(psi, N, i, theta[d, i])
             psi = _apply_cz_phase_sv(psi, N, masks, eg[d])
-        return float(np.sum(Odiag * np.abs(psi) ** 2))   # <O> for diagonal O
+        return float(np.sum(Odiag * np.abs(psi) ** 2))
     s = np.pi / 2
     for _ in range(n_samples):
         th = rng.uniform(0, 2 * np.pi, (depth, N)); eg = rng.uniform(0, np.pi / 2, (depth, N - 1))
@@ -430,9 +386,7 @@ def cost_grad_var_sv(N, depth, observable='global', n_samples=120, seed=0):
     return float(np.var(grads))
 
 def cost_grad_var_sv2(N, depth, observable='global', n_samples=120, seed=0, qb=0):
-    """Gradient variance w.r.t. a LAST-LAYER parameter theta[depth-1, qb].
-       local observable = Z_qb (bounded lightcone, the sewing local cost);
-       global observable = Z_0...Z_{N-1} (barren-plateau prone)."""
+    """Gradient variance w.r.t. a LAST-LAYER parameter theta[depth-1, qb]."""
     dim = 2 ** N
     bits = ((np.arange(dim)[:, None] >> (N - 1 - np.arange(N))[None, :]) & 1)
     if observable == 'global':
@@ -456,11 +410,6 @@ def cost_grad_var_sv2(N, depth, observable='global', n_samples=120, seed=0, qb=0
 
 # =============================================================================
 #  PART F.  INSTANTANEOUS DEPTH vs PHYSICAL DEPTH under NOISE
-#  Modeling: 'effective depth' D = computational power (scrambling/nonlinearity).
-#    physically-deep  : realize U^D by D physical noisy layers  -> noise compounds with D
-#    instantaneous(ID): realize the SAME U^D action at O(1) physical depth (sewing /
-#                       deferred-measurement) -> only O(1) layers of physical noise.
-#  This is exactly the depth<->width trade the paper exploits.
 # =============================================================================
 def _depolarize(rho, N, p):
     if p <= 0: return rho
@@ -469,16 +418,11 @@ def _depolarize(rho, N, p):
 
 def noisy_reservoir_features(N, u_seq, g, bias_z, bias_x, D_eff, mode='deep',
                              p=0.02, window=4):
-    """Memoryless QELM-style features with EFFECTIVE depth D_eff under noise.
-       mode='deep' : D_eff physical layers, depolarizing p after each layer.
-       mode='id'   : same U^{D_eff} action, but only ONE physical-depth worth of noise
-                     (constant physical depth, per instantaneous-depth)."""
     dim = 2 ** N
     U1 = critical_unitary(N, g, bias_z, bias_x)
     UD = np.linalg.matrix_power(U1, D_eff)
     slot_phase = np.linspace(0.5, 1.0, window); slot_to_qubit = [w % N for w in range(window)]
     T = len(u_seq)
-    # feature ops: 1-body X,Y,Z + adjacent ZZ
     labels, ops = _local_paulis(N, list(range(N)))
     X = np.zeros((T, len(ops)))
     for t in range(T):
@@ -494,29 +438,29 @@ def noisy_reservoir_features(N, u_seq, g, bias_z, bias_x, D_eff, mode='deep',
             for _ in range(D_eff):
                 rho = U1 @ rho @ U1.conj().T
                 rho = _depolarize(rho, N, p)
-        else:  # 'id': effective deep action, constant physical noise
+        else:
             rho = UD @ rho @ UD.conj().T
             rho = _depolarize(rho, N, p)
         for c, Op in enumerate(ops):
             X[t, c] = np.real(np.trace(rho @ Op))
     return labels, X
 
-# ---- repo QND-RC feature builders (for the integrated comparison) ----
+# ---- repo QND-RC feature builders (numpy reference) ----
 GSTAR = 0.30
+
 def monolithic_features(N, u, g, bias_z, bias_x, W_mono=8, n_shots=0, seed=42):
     states = reservoir_states(N, u, g, bias_z, bias_x, window_size=W_mono)
     return shadow_features(states, N, n_shots=n_shots, seed=seed)[1]
 
 def classical_qndrc_features(N, u, g, bias_z, bias_x, m, W_q=2, n_shots=0, seed=42):
-    S = shadow_features(reservoir_states(N, u, g, bias_z, bias_x, window_size=W_q), N, n_shots, seed)[1]
+    S = shadow_features(reservoir_states(N, u, g, bias_z, bias_x, window_size=W_q),
+                        N, n_shots, seed)[1]
     return np.concatenate([S, delay_taps(u, m)], axis=1)
 
 def qmem_features(N, u, g, bias_z, bias_x, n_readout=2, reps=1, seed=42):
-    """Quantum coherent-memory reservoir features (persistent + sewn ancilla readout)."""
     return persistent_reservoir(N, u, np.pi * g, bias_z, bias_x, reps=reps,
                                 readout='sewn', n_readout=n_readout, seed=seed)[1]
 
 def idqndrc_features(N, u, g, bias_z, bias_x, m=2, n_readout=2, reps=1, seed=42):
-    """ID-QND-RC: sewn quantum-memory features + a short classical delay (hybrid)."""
     Q = qmem_features(N, u, g, bias_z, bias_x, n_readout, reps, seed)
     return np.concatenate([Q, delay_taps(u, m)], axis=1)
