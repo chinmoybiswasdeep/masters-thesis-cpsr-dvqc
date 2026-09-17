@@ -1,0 +1,47 @@
+{
+  "RUN_MODE": "FAST",
+  "MODE_CFG": {
+    "T": 140,
+    "washout": 25,
+    "n_val": 35,
+    "n_test": 45,
+    "max_delay_ipc": 5,
+    "max_degree_ipc": 4,
+    "max_targets_per_degree": 8,
+    "n_surrogates": 4,
+    "n_reservoir_seeds": 2,
+    "n_input_seeds": 1,
+    "n_bootstrap": 100,
+    "n_projection_repeats": 3,
+    "discovery_grid_n": 3,
+    "response_stencil": "2pt"
+  },
+  "provenance": {
+    "run_mode": "FAST",
+    "git_commit": "3e552d17cb409fc529ad8c4154928035cd2c5704",
+    "python_version": "3.14.4",
+    "qiskit_version": "2.5.2",
+    "qiskit_aer_version": "0.17.2",
+    "sklearn_version": "1.9.0",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "timestamp": "2026-09-17T07:50:24Z"
+  },
+  "THETA_STAR": 0.2,
+  "PHI_STAR": 0.8,
+  "N_M": 2,
+  "N_P": 5,
+  "control_ranges": {
+    "m": [
+      0.1,
+      1.0
+    ],
+    "g": [
+      0.05,
+      0.6
+    ],
+    "J": [
+      0.05,
+      0.6
+    ]
+  }
+}

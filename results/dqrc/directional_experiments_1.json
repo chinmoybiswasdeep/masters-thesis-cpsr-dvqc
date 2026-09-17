@@ -1,0 +1,16 @@
+{
+  "step4_memory_specialization": {
+    "M": 0.0,
+    "NL": 0.17681681438445368
+  },
+  "step5_processor_NP5": {
+    "found_eoc_kappa": 2.321992189501729,
+    "M": 6.231948158511276,
+    "NL": 3.6386615074065225
+  },
+  "step5_processor_NP6": {
+    "found_eoc_kappa": 0.05,
+    "M": 5.177748883022361,
+    "NL": 5.185316831379245
+  }
+}

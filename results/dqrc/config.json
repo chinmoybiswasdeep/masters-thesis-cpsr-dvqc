@@ -1,0 +1,16 @@
+{
+  "name": "FAST_MODE",
+  "n_seeds": 2,
+  "T_ipc": 250,
+  "T_task": 250,
+  "washout": 40,
+  "n_val": 50,
+  "n_test": 70,
+  "max_delay_ipc": 6,
+  "max_degree_ipc": 6,
+  "max_targets_per_degree": 12,
+  "n_surrogates": 5,
+  "n_shadow_snapshots": 2000,
+  "g_scan_points": 4,
+  "n_bootstrap": 300
+}

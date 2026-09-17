@@ -1,0 +1,37 @@
+{
+  "step12_eta_scan": [
+    {
+      "seed": 0,
+      "M_mem_standalone_raw": 1.0056566209621316,
+      "NL_proc_standalone": 3.6386566011018786,
+      "M_combined": 6.0,
+      "NL_combined": 6.616820476258853,
+      "NL_proc_embedded": 6.6205612136775684,
+      "eta_M": 5.9662511785182515,
+      "eta_NL_combined": 1.818478961233965,
+      "eta_NL_proc_only": 1.8195070157685924
+    },
+    {
+      "seed": 1,
+      "M_mem_standalone_raw": 1.0683401490441669,
+      "NL_proc_standalone": 3.9748169353710083,
+      "M_combined": 5.874053193319979,
+      "NL_combined": 6.081055450167156,
+      "NL_proc_embedded": 6.301166388745221,
+      "eta_M": 5.498298644467715,
+      "eta_NL_combined": 1.5298957282920884,
+      "eta_NL_proc_only": 1.5852720996211294
+    },
+    {
+      "seed": 2,
+      "M_mem_standalone_raw": 1.0587630465072686,
+      "NL_proc_standalone": 5.39536260300174,
+      "M_combined": 5.816934070725296,
+      "NL_combined": 4.876083934439568,
+      "NL_proc_embedded": 3.930405637264822,
+      "eta_M": 5.494084903996846,
+      "eta_NL_combined": 0.9037546302683589,
+      "eta_NL_proc_only": 0.7284784965292452
+    }
+  ]
+}

@@ -1,0 +1,494 @@
+{
+  "section2_baseline_scan": {
+    "kappa": [
+      0.05,
+      0.36840314986403866,
+      2.7144176165949068,
+      20.0
+    ],
+    "M": [
+      4.610931614953018,
+      4.656550009452834,
+      5.549141708635312,
+      6.698245556310251
+    ],
+    "NL": [
+      2.637881896635111,
+      3.1885686371680215,
+      3.1109855214587037,
+      2.472238151895931
+    ],
+    "total": [
+      7.248813511588129,
+      7.845118646620856,
+      8.660127230094016,
+      9.170483708206183
+    ]
+  },
+  "section4_memory": {
+    "swap": {
+      "k": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "C": [
+        0.0002658144483244687,
+        2.1229822539149376e-06,
+        3.926114459261333e-05,
+        0.0009666907105855997,
+        0.005182200249957116
+      ],
+      "lifetime": 1.0
+    },
+    "integrable": {
+      "k": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "C": [
+        0.33674687129748015,
+        0.31464902751674956,
+        0.46318407485404595,
+        0.6954153912407826,
+        0.2967866680917667
+      ],
+      "lifetime": 6.0
+    },
+    "weak_xx": {
+      "k": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "C": [
+        0.4367542875273163,
+        0.1399445285198289,
+        0.07962656612374427,
+        0.03107439840731648,
+        0.018278335267339775
+      ],
+      "lifetime": 3.0
+    }
+  },
+  "section5_processor": {
+    "kappa": [
+      0.05,
+      0.36840314986403866,
+      2.7144176165949068,
+      20.0
+    ],
+    "NL": [
+      1.311310620808996,
+      0.6362159040443116,
+      1.6149299994363029,
+      1.9339164053463234
+    ],
+    "found_eoc_kappa": 20.0
+  },
+  "section6_dqrc_g_scan": {
+    "kappa": [
+      0.05,
+      0.36840314986403866,
+      2.7144176165949068,
+      20.0
+    ],
+    "M": [
+      4.243300809141233,
+      4.098200123511833,
+      3.6683004718502548,
+      2.6426424471085856
+    ],
+    "NL": [
+      0.7756745528163899,
+      0.7932706937907429,
+      0.8046783130186121,
+      0.35042233173387777
+    ]
+  },
+  "section7_memory_resource_scan": {
+    "N_M": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "M": [
+      3.4605669380050044,
+      2.6426424471085856,
+      5.144307239814225,
+      5.836667214564022
+    ],
+    "NL": [
+      0.2746894403353696,
+      0.35042233173387777,
+      0.9658856988115749,
+      0.7978807141785408
+    ]
+  },
+  "section8_jacobian": {
+    "M0": 2.6426424471085856,
+    "NL0": 0.35042233173387777,
+    "dM_dm": 10.069138903834931,
+    "dM_dg": 0.10225069403157483,
+    "dNL_dm": 10.729276923685505,
+    "dNL_dg": 0.042180979647319955,
+    "cross_coupling": 1.0712278655470218,
+    "decoupling_score": 0.4828054009093272
+  },
+  "section9_frontier_comparison": {
+    "hv_baseline": [
+      22.73923443382182,
+      20.46542754298907,
+      25.01304132465457
+    ],
+    "hv_dqrc": [
+      3.560841161259318,
+      3.405379539706757,
+      3.7163027828118786
+    ],
+    "hv_diff": [
+      -19.178393272562502,
+      -21.607661784947812,
+      -16.74912476017719
+    ],
+    "n_outside": 0,
+    "n_total": 8,
+    "verdict": "C: CI excludes zero in the baseline's favor -- no evidence of frontier expansion at this scale."
+  },
+  "section11_ablations": {
+    "monolithic_qrc": {
+      "M_mean": 5.346358668520674,
+      "M_std": 0.2596191403841819,
+      "NL_mean": 5.246254994200036,
+      "NL_std": 0.598573152062845,
+      "n_qubits": 6,
+      "n_ancilla": 0,
+      "n_features": 132
+    },
+    "monolithic_qrc_at_eoc": {
+      "M_mean": 5.34439869333697,
+      "M_std": 0.2578973677620664,
+      "NL_mean": 5.410126509578983,
+      "NL_std": 0.7192356784612928,
+      "n_qubits": 6,
+      "n_ancilla": 0,
+      "n_features": 132
+    },
+    "classical_delay_control": {
+      "M_mean": 7.0,
+      "M_std": 0.0,
+      "NL_mean": 0.568741002282372,
+      "NL_std": 0.028653237693369915,
+      "n_qubits": 0,
+      "n_ancilla": 0,
+      "n_features": 11
+    },
+    "memory_only": {
+      "M_mean": 3.030364670602168,
+      "M_std": 0.12323828579354501,
+      "NL_mean": 0.3887788162629446,
+      "NL_std": 0.025118191173531812,
+      "n_qubits": 6,
+      "n_ancilla": 0,
+      "n_features": 15
+    },
+    "processor_only_at_eoc": {
+      "M_mean": 5.310431207057139,
+      "M_std": 0.41497046059377274,
+      "NL_mean": 4.2879742120190105,
+      "NL_std": 0.44528839168252143,
+      "n_qubits": 5,
+      "n_ancilla": 0,
+      "n_features": 93
+    },
+    "dqrc_no_stitch": {
+      "M_mean": 3.973591704616419,
+      "M_std": 0.43574407505981716,
+      "NL_mean": 0.6774814852240799,
+      "NL_std": 0.38917553998358756,
+      "n_qubits": 6,
+      "n_ancilla": 0,
+      "n_features": 51
+    },
+    "dqrc_with_stitch": {
+      "M_mean": 4.414725711470728,
+      "M_std": 0.037918695751689935,
+      "NL_mean": 1.073187944754491,
+      "NL_std": 0.24592057587429977,
+      "n_qubits": 6,
+      "n_ancilla": 1,
+      "n_features": 51
+    },
+    "dqrc_randomized_processor": {
+      "M_mean": 4.207441733469663,
+      "M_std": 0.012055536954161727,
+      "NL_mean": 0.7524888329499724,
+      "NL_std": 0.06075238845877401,
+      "n_qubits": 6,
+      "n_ancilla": 0,
+      "n_features": 51
+    }
+  },
+  "section12_tasks": {
+    "narma10": {
+      "monolithic": 0.8711628910429856,
+      "dqrc": 2.1077777132756266
+    },
+    "delayed_product_2_5": {
+      "monolithic": 0.6654078674855052,
+      "dqrc": 0.9112611229394593
+    },
+    "mixed_memory_nonlinear": {
+      "monolithic": 0.9330926307415836,
+      "dqrc": 1.2244157522951753
+    },
+    "mackey_glass": {
+      "note": "not run -- requires re-driving reservoirs with the MG sequence as input rather than random_input; see honest note below"
+    },
+    "lorenz_self": {
+      "note": "not run -- same reason as mackey_glass, see below"
+    },
+    "lorenz_cross": {
+      "note": "not run -- same reason as mackey_glass, see below"
+    }
+  },
+  "section13_fixed_feature": {
+    "min_features": 51,
+    "monolithic": {
+      "M": 6.516887163532312,
+      "NL": 2.8816670663340123
+    },
+    "dqrc": {
+      "M": 4.409335779676236,
+      "NL": 1.0666570252076675
+    }
+  },
+  "section14_shadow_noise_robustness": {
+    "rmse_at_max_shots": 0.06309057661121775,
+    "n_shots": 2000
+  },
+  "section16_1_interface_entanglement": {
+    "rzz": {
+      "purity_M": 0.30132944525809785,
+      "purity_P": 0.9999999999999982,
+      "entropy_M": 1.8466646513394562,
+      "entropy_P": 3.7844255143800486e-14,
+      "mutual_information_MP": 4.440892098500626e-16
+    },
+    "cp": {
+      "purity_M": 0.3031077629769314,
+      "purity_P": 1.0000000000000009,
+      "entropy_M": 1.8432888181798135,
+      "entropy_P": 3.3835034115740696e-14,
+      "mutual_information_MP": -6.661338147750939e-16
+    },
+    "zx": {
+      "purity_M": 0.29104031114133955,
+      "purity_P": 0.16591948033399118,
+      "entropy_M": 1.886741466878751,
+      "entropy_P": 2.785720862317187,
+      "mutual_information_MP": 0.4075219900523619
+    }
+  },
+  "section16_2_embedding_consistency": {
+    "standalone": {
+      "M": 6.204919883855156,
+      "NL": 6.2314858995102265,
+      "total": 12.436405783365382,
+      "rank": 249,
+      "n_features": 375,
+      "condition_number": 428308.78194559086,
+      "mean_feature_variance": 0.00233810913113606,
+      "mean_abs_pairwise_correlation": 0.18406647565500442
+    },
+    "embedded_disconnected": {
+      "M": 0.06060041921562897,
+      "NL": 0.3107863611157963,
+      "total": 0.37138678033142525,
+      "rank": 249,
+      "n_features": 375,
+      "condition_number": 50103.26067451428,
+      "mean_feature_variance": 0.029177644666547087,
+      "mean_abs_pairwise_correlation": 0.06926974610133817
+    },
+    "embedded_connected": {
+      "M": 2.154855943984951,
+      "NL": 0.8207475251555416,
+      "total": 2.9756034691404927,
+      "rank": 249,
+      "n_features": 375,
+      "condition_number": 5798942.854878585,
+      "mean_feature_variance": 0.0005284929734838918,
+      "mean_abs_pairwise_correlation": 0.2561214612168142
+    }
+  },
+  "section16_3_grouped_readout": {
+    "A_memory_only": {
+      "n_features": 3,
+      "M": 1.459024130218968,
+      "NL": 0.18684065251384704
+    },
+    "B_processor_only": {
+      "n_features": 375,
+      "M": 2.154855943984951,
+      "NL": 0.8207475251555416
+    },
+    "C_mem_plus_proc": {
+      "n_features": 378,
+      "M": 2.445892943871294,
+      "NL": 0.7908654983945524
+    },
+    "D_mem_proc_cross": {
+      "n_features": 382,
+      "M": 2.5555456590604333,
+      "NL": 0.7782193059973673
+    }
+  },
+  "section16_4_stitching_ablation": {
+    "no_stitch_NP5": {
+      "qubits": 7,
+      "ancilla": 0,
+      "n_features": 171,
+      "M": 3.4409204603630767,
+      "NL": 0.7054987975627487,
+      "rank": 171
+    },
+    "stitch_2plus3": {
+      "qubits": 8,
+      "ancilla": 1,
+      "n_features": 210,
+      "M": 3.262249309653833,
+      "NL": 0.7601197653228099,
+      "rank": 54
+    },
+    "no_stitch_NP4": {
+      "qubits": 6,
+      "ancilla": 0,
+      "n_features": 132,
+      "M": 3.272189324436614,
+      "NL": 0.3497979115902746,
+      "rank": 132
+    }
+  },
+  "section16_5_fixed_qubit_single_point": {
+    "monolithic": {
+      "M": 5.8096994019708355,
+      "NL": 5.7102767383924755
+    },
+    "dqrc_repaired": {
+      "M": 6.482969101206732,
+      "NL": 1.117459330852106
+    }
+  },
+  "section17_1_eta_scan": [
+    {
+      "seed": 0,
+      "M_mem_standalone": 2.0,
+      "NL_proc_standalone": 3.6853097702113167,
+      "M_combined": 5.725962519985044,
+      "NL_combined": 7.891687494715424,
+      "eta_M_combined": 2.862981259992522,
+      "eta_NL_combined": 2.141390544291454,
+      "eta_NL_proc_only": 2.2100333744903886
+    },
+    {
+      "seed": 1,
+      "M_mem_standalone": 2.0,
+      "NL_proc_standalone": 4.467533882658037,
+      "M_combined": 5.668375548089856,
+      "NL_combined": 6.176661625426848,
+      "eta_M_combined": 2.834187774044928,
+      "eta_NL_combined": 1.382566263101722,
+      "eta_NL_proc_only": 1.3850246957287222
+    },
+    {
+      "seed": 2,
+      "M_mem_standalone": 2.073917952455756,
+      "NL_proc_standalone": 5.122971359470394,
+      "M_combined": 5.534949907054999,
+      "NL_combined": 4.508131021819328,
+      "eta_M_combined": 2.668837453526542,
+      "eta_NL_combined": 0.8799836472803106,
+      "eta_NL_proc_only": 0.7731418401791218
+    }
+  ],
+  "section17_2_back_action": {
+    "trace_distance": 0.2567783456658219,
+    "fidelity": 0.7530463828221733,
+    "purity_with_interface": 0.6379629949185072,
+    "purity_without_interface": 1.000000000000063,
+    "purity_change": -0.3620370050815559,
+    "transfer_efficiency": 16.381356836051282
+  },
+  "section17_3_jacobian": {
+    "dM_dm": 0.3632496033069277,
+    "dM_dg": -0.09842382768549918,
+    "dNL_dm": 2.7511395576818787,
+    "dNL_dg": -0.3712730707182619,
+    "cross_coupling": 3.8794764031888542,
+    "decoupling_score": 0.2049400217093941
+  },
+  "section17_4_classical_vs_quantum": {
+    "classical": [
+      {
+        "seed": 0,
+        "M": 6.8551963662134145,
+        "NL": 3.5615485935953886
+      },
+      {
+        "seed": 1,
+        "M": 6.984828986504954,
+        "NL": 4.552672341160507
+      },
+      {
+        "seed": 2,
+        "M": 6.950103520888689,
+        "NL": 5.104478022116654
+      }
+    ],
+    "quantum": [
+      {
+        "seed": 0,
+        "M": 5.725962519985044,
+        "NL": 7.891687494715424
+      },
+      {
+        "seed": 1,
+        "M": 5.668375548089856,
+        "NL": 6.176661625426848
+      },
+      {
+        "seed": 2,
+        "M": 5.534949907054999,
+        "NL": 4.508131021819328
+      }
+    ]
+  },
+  "section17_5_pareto": {
+    "hv_baseline": [
+      46.16965855536139,
+      39.62561893928363,
+      51.26927213359969
+    ],
+    "hv_dqrc": [
+      35.415120594176976,
+      24.952279380210644,
+      45.18750681417519
+    ],
+    "hv_diff": [
+      -10.754537961184411,
+      -21.303191647767527,
+      -0.12824441842420242
+    ],
+    "n_outside": 1,
+    "n_total": 9
+  }
+}

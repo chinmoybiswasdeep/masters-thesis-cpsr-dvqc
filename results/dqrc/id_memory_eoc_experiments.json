@@ -1,0 +1,59 @@
+{
+  "eta_scan": [
+    {
+      "seed": 0,
+      "M_mem_standalone": 2.0,
+      "NL_proc_standalone": 3.6853097702113167,
+      "M_combined": 5.725962519985044,
+      "NL_combined": 7.891687494715424,
+      "M_proc_embedded": 4.957368929843858,
+      "NL_proc_embedded": 8.144657587502515,
+      "eta_M_combined": 2.862981259992522,
+      "eta_NL_combined": 2.141390544291454,
+      "eta_NL_proc_only": 2.2100333744903886
+    },
+    {
+      "seed": 1,
+      "M_mem_standalone": 2.0,
+      "NL_proc_standalone": 4.467533882658037,
+      "M_combined": 5.668375548089856,
+      "NL_combined": 6.176661625426848,
+      "M_proc_embedded": 4.904587575323135,
+      "NL_proc_embedded": 6.187644756486205,
+      "eta_M_combined": 2.834187774044928,
+      "eta_NL_combined": 1.382566263101722,
+      "eta_NL_proc_only": 1.3850246957287222
+    },
+    {
+      "seed": 2,
+      "M_mem_standalone": 2.073917952455756,
+      "NL_proc_standalone": 5.122971359470394,
+      "M_combined": 5.534949907054999,
+      "NL_combined": 4.508131021819328,
+      "M_proc_embedded": 4.884785416397644,
+      "NL_proc_embedded": 3.960783504045877,
+      "eta_M_combined": 2.668837453526542,
+      "eta_NL_combined": 0.8799836472803106,
+      "eta_NL_proc_only": 0.7731418401791218
+    }
+  ],
+  "back_action": {
+    "trace_distance": 0.2567783456658219,
+    "fidelity": 0.7530463828221733,
+    "purity_with_interface": 0.6379629949185072,
+    "purity_without_interface": 1.000000000000063,
+    "purity_change": -0.3620370050815559,
+    "nl_delta": 4.459347817291198,
+    "transfer_efficiency": 17.366525936451758
+  },
+  "jacobian": {
+    "M0": 5.725962519985044,
+    "NL0": 7.891687494715424,
+    "dM_dm": 0.3632496033069277,
+    "dM_dg": -0.09842382768549918,
+    "dNL_dm": 2.7511395576818787,
+    "dNL_dg": -0.3712730707182619,
+    "cross_coupling": 3.8794764031888542,
+    "decoupling_score": 0.2049400217093941
+  }
+}

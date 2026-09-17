@@ -1,0 +1,7 @@
+task,monolithic_nrmse,dqrc_nrmse,note
+narma10,0.8711628910429856,2.1077777132756266,
+delayed_product_2_5,0.6654078674855052,0.9112611229394593,
+mixed_memory_nonlinear,0.9330926307415836,1.2244157522951753,
+mackey_glass,,,not run -- requires re-driving reservoirs with the MG sequence as input rather than random_input; see honest note below
+lorenz_self,,,"not run -- same reason as mackey_glass, see below"
+lorenz_cross,,,"not run -- same reason as mackey_glass, see below"
