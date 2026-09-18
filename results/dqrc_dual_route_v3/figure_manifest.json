@@ -1,0 +1,82 @@
+[
+  {
+    "figure": "01_structural_isolation.png",
+    "run_mode": "SMOKE",
+    "metric_definition": "max abs feature difference under +/- m perturbation",
+    "seeds": "1 reservoir seed",
+    "source_data_file": "validation_v3_results.json:structural_isolation",
+    "capacity_estimator": "signed bias-corrected (C_raw - mu_null), unclipped"
+  },
+  {
+    "figure": "02_memory_capacity_vs_m.png",
+    "run_mode": "SMOKE",
+    "metric_definition": "M(X_M), signed bias-corrected",
+    "seeds": "1 reservoir x 1 input seed",
+    "source_data_file": "validation_v3_results.json:memory_scan",
+    "capacity_estimator": "signed bias-corrected (C_raw - mu_null), unclipped"
+  },
+  {
+    "figure": "03_processor_nl_surface.png",
+    "run_mode": "SMOKE",
+    "metric_definition": "NL_tau=0 (X_P), signed bias-corrected",
+    "seeds": "1 reservoir x 1 input seed",
+    "source_data_file": "validation_v3_results.json:processor_surface",
+    "capacity_estimator": "signed bias-corrected (C_raw - mu_null), unclipped"
+  },
+  {
+    "figure": "04_architecture_comparison.png",
+    "run_mode": "SMOKE",
+    "metric_definition": "M(X_M) and NL_tau=0(X_P), signed bias-corrected",
+    "seeds": "2x1 seeds",
+    "source_data_file": "validation_v3_results.json:architecture_summary",
+    "capacity_estimator": "signed bias-corrected (C_raw - mu_null), unclipped"
+  },
+  {
+    "figure": "05_lambda_scan.png",
+    "run_mode": "SMOKE",
+    "metric_definition": "capacities and structural cross-sensitivity vs lambda",
+    "seeds": "1x1 seeds",
+    "source_data_file": "validation_v3_results.json:lambda_scan",
+    "capacity_estimator": "signed bias-corrected (C_raw - mu_null), unclipped"
+  },
+  {
+    "figure": "06_feature_budget.png",
+    "run_mode": "SMOKE",
+    "metric_definition": "M(X_M) and NL_0(X_P) under matched random-projection budgets",
+    "seeds": "1 reservoir x 1 input seed",
+    "source_data_file": "validation_v3_results.json:feature_budget",
+    "capacity_estimator": "signed bias-corrected (C_raw - mu_null), unclipped"
+  },
+  {
+    "figure": "07_module_jacobian.png",
+    "run_mode": "SMOKE",
+    "metric_definition": "d(M,NL_0)/d(m,g,J), five-point, signed bias-corrected",
+    "seeds": "1x1 seeds",
+    "source_data_file": "validation_v3_results.json:decoupling_metrics",
+    "capacity_estimator": "signed bias-corrected (C_raw - mu_null), unclipped"
+  },
+  {
+    "figure": "08_frozen_vs_retrained.png",
+    "run_mode": "SMOKE",
+    "metric_definition": "NL_0 swing under +/- m, frozen vs retrained readout",
+    "seeds": "1x1 seeds",
+    "source_data_file": "validation_v3_results.json:frozen_readout",
+    "capacity_estimator": "signed bias-corrected (C_raw - mu_null), unclipped"
+  },
+  {
+    "figure": "09_backaction_vs_lambda.png",
+    "run_mode": "SMOKE",
+    "metric_definition": "max memory-feature shift relative to lambda=0",
+    "seeds": "1x1 seeds",
+    "source_data_file": "validation_v3_results.json:backaction",
+    "capacity_estimator": "signed bias-corrected (C_raw - mu_null), unclipped"
+  },
+  {
+    "figure": "10_decision_chart.png",
+    "run_mode": "SMOKE",
+    "metric_definition": "per-gate PASS/FAIL/NOT EVALUABLE",
+    "seeds": "2 reservoir seeds",
+    "source_data_file": "validation_v3_results.json:gates",
+    "capacity_estimator": "signed bias-corrected (C_raw - mu_null), unclipped"
+  }
+]

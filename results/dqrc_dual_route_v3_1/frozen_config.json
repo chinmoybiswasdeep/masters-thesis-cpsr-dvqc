@@ -1,0 +1,46 @@
+{
+  "payload": {
+    "candidate": {
+      "memory_variant": "M0",
+      "m": 0.95,
+      "processor_variant": "P1",
+      "g": 0.910964,
+      "J": 0.901327
+    },
+    "thresholds": {
+      "E_NL_min": 0.2,
+      "eta_min": 0.7,
+      "min_memory": 0.5,
+      "min_NL0": 0.2,
+      "null_fraction_max": 0.2,
+      "isolation_atol": 1e-10,
+      "angle_range": [
+        70.0,
+        110.0
+      ],
+      "seed_fraction": 0.8,
+      "ceiling_max": 0.95
+    },
+    "max_degree": 3,
+    "max_delay": 5,
+    "control_ranges": {
+      "m": [
+        0.1,
+        0.95
+      ],
+      "g": [
+        0.1,
+        1.5
+      ],
+      "J": [
+        0.05,
+        1.2
+      ]
+    },
+    "h_small": 0.05,
+    "h_large": 0.1,
+    "run_mode_of_discovery": "SMOKE"
+  },
+  "sha256": "50ff86854fe180d26b3678f61e7ae94632516cc5a8d84405459ac74af835f8f0",
+  "created_at": "2026-09-18T02:19:23Z"
+}

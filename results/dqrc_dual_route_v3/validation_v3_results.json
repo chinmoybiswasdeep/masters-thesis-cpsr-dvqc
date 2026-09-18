@@ -1,0 +1,919 @@
+{
+  "run_mode": "SMOKE",
+  "config": {
+    "T": 90,
+    "washout": 12,
+    "n_val": 18,
+    "n_test": 22,
+    "max_delay": 4,
+    "max_degree": 3,
+    "max_targets_per_degree": 6,
+    "n_surrogates": 19,
+    "n_reservoir_seeds": 2,
+    "n_input_seeds": 1,
+    "L_memory": 3,
+    "N_P": 3,
+    "R": 2,
+    "tap_depth": 3,
+    "lambdas": [
+      0.0,
+      0.05,
+      0.2
+    ],
+    "n_projection_repeats": 5,
+    "m_scan": [
+      0.3,
+      0.6,
+      0.9
+    ]
+  },
+  "environment": {
+    "in_colab": false,
+    "python": "3.14.4",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "gpu_available": false,
+    "timestamp": "2026-09-18T00:45:58Z",
+    "qiskit_version": "2.5.2",
+    "qiskit_aer_version": "0.17.2",
+    "numpy_version": "2.5.2",
+    "scipy_version": "1.18.1",
+    "sklearn_version": "1.9.0",
+    "matplotlib_version": "3.11.1",
+    "ram_gb": 25.46,
+    "schema_version": "v3.0.0",
+    "git_commit": "a1ba7a94345fcab9a86727898e8ae5c7cdc71470",
+    "qiskit": "2.5.2",
+    "qiskit_aer": "0.17.2",
+    "sklearn": "1.9.0",
+    "precision": "complex128",
+    "simulator": "aer_density_matrix"
+  },
+  "operating_point": {
+    "m": 0.7,
+    "g": 0.8,
+    "J": 0.6,
+    "m_range": [
+      0.1,
+      0.95
+    ],
+    "g_range": [
+      0.2,
+      1.4
+    ],
+    "J_range": [
+      0.1,
+      1.1
+    ],
+    "h_small": 0.05,
+    "h_large": 0.1
+  },
+  "runtime_estimate": {
+    "n_simulations": 26,
+    "seconds_per_simulation": 2.0,
+    "estimated_seconds": 52.0,
+    "estimated_minutes": 0.8666666666666667,
+    "estimated_peak_mb": 0.262144,
+    "detail": {}
+  },
+  "v22_audit": {
+    "v22_results_found": true,
+    "ell_causal": 0,
+    "ell_peak": 7,
+    "peak_is_not_causal": true,
+    "eta_NL_0": 0.22853814544114912,
+    "eta_NL_exploded_somewhere": true,
+    "max_eta": 37547771.170257956,
+    "n_screen_rows": 8,
+    "n_with_nontrivial_NL0": 1,
+    "gate_b": "FAIL",
+    "derivative_stability": {
+      "m_M": "STABLE",
+      "m_NL_tau0": "UNSTABLE",
+      "g_M": "UNSTABLE",
+      "g_NL_tau0": "UNSTABLE",
+      "J_M": "UNSTABLE",
+      "J_NL_tau0": "UNSTABLE"
+    },
+    "reset": {
+      "1": {
+        "M": 0.6351039887233763,
+        "NL0": -0.0033865175624604726
+      },
+      "4": {
+        "M": 1.6915000671852143,
+        "NL0": 0.17436154679658508
+      },
+      "None": {
+        "M": 5.259192631034168,
+        "NL0": 0.7311984681543531
+      }
+    },
+    "backaction": {
+      "full": 0.043347356034955514,
+      "memory_export_disabled": 1.4983005397718842e-16,
+      "processor_reception_disabled": 0.04334735603495556
+    },
+    "ranking_score_of_single_valid_candidate": {
+      "n_valid": 1,
+      "top_candidate": {
+        "m": 0.212,
+        "g": 0.405,
+        "J": 0.205
+      }
+    },
+    "advancement_checks": {
+      "1_fixed_delay_metrics_valid": true,
+      "2_nl0_nontrivial": true,
+      "3_derivatives_sufficiently_stable": false,
+      "4_prelim_RM_RNL_close_to_gates": false,
+      "5_geometry_not_parallel_or_antiparallel": false,
+      "6_low_backaction_persists": true,
+      "7_not_driven_by_one_seed": true
+    },
+    "operator_entanglement_audit": {
+      "value": 1.7537322258856058,
+      "n_qubits": 5,
+      "repository_printed_bound": 1.3862943611198906,
+      "exceeds_repository_printed_bound": true,
+      "correct_bound": 2.772588722239781,
+      "valid_under_correct_bound": true,
+      "normalized_under_correct_bound": 0.6325251963330818
+    },
+    "ratio_fix_demo": {
+      "numerator": 0.0379,
+      "denominator": -0.03,
+      "denominator_uncertainty": 0.0,
+      "ratio": NaN,
+      "evaluable": false,
+      "rejection_reason": "denominator_not_positive (-0.03)",
+      "floor": 0.05,
+      "uncertainty_multiple": 2.0
+    }
+  },
+  "structural_isolation": {
+    "atol": 1e-10,
+    "rows": [
+      {
+        "architecture": "serial",
+        "max_abs_dXP_dm": 0.14214521324395066,
+        "max_abs_dXM_dg": 0.02813124678191975,
+        "max_abs_dXM_dJ": 0.04716289260625173,
+        "hamiltonian_identical": true,
+        "passed": false,
+        "failures": [
+          "X_P moved with m: max|dX_P| = 1.421e-01 > atol 1.0e-10",
+          "X_M moved with g: max|dX_M| = 2.813e-02 > atol 1.0e-10",
+          "X_M moved with J: max|dX_M| = 4.716e-02 > atol 1.0e-10"
+        ]
+      },
+      {
+        "architecture": "dual_route_current",
+        "max_abs_dXP_dm": 0.0,
+        "max_abs_dXM_dg": 0.0,
+        "max_abs_dXM_dJ": 0.0,
+        "hamiltonian_identical": true,
+        "passed": true,
+        "failures": []
+      },
+      {
+        "architecture": "parallel_fixed_taps",
+        "max_abs_dXP_dm": 0.0,
+        "max_abs_dXM_dg": 0.0,
+        "max_abs_dXM_dJ": 0.0,
+        "hamiltonian_identical": true,
+        "passed": true,
+        "failures": []
+      },
+      {
+        "architecture": "dual_route_weak",
+        "max_abs_dXP_dm": 0.0,
+        "max_abs_dXM_dg": 0.0,
+        "max_abs_dXM_dJ": 0.0,
+        "hamiltonian_identical": true,
+        "passed": true,
+        "failures": []
+      }
+    ],
+    "falsifiability_control": {
+      "passed": false,
+      "max_abs_dXP_dm": 0.017870237907940165
+    }
+  },
+  "memory_scan": [
+    {
+      "m": 0.3,
+      "M_signed": 1.4777761546907675,
+      "M_raw": 2.2729171141458053,
+      "M_null": 0.7951409594550379,
+      "M_legacy": 1.3456507106561957,
+      "NL0_signed": 0.8371461724119231,
+      "effective_rank": 5.113010690376268,
+      "n_features": 36,
+      "ceiling_fraction": 0.26913014213123915,
+      "ceiling_contaminated": false,
+      "sample_to_effective_rank": 5.476225593015427,
+      "nl_by_delay_signed": {
+        "0": 0.8371461724119231,
+        "1": -0.08440511943275075,
+        "2": -0.04187922207454568,
+        "3": -0.16902392906255614,
+        "4": 0.011945233218588286
+      }
+    },
+    {
+      "m": 0.6,
+      "M_signed": 2.6772025404069066,
+      "M_raw": 3.4493023076636273,
+      "M_null": 0.7720997672567207,
+      "M_legacy": 3.442381113411467,
+      "NL0_signed": 1.0094524832025296,
+      "effective_rank": 6.869116703076974,
+      "n_features": 36,
+      "ceiling_fraction": 0.6884762226822934,
+      "ceiling_contaminated": false,
+      "sample_to_effective_rank": 4.07621550343694,
+      "nl_by_delay_signed": {
+        "0": 1.0094524832025296,
+        "1": 0.30966359674706745,
+        "2": 0.09655983550632542,
+        "3": 0.2068408186670626,
+        "4": 0.019976720390643563
+      }
+    },
+    {
+      "m": 0.9,
+      "M_signed": 3.449873592603644,
+      "M_raw": 4.17448837340752,
+      "M_null": 0.7246147808038756,
+      "M_legacy": 4.17448837340752,
+      "NL0_signed": 1.0185732439870414,
+      "effective_rank": 6.218422427892209,
+      "n_features": 36,
+      "ceiling_fraction": 0.834897674681504,
+      "ceiling_contaminated": false,
+      "sample_to_effective_rank": 4.502749744759758,
+      "nl_by_delay_signed": {
+        "0": 1.0185732439870414,
+        "1": 0.7783024341684035,
+        "2": 0.6839105377242058,
+        "3": -0.04445063303539646,
+        "4": -0.12243183114572767
+      }
+    }
+  ],
+  "standalone_processor": {
+    "NL0_signed": 1.4040242334471587,
+    "NL0_raw": 2.0,
+    "NL0_null": 0.5959757665528413,
+    "NL0_positive": 1.4040242334471587,
+    "NL0_legacy": 1.0,
+    "M_signed": 0.5308058891752485,
+    "effective_rank": 1.3846202214161194,
+    "n_features": 36
+  },
+  "processor_surface": [
+    {
+      "g": 0.4,
+      "J": 0.4,
+      "NL0_signed": 1.4045832286740032,
+      "M_signed": 0.5934428783893684
+    },
+    {
+      "g": 0.4,
+      "J": 0.8,
+      "NL0_signed": 1.4242594008624885,
+      "M_signed": 0.5288600049116174
+    },
+    {
+      "g": 0.4,
+      "J": 1.2,
+      "NL0_signed": 1.4038267702682712,
+      "M_signed": 0.4694716462976232
+    },
+    {
+      "g": 0.8,
+      "J": 0.4,
+      "NL0_signed": 1.4113159798708588,
+      "M_signed": 0.5849956174451758
+    },
+    {
+      "g": 0.8,
+      "J": 0.8,
+      "NL0_signed": 1.40591383083554,
+      "M_signed": 0.5007256931835937
+    },
+    {
+      "g": 0.8,
+      "J": 1.2,
+      "NL0_signed": 1.4047836776744145,
+      "M_signed": 0.47502100182781665
+    },
+    {
+      "g": 1.2,
+      "J": 0.4,
+      "NL0_signed": 1.4054826009488721,
+      "M_signed": 0.5855275998345875
+    },
+    {
+      "g": 1.2,
+      "J": 0.8,
+      "NL0_signed": 1.4141538039916715,
+      "M_signed": 0.5174615121821663
+    },
+    {
+      "g": 1.2,
+      "J": 1.2,
+      "NL0_signed": 1.4246968286971298,
+      "M_signed": 0.5049574076986317
+    }
+  ],
+  "architecture_rows": [
+    {
+      "architecture": "serial",
+      "reservoir_idx": -11,
+      "input_idx": 0,
+      "M_memory": 3.120150170147879,
+      "NL0_processor": 3.3997249460071544e-11,
+      "NL_temporal_processor": 6.046459326381973e-08,
+      "NL0_combined": 0.9324151253335513,
+      "M_combined": 3.0964422263337372,
+      "NL0_residualized": 0.014201014256888904,
+      "n_qubits": 6,
+      "n_observables": 72,
+      "circuit_depth": 360,
+      "tap_buffer": 0
+    },
+    {
+      "architecture": "serial",
+      "reservoir_idx": -12,
+      "input_idx": 0,
+      "M_memory": 3.1982949579302065,
+      "NL0_processor": 2.2382551173594223e-08,
+      "NL_temporal_processor": 2.93557358879812e-08,
+      "NL0_combined": 0.831899798255542,
+      "M_combined": 3.1769020338138683,
+      "NL0_residualized": -0.044582471931661184,
+      "n_qubits": 6,
+      "n_observables": 72,
+      "circuit_depth": 360,
+      "tap_buffer": 0
+    },
+    {
+      "architecture": "dual_route_current",
+      "reservoir_idx": -11,
+      "input_idx": 0,
+      "M_memory": 3.371102286540094,
+      "NL0_processor": 1.274936530266577,
+      "NL_temporal_processor": -0.14151107216216338,
+      "NL0_combined": 1.2796691856566746,
+      "M_combined": 3.4002587793181185,
+      "NL0_residualized": -0.10469565143321624,
+      "n_qubits": 6,
+      "n_observables": 72,
+      "circuit_depth": 450,
+      "tap_buffer": 0
+    },
+    {
+      "architecture": "dual_route_current",
+      "reservoir_idx": -12,
+      "input_idx": 0,
+      "M_memory": 3.2195485239373474,
+      "NL0_processor": 1.1562262598417474,
+      "NL_temporal_processor": 0.16026426155217532,
+      "NL0_combined": 1.4012460656421282,
+      "M_combined": 3.3776808190383045,
+      "NL0_residualized": 0.0589684372028465,
+      "n_qubits": 6,
+      "n_observables": 72,
+      "circuit_depth": 450,
+      "tap_buffer": 0
+    },
+    {
+      "architecture": "parallel_fixed_taps",
+      "reservoir_idx": -11,
+      "input_idx": 0,
+      "M_memory": 3.371102286540094,
+      "NL0_processor": 1.7989702475775502,
+      "NL_temporal_processor": 3.49645013473501,
+      "NL0_combined": 1.0784089625462112,
+      "M_combined": 3.573657601902881,
+      "NL0_residualized": 0.03265400295562253,
+      "n_qubits": 6,
+      "n_observables": 72,
+      "circuit_depth": 450,
+      "tap_buffer": 3
+    },
+    {
+      "architecture": "parallel_fixed_taps",
+      "reservoir_idx": -12,
+      "input_idx": 0,
+      "M_memory": 3.2195485239373474,
+      "NL0_processor": 1.6830168130897314,
+      "NL_temporal_processor": 3.5177324437200332,
+      "NL0_combined": 0.9275820944616231,
+      "M_combined": 3.6195646285721805,
+      "NL0_residualized": -0.11957306631252931,
+      "n_qubits": 6,
+      "n_observables": 72,
+      "circuit_depth": 450,
+      "tap_buffer": 3
+    },
+    {
+      "architecture": "dual_route_weak",
+      "reservoir_idx": -11,
+      "input_idx": 0,
+      "M_memory": 2.934180768862975,
+      "NL0_processor": 1.3026667411316204,
+      "NL_temporal_processor": -0.21947946348292885,
+      "NL0_combined": 1.4098581640986527,
+      "M_combined": 3.349617339900021,
+      "NL0_residualized": -0.06563948128893624,
+      "n_qubits": 6,
+      "n_observables": 72,
+      "circuit_depth": 360,
+      "tap_buffer": 0
+    },
+    {
+      "architecture": "dual_route_weak",
+      "reservoir_idx": -12,
+      "input_idx": 0,
+      "M_memory": 3.026034701074624,
+      "NL0_processor": 1.2738903128952357,
+      "NL_temporal_processor": -0.16313839776274902,
+      "NL0_combined": 1.4868035159715336,
+      "M_combined": 3.167903829127332,
+      "NL0_residualized": 0.17964576019888684,
+      "n_qubits": 6,
+      "n_observables": 72,
+      "circuit_depth": 360,
+      "tap_buffer": 0
+    }
+  ],
+  "architecture_summary": [
+    {
+      "architecture": "serial",
+      "M_memory_mean": 3.159222564039043,
+      "NL0_processor_mean": 1.1208274211527147e-08,
+      "NL0_processor_std": 1.1174276962067076e-08,
+      "eta_NL0": 7.982963501996405e-09,
+      "eta_evaluable": true,
+      "eta_reason": "",
+      "n_qubits": 6,
+      "n_observables": 72,
+      "circuit_depth": 360,
+      "classical_tap_buffer": 0
+    },
+    {
+      "architecture": "dual_route_current",
+      "M_memory_mean": 3.295325405238721,
+      "NL0_processor_mean": 1.215581395054162,
+      "NL0_processor_std": 0.059355135212414756,
+      "eta_NL0": 0.8657837707470818,
+      "eta_evaluable": true,
+      "eta_reason": "",
+      "n_qubits": 6,
+      "n_observables": 72,
+      "circuit_depth": 450,
+      "classical_tap_buffer": 0
+    },
+    {
+      "architecture": "parallel_fixed_taps",
+      "M_memory_mean": 3.295325405238721,
+      "NL0_processor_mean": 1.7409935303336408,
+      "NL0_processor_std": 0.057976717243909404,
+      "eta_NL0": 1.240002479201627,
+      "eta_evaluable": true,
+      "eta_reason": "",
+      "n_qubits": 6,
+      "n_observables": 72,
+      "circuit_depth": 450,
+      "classical_tap_buffer": 3
+    },
+    {
+      "architecture": "dual_route_weak",
+      "M_memory_mean": 2.9801077349687994,
+      "NL0_processor_mean": 1.288278527013428,
+      "NL0_processor_std": 0.014388214118192355,
+      "eta_NL0": 0.9175614610657026,
+      "eta_evaluable": true,
+      "eta_reason": "",
+      "n_qubits": 6,
+      "n_observables": 72,
+      "circuit_depth": 360,
+      "classical_tap_buffer": 0
+    }
+  ],
+  "lambda_scan": [
+    {
+      "lam": 0.0,
+      "M_memory": 2.684733768837754,
+      "NL0_processor": 1.27236329869353,
+      "NL_temporal_processor": -0.14410966185723578,
+      "M_processor": 0.29748467837020376,
+      "cross_sensitivity_dXP_dm": 0.0,
+      "isolation_passed": true
+    },
+    {
+      "lam": 0.05,
+      "M_memory": 2.885051603296142,
+      "NL0_processor": 1.3539713243084344,
+      "NL_temporal_processor": -0.1973739785203958,
+      "M_processor": 1.1135792303150507,
+      "cross_sensitivity_dXP_dm": 0.016460967307673588,
+      "isolation_passed": false
+    },
+    {
+      "lam": 0.2,
+      "M_memory": 2.422856941863387,
+      "NL0_processor": 1.392728902756176,
+      "NL_temporal_processor": -0.20540034787660102,
+      "M_processor": 1.1273753565330247,
+      "cross_sensitivity_dXP_dm": 0.0652937473370237,
+      "isolation_passed": false
+    }
+  ],
+  "feature_budget": [
+    {
+      "group": "X_M",
+      "metric": "M_signed",
+      "budget": 3,
+      "mean": 1.1699296035138915,
+      "std": 0.24123750763425647,
+      "n_repeats": 5
+    },
+    {
+      "group": "X_M",
+      "metric": "M_signed",
+      "budget": 8,
+      "mean": 1.9891779947645716,
+      "std": 0.24252736384067367,
+      "n_repeats": 5
+    },
+    {
+      "group": "X_M",
+      "metric": "M_signed",
+      "budget": 16,
+      "mean": 2.7173465016880476,
+      "std": 0.22111887073161815,
+      "n_repeats": 5
+    },
+    {
+      "group": "X_M",
+      "metric": "M_signed",
+      "budget": 32,
+      "mean": 2.840193536826838,
+      "std": 0.08801410407291077,
+      "n_repeats": 5
+    },
+    {
+      "group": "X_P",
+      "metric": "NL0_signed",
+      "budget": 3,
+      "mean": 1.3117746562798038,
+      "std": 0.10599055889339003,
+      "n_repeats": 5
+    },
+    {
+      "group": "X_P",
+      "metric": "NL0_signed",
+      "budget": 8,
+      "mean": 1.2999035818728495,
+      "std": 0.02965896532092718,
+      "n_repeats": 5
+    },
+    {
+      "group": "X_P",
+      "metric": "NL0_signed",
+      "budget": 16,
+      "mean": 1.2858486873470014,
+      "std": 0.023465267356789495,
+      "n_repeats": 5
+    },
+    {
+      "group": "X_P",
+      "metric": "NL0_signed",
+      "budget": 32,
+      "mean": 1.274668825497438,
+      "std": 0.008189780145243474,
+      "n_repeats": 5
+    }
+  ],
+  "response_stencil_raw": {
+    "m": {
+      "-0.1": [
+        3.241802145982102,
+        1.2689962354181774
+      ],
+      "-0.05": [
+        3.302996190070406,
+        1.2689962354181774
+      ],
+      "0.05": [
+        2.903169045203955,
+        1.2689962354181774
+      ],
+      "0.1": [
+        2.954294738322928,
+        1.2689962354181774
+      ]
+    },
+    "g": {
+      "-0.1": [
+        3.0937287457017133,
+        1.2840158126752028
+      ],
+      "-0.05": [
+        3.0937287457017133,
+        1.2689925831811015
+      ],
+      "0.05": [
+        3.0937287457017133,
+        1.2695398417796175
+      ],
+      "0.1": [
+        3.0937287457017133,
+        1.2692325997626481
+      ]
+    },
+    "J": {
+      "-0.1": [
+        3.0937287457017133,
+        1.2724454863940053
+      ],
+      "-0.05": [
+        3.0937287457017133,
+        1.2684734370736126
+      ],
+      "0.05": [
+        3.0937287457017133,
+        1.2696543407958254
+      ],
+      "0.1": [
+        3.0937287457017133,
+        1.2703999197930824
+      ]
+    }
+  },
+  "response_jacobian": {
+    "M_memory|m": {
+      "small_cd": -3.99827144866451,
+      "large_cd": -1.4375370382958685,
+      "five_point": -4.851849585454058,
+      "quadratic": -1.9496839203695986,
+      "relative_spread": 0.46099636428499247,
+      "sign_flip": false,
+      "status": "UNSTABLE"
+    },
+    "NL0_processor|m": {
+      "small_cd": 0.0,
+      "large_cd": 0.0,
+      "five_point": 7.401486830834376e-16,
+      "quadratic": -5.617333549722721e-15,
+      "relative_spread": 0.0025540094474479497,
+      "sign_flip": true,
+      "status": "STABLE"
+    },
+    "M_memory|g": {
+      "small_cd": 0.0,
+      "large_cd": 0.0,
+      "five_point": -1.4802973661668753e-15,
+      "quadratic": -1.1234667099445442e-14,
+      "relative_spread": 0.004675326105769496,
+      "sign_flip": false,
+      "status": "STABLE"
+    },
+    "NL0_processor|g": {
+      "small_cd": 0.005472585985160094,
+      "large_cd": -0.07391606456277344,
+      "five_point": 0.03193546950113645,
+      "quadratic": -0.058038334453188484,
+      "relative_spread": 1.8498381944972728,
+      "sign_flip": true,
+      "status": "UNSTABLE"
+    },
+    "M_memory|J": {
+      "small_cd": 0.0,
+      "large_cd": 0.0,
+      "five_point": -1.4802973661668753e-15,
+      "quadratic": -1.1234667099445442e-14,
+      "relative_spread": 0.004675326105769496,
+      "sign_flip": false,
+      "status": "STABLE"
+    },
+    "NL0_processor|J": {
+      "small_cd": 0.011809037222128005,
+      "large_cd": -0.010227833004614606,
+      "five_point": 0.019154660631042947,
+      "quadratic": -0.005820458959270384,
+      "relative_spread": 3.2548793719336295,
+      "sign_flip": true,
+      "status": "UNSTABLE"
+    }
+  },
+  "decoupling_metrics": {
+    "dM_dm": -4.851849585454058,
+    "dM_dg": -1.4802973661668753e-15,
+    "dM_dJ": -1.4802973661668753e-15,
+    "dNL0_dm": 7.401486830834376e-16,
+    "dNL0_dg": 0.03193546950113645,
+    "dNL0_dJ": 0.019154660631042947,
+    "S_M_P": 2.0934566115783664e-15,
+    "S_NL_P": 0.03723943120065669,
+    "R_M": {
+      "numerator": 4.851849585454058,
+      "denominator": 2.0934566115783664e-15,
+      "denominator_uncertainty": 0.0,
+      "ratio": NaN,
+      "evaluable": false,
+      "rejection_reason": "denominator_below_floor (2.093e-15 < 1e-09)",
+      "floor": 1e-09,
+      "uncertainty_multiple": 2.0
+    },
+    "R_NL0": {
+      "numerator": 0.03723943120065669,
+      "denominator": 7.401486830834376e-16,
+      "denominator_uncertainty": 0.0,
+      "ratio": NaN,
+      "evaluable": false,
+      "rejection_reason": "denominator_below_floor (7.401e-16 < 1e-09)",
+      "floor": 1e-09,
+      "uncertainty_multiple": 2.0
+    },
+    "interior_margin_ok": true
+  },
+  "frozen_readout": {
+    "center_capacity": 1.4321464263123873,
+    "plus_capacity": 1.4321464263123873,
+    "minus_capacity": 1.4321464263123873,
+    "retrained_plus": 1.2689962354181774,
+    "retrained_minus": 1.2689962354181774,
+    "frozen_swing": 0.0,
+    "retrained_swing": 0.0,
+    "interpretation": "frozen and retrained readouts respond comparably"
+  },
+  "backaction": [
+    {
+      "condition": "legacy serial collision interface",
+      "mean": 0.02435359199689598,
+      "max": 0.03581998687971713,
+      "final": 0.020765398345671867,
+      "trajectory": [
+        0.03185052570514307,
+        0.032816198577043265,
+        0.03152299899674964,
+        0.03581998687971713,
+        0.02770726482980572,
+        0.011168734165734724,
+        0.028868505452018023,
+        0.0264146886001699,
+        0.020753762192358687,
+        0.011271028461327298,
+        0.01328401175701249,
+        0.020765398345671867
+      ]
+    },
+    {
+      "condition": "dual_route_weak lambda=0.0",
+      "max_memory_feature_shift": 0.0,
+      "mean": null,
+      "max": null,
+      "final": null
+    },
+    {
+      "condition": "dual_route_weak lambda=0.05",
+      "max_memory_feature_shift": 0.06601852109578529,
+      "mean": null,
+      "max": null,
+      "final": null
+    },
+    {
+      "condition": "dual_route_weak lambda=0.2",
+      "max_memory_feature_shift": 0.23923800961196298,
+      "mean": null,
+      "max": null,
+      "final": null
+    }
+  ],
+  "chaos": {
+    "operator_entanglement": 0.5915929084972092,
+    "max": 1.3862943611198906,
+    "normalized": 0.42674407765700106,
+    "valid": true,
+    "r_mean": 0.5417363760053648,
+    "symmetry_used": "global_X_parity",
+    "note": "secondary diagnostic; never used to define success"
+  },
+  "gate_thresholds": {
+    "isolation_atol": 1e-10,
+    "min_memory": 0.5,
+    "min_nl0": 0.2,
+    "eta_min": 0.7,
+    "R_min": 2.0,
+    "angle_range": [
+      70.0,
+      110.0
+    ],
+    "seed_fraction": 0.8
+  },
+  "gates": {
+    "A_structural_isolation": {
+      "result": "PASS",
+      "max_abs_dXP_dm": 0.0,
+      "max_abs_dXM_dg": 0.0,
+      "falsifiability_control_failed_as_required": true
+    },
+    "B_numerical_validity": {
+      "result": "PASS",
+      "ceiling_contaminated_any": false,
+      "note": "trace/Hermiticity/positivity and determinism verified in tests/test_v3_architectures.py"
+    },
+    "C_nontrivial_memory": {
+      "result": "PASS",
+      "M_mean": 3.295325405238721,
+      "threshold": 0.5
+    },
+    "D_nontrivial_instantaneous_NL": {
+      "result": "PASS",
+      "NL0_mean": 1.215581395054162,
+      "eta": 0.8657837707470818,
+      "eta_evaluable": true,
+      "threshold": 0.2,
+      "eta_min": 0.7
+    },
+    "E_stable_response": {
+      "result": "NOT EVALUABLE",
+      "decisive_statuses": [
+        "UNSTABLE",
+        "UNSTABLE",
+        "UNSTABLE"
+      ],
+      "note": "SMOKE mode has too few seeds for hierarchical bootstrap intervals"
+    },
+    "F_memory_selectivity": {
+      "result": "NOT EVALUABLE",
+      "numerator": 4.851849585454058,
+      "denominator": 2.0934566115783664e-15,
+      "reason": "denominator_below_floor (2.093e-15 < 1e-09)",
+      "structural_note": "cross-derivative denominator is an EXACT structural zero; evidence is the isolation bound in Gate A, not a ratio"
+    },
+    "G_instantaneous_NL_selectivity": {
+      "result": "NOT EVALUABLE",
+      "numerator": 0.03723943120065669,
+      "denominator": 7.401486830834376e-16,
+      "reason": "denominator_below_floor (7.401e-16 < 1e-09)",
+      "structural_note": "cross-derivative denominator is an EXACT structural zero; evidence is the isolation bound in Gate A, not a ratio"
+    },
+    "H_response_geometry": {
+      "result": "NOT EVALUABLE",
+      "reason": "a response vector has zero norm (exact structural isolation)"
+    },
+    "I_seed_robustness": {
+      "result": "NOT EVALUABLE",
+      "n_seeds_run": 2,
+      "n_seeds_with_effect": 2,
+      "driven_by_one_seed": false,
+      "reason": "held-out confirmation not run"
+    },
+    "J_neighborhood_robustness": {
+      "result": "NOT EVALUABLE",
+      "reason": "preregistered neighborhood sweep runs only in CONFIRMATION mode"
+    },
+    "K_matched_resource_usefulness": {
+      "result": "NOT EVALUABLE",
+      "reason": "matched-resource Pareto criterion is evaluated only under held-out confirmation"
+    }
+  },
+  "gate_summary": {
+    "pass": 4,
+    "fail": 0,
+    "not_evaluable": 7,
+    "total": 11
+  },
+  "conclusion": {
+    "outcome": "G",
+    "rationale": "SMOKE mode validates software only. Structural isolation and the module implementations are exercised end to end, but no scientific claim is made. Unexecuted: DISCOVERY and CONFIRMATION stages, held-out seeds, neighborhood sweep, and the matched-resource Pareto criterion.",
+    "claim_ladder": {
+      "1": {
+        "description": "directional information transfer",
+        "supported": true
+      },
+      "2": {
+        "description": "reduced memory back-action",
+        "supported": true
+      },
+      "3": {
+        "description": "local fixed-delay control decoupling",
+        "supported": false
+      },
+      "4": {
+        "description": "seed- and neighborhood-robust decoupling",
+        "supported": false
+      },
+      "5": {
+        "description": "matched-resource Pareto expansion",
+        "supported": false
+      }
+    },
+    "highest_supported_level": 2
+  }
+}

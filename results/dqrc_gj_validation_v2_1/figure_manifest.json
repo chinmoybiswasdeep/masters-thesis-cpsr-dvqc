@@ -1,0 +1,93 @@
+[
+  {
+    "figure": "01_causal_latency_by_feature_group",
+    "source_data_key": "phase1_causal_latency",
+    "description": "Causal latency ell_0 and NL_literal vs NL_local by feature group",
+    "run_mode": "DISCOVERY",
+    "n_seeds": 1
+  },
+  {
+    "figure": "02_v1_reproduction_vs_v21_reevaluation",
+    "source_data_key": "exact_v1_reproduction",
+    "description": "V1 exact protocol vs V2.1 corrected protocol at the same (g,J,m) point",
+    "run_mode": "DISCOVERY",
+    "n_seeds": 1
+  },
+  {
+    "figure": "03_matched_feature_budget_curve",
+    "source_data_key": "phase3_budget_scan",
+    "description": "Budget-matched random-projection M_bc scan vs X_M baseline",
+    "run_mode": "DISCOVERY",
+    "n_seeds": 1
+  },
+  {
+    "figure": "04_residualized_feature_capacity",
+    "source_data_key": "phase3_feature_groups",
+    "description": "M_bc of X_P vs its train-fit residual against X_M",
+    "run_mode": "DISCOVERY",
+    "n_seeds": 1
+  },
+  {
+    "figure": "05_discovery_3d_projection",
+    "source_data_key": "phase4_discovery_table",
+    "description": "(g,J) projection of the 3D discovery scan, colored by M_bc/NL_local_bc/validity",
+    "run_mode": "DISCOVERY",
+    "n_seeds": 1
+  },
+  {
+    "figure": "06_symmetry_resolved_chaos_diagnostics",
+    "source_data_key": "phase5_chaos_summary",
+    "description": "Symmetry-resolved <r> distribution across the discovery scan",
+    "run_mode": "DISCOVERY",
+    "n_seeds": 1
+  },
+  {
+    "figure": "07_normalized_jacobian",
+    "source_data_key": "phase7_decoupling_metrics",
+    "description": "Normalized Jacobian of (M, NL_local) w.r.t. dimensionless (m,g,J)",
+    "run_mode": "DISCOVERY",
+    "n_seeds": 1
+  },
+  {
+    "figure": "08_reset_period_capacity_comparison",
+    "source_data_key": "phase8_reset_response",
+    "description": "M_bc and NL_local_bc vs processor reset period K, common random numbers",
+    "run_mode": "DISCOVERY",
+    "n_seeds": 1
+  },
+  {
+    "figure": "09_robust_timescale_descriptors",
+    "source_data_key": "phase9_timescales",
+    "description": "Model-free timescale descriptors for processor and memory autocorrelation",
+    "run_mode": "DISCOVERY",
+    "n_seeds": 1
+  },
+  {
+    "figure": "10_backaction_trajectory",
+    "source_data_key": "phase10_backaction_trajectory",
+    "description": "D_M(t) trajectory, interface on vs off, common random numbers",
+    "run_mode": "DISCOVERY",
+    "n_seeds": 1
+  },
+  {
+    "figure": "11_confirmation_seed_results",
+    "source_data_key": "phase11_confirmation_smoke_test",
+    "description": "Per-seed confirmation-stage results (reduced scale, NOT the required FULL design)",
+    "run_mode": "DISCOVERY",
+    "n_seeds": 1
+  },
+  {
+    "figure": "12_neighborhood_pass_fail_map",
+    "source_data_key": "phase11b_neighborhood",
+    "description": "Minimal one-axis-at-a-time neighborhood nontriviality check",
+    "run_mode": "DISCOVERY",
+    "n_seeds": 1
+  },
+  {
+    "figure": "13_final_decision_chart",
+    "source_data_key": "gates",
+    "description": "Per-gate PASS/FAIL/NOT EVALUABLE summary",
+    "run_mode": "DISCOVERY",
+    "n_seeds": 1
+  }
+]

@@ -1,0 +1,56 @@
+{
+  "A_software_numerical_validity": {
+    "result": "PASS",
+    "tests_passed": 121,
+    "tests_failed": 0
+  },
+  "B_structural_isolation": {
+    "result": "PASS",
+    "n_configs": 6,
+    "worst_dXP_dm": 0.0,
+    "falsifiability_control_failed": true
+  },
+  "C_nontrivial_memory": {
+    "result": "PASS",
+    "median_M": 2.4168833358686452
+  },
+  "D_memory_controllability": {
+    "result": "NOT EVALUABLE",
+    "reason": "requires the confirmation-stage five-point stencil with hierarchical intervals"
+  },
+  "E_nontrivial_instantaneous_NL": {
+    "result": "PASS",
+    "median_NL0": 0.4660430462784293
+  },
+  "G_processor_controllability": {
+    "result": "FAIL",
+    "best_E_NL": 0.07392063841130998,
+    "threshold": 0.2,
+    "note": "discovery-stage dynamic range; the confirmation gate additionally requires a resolved S_NL^P confidence interval"
+  },
+  "F_retained_processor_NL": {
+    "result": "NOT EVALUABLE",
+    "reason": "paired per-seed standalone matching runs in confirmation"
+  },
+  "H_off_diagonal_suppression": {
+    "result": "PASS",
+    "note": "off-diagonal sensitivity is an EXACT structural zero for the parallel routes; reported as an isolation bound rather than a ratio",
+    "upper_bound": 0.0
+  },
+  "I_response_geometry": {
+    "result": "NOT EVALUABLE",
+    "reason": "requires confirmation-stage derivatives"
+  },
+  "J_seed_robustness": {
+    "result": "NOT EVALUABLE",
+    "reason": "held-out confirmation not executed"
+  },
+  "K_neighborhood_robustness": {
+    "result": "NOT EVALUABLE",
+    "reason": "held-out confirmation not executed"
+  },
+  "L_matched_resource_usefulness": {
+    "result": "NOT EVALUABLE",
+    "reason": "Pareto comparison runs in confirmation"
+  }
+}

@@ -69,6 +69,29 @@ class ControlRange:
         return self.p_min + p_tilde * (self.p_max - self.p_min)
 
 
+def stencil_margin_ok(p_tilde: float, h_tilde: float, k: int = 2) -> bool:
+    """V2.1 Defect 1: a candidate point at dimensionless coordinate
+    `p_tilde` (in [0,1]) can only support a `k`-step-wide symmetric stencil
+    (default k=2, i.e. offsets {-2h,-h,0,h,2h}) if EVERY offset stays
+    in-domain: `k*h_tilde <= p_tilde <= 1 - k*h_tilde`. V2's own candidate
+    selection picked J*=0.6 (the declared range's own upper bound) and then
+    evaluated J*+h_J=0.65, outside [0.05,0.6] -- this is the check that
+    catches that mistake before any circuit is ever simulated."""
+    return (k * h_tilde) <= p_tilde <= (1.0 - k * h_tilde)
+
+
+def assert_in_domain(value: float, p_min: float, p_max: float, name: str) -> None:
+    """Raise if `value` (a RAW, not dimensionless, parameter value) falls
+    outside its declared [p_min, p_max] domain. Every raw-unit stencil
+    evaluation in V2.1's response estimation calls this before running a
+    single circuit -- an out-of-domain evaluation is a hard error, not a
+    warning, per Defect 1's 'never use a symmetric stencil at a point
+    without sufficient margin from every boundary' rule."""
+    if not (p_min <= value <= p_max):
+        raise ValueError(f"{name}={value!r} is outside its declared domain [{p_min}, {p_max}] -- "
+                          f"refusing to evaluate a parameter point outside its own preregistered range.")
+
+
 def robust_output_scale(values: Sequence[float]) -> float:
     """Interquartile range of a discovery-scan output column -- the 'robust
     output scale' Part 7 asks response-vector axes to be normalized by

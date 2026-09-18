@@ -1,0 +1,19 @@
+{
+  "key": "22a2bd9ce9c3a0a9c41cdccd3071c57cc9d9cd942a5eeaca7f9af33c01554bce",
+  "payload": {
+    "architecture": "dual_route_current",
+    "reservoir_idx": -11,
+    "input_idx": 0,
+    "M_memory": 3.371102286540094,
+    "NL0_processor": 1.274936530266577,
+    "NL_temporal_processor": -0.14151107216216338,
+    "NL0_combined": 1.2796691856566746,
+    "M_combined": 3.4002587793181185,
+    "NL0_residualized": -0.10469565143321624,
+    "n_qubits": 6,
+    "n_observables": 72,
+    "circuit_depth": 450,
+    "tap_buffer": 0
+  },
+  "saved_at": "2026-09-18T00:47:55Z"
+}

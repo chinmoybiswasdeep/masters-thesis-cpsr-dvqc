@@ -1,0 +1,93 @@
+{
+  "run_mode": "SMOKE",
+  "authorized": false,
+  "config": {
+    "T": 120,
+    "washout": 15,
+    "n_val": 22,
+    "n_test": 28,
+    "max_delay": 5,
+    "max_degree": 6,
+    "max_targets_per_degree": 20,
+    "n_surrogates": 19,
+    "n_reservoir": 2,
+    "n_input": 1,
+    "L": 3,
+    "N_P": 3,
+    "R": 2,
+    "n_m_points": 5,
+    "n_gJ_points": 6,
+    "n_proj_repeats": 5,
+    "n_boot": 200
+  },
+  "control_ranges": {
+    "m": [
+      0.1,
+      0.95
+    ],
+    "g": [
+      0.1,
+      1.5
+    ],
+    "J": [
+      0.05,
+      1.2
+    ],
+    "h_small": 0.05,
+    "h_large": 0.1
+  },
+  "thresholds": {
+    "E_NL_min": 0.2,
+    "eta_min": 0.7,
+    "min_memory": 0.5,
+    "min_NL0": 0.2,
+    "null_fraction_max": 0.2,
+    "isolation_atol": 1e-10,
+    "angle_range": [
+      70.0,
+      110.0
+    ],
+    "seed_fraction": 0.8,
+    "ceiling_max": 0.95
+  },
+  "processor_variants": [
+    "P0",
+    "P1"
+  ],
+  "memory_variants": [
+    "M0",
+    "M1"
+  ],
+  "selected_max_degree": 3,
+  "environment": {
+    "in_colab": false,
+    "python": "3.14.4",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "gpu_available": false,
+    "timestamp": "2026-09-18T02:10:56Z",
+    "qiskit_version": "2.5.2",
+    "qiskit_aer_version": "0.17.2",
+    "numpy_version": "2.5.2",
+    "scipy_version": "1.18.1",
+    "sklearn_version": "1.9.0",
+    "matplotlib_version": "3.11.1",
+    "ram_gb": 25.46,
+    "schema_version": "v3.0.0",
+    "git_commit": "a1ba7a94345fcab9a86727898e8ae5c7cdc71470",
+    "qiskit": "2.5.2",
+    "qiskit_aer": "0.17.2",
+    "sklearn": "1.9.0",
+    "precision": "complex128",
+    "simulator": "aer_density_matrix"
+  },
+  "paths": {
+    "repo_root": "D:\\Research\\QML\\results_1\\dvqc\\masters-thesis-cpsr-dvqc",
+    "code_dir": "D:\\Research\\QML\\results_1\\dvqc\\masters-thesis-cpsr-dvqc\\code",
+    "results_root": "D:\\Research\\QML\\results_1\\dvqc\\masters-thesis-cpsr-dvqc\\results\\dqrc_dual_route_v3_1",
+    "cache_root": "D:\\Research\\QML\\results_1\\dvqc\\masters-thesis-cpsr-dvqc\\code\\_dqrc_cache_v3",
+    "checkpoint_root": "D:\\Research\\QML\\results_1\\dvqc\\masters-thesis-cpsr-dvqc\\results\\dqrc_dual_route_v3_1\\_checkpoints",
+    "persistent": false
+  },
+  "cache_schema_version": "v3.0.0",
+  "frozen_config_sha256": "50ff86854fe180d26b3678f61e7ae94632516cc5a8d84405459ac74af835f8f0"
+}

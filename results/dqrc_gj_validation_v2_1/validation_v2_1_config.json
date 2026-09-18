@@ -1,0 +1,50 @@
+{
+  "RUN_MODE": "DISCOVERY",
+  "MODE_CFG": {
+    "T": 260,
+    "washout": 30,
+    "n_val": 45,
+    "n_test": 60,
+    "max_delay": 10,
+    "max_degree": 3,
+    "max_targets_per_degree": 10,
+    "n_surrogates": 49,
+    "n_discovery_points": 16,
+    "n_confirm_reservoir": 2,
+    "n_confirm_input": 1,
+    "reset_periods": [
+      1,
+      4,
+      null
+    ]
+  },
+  "provenance": {
+    "run_mode": "DISCOVERY",
+    "provenance_tag": "schema=v2.1.0|git=a1ba7a94345fcab9a86727898e8ae5c7cdc71470|qiskit=2.5.2|aer=0.17.2|py=3.14.4|precision=complex128",
+    "python_version": "3.14.4",
+    "qiskit_version": "2.5.2",
+    "qiskit_aer_version": "0.17.2",
+    "sklearn_version": "1.9.0",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "timestamp": "2026-09-17T16:44:50Z"
+  },
+  "THETA_STAR": 0.2,
+  "PHI_STAR": 0.8,
+  "N_M": 2,
+  "N_P": 5,
+  "H_TILDE": 0.05,
+  "control_ranges": {
+    "m": [
+      0.1,
+      1.0
+    ],
+    "g": [
+      0.05,
+      0.6
+    ],
+    "J": [
+      0.05,
+      0.6
+    ]
+  }
+}

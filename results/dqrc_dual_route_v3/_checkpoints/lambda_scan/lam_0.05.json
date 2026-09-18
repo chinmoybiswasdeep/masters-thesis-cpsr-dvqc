@@ -1,0 +1,13 @@
+{
+  "key": "55d33f7576b10691989fa382f6f12a0397c870a53d44e271b5eea9cb45ff9e21",
+  "payload": {
+    "lam": 0.05,
+    "M_memory": 2.885051603296142,
+    "NL0_processor": 1.3539713243084344,
+    "NL_temporal_processor": -0.1973739785203958,
+    "M_processor": 1.1135792303150507,
+    "cross_sensitivity_dXP_dm": 0.016460967307673588,
+    "isolation_passed": false
+  },
+  "saved_at": "2026-09-18T00:49:22Z"
+}

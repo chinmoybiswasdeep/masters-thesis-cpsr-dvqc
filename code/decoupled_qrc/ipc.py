@@ -102,7 +102,7 @@ class Profile:
 
 
 def generate_profiles(max_delay: int, max_degree: int, max_targets_per_degree: int,
-                       seed: int = 0) -> dict:
+                       seed: int = 0, always_include_single_delays: bool = False) -> dict:
     """All degree-1..max_degree profiles using delays in [0, max_delay],
     each delay used at most once per profile (Part 7's degree-2/3 examples:
     L2(u_{t-k}); L1(u_{t-k1})L1(u_{t-k2}); L3(...); L2(...)L1(...);
@@ -147,8 +147,26 @@ def generate_profiles(max_delay: int, max_degree: int, max_targets_per_degree: i
         profiles = list(profiles)
         capped = len(profiles) > max_targets_per_degree
         if capped:
-            idx = rng.choice(len(profiles), size=max_targets_per_degree, replace=False)
-            profiles = [profiles[i] for i in idx]
+            if always_include_single_delays:
+                # A profile with exactly ONE (delay, degree) pair -- i.e. L_d(v_{t-tau}) -- is the
+                # target that DEFINES the fixed-delay capacity C_{d,tau}. Random subsampling can
+                # otherwise drop every one of them (verified: at max_delay=5, max_degree=3,
+                # max_targets_per_degree=6 not a single single-delay profile survived), which
+                # silently forces the delay-resolved metrics to exactly 0 for want of a target.
+                # These are therefore retained first, and the random draw fills the remainder.
+                # sorted() because `profiles` came from a set -- without it the retained
+                # single-delay targets would vary between interpreter runs.
+                singles = sorted((p for p in profiles if len(p.pairs) == 1), key=lambda p: p.pairs)
+                rest = sorted((p for p in profiles if len(p.pairs) != 1), key=lambda p: p.pairs)
+                keep = singles[:max_targets_per_degree]
+                n_left = max_targets_per_degree - len(keep)
+                if n_left > 0 and rest:
+                    idx = rng.choice(len(rest), size=min(n_left, len(rest)), replace=False)
+                    keep = keep + [rest[i] for i in idx]
+                profiles = keep
+            else:
+                idx = rng.choice(len(profiles), size=max_targets_per_degree, replace=False)
+                profiles = [profiles[i] for i in idx]
         out[d] = profiles
         was_capped[d] = capped
     out["_was_capped"] = was_capped
@@ -199,6 +217,26 @@ def _capacity_score(X: np.ndarray, y: np.ndarray, train: np.ndarray, val: np.nda
     return float(np.clip(cov / denom, 0.0, 1.0))
 
 
+def _capacity_score_fixed_alpha(X: np.ndarray, y: np.ndarray, train: np.ndarray, val: np.ndarray,
+                                 test: np.ndarray, alpha: float) -> float:
+    """V2.2 Phase 5: identical scoring to `_capacity_score`, but with the
+    ridge `alpha` supplied directly instead of searched over `alphas` on
+    the validation block. Used by `frozen_protocol.py` so a stencil's
+    plus/minus points reuse the EXACT hyperparameter chosen once at the
+    center point, rather than each independently re-selecting (possibly
+    different) alphas -- a finite-difference derivative is only valid if
+    the readout definition does not change between the two points being
+    differenced."""
+    scaler = StandardScaler().fit(X[train])
+    Xtr, Xte = scaler.transform(X[train]), scaler.transform(X[test])
+    model = Ridge(alpha=alpha).fit(Xtr, y[train])
+    pred = model.predict(Xte)
+    y_test = y[test]
+    cov = np.cov(pred, y_test)[0, 1] ** 2
+    denom = np.var(y_test) * np.var(pred) + 1e-12
+    return float(np.clip(cov / denom, 0.0, 1.0))
+
+
 @dataclass
 class IPCResult:
     ipc_by_degree: dict           # {degree: float}  (sum of significant target capacities)
@@ -235,7 +273,7 @@ class ProfileCapacity:
 def compute_ipc_detailed(u: np.ndarray, X: np.ndarray, train: np.ndarray, val: np.ndarray, test: np.ndarray,
                           max_delay: int = 8, max_degree: int = 6, max_targets_per_degree: int = 25,
                           n_surrogates: int = 8, significance_z: float = 2.0, alphas=DEFAULT_ALPHAS,
-                          seed: int = 0):
+                          seed: int = 0, always_include_single_delays: bool = False):
     """Same computation `compute_ipc` performs, but returns the full list of
     per-profile `ProfileCapacity` records instead of only the degree-summed
     total -- the raw material for order-delay (C_{d,tau}) decomposition.
@@ -244,7 +282,8 @@ def compute_ipc_detailed(u: np.ndarray, X: np.ndarray, train: np.ndarray, val: n
     bit (verified by `tests/test_ipc_decomposition.py`), so nothing about
     the legacy M/NL definitions is silently altered."""
     v = to_v(u)
-    profiles = generate_profiles(max_delay, max_degree, max_targets_per_degree, seed=seed)
+    profiles = generate_profiles(max_delay, max_degree, max_targets_per_degree, seed=seed,
+                                  always_include_single_delays=always_include_single_delays)
     was_capped = profiles.pop("_was_capped")
     rng = np.random.RandomState(seed + 9999)
 

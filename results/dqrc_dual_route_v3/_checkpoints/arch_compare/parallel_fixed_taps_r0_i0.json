@@ -1,0 +1,19 @@
+{
+  "key": "e33b016afa03dc57b23fcfcba9b8574655f351c24796a2c981310289be508f37",
+  "payload": {
+    "architecture": "parallel_fixed_taps",
+    "reservoir_idx": -11,
+    "input_idx": 0,
+    "M_memory": 3.371102286540094,
+    "NL0_processor": 1.7989702475775502,
+    "NL_temporal_processor": 3.49645013473501,
+    "NL0_combined": 1.0784089625462112,
+    "M_combined": 3.573657601902881,
+    "NL0_residualized": 0.03265400295562253,
+    "n_qubits": 6,
+    "n_observables": 72,
+    "circuit_depth": 450,
+    "tap_buffer": 3
+  },
+  "saved_at": "2026-09-18T00:48:20Z"
+}

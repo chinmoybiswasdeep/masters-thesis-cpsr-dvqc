@@ -1,0 +1,74 @@
+[
+  {
+    "figure": "01_intervention_causal_response",
+    "source_data_key": "phase1_intervention",
+    "description": "Feature divergence after a single-timestep input intervention, by feature group",
+    "run_stage": "SCREEN",
+    "delay_definition": "ell_causal (intervention-based)",
+    "capacity_estimator": "signed bias-corrected (raw-null), unclipped -- Phase 4"
+  },
+  {
+    "figure": "02_nl_tau_signed_clipped_legacy",
+    "source_data_key": "phase3_nl_tensor_reference",
+    "description": "C_{d,tau} heatmap and NL_tau under signed/clipped/legacy capacity definitions",
+    "run_stage": "SCREEN",
+    "delay_definition": "fixed (see Phase 2/3)",
+    "capacity_estimator": "signed bias-corrected (raw-null), unclipped -- Phase 4"
+  },
+  {
+    "figure": "03_standalone_vs_dqrc_retained_nl",
+    "source_data_key": "phase6_retained_nl",
+    "description": "eta_NL(tau) = NL_tau^DQRC / NL_tau^standalone across fixed delays",
+    "run_stage": "SCREEN",
+    "delay_definition": "fixed (see Phase 2/3)",
+    "capacity_estimator": "signed bias-corrected (raw-null), unclipped -- Phase 4"
+  },
+  {
+    "figure": "04_matched_feature_budget_curves",
+    "source_data_key": "phase7_budget_scan",
+    "description": "M_signed vs random-projection feature budget for X_M/X_P/X_P_perp/X_M+X_P",
+    "run_stage": "SCREEN",
+    "delay_definition": "fixed (see Phase 2/3)",
+    "capacity_estimator": "signed bias-corrected (raw-null), unclipped -- Phase 4"
+  },
+  {
+    "figure": "05_four_candidate_screening",
+    "source_data_key": "phase8_screening_table",
+    "description": "NL_0_signed for all 4 V2.1 candidates x screening seeds, valid vs rejected",
+    "run_stage": "SCREEN",
+    "delay_definition": "fixed (see Phase 2/3)",
+    "capacity_estimator": "signed bias-corrected (raw-null), unclipped -- Phase 4"
+  },
+  {
+    "figure": "06_reset_comparison_fixed_delays",
+    "source_data_key": "phase11_reset_fixed_delay",
+    "description": "NL_tau_signed vs fixed delay tau, for each reset period K",
+    "run_stage": "SCREEN",
+    "delay_definition": "fixed (see Phase 2/3)",
+    "capacity_estimator": "signed bias-corrected (raw-null), unclipped -- Phase 4"
+  },
+  {
+    "figure": "07_driven_correlation_descriptors",
+    "source_data_key": "phase12_driven_timescales",
+    "description": "Empirical autocorrelation of memory/processor feature time series from a real driven run",
+    "run_stage": "SCREEN",
+    "delay_definition": "fixed (see Phase 2/3)",
+    "capacity_estimator": "signed bias-corrected (raw-null), unclipped -- Phase 4"
+  },
+  {
+    "figure": "08_backaction_decomposition",
+    "source_data_key": "phase13_backaction_decomposition",
+    "description": "Mean D_M(t) for full/memory-export-disabled/processor-reception-disabled vs both-disabled baseline",
+    "run_stage": "SCREEN",
+    "delay_definition": "fixed (see Phase 2/3)",
+    "capacity_estimator": "signed bias-corrected (raw-null), unclipped -- Phase 4"
+  },
+  {
+    "figure": "09_final_decision_chart",
+    "source_data_key": "gates",
+    "description": "Per-gate PASS/FAIL/NOT EVALUABLE summary",
+    "run_stage": "SCREEN",
+    "delay_definition": "fixed (see Phase 2/3)",
+    "capacity_estimator": "signed bias-corrected (raw-null), unclipped -- Phase 4"
+  }
+]

@@ -1,0 +1,786 @@
+{
+  "run_mode": "SMOKE",
+  "config": {
+    "T": 120,
+    "washout": 15,
+    "n_val": 22,
+    "n_test": 28,
+    "max_delay": 5,
+    "max_degree": 6,
+    "max_targets_per_degree": 20,
+    "n_surrogates": 19,
+    "n_reservoir": 2,
+    "n_input": 1,
+    "L": 3,
+    "N_P": 3,
+    "R": 2,
+    "n_m_points": 5,
+    "n_gJ_points": 6,
+    "n_proj_repeats": 5,
+    "n_boot": 200
+  },
+  "environment": {
+    "in_colab": false,
+    "python": "3.14.4",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "gpu_available": false,
+    "timestamp": "2026-09-18T02:10:56Z",
+    "qiskit_version": "2.5.2",
+    "qiskit_aer_version": "0.17.2",
+    "numpy_version": "2.5.2",
+    "scipy_version": "1.18.1",
+    "sklearn_version": "1.9.0",
+    "matplotlib_version": "3.11.1",
+    "ram_gb": 25.46,
+    "schema_version": "v3.0.0",
+    "git_commit": "a1ba7a94345fcab9a86727898e8ae5c7cdc71470",
+    "qiskit": "2.5.2",
+    "qiskit_aer": "0.17.2",
+    "sklearn": "1.9.0",
+    "precision": "complex128",
+    "simulator": "aer_density_matrix"
+  },
+  "control_ranges": {
+    "m": [
+      0.1,
+      0.95
+    ],
+    "g": [
+      0.1,
+      1.5
+    ],
+    "J": [
+      0.05,
+      1.2
+    ],
+    "h_small": 0.05,
+    "h_large": 0.1
+  },
+  "test_report": {
+    "command": "D:\\Research\\QML\\results_1\\dvqc\\masters-thesis-cpsr-dvqc\\.venv\\Scripts\\python.exe -m pytest tests/test_v3_1_workflow.py tests/test_v3_1_science.py tests/test_v3_architectures.py tests/test_v3_support.py -q --tb=short",
+    "returncode": 0,
+    "passed": 121,
+    "failed": 0,
+    "skipped": 0,
+    "wall_seconds": 14.85,
+    "log_path": "D:\\Research\\QML\\results_1\\dvqc\\masters-thesis-cpsr-dvqc\\results\\dqrc_dual_route_v3_1\\v3_1_test_log.txt",
+    "summary_line": "\u001b[32m\u001b[32m\u001b[1m121 passed\u001b[0m\u001b[32m in 13.53s\u001b[0m\u001b[0m"
+  },
+  "v3_audit": {
+    "found": true,
+    "standalone_NL0_raw": 2.0,
+    "standalone_NL0_null": 0.5959757665528413,
+    "standalone_NL0_signed": 1.4040242334471587,
+    "gJ_surface_spread": 0.020870058428858584,
+    "isolation": {
+      "serial": 0.14214521324395066,
+      "dual_route_current": 0.0,
+      "parallel_fixed_taps": 0.0,
+      "dual_route_weak": 0.0
+    },
+    "eta_by_arch": {
+      "serial": 7.982963501996405e-09,
+      "dual_route_current": 0.8657837707470818,
+      "parallel_fixed_taps": 1.240002479201627,
+      "dual_route_weak": 0.9175614610657026
+    },
+    "memory_scan": {
+      "0.3": 1.4777761546907675,
+      "0.6": 2.6772025404069066,
+      "0.9": 3.449873592603644
+    },
+    "dM_dm_local": -4.851849585454058,
+    "dM_dm_status": "UNSTABLE",
+    "n_not_evaluable_gates": 7,
+    "run_mode": "SMOKE",
+    "ceiling": {
+      "metric": "V3 NL_0",
+      "raw": 2.0,
+      "n_targets": 2,
+      "numerical_rank": 36,
+      "effective_rank": 1.3846202214161194,
+      "n_train": 53,
+      "target_count_ceiling": 2.0,
+      "rank_ceiling": 36.0,
+      "sample_ceiling": 53.0,
+      "effective_ceiling": 2.0,
+      "fraction_of_ceiling": 1.0,
+      "ceiling_contaminated": true,
+      "contamination_threshold": 0.95,
+      "reason": "raw 2.0000 is 100.0% of the effective ceiling 2.0 (binding: target_count); the metric is saturated and MUST NOT be differentiated"
+    }
+  },
+  "v3_execution_defects": {
+    "confirmation_seeds_imported": true,
+    "confirmation_seeds_called": false,
+    "RUN_WORK_defined": true,
+    "RUN_WORK_used_as_guard": false
+  },
+  "claim1_structural_isolation": {
+    "rows": [
+      {
+        "i": 0,
+        "architecture": "dual_route_current",
+        "m": 0.7612888510494312,
+        "g": 0.5980131100399646,
+        "J": 0.3563309899255303,
+        "max_abs_dXP_dm": 0.0,
+        "max_abs_dXM_dg": 0.0,
+        "max_abs_dXM_dJ": 0.0,
+        "passed": true,
+        "seed_stage": "discovery",
+        "reservoir_idx": -901,
+        "input_idx": 0,
+        "hamiltonian": 3722499494,
+        "disorder": 2899748338,
+        "input_sequence": 2995070999,
+        "regression_split": 2282776557,
+        "null_surrogate": 986136545,
+        "projection": 1787259004,
+        "bootstrap": 3131546693,
+        "shot_noise": 4028640718
+      },
+      {
+        "i": 1,
+        "architecture": "parallel_fixed_taps",
+        "m": 0.36250815320417185,
+        "g": 0.8744975319898554,
+        "J": 0.7062129975323639,
+        "max_abs_dXP_dm": 0.0,
+        "max_abs_dXM_dg": 0.0,
+        "max_abs_dXM_dJ": 0.0,
+        "passed": true,
+        "seed_stage": "discovery",
+        "reservoir_idx": -902,
+        "input_idx": 0,
+        "hamiltonian": 501518905,
+        "disorder": 1887988219,
+        "input_sequence": 847439918,
+        "regression_split": 1424821569,
+        "null_surrogate": 487794302,
+        "projection": 2963575795,
+        "bootstrap": 3288812615,
+        "shot_noise": 3992357361
+      },
+      {
+        "i": 2,
+        "architecture": "dual_route_current",
+        "m": 0.7804829858545919,
+        "g": 0.968494806558728,
+        "J": 0.8365706419038252,
+        "max_abs_dXP_dm": 0.0,
+        "max_abs_dXM_dg": 0.0,
+        "max_abs_dXM_dJ": 0.0,
+        "passed": true,
+        "seed_stage": "discovery",
+        "reservoir_idx": -903,
+        "input_idx": 0,
+        "hamiltonian": 2118523064,
+        "disorder": 2760839232,
+        "input_sequence": 1523723709,
+        "regression_split": 3537020538,
+        "null_surrogate": 2218505851,
+        "projection": 1234076119,
+        "bootstrap": 1515408021,
+        "shot_noise": 3835962273
+      },
+      {
+        "i": 3,
+        "architecture": "parallel_fixed_taps",
+        "m": 0.6094634289684544,
+        "g": 1.0724862901984014,
+        "J": 1.0171107256618983,
+        "max_abs_dXP_dm": 0.0,
+        "max_abs_dXM_dg": 0.0,
+        "max_abs_dXM_dJ": 0.0,
+        "passed": true,
+        "seed_stage": "discovery",
+        "reservoir_idx": -904,
+        "input_idx": 0,
+        "hamiltonian": 2568755276,
+        "disorder": 24828585,
+        "input_sequence": 2374528812,
+        "regression_split": 4007547570,
+        "null_surrogate": 2897031144,
+        "projection": 1791420022,
+        "bootstrap": 1437509986,
+        "shot_noise": 168083231
+      },
+      {
+        "i": 4,
+        "architecture": "dual_route_current",
+        "m": 0.25461356386785444,
+        "g": 0.3670888143674913,
+        "J": 0.4538981567039743,
+        "max_abs_dXP_dm": 0.0,
+        "max_abs_dXM_dg": 0.0,
+        "max_abs_dXM_dJ": 0.0,
+        "passed": true,
+        "seed_stage": "discovery",
+        "reservoir_idx": -905,
+        "input_idx": 0,
+        "hamiltonian": 2073064651,
+        "disorder": 1472852587,
+        "input_sequence": 4108843102,
+        "regression_split": 107345863,
+        "null_surrogate": 1718441088,
+        "projection": 2864109921,
+        "bootstrap": 2431854839,
+        "shot_noise": 1139381166
+      },
+      {
+        "i": 5,
+        "architecture": "parallel_fixed_taps",
+        "m": 0.6110261506952485,
+        "g": 1.1407938077950281,
+        "J": 0.9413495266656406,
+        "max_abs_dXP_dm": 0.0,
+        "max_abs_dXM_dg": 0.0,
+        "max_abs_dXM_dJ": 0.0,
+        "passed": true,
+        "seed_stage": "discovery",
+        "reservoir_idx": -906,
+        "input_idx": 0,
+        "hamiltonian": 2487003201,
+        "disorder": 926545364,
+        "input_sequence": 2941007381,
+        "regression_split": 1736157735,
+        "null_surrogate": 3430711681,
+        "projection": 1504941432,
+        "bootstrap": 669490139,
+        "shot_noise": 2427767560
+      }
+    ],
+    "n_pass": 6,
+    "n_total": 6,
+    "worst_dXP_dm": 0.0,
+    "atol": 1e-10,
+    "falsifiability_control_failed": true,
+    "serial_control_failed": true,
+    "claim1_pass": true
+  },
+  "ipc_ceiling_audit": {
+    "rows": [
+      {
+        "max_degree": 3,
+        "NL0_raw": 1.3126006214073422,
+        "n_targets": 2,
+        "fraction_of_ceiling": 0.6563003107036711,
+        "ceiling_contaminated": false,
+        "order_tail_fraction": 0.16655138906777464,
+        "order_declining": false,
+        "null_fraction": 0.49470771065675323,
+        "null_acceptable": false
+      },
+      {
+        "max_degree": 6,
+        "NL0_raw": 1.5538293726974293,
+        "n_targets": 5,
+        "fraction_of_ceiling": 0.7769146863487146,
+        "ceiling_contaminated": false,
+        "order_tail_fraction": 0.002816546387526886,
+        "order_declining": true,
+        "null_fraction": 0.5107465385762928,
+        "null_acceptable": false
+      }
+    ],
+    "selected_max_degree": 3,
+    "delay_tail": {
+      "kind": "delay",
+      "values": {
+        "0": 0.4510839824382754,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0018703151321368076,
+        "4": 0.003176386389425214,
+        "5": 0.0
+      },
+      "tail_value": 0.0,
+      "peak_value": 0.4510839824382754,
+      "tail_fraction": 0.0,
+      "declining": true,
+      "threshold": 0.1,
+      "recommendation": "delay horizon adequate: the memory tail has decayed"
+    }
+  },
+  "processor_ablations": {
+    "rows": [
+      {
+        "ablation": "encoding_only",
+        "NL0_signed": 0.720061980242943,
+        "M_signed": 0.4848334654600954,
+        "effective_rank": 1.4616193762162173
+      },
+      {
+        "ablation": "two_body_only",
+        "NL0_signed": 0.6632469729842843,
+        "M_signed": 0.35427314398490906,
+        "effective_rank": 1.4601767483374781
+      },
+      {
+        "ablation": "four_body_only",
+        "NL0_signed": 0.7103030678088387,
+        "M_signed": 0.3224347148119815,
+        "effective_rank": 1.4616193762162177
+      },
+      {
+        "ablation": "commuting",
+        "NL0_signed": 0.71030306780884,
+        "M_signed": 0.32243471481198016,
+        "effective_rank": 1.4616193762162175
+      },
+      {
+        "ablation": "noninteracting",
+        "NL0_signed": 0.7103030678088387,
+        "M_signed": 0.3224347148119815,
+        "effective_rank": 1.4616193762162177
+      },
+      {
+        "ablation": "full",
+        "NL0_signed": 0.6632469729842843,
+        "M_signed": 0.35427314398490906,
+        "effective_rank": 1.4601767483374781
+      },
+      {
+        "ablation": "randomized",
+        "NL0_signed": 0.6632469729812674,
+        "M_signed": 0.35427314398123555,
+        "effective_rank": 1.461381488898672
+      }
+    ],
+    "encoding_only": 0.720061980242943,
+    "full": 0.6632469729842843,
+    "delta_gJ": -0.056815007258658734,
+    "encoding_fraction": 1.0856619171634048,
+    "encoding_dominates": true
+  },
+  "discovery_plan": {
+    "memory": {
+      "variants": [
+        "M0",
+        "M1"
+      ],
+      "m_points": 5,
+      "seeds": 2,
+      "n_sims": 20
+    },
+    "processor": {
+      "variants": [
+        "P0",
+        "P1"
+      ],
+      "gJ_points": 6,
+      "seeds": 2,
+      "n_sims": 24
+    },
+    "total_sims": 44,
+    "runtime_estimate": {
+      "n_simulations": 44,
+      "seconds_per_simulation": 1.5,
+      "estimated_seconds": 66.0,
+      "estimated_minutes": 1.1,
+      "estimated_peak_mb": 0.262144,
+      "detail": {
+        "memory": {
+          "variants": [
+            "M0",
+            "M1"
+          ],
+          "m_points": 5,
+          "seeds": 2,
+          "n_sims": 20
+        },
+        "processor": {
+          "variants": [
+            "P0",
+            "P1"
+          ],
+          "gJ_points": 6,
+          "seeds": 2,
+          "n_sims": 24
+        },
+        "total_sims": 44
+      }
+    }
+  },
+  "discovery_executed": true,
+  "discovery_n_rows": 44,
+  "processor_dynamic_range": {
+    "P0": {
+      "E": NaN,
+      "n": 0
+    },
+    "P1": {
+      "E": 0.07392063841130998,
+      "q10": 0.4488179435264439,
+      "q90": 0.4832681431084177,
+      "median": 0.4660430462784293,
+      "n": 6
+    }
+  },
+  "candidate_selection": {
+    "memory_ranked": [
+      {
+        "group": [
+          "M0",
+          0.95
+        ],
+        "lcb": 3.4164098740157374,
+        "mean": 3.686649624964118,
+        "std": 0.38217672088352717,
+        "n": 2
+      },
+      {
+        "group": [
+          "M0",
+          0.7375
+        ],
+        "lcb": 2.713474249248771,
+        "mean": 3.156800022403072,
+        "std": 0.6269573209443506,
+        "n": 2
+      },
+      {
+        "group": [
+          "M0",
+          0.525
+        ],
+        "lcb": 2.711095965638274,
+        "mean": 3.062953284848021,
+        "std": 0.49760139284666377,
+        "n": 2
+      },
+      {
+        "group": [
+          "M1",
+          0.3125
+        ],
+        "lcb": 2.3726092450600316,
+        "mean": 2.4417694009394806,
+        "std": 0.09780723042055384,
+        "n": 2
+      },
+      {
+        "group": [
+          "M1",
+          0.525
+        ],
+        "lcb": 2.3307756714572356,
+        "mean": 2.3703130498068754,
+        "std": 0.05591429668273663,
+        "n": 2
+      }
+    ],
+    "processor_ranked": [
+      {
+        "group": [
+          "P1",
+          0.910964,
+          0.901327
+        ],
+        "lcb": 0.4488179494510638,
+        "mean": 0.4660430462795564,
+        "std": 0.024359965548044024,
+        "n": 2
+      },
+      {
+        "group": [
+          "P1",
+          0.770383,
+          0.941547
+        ],
+        "lcb": 0.4488179448610386,
+        "mean": 0.4660430439834167,
+        "std": 0.024359968792088047,
+        "n": 2
+      },
+      {
+        "group": [
+          "P1",
+          0.538784,
+          0.463592
+        ],
+        "lcb": 0.4488179421918493,
+        "mean": 0.4660430426503178,
+        "std": 0.024359970681605256,
+        "n": 2
+      }
+    ],
+    "candidate": {
+      "memory_variant": "M0",
+      "m": 0.95,
+      "processor_variant": "P1",
+      "g": 0.910964,
+      "J": 0.901327
+    },
+    "thresholds": {
+      "E_NL_min": 0.2,
+      "eta_min": 0.7,
+      "min_memory": 0.5,
+      "min_NL0": 0.2,
+      "null_fraction_max": 0.2,
+      "isolation_atol": 1e-10,
+      "angle_range": [
+        70.0,
+        110.0
+      ],
+      "seed_fraction": 0.8,
+      "ceiling_max": 0.95
+    }
+  },
+  "frozen_config": {
+    "payload": {
+      "candidate": {
+        "memory_variant": "M0",
+        "m": 0.95,
+        "processor_variant": "P1",
+        "g": 0.910964,
+        "J": 0.901327
+      },
+      "thresholds": {
+        "E_NL_min": 0.2,
+        "eta_min": 0.7,
+        "min_memory": 0.5,
+        "min_NL0": 0.2,
+        "null_fraction_max": 0.2,
+        "isolation_atol": 1e-10,
+        "angle_range": [
+          70.0,
+          110.0
+        ],
+        "seed_fraction": 0.8,
+        "ceiling_max": 0.95
+      },
+      "max_degree": 3,
+      "max_delay": 5,
+      "control_ranges": {
+        "m": [
+          0.1,
+          0.95
+        ],
+        "g": [
+          0.1,
+          1.5
+        ],
+        "J": [
+          0.05,
+          1.2
+        ]
+      },
+      "h_small": 0.05,
+      "h_large": 0.1,
+      "run_mode_of_discovery": "SMOKE"
+    },
+    "sha256": "50ff86854fe180d26b3678f61e7ae94632516cc5a8d84405459ac74af835f8f0",
+    "created_at": "2026-09-18T02:19:23Z"
+  },
+  "confirmation": {
+    "executed": false,
+    "plan": {
+      "reservoir_seeds": 5,
+      "input_seeds": 3,
+      "neighborhood_points": 7,
+      "n_sims": 210
+    },
+    "rows": [],
+    "neighborhood": []
+  },
+  "seed_disjointness_proof": {
+    "hamiltonian": {
+      "n_discovery": 13,
+      "n_confirmation": 0,
+      "overlap": []
+    },
+    "disorder": {
+      "n_discovery": 13,
+      "n_confirmation": 0,
+      "overlap": []
+    },
+    "input_sequence": {
+      "n_discovery": 13,
+      "n_confirmation": 0,
+      "overlap": []
+    },
+    "regression_split": {
+      "n_discovery": 13,
+      "n_confirmation": 0,
+      "overlap": []
+    },
+    "null_surrogate": {
+      "n_discovery": 13,
+      "n_confirmation": 0,
+      "overlap": []
+    },
+    "projection": {
+      "n_discovery": 13,
+      "n_confirmation": 0,
+      "overlap": []
+    },
+    "bootstrap": {
+      "n_discovery": 13,
+      "n_confirmation": 0,
+      "overlap": []
+    },
+    "shot_noise": {
+      "n_discovery": 13,
+      "n_confirmation": 0,
+      "overlap": []
+    },
+    "reservoir_idx": {
+      "discovery": [
+        -1000,
+        -999,
+        -906,
+        -905,
+        -904,
+        -903,
+        -902,
+        -901,
+        -202,
+        -201,
+        -102,
+        -101,
+        -2
+      ],
+      "confirmation": [],
+      "overlap": []
+    }
+  },
+  "gates": {
+    "A_software_numerical_validity": {
+      "result": "PASS",
+      "tests_passed": 121,
+      "tests_failed": 0
+    },
+    "B_structural_isolation": {
+      "result": "PASS",
+      "n_configs": 6,
+      "worst_dXP_dm": 0.0,
+      "falsifiability_control_failed": true
+    },
+    "C_nontrivial_memory": {
+      "result": "PASS",
+      "median_M": 2.4168833358686452
+    },
+    "D_memory_controllability": {
+      "result": "NOT EVALUABLE",
+      "reason": "requires the confirmation-stage five-point stencil with hierarchical intervals"
+    },
+    "E_nontrivial_instantaneous_NL": {
+      "result": "PASS",
+      "median_NL0": 0.4660430462784293
+    },
+    "G_processor_controllability": {
+      "result": "FAIL",
+      "best_E_NL": 0.07392063841130998,
+      "threshold": 0.2,
+      "note": "discovery-stage dynamic range; the confirmation gate additionally requires a resolved S_NL^P confidence interval"
+    },
+    "F_retained_processor_NL": {
+      "result": "NOT EVALUABLE",
+      "reason": "paired per-seed standalone matching runs in confirmation"
+    },
+    "H_off_diagonal_suppression": {
+      "result": "PASS",
+      "note": "off-diagonal sensitivity is an EXACT structural zero for the parallel routes; reported as an isolation bound rather than a ratio",
+      "upper_bound": 0.0
+    },
+    "I_response_geometry": {
+      "result": "NOT EVALUABLE",
+      "reason": "requires confirmation-stage derivatives"
+    },
+    "J_seed_robustness": {
+      "result": "NOT EVALUABLE",
+      "reason": "held-out confirmation not executed"
+    },
+    "K_neighborhood_robustness": {
+      "result": "NOT EVALUABLE",
+      "reason": "held-out confirmation not executed"
+    },
+    "L_matched_resource_usefulness": {
+      "result": "NOT EVALUABLE",
+      "reason": "Pareto comparison runs in confirmation"
+    }
+  },
+  "gate_summary": {
+    "pass": 5,
+    "fail": 1,
+    "not_evaluable": 6,
+    "total": 12
+  },
+  "conclusion": {
+    "outcome": "I",
+    "rationale": "SMOKE validates software only. Structural isolation, the ceiling repair, the ablation ladder and both module families are exercised end to end, but discovery and held-out confirmation remain unexecuted.",
+    "claims": {
+      "1": {
+        "name": "structural separation",
+        "established": true
+      },
+      "2": {
+        "name": "functional control separation",
+        "established": false
+      },
+      "3": {
+        "name": "matched-resource usefulness",
+        "established": false
+      }
+    },
+    "claim_ladder": {
+      "1": {
+        "description": "software-valid modular architecture",
+        "supported": true
+      },
+      "2": {
+        "description": "exact structural branch isolation",
+        "supported": true
+      },
+      "3": {
+        "description": "nontrivial independent memory and nonlinear modules",
+        "supported": true
+      },
+      "4": {
+        "description": "robust functional control decoupling",
+        "supported": false
+      },
+      "5": {
+        "description": "matched-resource Pareto improvement",
+        "supported": false
+      }
+    },
+    "highest_supported_level": 3
+  },
+  "workflow": {
+    "run_mode": "SMOKE",
+    "authorized": false,
+    "state": "REPORTED",
+    "history": [
+      {
+        "from": "UNINITIALIZED",
+        "to": "TESTED",
+        "at": "2026-09-18T02:11:11Z"
+      },
+      {
+        "from": "TESTED",
+        "to": "SMOKE_COMPLETE",
+        "at": "2026-09-18T02:19:23Z"
+      },
+      {
+        "from": "SMOKE_COMPLETE",
+        "to": "DISCOVERY_COMPLETE",
+        "at": "2026-09-18T02:19:23Z"
+      },
+      {
+        "from": "DISCOVERY_COMPLETE",
+        "to": "FROZEN",
+        "at": "2026-09-18T02:19:23Z"
+      },
+      {
+        "from": "FROZEN",
+        "to": "REPORTED",
+        "at": "2026-09-18T02:19:23Z"
+      }
+    ],
+    "stages": {},
+    "frozen_sha256": "50ff86854fe180d26b3678f61e7ae94632516cc5a8d84405459ac74af835f8f0"
+  }
+}

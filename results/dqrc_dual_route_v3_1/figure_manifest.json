@@ -1,0 +1,46 @@
+[
+  {
+    "figure": "01_structural_isolation.png",
+    "stage": "SMOKE",
+    "architecture": "dual_route_current",
+    "processor_variant": "P1",
+    "memory_variant": "M1",
+    "seeds": "6 configs",
+    "metric_definition": "max abs feature change under +/- perturbation",
+    "source_data_file": "validation_v3_1_results.json:claim1_structural_isolation",
+    "capacity_estimator": "signed bias-corrected (C_raw - mu_null), unclipped"
+  },
+  {
+    "figure": "02_ceiling_diagnostic.png",
+    "stage": "SMOKE",
+    "architecture": "dual_route_current",
+    "processor_variant": "P1",
+    "memory_variant": "M1",
+    "seeds": "1 reservoir x 1 input seed",
+    "metric_definition": "NL_0 raw vs target-count ceiling",
+    "source_data_file": "validation_v3_1_results.json:ipc_ceiling_audit",
+    "capacity_estimator": "signed bias-corrected (C_raw - mu_null), unclipped"
+  },
+  {
+    "figure": "03_processor_ablations.png",
+    "stage": "SMOKE",
+    "architecture": "dual_route_current",
+    "processor_variant": "P1",
+    "memory_variant": "M1",
+    "seeds": "1 reservoir x 1 input seed",
+    "metric_definition": "NL_0 (X_P), signed bias-corrected",
+    "source_data_file": "validation_v3_1_results.json:processor_ablations",
+    "capacity_estimator": "signed bias-corrected (C_raw - mu_null), unclipped"
+  },
+  {
+    "figure": "04_gate_chart.png",
+    "stage": "SMOKE",
+    "architecture": "dual_route_current",
+    "processor_variant": "P1",
+    "memory_variant": "M1",
+    "seeds": "2 reservoir x 1 input seeds",
+    "metric_definition": "per-gate verdict",
+    "source_data_file": "gate_results.json",
+    "capacity_estimator": "signed bias-corrected (C_raw - mu_null), unclipped"
+  }
+]

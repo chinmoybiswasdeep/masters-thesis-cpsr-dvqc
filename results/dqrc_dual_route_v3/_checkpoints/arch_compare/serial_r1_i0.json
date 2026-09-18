@@ -1,0 +1,19 @@
+{
+  "key": "750ef3ef1303b010baaed07bbe68d7e76855565d8fc801d4d133f103b0424d47",
+  "payload": {
+    "architecture": "serial",
+    "reservoir_idx": -12,
+    "input_idx": 0,
+    "M_memory": 3.1982949579302065,
+    "NL0_processor": 2.2382551173594223e-08,
+    "NL_temporal_processor": 2.93557358879812e-08,
+    "NL0_combined": 0.831899798255542,
+    "M_combined": 3.1769020338138683,
+    "NL0_residualized": -0.044582471931661184,
+    "n_qubits": 6,
+    "n_observables": 72,
+    "circuit_depth": 360,
+    "tap_buffer": 0
+  },
+  "saved_at": "2026-09-18T00:47:40Z"
+}

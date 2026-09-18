@@ -12,6 +12,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "code"))
 
 from decoupled_qrc.validation_utils import (  # noqa: E402
     make_nested_seeds, ControlRange, robust_output_scale, fit_response_surface, is_unstable,
+    stencil_margin_ok, assert_in_domain,
 )
 
 
@@ -117,3 +118,42 @@ def test_is_unstable_flags_large_spread():
 def test_is_unstable_passes_consistent_estimates():
     result = is_unstable([2.0, 2.1, 1.95])
     assert not result["unstable"]
+
+
+# =============================================================================
+# V2.1 Defect 1 -- stencil boundary enforcement (test requirements #1, #2)
+# =============================================================================
+
+def test_stencil_margin_ok_rejects_v1_boundary_bug_exactly():
+    """The EXACT V2 bug this test locks in: J*=0.6 was the declared range's
+    own upper bound (J in [0.05,0.6] -> J_tilde*=1.0), and a step h_J=0.05
+    (in raw units) over a range width of 0.55 gives h_J_tilde ~0.091 --
+    2*h_J_tilde ~0.182, so the required upper margin (1 - 2*h_tilde ~0.818)
+    is violated by J_tilde*=1.0. This must be rejected."""
+    J_tilde_star = 1.0
+    h_J_tilde = 0.05 / (0.6 - 0.05)
+    assert not stencil_margin_ok(J_tilde_star, h_J_tilde, k=2)
+
+
+def test_stencil_margin_ok_accepts_genuine_interior_point():
+    assert stencil_margin_ok(0.5, 0.05, k=2)
+    assert stencil_margin_ok(0.11, 0.05, k=2)  # exactly at the k*h lower edge
+    assert not stencil_margin_ok(0.09, 0.05, k=2)  # just inside the forbidden margin
+
+
+def test_stencil_margin_ok_symmetric_at_both_boundaries():
+    h = 0.1
+    assert not stencil_margin_ok(0.15, h, k=2)   # too close to 0
+    assert not stencil_margin_ok(0.85, h, k=2)   # too close to 1
+    assert stencil_margin_ok(0.5, h, k=2)
+
+
+def test_assert_in_domain_raises_on_out_of_range_value():
+    with pytest.raises(ValueError, match="outside its declared domain"):
+        assert_in_domain(0.65, 0.05, 0.6, "J")
+
+
+def test_assert_in_domain_passes_silently_in_range():
+    assert_in_domain(0.33, 0.05, 0.6, "J")  # must not raise
+    assert_in_domain(0.05, 0.05, 0.6, "J")  # boundary itself is in-domain
+    assert_in_domain(0.6, 0.05, 0.6, "J")
