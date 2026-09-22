@@ -1,0 +1,48 @@
+{
+  "environment": {
+    "git_commit": "e5b09aacf2ec942f0db47319321a064bbbab8595",
+    "numpy": "2.5.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "precision": "complex128",
+    "python": "3.14.4",
+    "schema": "v3.2.0",
+    "scipy": "1.18.1"
+  },
+  "finished_utc": "2026-09-21T04:57:17Z",
+  "git_commit": "e5b09aacf2ec942f0db47319321a064bbbab8595",
+  "hardware": {
+    "cpu_count": 12,
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel"
+  },
+  "runtime_seconds": 2.98,
+  "stage": "SMOKE",
+  "started_utc": "2026-09-21T04:57:14Z",
+  "thresholds": {
+    "A_control_detect_min": 1e-06,
+    "A_isolation_atol": 1e-10,
+    "B_cache_atol": 1e-12,
+    "B_dm_atol": 1e-10,
+    "B_train_absolute": 500,
+    "B_train_per_rank": 10,
+    "C_ceiling_frac_max": 0.95,
+    "C_null_fraction_max": 0.2,
+    "D_M_long_min": 1.0,
+    "D_min_sign_agreement": 3,
+    "D_rel_spread_max": 0.5,
+    "E_NL0_min": 0.5,
+    "E_dynamic_range_min": 0.2,
+    "E_f_enc_max": 0.5,
+    "F_equivalence_margin": 0.25,
+    "G_selectivity_min": 2.0,
+    "H_angle_hi": 110.0,
+    "H_angle_lo": 70.0,
+    "I_retention_min": 0.7,
+    "J_min_seeds_passing": 4,
+    "J_n_seeds": 5,
+    "K_min_neighbours_passing": 4,
+    "K_n_neighbours": 6,
+    "L_disturbance_max": 0.05
+  },
+  "worktree_dirty": true
+}

@@ -1,0 +1,174 @@
+{
+  "figures": [
+    {
+      "data_source": "architecture spec",
+      "name": "01_architecture_causal_controls",
+      "note": "",
+      "pdf": "01_architecture_causal_controls.pdf",
+      "png": "01_architecture_causal_controls.png",
+      "title": "Architecture and causal-control diagram"
+    },
+    {
+      "data_source": "calibration_results.json",
+      "name": "02_memory_delay_profiles",
+      "note": "",
+      "pdf": "02_memory_delay_profiles.pdf",
+      "png": "02_memory_delay_profiles.png",
+      "title": "Memory delay structure across m"
+    },
+    {
+      "data_source": "calibration_results.json",
+      "name": "03_memory_slope_selection",
+      "note": "",
+      "pdf": "03_memory_slope_selection.pdf",
+      "png": "03_memory_slope_selection.png",
+      "title": "Memory slope and interior-candidate selection"
+    },
+    {
+      "data_source": "calibration_results.json",
+      "name": "04_processor_ablations",
+      "note": "",
+      "pdf": "04_processor_ablations.pdf",
+      "png": "04_processor_ablations.png",
+      "title": "Processor ablation capacities"
+    },
+    {
+      "data_source": "calibration_results.json",
+      "name": "05_ablation_distinctness",
+      "note": "",
+      "pdf": "05_ablation_distinctness.pdf",
+      "png": "05_ablation_distinctness.png",
+      "title": "Hamiltonian/unitary/state/feature distinctness"
+    },
+    {
+      "data_source": "calibration_results.json",
+      "name": "08_processor_response_surface",
+      "note": "",
+      "pdf": "08_processor_response_surface.pdf",
+      "png": "08_processor_response_surface.png",
+      "title": "Processor response surface over (g,J)"
+    },
+    {
+      "data_source": "calibration_results.json",
+      "name": "09_interaction_generated_nl",
+      "note": "",
+      "pdf": "09_interaction_generated_nl.pdf",
+      "png": "09_interaction_generated_nl.png",
+      "title": "Interaction-generated nonlinear capacity"
+    },
+    {
+      "data_source": "gate table",
+      "name": "17_gate_decision_chart",
+      "note": "",
+      "pdf": "17_gate_decision_chart.pdf",
+      "png": "17_gate_decision_chart.png",
+      "title": "Acceptance-gate decision chart"
+    },
+    {
+      "data_source": null,
+      "name": "06_raw_null_bias_corrected_ipc",
+      "pdf": null,
+      "png": null,
+      "reason": "requires DISCOVERY/CONFIRMATION, which did not run",
+      "skipped": true,
+      "title": "Raw / null / bias-corrected IPC"
+    },
+    {
+      "data_source": null,
+      "name": "07_order_delay_heatmap",
+      "pdf": null,
+      "png": null,
+      "reason": "requires DISCOVERY/CONFIRMATION, which did not run",
+      "skipped": true,
+      "title": "Order-delay IPC heatmap"
+    },
+    {
+      "data_source": null,
+      "name": "10_full_normalised_jacobian",
+      "pdf": null,
+      "png": null,
+      "reason": "requires DISCOVERY/CONFIRMATION, which did not run",
+      "skipped": true,
+      "title": "Full normalised Jacobian"
+    },
+    {
+      "data_source": null,
+      "name": "11_derivative_confidence_intervals",
+      "pdf": null,
+      "png": null,
+      "reason": "requires DISCOVERY/CONFIRMATION, which did not run",
+      "skipped": true,
+      "title": "Intended and unintended derivatives"
+    },
+    {
+      "data_source": null,
+      "name": "12_response_vector_geometry",
+      "pdf": null,
+      "png": null,
+      "reason": "requires DISCOVERY/CONFIRMATION, which did not run",
+      "skipped": true,
+      "title": "Response-vector geometry"
+    },
+    {
+      "data_source": null,
+      "name": "13_per_seed_selectivity",
+      "pdf": null,
+      "png": null,
+      "reason": "requires DISCOVERY/CONFIRMATION, which did not run",
+      "skipped": true,
+      "title": "Per-seed selectivity ratios"
+    },
+    {
+      "data_source": null,
+      "name": "14_module_retention",
+      "pdf": null,
+      "png": null,
+      "reason": "requires DISCOVERY/CONFIRMATION, which did not run",
+      "skipped": true,
+      "title": "Module-retention comparison"
+    },
+    {
+      "data_source": null,
+      "name": "15_centre_neighbourhood_map",
+      "pdf": null,
+      "png": null,
+      "reason": "requires DISCOVERY/CONFIRMATION, which did not run",
+      "skipped": true,
+      "title": "Centre-and-neighbourhood pass map"
+    },
+    {
+      "data_source": null,
+      "name": "16_matched_resource_pareto",
+      "pdf": null,
+      "png": null,
+      "reason": "requires DISCOVERY/CONFIRMATION, which did not run",
+      "skipped": true,
+      "title": "Matched-resource Pareto"
+    }
+  ],
+  "n_rendered": 8,
+  "n_skipped": 9,
+  "palette": {
+    "categorical": [
+      "#2a78d6",
+      "#eb6834",
+      "#1baf7a"
+    ],
+    "sequential": [
+      "#cde2fb",
+      "#9ec5f4",
+      "#6da7ec",
+      "#3987e5",
+      "#2a78d6",
+      "#1c5cab",
+      "#104281"
+    ],
+    "status": {
+      "FAIL": "#d03b3b",
+      "NOT_EVALUABLE": "#fab219",
+      "PASS": "#0ca30c"
+    },
+    "validation": "all-pairs CVD deltaE 9.2 (deutan) / normal-vision 24.0, light surface; aqua slot is sub-3:1 vs surface so every series carries a visible direct label"
+  },
+  "stage": "REPORT"
+}

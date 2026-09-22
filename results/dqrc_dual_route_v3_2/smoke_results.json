@@ -1,0 +1,148 @@
+{
+  "claim_level_reported": 0,
+  "evaluation": {
+    "M_long": 1.7247294997527254,
+    "NL_0": 1.208544367712698,
+    "back_action": {
+      "lambda": 0.3,
+      "max_observable_disturbance": 0.05092748810845056,
+      "max_trace_distance": 0.03655977172679464,
+      "mean_observable_disturbance": 0.014710894059186826,
+      "mean_trace_distance": 0.011089131607880597
+    },
+    "dm_audit": {
+      "hermiticity_dev": 5.690537422702486e-17,
+      "min_eigenvalue": 0.001856787775949673,
+      "ok": true,
+      "trace_dev": 5.551115123125783e-16,
+      "trace_imag": 5.94826329780154e-17
+    },
+    "splits": {
+      "gap": 4,
+      "test": 90,
+      "train": 152,
+      "val": 80
+    }
+  },
+  "gate_A": {
+    "name": "A_structural_isolation",
+    "passed": true,
+    "reason": "routes isolated and the falsifiability controls detect a planted dependency",
+    "status": "PASS",
+    "thresholds": {
+      "atol": 1e-10,
+      "control_detect_min": 1e-06
+    },
+    "values": {
+      "injected_control_max_dXP_dm": 0.011251111223598897,
+      "injected_control_passed": false,
+      "max_dXM_dJ": 0.0,
+      "max_dXM_dg": 0.0,
+      "max_dXP_dm": 0.0
+    }
+  },
+  "gate_L": {
+    "name": "L_back_action",
+    "passed": false,
+    "reason": "the M->P channel disturbs the memory beyond the preregistered bound",
+    "status": "FAIL",
+    "thresholds": {
+      "max_disturbance": 0.05
+    },
+    "values": {
+      "lambda": 0.3,
+      "max_observable_disturbance": 0.05092748810845056,
+      "max_trace_distance": 0.03655977172679464,
+      "mean_observable_disturbance": 0.014710894059186826,
+      "mean_trace_distance": 0.011089131607880597
+    }
+  },
+  "gate_summary_note": "claim level is capped at 0 in SMOKE regardless of the numbers above",
+  "gate_table": {
+    "A_structural_isolation": {
+      "name": "A_structural_isolation",
+      "passed": true,
+      "reason": "routes isolated and the falsifiability controls detect a planted dependency",
+      "status": "PASS",
+      "thresholds": {
+        "atol": 1e-10,
+        "control_detect_min": 1e-06
+      },
+      "values": {
+        "injected_control_max_dXP_dm": 0.011251111223598897,
+        "injected_control_passed": false,
+        "max_dXM_dJ": 0.0,
+        "max_dXM_dg": 0.0,
+        "max_dXP_dm": 0.0
+      }
+    },
+    "L_back_action": {
+      "name": "L_back_action",
+      "passed": false,
+      "reason": "the M->P channel disturbs the memory beyond the preregistered bound",
+      "status": "FAIL",
+      "thresholds": {
+        "max_disturbance": 0.05
+      },
+      "values": {
+        "lambda": 0.3,
+        "max_observable_disturbance": 0.05092748810845056,
+        "max_trace_distance": 0.03655977172679464,
+        "mean_observable_disturbance": 0.014710894059186826,
+        "mean_trace_distance": 0.011089131607880597
+      }
+    }
+  },
+  "guards": {
+    "empty_confirmation_seed_proof_rejected": true,
+    "failed_calibration_blocks_discovery": true,
+    "placeholder_confirmation_rejected": true,
+    "smoke_cannot_claim_level_3": true,
+    "smoke_cannot_freeze": true
+  },
+  "injected_dependency_control": {
+    "XM_independent_of_gJ": true,
+    "XP_independent_of_m": false,
+    "architecture": "dual_route_current",
+    "atol": 1e-10,
+    "lambda": 0.0,
+    "max_dXM_dJ": 0.0,
+    "max_dXM_dg": 0.0,
+    "max_dXP_dm": 0.011251111223598897,
+    "passed": false
+  },
+  "max_claim_level_allowed": 0,
+  "purpose": "software validation only -- no scientific claim",
+  "resources": {
+    "ancillas": 0,
+    "circuit_depth": 5,
+    "feature_rank": null,
+    "four_body_gates": 0,
+    "input_copies": 4,
+    "measurement_settings": 18,
+    "memory_qubits": 3,
+    "name": "dual_route_weak",
+    "observables": 45,
+    "observables_M": 36,
+    "observables_P": 9,
+    "processor_qubits": 3,
+    "readout_parameters": 46,
+    "shots_per_setting": 5000,
+    "shots_per_timestep": 90000,
+    "sim_seconds": 0.2805899000377394,
+    "total_qubits": 6,
+    "two_body_gates": 4
+  },
+  "stage": "SMOKE",
+  "structural_isolation": {
+    "XM_independent_of_gJ": true,
+    "XP_independent_of_m": true,
+    "architecture": "dual_route_current",
+    "atol": 1e-10,
+    "lambda": 0.0,
+    "max_dXM_dJ": 0.0,
+    "max_dXM_dg": 0.0,
+    "max_dXP_dm": 0.0,
+    "passed": true
+  }
+}
