@@ -198,6 +198,7 @@ class V6Spec:
     chiW_max: float = None
     phiW: float = None
     chiW_power: int = 1                # V6.3: writer cubic angle = g**chiW_power * chiW_max
+    shots: int = 0                     # V6.3: features are S-shot estimates (0 = exact)
     # V6.2: g-rotated pair readouts on the LINEAR memory register R (old x old, C3).
     # Separate measurement settings, assigned to the combined route; M never uses them.
     r_pairs: tuple = ()
@@ -373,19 +374,34 @@ class V6ShotAdapter:
         f = self.base.run(u, m, g, seed)
         sc = 1.0 - 2.0 * self.ro
         out = dict(f)
-        for k, off in (("R", 1), ("P", 2), ("PY", 3), ("J", 4), ("Qz", 5), ("Qp", 6), ("Rp", 8)):
-            if f[k].size == 0:
-                continue
+
+        def sample(x, off):
             rng = np.random.default_rng(7 * int(seed) + off)
-            x = sc * f[k] if k != "J" else sc * sc * f[k]
             p = np.clip((1 + x) / 2, 0, 1)
-            out[k] = (2.0 * rng.binomial(self.shots, p) - self.shots) / self.shots
+            return (2.0 * rng.binomial(self.shots, p) - self.shots) / self.shots
+
+        # every register marginal is an S-shot estimate; the local readouts (and the
+        # classical baseline's marginals) are the SAME noisy numbers
+        out["Rall"] = sample(sc * f["Rall"], 1)
+        out["R"] = out["Rall"][:, self.spec.stride_R - 1::self.spec.stride_R]
+        out["Qall"] = sample(sc * f["Qall"], 5)
+        out["Qz"] = out["Qall"][:, np.array(self.spec.rails_Q) - 1]
+        for k, off, s2 in (("P", 2, sc), ("PY", 3, sc), ("J", 4, sc * sc), ("Qp", 6, sc),
+                           ("Rp", 8, sc)):
+            if f[k].size:
+                out[k] = sample(s2 * f[k], off)
         out["Q"] = np.hstack([out["Qz"], out["Qp"], out["Rp"]])
-        # classical baseline uses the same noisy marginals
-        qall = f["Qall"].copy()
-        qall[:, np.array(self.spec.rails_Q) - 1] = out["Qz"]
-        out["Qall"] = qall
         return out
+
+    @property
+    def kind(self):
+        return self.base.kind
+
+    def processor_fn(self, g):
+        return self.base.processor_fn(g)
+
+    def with_spec(self, **kw):
+        return V6ShotAdapter(self.base.with_spec(**kw), self.shots, self.ro)
 
     def describe(self):
         return {**self.base.describe(), "shots": self.shots, "readout_error": self.ro}

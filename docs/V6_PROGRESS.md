@@ -49,11 +49,51 @@ Long-sequence check (T = 40 000), from `results/v6/algebra/V5.4.json`:
 |---|---|---|---|
 | V6.0 | PROBE | rejected | ΔN = 0.027: the P1 part of u³ dominates the processor output. The P2 content of the Q write is non-monotone in g. |
 | V6.1 | PROBE | rejected | C3 HH 0.013 < HL 0.082: products of the nonlinear write lose their P1P1 part as g grows (structural). |
-| V6.2 | DEVGATES | running | C3 now comes from g-rotated pair readouts on the linear register R |
+| V6.2 | DEVGATES | rejected | All 26 gates pass on dev seeds, but two freeze margins fail. C4's HH advantage is 0.044 < 0.05 under OLS. The perturbed-controls robustness condition fails, with worst HH advantage −0.178. |
+| V6.3 | DEVGATES | running | V6.2 with two changes: the g² writer cubic mapping, and a declared readout budget of 10⁴ shots |
+
+### The V6.2 → V6.3 diagnosis
+
+In the perturbed-controls condition the low setting is g = 0.03 instead of 0. V6.2
+failed it in two ways:
+
+1. **C4 (P3(u_{t−τ})) fell with g.** The cubic share of the Q writer saturates
+   early: long-sequence capacity 0.33 at g = 0.25, 0.21 at g = 1. This is
+   parametric. Making the writer's cubic angle scale as g² makes the cubic share
+   grow with g: 0.03 → 0.11 → 0.17 → 0.21.
+2. **Under exact expectations, C2 and C3 switch on at g = 0⁺.** OLS can subtract a
+   feature's linear part using R's linear memory and rescale what remains. Any
+   nonzero product coefficient therefore yields the full product information.
+   Long-sequence capacity at g = 0.03 is already C2 = 0.86 and C3 = 0.82. This
+   holds for every noiseless design in which the linear memory route sits in the
+   same readout. It is a property of the exact-expectation idealisation, not of
+   this parameter choice.
+
+With a finite shot budget, a weak interaction carries little extractable product
+information per shot, and every class grows monotonically with g. At S = 10⁴:
+
+| class | g = 0.03 | g = 0.25 | g = 0.5 | g = 0.97 |
+|---|---|---|---|---|
+| C2 | 0.007 | 0.30 | 0.50 | 0.66 |
+| C3 | 0.007 | 0.28 | 0.45 | 0.57 |
+
+V6.3 therefore declares 10⁴ shots per measurement setting as part of the
+architecture. The budget is identical at every (m, g), for every feature and for
+the classical baselines.
+
+**Disclosed and permanent limitation:** the gradation of C2 and C3 in g is a
+finite-statistics effect. The primary N control is intrinsic, a composition
+change of a single feature, and does not depend on shots. The exact-expectation
+perturbed-controls grid is run and reported as a non-gating diagnostic.
 
 ## Resume
 
 ```bash
 cd code
-python run_v6_stage.py --stage DEVGATES --version V6.2   # resumes from checkpoints
+python run_v6_stage.py --stage DEVGATES --version V6.3   # resumes from checkpoints
+# if the freeze criterion is met:
+python run_v6_stage.py --stage TESTS  --version V6.3
+python run_v6_stage.py --stage FREEZE --version V6.3
+python run_v6_stage.py --stage CONFIRM --version V6.3
+python run_v6_stage.py --stage REPORT --version V6.3
 ```

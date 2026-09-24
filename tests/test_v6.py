@@ -91,3 +91,15 @@ def test_r_pair_readout_is_affine_at_g0_and_isolated():
     assert ALG.exact_affinity(ALG.v6_operational(ad, 0.8, 0.0), T=100)["affine"]
     u = np.random.default_rng(9).uniform(-1, 1, 40)
     assert np.array_equal(ad.run(u, 0.5, 0.2)["R"], ad.run(u, 0.5, 0.9)["R"])
+
+
+def test_shot_budget_is_deterministic_isolated_and_shared_with_classical_baseline():
+    s = V6.V6Spec(L_R=6, stride_R=2, L_Q=4, q_pairs=(), r_pairs=((1, 3),), shots=500)
+    ad = V6.V6ShotAdapter(V6.V6Adapter(s), s.shots)
+    u = np.random.default_rng(11).uniform(-1, 1, 60)
+    a, b = ad.run(u, 0.6, 0.2, 4), ad.run(u, 0.6, 0.9, 4)
+    assert np.array_equal(a["R"], b["R"]) and np.array_equal(a["Rall"], b["Rall"])
+    assert np.array_equal(ad.run(u, 0.1, 0.5, 4)["P"], ad.run(u, 0.9, 0.5, 4)["P"])
+    assert np.array_equal(a["R"], a["Rall"][:, 1::2])            # local readout == baseline marginal
+    assert np.array_equal(a["Qz"], a["Qall"][:, np.array(s.rails_Q) - 1])
+    assert np.array_equal(ad.run(u, 0.6, 0.2, 4)["Q"], a["Q"])     # deterministic per seed
