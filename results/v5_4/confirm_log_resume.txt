@@ -1,0 +1,11 @@
+=== V5.4 CONFIRM ===
+  wrote results\v5_4\section6_confirmation.json
+  wrote results\v5_4\structure_confirmation.json
+  wrote results\v5_4\classical_confirmation.json
+  wrote results\v5_4\gates.json
+  C1_structural              PASS
+  C2_resource_constrained    PASS
+  C3_intrinsic               PASS
+  C4_combined                PASS
+  C5_quantum_specific        FAIL
+  OVERALL: V5.4 WORKS ONLY UNDER A RESOURCE-CONSTRAINED DEFINITION; success (claims 1-4) = True

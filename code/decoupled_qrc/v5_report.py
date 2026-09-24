@@ -161,6 +161,20 @@ def build(out: Path):
     md = md.replace("# Independent audit of the frozen V4 architecture",
                     f"# {ver} — random-SWAP memory × two-copy processor, confirmation") \
            .replace("Preregistration sha256", f"Frozen {ver} sha256")
+    passed = {k: gs[k]["passed"] for k, _ in CLAIMS}
+    if all(v for k, v in passed.items() if k != "C5_quantum_specific") and not passed["C5_quantum_specific"]:
+        note = (f"\n## Reading of the overall label\n\nThe label `{gates['overall']}` comes from the "
+                "V4 audit's `overall()` mapping, which has only the brief's four outcomes. The pattern "
+                "*claims 1-4 PASS, claim 5 FAIL* matches none of them and falls through to the last "
+                "branch. That label is **inaccurate here: claim 3 (intrinsic separation) PASSED**. "
+                "Correct reading: memory and nonlinearity are separately and intrinsically "
+                "controllable (claims 1-3), combined nonlinear memory is highest at high-m/high-g for "
+                "the one supported class (claim 4), and the combining mechanism is classically "
+                "reproducible (claim 5). It is not `WORKS AS CLAIMED` in the brief's sense because "
+                "claim 5 fails.\n")
+        md = md.replace("## Figures", note + "\n## Figures", 1)
+        rep["overall_reading"] = "claims 1-4 PASS; claim 5 FAIL (classically reproducible)"
+        (out / "report.json").write_text(json.dumps(rep, indent=2, default=str), encoding="utf-8")
     (out / "report.md").write_text(md, encoding="utf-8")
     files = sorted(p for p in out.rglob("*") if p.is_file() and p.name != "manifest.json"
                    and "search" not in p.parts)

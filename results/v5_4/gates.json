@@ -1,0 +1,1946 @@
+{
+  "frozen_sha256": "0a2f1e184db3977b81648b0823ca62dc13d560a9df8024a462723254a2c08a02",
+  "gates_default_levels": {
+    "C1_structural": {
+      "contaminated_detected": {
+        "g_into_R": true,
+        "m_into_P": true,
+        "serial": true
+      },
+      "frozen_isolated": true,
+      "metric_level_independence": {
+        "ols_raw": {
+          "max_spread_M_over_g": 0.0,
+          "max_spread_N_over_m": 0.0
+        },
+        "ols_std": {
+          "max_spread_M_over_g": 0.0,
+          "max_spread_N_over_m": 0.0
+        },
+        "ridge": {
+          "max_spread_M_over_g": 0.0,
+          "max_spread_N_over_m": 0.0
+        }
+      },
+      "passed": true
+    },
+    "C2_resource_constrained": {
+      "cross_g_M": {
+        "equivalent": true,
+        "estimate": 0.0,
+        "interval": [
+          0.0,
+          0.0
+        ],
+        "margin": [
+          -0.03,
+          0.03
+        ],
+        "n_seeds": 20,
+        "passed": true,
+        "ratio": 0.0,
+        "ratio_max": 0.2,
+        "ratio_upper": 0.0
+      },
+      "cross_m_N": {
+        "equivalent": true,
+        "estimate": 0.0,
+        "interval": [
+          0.0,
+          0.0
+        ],
+        "margin": [
+          -0.03,
+          0.03
+        ],
+        "n_seeds": 20,
+        "passed": true,
+        "ratio": 0.0,
+        "ratio_max": 0.2,
+        "ratio_upper": 0.0
+      },
+      "degree_profile_m": {
+        "alpha_per_member": 0.016666666666666666,
+        "correction": "Bonferroni (at least as strict as Holm)",
+        "members": {
+          "d2_t0": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "d3_t0": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "d4_t0": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "n_members": 3,
+        "passed": true
+      },
+      "feature_counts": {
+        "invariant": true,
+        "per_readout": {
+          "ALL": [
+            17
+          ],
+          "CLS": [
+            8
+          ],
+          "J": [
+            8
+          ],
+          "P": [
+            1
+          ],
+          "R": [
+            8
+          ]
+        }
+      },
+      "main_g_N": {
+        "ci_level": "q25",
+        "estimate": 0.27999276437140785,
+        "lower_bound": 0.2789059169660178,
+        "n_seeds": 20,
+        "passed": true,
+        "per_seed": [
+          0.2793368686193181,
+          0.28239384653628996,
+          0.2778080102006631,
+          0.2779041295397594,
+          0.27610280989557456,
+          0.2836202145512934,
+          0.28072295901440875,
+          0.27739423532098756,
+          0.2794732262220852,
+          0.28050990284271277,
+          0.27964085639551506,
+          0.279603396121325,
+          0.27848440818899267,
+          0.28629633459403325,
+          0.27831519806948124,
+          0.2781138304775921,
+          0.28530576341288394,
+          0.27847193976578716,
+          0.2780747808461342,
+          0.2822825768133182
+        ],
+        "sd": 0.0027099907106370035,
+        "threshold": 0.1
+      },
+      "main_m_M": {
+        "ci_level": "q25",
+        "estimate": 0.5219392094032089,
+        "lower_bound": 0.5166453110223662,
+        "n_seeds": 20,
+        "passed": true,
+        "per_seed": [
+          0.5063134743835104,
+          0.5236961917855839,
+          0.4955330606353871,
+          0.5160914146343499,
+          0.5375267780155103,
+          0.5159895175024395,
+          0.530023747171041,
+          0.524952802262759,
+          0.5159850698814888,
+          0.5417320919629547,
+          0.540544545643096,
+          0.5279269865789391,
+          0.5218633947842979,
+          0.5052828807088632,
+          0.5134255201215017,
+          0.5384012392371398,
+          0.5219103677907112,
+          0.5322942826894107,
+          0.5130283390236627,
+          0.5162624832515303
+        ],
+        "sd": 0.012524805198549975,
+        "threshold": 0.1
+      },
+      "memory_curve_g": {
+        "alpha_per_member": 0.005555555555555556,
+        "correction": "Bonferroni (at least as strict as Holm)",
+        "members": {
+          "d1_t0": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "d1_t1": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "d1_t2": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "d1_t3": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "d1_t4": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "d1_t5": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "d1_t6": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "d1_t7": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "d1_t8": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "n_members": 9,
+        "passed": true
+      },
+      "passed": true,
+      "saturation_sentinel": {
+        "saturation_ok": true,
+        "sentinel_excess_max": 0.01127163352051002,
+        "sentinel_ok": true,
+        "worst_saturated_fraction": 0.0043859649122807015
+      }
+    },
+    "C3_intrinsic": {
+      "N_target_saturation_fraction_g_positive": 0.0,
+      "interior_g_N": {
+        "ci_level": "q25",
+        "estimate": 0.2552591761538663,
+        "lower_bound": 0.25163433355097553,
+        "n_seeds": 20,
+        "passed": true,
+        "per_seed": [
+          0.2427693571774308,
+          0.24930410568009703,
+          0.2543553350526508,
+          0.26204439116954775,
+          0.2569350918421312,
+          0.2490099010405528,
+          0.26044279968999057,
+          0.2529839641997286,
+          0.24847405568129338,
+          0.2722191926599457,
+          0.2521976392607884,
+          0.25445123176505186,
+          0.2584619803213583,
+          0.2738390310550403,
+          0.24715705934038815,
+          0.25965198666930434,
+          0.2475602611267365,
+          0.26322259907220297,
+          0.2579434591194301,
+          0.24216008115365611
+        ],
+        "sd": 0.0085772652278635,
+        "threshold": 0.1
+      },
+      "interior_m_M": {
+        "ci_level": "q25",
+        "estimate": 0.31574061876319925,
+        "lower_bound": 0.30971261741904493,
+        "n_seeds": 20,
+        "passed": true,
+        "per_seed": [
+          0.2814058269306237,
+          0.3163047121033994,
+          0.32216548785873567,
+          0.3130023901464061,
+          0.3049556808085648,
+          0.3313884250512826,
+          0.32988732604708926,
+          0.31365850307675375,
+          0.3283954920742682,
+          0.3112063107669777,
+          0.2980510463881282,
+          0.3155485935348228,
+          0.3134477339226742,
+          0.3199086011359718,
+          0.3187838009325654,
+          0.3453778174987125,
+          0.30956997491184157,
+          0.3080917029430149,
+          0.3042480874351403,
+          0.329414861697011
+        ],
+        "sd": 0.013790098856259281,
+        "threshold": 0.1
+      },
+      "ols_raw": {
+        "cross_g_M": {
+          "equivalent": true,
+          "estimate": 0.0,
+          "interval": [
+            0.0,
+            0.0
+          ],
+          "margin": [
+            -0.03,
+            0.03
+          ],
+          "n_seeds": 20,
+          "passed": true,
+          "ratio": 0.0,
+          "ratio_max": 0.2,
+          "ratio_upper": 0.0
+        },
+        "cross_m_N": {
+          "equivalent": true,
+          "estimate": 0.0,
+          "interval": [
+            0.0,
+            0.0
+          ],
+          "margin": [
+            -0.03,
+            0.03
+          ],
+          "n_seeds": 20,
+          "passed": true,
+          "ratio": 0.0,
+          "ratio_max": 0.2,
+          "ratio_upper": 0.0
+        },
+        "degree_profile_m": {
+          "alpha_per_member": 0.016666666666666666,
+          "correction": "Bonferroni (at least as strict as Holm)",
+          "members": {
+            "d2_t0": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d3_t0": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d4_t0": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "n_members": 3,
+          "passed": true
+        },
+        "main_g_N": {
+          "ci_level": "q25",
+          "estimate": 0.2799938768288849,
+          "lower_bound": 0.2789081199859601,
+          "n_seeds": 20,
+          "passed": true,
+          "per_seed": [
+            0.2793212599290617,
+            0.2823879432253089,
+            0.2778079736036695,
+            0.2779081734635781,
+            0.2761063106840363,
+            0.28362648793573186,
+            0.2807373944495053,
+            0.2773916576529513,
+            0.27946297525869823,
+            0.28051552684322606,
+            0.27963619448232385,
+            0.27960865734846024,
+            0.27848848519130337,
+            0.28631369370855286,
+            0.2783168617432077,
+            0.278118397364941,
+            0.2853005419581083,
+            0.27848173920758174,
+            0.27807611794456677,
+            0.2822711445828852
+          ],
+          "sd": 0.002710827185621628,
+          "threshold": 0.1
+        },
+        "main_m_M": {
+          "ci_level": "q25",
+          "estimate": 0.5218108384022917,
+          "lower_bound": 0.5165084055207952,
+          "n_seeds": 20,
+          "passed": true,
+          "per_seed": [
+            0.5059625018799219,
+            0.5236021658853808,
+            0.4954404810498989,
+            0.5159953352317488,
+            0.5374021024300368,
+            0.515880672537236,
+            0.529969719092187,
+            0.5247113392194661,
+            0.5159803860173958,
+            0.5416524646979983,
+            0.5405646696106972,
+            0.5278909846227573,
+            0.5219765075742355,
+            0.5051897899285351,
+            0.5133008539748021,
+            0.5383594019300579,
+            0.5217387970321651,
+            0.5322424115760928,
+            0.5127742166600233,
+            0.515581967095196
+          ],
+          "sd": 0.012576150169517974,
+          "threshold": 0.1
+        },
+        "memory_curve_g": {
+          "alpha_per_member": 0.005555555555555556,
+          "correction": "Bonferroni (at least as strict as Holm)",
+          "members": {
+            "d1_t0": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t1": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t2": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t3": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t4": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t5": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t6": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t7": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t8": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "n_members": 9,
+          "passed": true
+        },
+        "passed": true
+      },
+      "ols_std": {
+        "cross_g_M": {
+          "equivalent": true,
+          "estimate": 0.0,
+          "interval": [
+            0.0,
+            0.0
+          ],
+          "margin": [
+            -0.03,
+            0.03
+          ],
+          "n_seeds": 20,
+          "passed": true,
+          "ratio": 0.0,
+          "ratio_max": 0.2,
+          "ratio_upper": 0.0
+        },
+        "cross_m_N": {
+          "equivalent": true,
+          "estimate": 0.0,
+          "interval": [
+            0.0,
+            0.0
+          ],
+          "margin": [
+            -0.03,
+            0.03
+          ],
+          "n_seeds": 20,
+          "passed": true,
+          "ratio": 0.0,
+          "ratio_max": 0.2,
+          "ratio_upper": 0.0
+        },
+        "degree_profile_m": {
+          "alpha_per_member": 0.016666666666666666,
+          "correction": "Bonferroni (at least as strict as Holm)",
+          "members": {
+            "d2_t0": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d3_t0": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d4_t0": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "n_members": 3,
+          "passed": true
+        },
+        "main_g_N": {
+          "ci_level": "q25",
+          "estimate": 0.2799938768288849,
+          "lower_bound": 0.27890811998596005,
+          "n_seeds": 20,
+          "passed": true,
+          "per_seed": [
+            0.2793212599290617,
+            0.2823879432253089,
+            0.27780797360366954,
+            0.27790817346357805,
+            0.2761063106840362,
+            0.2836264879357318,
+            0.2807373944495053,
+            0.27739165765295126,
+            0.27946297525869823,
+            0.28051552684322617,
+            0.2796361944823238,
+            0.27960865734846024,
+            0.27848848519130337,
+            0.2863136937085529,
+            0.27831686174320763,
+            0.27811839736494093,
+            0.2853005419581083,
+            0.27848173920758174,
+            0.27807611794456677,
+            0.2822711445828852
+          ],
+          "sd": 0.0027108271856216477,
+          "threshold": 0.1
+        },
+        "main_m_M": {
+          "ci_level": "q25",
+          "estimate": 0.5218108384022917,
+          "lower_bound": 0.5165084055207952,
+          "n_seeds": 20,
+          "passed": true,
+          "per_seed": [
+            0.5059625018799221,
+            0.5236021658853808,
+            0.495440481049899,
+            0.5159953352317487,
+            0.5374021024300368,
+            0.515880672537236,
+            0.5299697190921872,
+            0.5247113392194663,
+            0.5159803860173957,
+            0.5416524646979983,
+            0.5405646696106972,
+            0.5278909846227573,
+            0.5219765075742355,
+            0.5051897899285349,
+            0.5133008539748021,
+            0.5383594019300579,
+            0.5217387970321651,
+            0.5322424115760929,
+            0.5127742166600233,
+            0.515581967095196
+          ],
+          "sd": 0.012576150169517979,
+          "threshold": 0.1
+        },
+        "memory_curve_g": {
+          "alpha_per_member": 0.005555555555555556,
+          "correction": "Bonferroni (at least as strict as Holm)",
+          "members": {
+            "d1_t0": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t1": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t2": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t3": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t4": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t5": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t6": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t7": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t8": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "n_members": 9,
+          "passed": true
+        },
+        "passed": true
+      },
+      "passed": true,
+      "section6_verdict": "CONTINUOUS INTRINSIC NONLINEAR CONTROL HOLDS"
+    },
+    "C4_combined": {
+      "classes": {
+        "C1_curNL_x_oldLin": {
+          "HH_beats_all": true,
+          "best_quadrant_mean": 0.11874458930020777,
+          "ols_std": {
+            "HH_beats_all": true,
+            "HH_minus_HL": {
+              "estimate": 0.14146430115109218,
+              "lower_bound": 0.1382835145839123
+            },
+            "HH_minus_LH": {
+              "estimate": 0.10155152159420515,
+              "lower_bound": 0.09872442921237028
+            },
+            "HH_minus_LL": {
+              "estimate": 0.13858471863625513,
+              "lower_bound": 0.13496578250961785
+            },
+            "quadrant_means": {
+              "HH": 0.12185021832005949,
+              "HL": -0.0196140828310327,
+              "LH": 0.02029869672585432,
+              "LL": -0.016734500316195656
+            }
+          },
+          "ridge": {
+            "HH_beats_all": true,
+            "HH_minus_HL": {
+              "estimate": 0.13487301610850308,
+              "lower_bound": 0.131612699350452
+            },
+            "HH_minus_LH": {
+              "estimate": 0.10473697618284623,
+              "lower_bound": 0.10184843922646679
+            },
+            "HH_minus_LL": {
+              "estimate": 0.12976581291305817,
+              "lower_bound": 0.12626857065607536
+            },
+            "quadrant_means": {
+              "HH": 0.11874458930020777,
+              "HL": -0.016128426808295366,
+              "LH": 0.014007613117361517,
+              "LL": -0.011021223612850416
+            }
+          },
+          "supported": true
+        },
+        "C2_oldNL": {
+          "HH_beats_all": false,
+          "best_quadrant_mean": -0.009345558073938932,
+          "ols_std": {
+            "HH_beats_all": false,
+            "HH_minus_HL": {
+              "estimate": -0.0007435715099165178,
+              "lower_bound": -0.0013026935985021278
+            },
+            "HH_minus_LH": {
+              "estimate": -0.005059914524360312,
+              "lower_bound": -0.007330171317630524
+            },
+            "HH_minus_LL": {
+              "estimate": -0.0055756641115768295,
+              "lower_bound": -0.007984592303958538
+            },
+            "quadrant_means": {
+              "HH": -0.020542898335363807,
+              "HL": -0.019799326825447293,
+              "LH": -0.015482983811003492,
+              "LL": -0.014967234223786976
+            }
+          },
+          "ridge": {
+            "HH_beats_all": false,
+            "HH_minus_HL": {
+              "estimate": -0.00030324558207201434,
+              "lower_bound": -0.0008728711764066116
+            },
+            "HH_minus_LH": {
+              "estimate": -0.007333417771418148,
+              "lower_bound": -0.009436294521508534
+            },
+            "HH_minus_LL": {
+              "estimate": -0.007405073498718592,
+              "lower_bound": -0.00971395127533645
+            },
+            "quadrant_means": {
+              "HH": -0.016750631572657524,
+              "HL": -0.016447385990585504,
+              "LH": -0.009417213801239376,
+              "LL": -0.009345558073938932
+            }
+          },
+          "supported": false
+        },
+        "C3_old_x_old": {
+          "HH_beats_all": false,
+          "best_quadrant_mean": -0.010138575080157166,
+          "ols_std": {
+            "HH_beats_all": false,
+            "HH_minus_HL": {
+              "estimate": -0.0006130132060365538,
+              "lower_bound": -0.0016491796641226392
+            },
+            "HH_minus_LH": {
+              "estimate": -0.00674866540394474,
+              "lower_bound": -0.008989500687719738
+            },
+            "HH_minus_LL": {
+              "estimate": -0.006641749208120408,
+              "lower_bound": -0.008946107840343007
+            },
+            "quadrant_means": {
+              "HH": -0.022182842101310725,
+              "HL": -0.021569828895274173,
+              "LH": -0.015434176697365987,
+              "LL": -0.015541092893190316
+            }
+          },
+          "ridge": {
+            "HH_beats_all": false,
+            "HH_minus_HL": {
+              "estimate": -0.0004017815665239585,
+              "lower_bound": -0.001338758058360107
+            },
+            "HH_minus_LH": {
+              "estimate": -0.008287797936208164,
+              "lower_bound": -0.010283896657305011
+            },
+            "HH_minus_LL": {
+              "estimate": -0.008305545690284062,
+              "lower_bound": -0.010329470882878914
+            },
+            "quadrant_means": {
+              "HH": -0.018444120770441226,
+              "HL": -0.01804233920391727,
+              "LH": -0.010156322834233063,
+              "LL": -0.010138575080157166
+            }
+          },
+          "supported": false
+        },
+        "C4_old3": {
+          "HH_beats_all": false,
+          "best_quadrant_mean": -0.010810560579381375,
+          "ols_std": {
+            "HH_beats_all": false,
+            "HH_minus_HL": {
+              "estimate": -9.527661639088456e-06,
+              "lower_bound": -0.0008225206148114964
+            },
+            "HH_minus_LH": {
+              "estimate": -0.00614226957423869,
+              "lower_bound": -0.007331123019341748
+            },
+            "HH_minus_LL": {
+              "estimate": -0.006395494098114606,
+              "lower_bound": -0.007912849111563997
+            },
+            "quadrant_means": {
+              "HH": -0.02267768534505887,
+              "HL": -0.022668157683419773,
+              "LH": -0.016535415770820176,
+              "LL": -0.016282191246944265
+            }
+          },
+          "ridge": {
+            "HH_beats_all": false,
+            "HH_minus_HL": {
+              "estimate": 0.00030059069172600275,
+              "lower_bound": -0.0004086920152056587
+            },
+            "HH_minus_LH": {
+              "estimate": -0.008307192773676081,
+              "lower_bound": -0.00946673141511041
+            },
+            "HH_minus_LL": {
+              "estimate": -0.00827625167835891,
+              "lower_bound": -0.009743897527138485
+            },
+            "quadrant_means": {
+              "HH": -0.019117753353057456,
+              "HL": -0.019418344044783455,
+              "LH": -0.010810560579381375,
+              "LL": -0.010841501674698545
+            }
+          },
+          "supported": false
+        }
+      },
+      "highs": [
+        0.75,
+        1.0
+      ],
+      "lows": [
+        0.0,
+        0.25
+      ],
+      "null_q99_ALL_ridge": 0.004904360535071912,
+      "passed": true,
+      "supported_classes": [
+        "C1_curNL_x_oldLin"
+      ],
+      "unsupported_classes": [
+        "C2_oldNL",
+        "C3_old_x_old",
+        "C4_old3"
+      ]
+    },
+    "C5_quantum_specific": {
+      "passed": false,
+      "quantum_joint_minus_classical_allpairs_C1": {
+        "estimate": 0.0,
+        "lower_bound": 0.0
+      },
+      "statement": "COMBINED MECHANISM IS CLASSICALLY REPRODUCIBLE"
+    }
+  },
+  "gates_sequential": {
+    "C1_structural": {
+      "contaminated_detected": {
+        "g_into_R": true,
+        "m_into_P": true,
+        "serial": true
+      },
+      "frozen_isolated": true,
+      "metric_level_independence": {
+        "ols_raw": {
+          "max_spread_M_over_g": 0.0,
+          "max_spread_N_over_m": 0.0
+        },
+        "ols_std": {
+          "max_spread_M_over_g": 0.0,
+          "max_spread_N_over_m": 0.0
+        },
+        "ridge": {
+          "max_spread_M_over_g": 0.0,
+          "max_spread_N_over_m": 0.0
+        }
+      },
+      "passed": true
+    },
+    "C2_resource_constrained": {
+      "cross_g_M": {
+        "equivalent": true,
+        "estimate": 0.0,
+        "interval": [
+          0.0,
+          0.0
+        ],
+        "margin": [
+          -0.03,
+          0.03
+        ],
+        "n_seeds": 20,
+        "passed": true,
+        "ratio": 0.0,
+        "ratio_max": 0.2,
+        "ratio_upper": 0.0
+      },
+      "cross_m_N": {
+        "equivalent": true,
+        "estimate": 0.0,
+        "interval": [
+          0.0,
+          0.0
+        ],
+        "margin": [
+          -0.03,
+          0.03
+        ],
+        "n_seeds": 20,
+        "passed": true,
+        "ratio": 0.0,
+        "ratio_max": 0.2,
+        "ratio_upper": 0.0
+      },
+      "degree_profile_m": {
+        "alpha_per_member": 0.0033333333333333335,
+        "correction": "Bonferroni (at least as strict as Holm)",
+        "members": {
+          "d2_t0": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "d3_t0": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "d4_t0": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "n_members": 3,
+        "passed": true
+      },
+      "feature_counts": {
+        "invariant": true,
+        "per_readout": {
+          "ALL": [
+            17
+          ],
+          "CLS": [
+            8
+          ],
+          "J": [
+            8
+          ],
+          "P": [
+            1
+          ],
+          "R": [
+            8
+          ]
+        }
+      },
+      "main_g_N": {
+        "ci_level": "q10",
+        "estimate": 0.27999276437140785,
+        "lower_bound": 0.2787411554717627,
+        "n_seeds": 20,
+        "passed": true,
+        "per_seed": [
+          0.2793368686193181,
+          0.28239384653628996,
+          0.2778080102006631,
+          0.2779041295397594,
+          0.27610280989557456,
+          0.2836202145512934,
+          0.28072295901440875,
+          0.27739423532098756,
+          0.2794732262220852,
+          0.28050990284271277,
+          0.27964085639551506,
+          0.279603396121325,
+          0.27848440818899267,
+          0.28629633459403325,
+          0.27831519806948124,
+          0.2781138304775921,
+          0.28530576341288394,
+          0.27847193976578716,
+          0.2780747808461342,
+          0.2822825768133182
+        ],
+        "sd": 0.0027099907106370035,
+        "threshold": 0.1
+      },
+      "main_m_M": {
+        "ci_level": "q10",
+        "estimate": 0.5219392094032089,
+        "lower_bound": 0.5156291905265993,
+        "n_seeds": 20,
+        "passed": true,
+        "per_seed": [
+          0.5063134743835104,
+          0.5236961917855839,
+          0.4955330606353871,
+          0.5160914146343499,
+          0.5375267780155103,
+          0.5159895175024395,
+          0.530023747171041,
+          0.524952802262759,
+          0.5159850698814888,
+          0.5417320919629547,
+          0.540544545643096,
+          0.5279269865789391,
+          0.5218633947842979,
+          0.5052828807088632,
+          0.5134255201215017,
+          0.5384012392371398,
+          0.5219103677907112,
+          0.5322942826894107,
+          0.5130283390236627,
+          0.5162624832515303
+        ],
+        "sd": 0.012524805198549975,
+        "threshold": 0.1
+      },
+      "memory_curve_g": {
+        "alpha_per_member": 0.0011111111111111111,
+        "correction": "Bonferroni (at least as strict as Holm)",
+        "members": {
+          "d1_t0": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "d1_t1": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "d1_t2": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "d1_t3": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "d1_t4": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "d1_t5": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "d1_t6": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "d1_t7": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "d1_t8": {
+            "equivalent": true,
+            "estimate": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "n_members": 9,
+        "passed": true
+      },
+      "passed": true,
+      "saturation_sentinel": {
+        "saturation_ok": true,
+        "sentinel_excess_max": 0.01127163352051002,
+        "sentinel_ok": true,
+        "worst_saturated_fraction": 0.0043859649122807015
+      }
+    },
+    "C3_intrinsic": {
+      "N_target_saturation_fraction_g_positive": 0.0,
+      "interior_g_N": {
+        "ci_level": "q10",
+        "estimate": 0.2552591761538663,
+        "lower_bound": 0.2510768751848977,
+        "n_seeds": 20,
+        "passed": true,
+        "per_seed": [
+          0.2427693571774308,
+          0.24930410568009703,
+          0.2543553350526508,
+          0.26204439116954775,
+          0.2569350918421312,
+          0.2490099010405528,
+          0.26044279968999057,
+          0.2529839641997286,
+          0.24847405568129338,
+          0.2722191926599457,
+          0.2521976392607884,
+          0.25445123176505186,
+          0.2584619803213583,
+          0.2738390310550403,
+          0.24715705934038815,
+          0.25965198666930434,
+          0.2475602611267365,
+          0.26322259907220297,
+          0.2579434591194301,
+          0.24216008115365611
+        ],
+        "sd": 0.0085772652278635,
+        "threshold": 0.1
+      },
+      "interior_m_M": {
+        "ci_level": "q10",
+        "estimate": 0.31574061876319925,
+        "lower_bound": 0.3086346560098043,
+        "n_seeds": 20,
+        "passed": true,
+        "per_seed": [
+          0.2814058269306237,
+          0.3163047121033994,
+          0.32216548785873567,
+          0.3130023901464061,
+          0.3049556808085648,
+          0.3313884250512826,
+          0.32988732604708926,
+          0.31365850307675375,
+          0.3283954920742682,
+          0.3112063107669777,
+          0.2980510463881282,
+          0.3155485935348228,
+          0.3134477339226742,
+          0.3199086011359718,
+          0.3187838009325654,
+          0.3453778174987125,
+          0.30956997491184157,
+          0.3080917029430149,
+          0.3042480874351403,
+          0.329414861697011
+        ],
+        "sd": 0.013790098856259281,
+        "threshold": 0.1
+      },
+      "ols_raw": {
+        "cross_g_M": {
+          "equivalent": true,
+          "estimate": 0.0,
+          "interval": [
+            0.0,
+            0.0
+          ],
+          "margin": [
+            -0.03,
+            0.03
+          ],
+          "n_seeds": 20,
+          "passed": true,
+          "ratio": 0.0,
+          "ratio_max": 0.2,
+          "ratio_upper": 0.0
+        },
+        "cross_m_N": {
+          "equivalent": true,
+          "estimate": 0.0,
+          "interval": [
+            0.0,
+            0.0
+          ],
+          "margin": [
+            -0.03,
+            0.03
+          ],
+          "n_seeds": 20,
+          "passed": true,
+          "ratio": 0.0,
+          "ratio_max": 0.2,
+          "ratio_upper": 0.0
+        },
+        "degree_profile_m": {
+          "alpha_per_member": 0.0033333333333333335,
+          "correction": "Bonferroni (at least as strict as Holm)",
+          "members": {
+            "d2_t0": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d3_t0": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d4_t0": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "n_members": 3,
+          "passed": true
+        },
+        "main_g_N": {
+          "ci_level": "q10",
+          "estimate": 0.2799938768288849,
+          "lower_bound": 0.27874415009759407,
+          "n_seeds": 20,
+          "passed": true,
+          "per_seed": [
+            0.2793212599290617,
+            0.2823879432253089,
+            0.2778079736036695,
+            0.2779081734635781,
+            0.2761063106840363,
+            0.28362648793573186,
+            0.2807373944495053,
+            0.2773916576529513,
+            0.27946297525869823,
+            0.28051552684322606,
+            0.27963619448232385,
+            0.27960865734846024,
+            0.27848848519130337,
+            0.28631369370855286,
+            0.2783168617432077,
+            0.278118397364941,
+            0.2853005419581083,
+            0.27848173920758174,
+            0.27807611794456677,
+            0.2822711445828852
+          ],
+          "sd": 0.002710827185621628,
+          "threshold": 0.1
+        },
+        "main_m_M": {
+          "ci_level": "q10",
+          "estimate": 0.5218108384022917,
+          "lower_bound": 0.5155023983820454,
+          "n_seeds": 20,
+          "passed": true,
+          "per_seed": [
+            0.5059625018799219,
+            0.5236021658853808,
+            0.4954404810498989,
+            0.5159953352317488,
+            0.5374021024300368,
+            0.515880672537236,
+            0.529969719092187,
+            0.5247113392194661,
+            0.5159803860173958,
+            0.5416524646979983,
+            0.5405646696106972,
+            0.5278909846227573,
+            0.5219765075742355,
+            0.5051897899285351,
+            0.5133008539748021,
+            0.5383594019300579,
+            0.5217387970321651,
+            0.5322424115760928,
+            0.5127742166600233,
+            0.515581967095196
+          ],
+          "sd": 0.012576150169517974,
+          "threshold": 0.1
+        },
+        "memory_curve_g": {
+          "alpha_per_member": 0.0011111111111111111,
+          "correction": "Bonferroni (at least as strict as Holm)",
+          "members": {
+            "d1_t0": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t1": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t2": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t3": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t4": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t5": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t6": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t7": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t8": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "n_members": 9,
+          "passed": true
+        },
+        "passed": true
+      },
+      "ols_std": {
+        "cross_g_M": {
+          "equivalent": true,
+          "estimate": 0.0,
+          "interval": [
+            0.0,
+            0.0
+          ],
+          "margin": [
+            -0.03,
+            0.03
+          ],
+          "n_seeds": 20,
+          "passed": true,
+          "ratio": 0.0,
+          "ratio_max": 0.2,
+          "ratio_upper": 0.0
+        },
+        "cross_m_N": {
+          "equivalent": true,
+          "estimate": 0.0,
+          "interval": [
+            0.0,
+            0.0
+          ],
+          "margin": [
+            -0.03,
+            0.03
+          ],
+          "n_seeds": 20,
+          "passed": true,
+          "ratio": 0.0,
+          "ratio_max": 0.2,
+          "ratio_upper": 0.0
+        },
+        "degree_profile_m": {
+          "alpha_per_member": 0.0033333333333333335,
+          "correction": "Bonferroni (at least as strict as Holm)",
+          "members": {
+            "d2_t0": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d3_t0": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d4_t0": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "n_members": 3,
+          "passed": true
+        },
+        "main_g_N": {
+          "ci_level": "q10",
+          "estimate": 0.2799938768288849,
+          "lower_bound": 0.27874415009759407,
+          "n_seeds": 20,
+          "passed": true,
+          "per_seed": [
+            0.2793212599290617,
+            0.2823879432253089,
+            0.27780797360366954,
+            0.27790817346357805,
+            0.2761063106840362,
+            0.2836264879357318,
+            0.2807373944495053,
+            0.27739165765295126,
+            0.27946297525869823,
+            0.28051552684322617,
+            0.2796361944823238,
+            0.27960865734846024,
+            0.27848848519130337,
+            0.2863136937085529,
+            0.27831686174320763,
+            0.27811839736494093,
+            0.2853005419581083,
+            0.27848173920758174,
+            0.27807611794456677,
+            0.2822711445828852
+          ],
+          "sd": 0.0027108271856216477,
+          "threshold": 0.1
+        },
+        "main_m_M": {
+          "ci_level": "q10",
+          "estimate": 0.5218108384022917,
+          "lower_bound": 0.5155023983820455,
+          "n_seeds": 20,
+          "passed": true,
+          "per_seed": [
+            0.5059625018799221,
+            0.5236021658853808,
+            0.495440481049899,
+            0.5159953352317487,
+            0.5374021024300368,
+            0.515880672537236,
+            0.5299697190921872,
+            0.5247113392194663,
+            0.5159803860173957,
+            0.5416524646979983,
+            0.5405646696106972,
+            0.5278909846227573,
+            0.5219765075742355,
+            0.5051897899285349,
+            0.5133008539748021,
+            0.5383594019300579,
+            0.5217387970321651,
+            0.5322424115760929,
+            0.5127742166600233,
+            0.515581967095196
+          ],
+          "sd": 0.012576150169517979,
+          "threshold": 0.1
+        },
+        "memory_curve_g": {
+          "alpha_per_member": 0.0011111111111111111,
+          "correction": "Bonferroni (at least as strict as Holm)",
+          "members": {
+            "d1_t0": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t1": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t2": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t3": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t4": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t5": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t6": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t7": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            },
+            "d1_t8": {
+              "equivalent": true,
+              "estimate": 0.0,
+              "interval": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "n_members": 9,
+          "passed": true
+        },
+        "passed": true
+      },
+      "passed": true,
+      "section6_verdict": "CONTINUOUS INTRINSIC NONLINEAR CONTROL HOLDS"
+    },
+    "C4_combined": {
+      "classes": {
+        "C1_curNL_x_oldLin": {
+          "HH_beats_all": true,
+          "best_quadrant_mean": 0.11874458930020777,
+          "ols_std": {
+            "HH_beats_all": true,
+            "HH_minus_HL": {
+              "estimate": 0.14146430115109218,
+              "lower_bound": 0.13781524966804085
+            },
+            "HH_minus_LH": {
+              "estimate": 0.10155152159420515,
+              "lower_bound": 0.09817476581527712
+            },
+            "HH_minus_LL": {
+              "estimate": 0.13858471863625513,
+              "lower_bound": 0.13432083363425665
+            },
+            "quadrant_means": {
+              "HH": 0.12185021832005949,
+              "HL": -0.0196140828310327,
+              "LH": 0.02029869672585432,
+              "LL": -0.016734500316195656
+            }
+          },
+          "ridge": {
+            "HH_beats_all": true,
+            "HH_minus_HL": {
+              "estimate": 0.13487301610850308,
+              "lower_bound": 0.13094663858942907
+            },
+            "HH_minus_LH": {
+              "estimate": 0.10473697618284623,
+              "lower_bound": 0.101291415767266
+            },
+            "HH_minus_LL": {
+              "estimate": 0.12976581291305817,
+              "lower_bound": 0.12563170959836548
+            },
+            "quadrant_means": {
+              "HH": 0.11874458930020777,
+              "HL": -0.016128426808295366,
+              "LH": 0.014007613117361517,
+              "LL": -0.011021223612850416
+            }
+          },
+          "supported": true
+        },
+        "C2_oldNL": {
+          "HH_beats_all": false,
+          "best_quadrant_mean": -0.009345558073938932,
+          "ols_std": {
+            "HH_beats_all": false,
+            "HH_minus_HL": {
+              "estimate": -0.0007435715099165178,
+              "lower_bound": -0.0013936472674338802
+            },
+            "HH_minus_LH": {
+              "estimate": -0.005059914524360312,
+              "lower_bound": -0.007669230658711608
+            },
+            "HH_minus_LL": {
+              "estimate": -0.0055756641115768295,
+              "lower_bound": -0.00836765266768697
+            },
+            "quadrant_means": {
+              "HH": -0.020542898335363807,
+              "HL": -0.019799326825447293,
+              "LH": -0.015482983811003492,
+              "LL": -0.014967234223786976
+            }
+          },
+          "ridge": {
+            "HH_beats_all": false,
+            "HH_minus_HL": {
+              "estimate": -0.00030324558207201434,
+              "lower_bound": -0.0009739155084271385
+            },
+            "HH_minus_LH": {
+              "estimate": -0.007333417771418148,
+              "lower_bound": -0.009767616932155103
+            },
+            "HH_minus_LL": {
+              "estimate": -0.007405073498718592,
+              "lower_bound": -0.010118873007740977
+            },
+            "quadrant_means": {
+              "HH": -0.016750631572657524,
+              "HL": -0.016447385990585504,
+              "LH": -0.009417213801239376,
+              "LL": -0.009345558073938932
+            }
+          },
+          "supported": false
+        },
+        "C3_old_x_old": {
+          "HH_beats_all": false,
+          "best_quadrant_mean": -0.010138575080157166,
+          "ols_std": {
+            "HH_beats_all": false,
+            "HH_minus_HL": {
+              "estimate": -0.0006130132060365538,
+              "lower_bound": -0.0018350218067711681
+            },
+            "HH_minus_LH": {
+              "estimate": -0.00674866540394474,
+              "lower_bound": -0.00947441901870835
+            },
+            "HH_minus_LL": {
+              "estimate": -0.006641749208120408,
+              "lower_bound": -0.009382837653517077
+            },
+            "quadrant_means": {
+              "HH": -0.022182842101310725,
+              "HL": -0.021569828895274173,
+              "LH": -0.015434176697365987,
+              "LL": -0.015541092893190316
+            }
+          },
+          "ridge": {
+            "HH_beats_all": false,
+            "HH_minus_HL": {
+              "estimate": -0.0004017815665239585,
+              "lower_bound": -0.0015195232400804662
+            },
+            "HH_minus_LH": {
+              "estimate": -0.008287797936208164,
+              "lower_bound": -0.010645276084327452
+            },
+            "HH_minus_LL": {
+              "estimate": -0.008305545690284062,
+              "lower_bound": -0.010676969409025325
+            },
+            "quadrant_means": {
+              "HH": -0.018444120770441226,
+              "HL": -0.01804233920391727,
+              "LH": -0.010156322834233063,
+              "LL": -0.010138575080157166
+            }
+          },
+          "supported": false
+        },
+        "C4_old3": {
+          "HH_beats_all": false,
+          "best_quadrant_mean": -0.010810560579381375,
+          "ols_std": {
+            "HH_beats_all": false,
+            "HH_minus_HL": {
+              "estimate": -9.527661639088456e-06,
+              "lower_bound": -0.0009547632668788207
+            },
+            "HH_minus_LH": {
+              "estimate": -0.00614226957423869,
+              "lower_bound": -0.007525447826150685
+            },
+            "HH_minus_LL": {
+              "estimate": -0.006395494098114606,
+              "lower_bound": -0.00819413472369308
+            },
+            "quadrant_means": {
+              "HH": -0.02267768534505887,
+              "HL": -0.022668157683419773,
+              "LH": -0.016535415770820176,
+              "LL": -0.016282191246944265
+            }
+          },
+          "ridge": {
+            "HH_beats_all": false,
+            "HH_minus_HL": {
+              "estimate": 0.00030059069172600275,
+              "lower_bound": -0.0005495112317455777
+            },
+            "HH_minus_LH": {
+              "estimate": -0.008307192773676081,
+              "lower_bound": -0.009655257953381822
+            },
+            "HH_minus_LL": {
+              "estimate": -0.00827625167835891,
+              "lower_bound": -0.009977332074305642
+            },
+            "quadrant_means": {
+              "HH": -0.019117753353057456,
+              "HL": -0.019418344044783455,
+              "LH": -0.010810560579381375,
+              "LL": -0.010841501674698545
+            }
+          },
+          "supported": false
+        }
+      },
+      "highs": [
+        0.75,
+        1.0
+      ],
+      "lows": [
+        0.0,
+        0.25
+      ],
+      "null_q99_ALL_ridge": 0.004904360535071912,
+      "passed": true,
+      "supported_classes": [
+        "C1_curNL_x_oldLin"
+      ],
+      "unsupported_classes": [
+        "C2_oldNL",
+        "C3_old_x_old",
+        "C4_old3"
+      ]
+    },
+    "C5_quantum_specific": {
+      "passed": false,
+      "quantum_joint_minus_classical_allpairs_C1": {
+        "estimate": 0.0,
+        "lower_bound": 0.0
+      },
+      "statement": "COMBINED MECHANISM IS CLASSICALLY REPRODUCIBLE"
+    }
+  },
+  "n_rows": 500,
+  "overall": "V5.4 WORKS ONLY UNDER A RESOURCE-CONSTRAINED DEFINITION",
+  "overall_default_levels": "V5.4 WORKS ONLY UNDER A RESOURCE-CONSTRAINED DEFINITION",
+  "runtime_s": 34.6,
+  "success_claims_1_to_4": true
+}

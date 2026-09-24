@@ -1,0 +1,36 @@
+=== V5.4 CONFIRM ===
+    [conf] 25/500 points  (7s)
+    [conf] 50/500 points  (14s)
+    [conf] 75/500 points  (21s)
+    [conf] 100/500 points  (27s)
+    [conf] 125/500 points  (34s)
+    [conf] 150/500 points  (40s)
+    [conf] 175/500 points  (47s)
+    [conf] 200/500 points  (56s)
+    [conf] 225/500 points  (64s)
+    [conf] 250/500 points  (73s)
+    [conf] 275/500 points  (79s)
+    [conf] 300/500 points  (85s)
+    [conf] 325/500 points  (92s)
+    [conf] 350/500 points  (98s)
+    [conf] 375/500 points  (105s)
+    [conf] 400/500 points  (112s)
+    [conf] 425/500 points  (119s)
+    [conf] 450/500 points  (125s)
+    [conf] 475/500 points  (132s)
+    [conf] 500/500 points  (139s)
+  wrote results\v5_4\section6_confirmation.json
+  wrote results\v5_4\structure_confirmation.json
+Traceback (most recent call last):
+  File "D:\Research\QML\results_1\dvqc\masters-thesis-cpsr-dvqc\code\run_v5_stage.py", line 552, in <module>
+    STAGES[a.stage]()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\Research\QML\results_1\dvqc\masters-thesis-cpsr-dvqc\code\run_v5_stage.py", line 487, in stage_confirm
+    cls = classical_baseline(ad, ctx, CONF_SEEDS[:8])
+  File "D:\Research\QML\results_1\dvqc\masters-thesis-cpsr-dvqc\code\run_v5_stage.py", line 517, in classical_baseline
+    q, c = C.joint_estimators(f["R"], f["P"], [(r, 0) for r in range(ad.spec.L)], S, rng)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Research\QML\results_1\dvqc\masters-thesis-cpsr-dvqc\code\decoupled_qrc\audit_checks.py", line 396, in joint_estimators
+    pa, pb = np.clip((1 + XR[:, a]) / 2, 0, 1), np.clip((1 + XP[:, b]) / 2, 0, 1)
+                          ~~^^^^^^
+IndexError: index 8 is out of bounds for axis 1 with size 8
