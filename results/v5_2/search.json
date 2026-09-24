@@ -1,0 +1,1468 @@
+{
+  "chosen": null,
+  "grid": [
+    0.0,
+    0.25,
+    1.0
+  ],
+  "margins": {
+    "c1_adv_min": 0.05,
+    "effect_min": 0.2
+  },
+  "results": [
+    {
+      "candidate": {
+        "L": 5,
+        "p_max": 0.8,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "in_search_robustness": {
+        "interior_0.5_tau12": {
+          "C1_HH_minus_best": 0.13644316480092852,
+          "saturation_ok": true,
+          "worst_effect": 0.06350665618275105
+        },
+        "interior_0.5_tau8": {
+          "C1_HH_minus_best": 0.22455039415945438,
+          "saturation_ok": true,
+          "worst_effect": 0.1225291085525948
+        }
+      },
+      "nominal": {
+        "C1_HH_minus_best": 0.22455039415945438,
+        "C1_quadrants": {
+          "HH": 0.2195638213530565,
+          "HL": -0.016757124225136345,
+          "LH": -0.005730253755396739,
+          "LL": -0.004986572806397891
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.2470589304174541,
+        "dM_ols": 0.5622650560411385,
+        "dM_ridge": 0.5622697304054879,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              11
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              5
+            ]
+          }
+        },
+        "metric_saturation": {
+          "M|ols_raw": {
+            "max_metric_value": 0.5587572551349927,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.14285714285714285
+          },
+          "M|ols_std": {
+            "max_metric_value": 0.5587572551349927,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.14285714285714285
+          },
+          "M|ridge": {
+            "max_metric_value": 0.5587619294993422,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.14285714285714285
+          },
+          "N|ols_raw": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ols_std": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ridge": {
+            "max_metric_value": 0.31726907016912786,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "ok": true
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0015457527421015903,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.021929824561403508
+        }
+      },
+      "tag": "L5_p0.8_t0.44_f0.3333",
+      "worst_effect": 0.06350665618275105
+    },
+    {
+      "candidate": {
+        "L": 5,
+        "p_max": 0.85,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "in_search_robustness": {
+        "interior_0.5_tau12": {
+          "C1_HH_minus_best": 0.13629956900346127,
+          "saturation_ok": true,
+          "worst_effect": 0.05762358354899677
+        },
+        "interior_0.5_tau8": {
+          "C1_HH_minus_best": 0.228083006171976,
+          "saturation_ok": true,
+          "worst_effect": 0.12342521370983058
+        }
+      },
+      "nominal": {
+        "C1_HH_minus_best": 0.228083006171976,
+        "C1_quadrants": {
+          "HH": 0.2230964333655781,
+          "HL": -0.016707001348824052,
+          "LH": -0.005730253755396739,
+          "LL": -0.004986572806397891
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.24416897491575482,
+        "dM_ols": 0.5694498875496418,
+        "dM_ridge": 0.5694537282651346,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              11
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              5
+            ]
+          }
+        },
+        "metric_saturation": {
+          "M|ols_raw": {
+            "max_metric_value": 0.5659420866434962,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "M|ols_std": {
+            "max_metric_value": 0.5659420866434962,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "M|ridge": {
+            "max_metric_value": 0.5659459273589887,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ols_raw": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ols_std": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ridge": {
+            "max_metric_value": 0.31726907016912786,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "ok": true
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0028021010706046623,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.017543859649122806
+        }
+      },
+      "tag": "L5_p0.85_t0.44_f0.3333",
+      "worst_effect": 0.05762358354899677
+    },
+    {
+      "candidate": {
+        "L": 5,
+        "p_max": 0.9,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "in_search_robustness": {
+        "interior_0.5_tau12": {
+          "C1_HH_minus_best": 0.13547187313155867,
+          "saturation_ok": true,
+          "worst_effect": 0.05035592254196216
+        },
+        "interior_0.5_tau8": {
+          "C1_HH_minus_best": 0.22953345213786455,
+          "saturation_ok": true,
+          "worst_effect": 0.12066832418471837
+        }
+      },
+      "nominal": {
+        "C1_HH_minus_best": 0.22953345213786455,
+        "C1_quadrants": {
+          "HH": 0.22454687933146666,
+          "HL": -0.016764032276392053,
+          "LH": -0.005730253755396739,
+          "LL": -0.004986572806397891
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.2372576652454693,
+        "dM_ols": 0.5732432382359851,
+        "dM_ridge": 0.5732463552313595,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              11
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              5
+            ]
+          }
+        },
+        "metric_saturation": {
+          "M|ols_raw": {
+            "max_metric_value": 0.5697354373298394,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "M|ols_std": {
+            "max_metric_value": 0.5697354373298394,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "M|ridge": {
+            "max_metric_value": 0.5697385543252139,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ols_raw": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ols_std": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ridge": {
+            "max_metric_value": 0.31726907016912786,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "ok": true
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.003655569031617,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.017543859649122806
+        }
+      },
+      "tag": "L5_p0.9_t0.44_f0.3333",
+      "worst_effect": 0.05035592254196216
+    },
+    {
+      "candidate": {
+        "L": 5,
+        "p_max": 0.95,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "in_search_robustness": {
+        "interior_0.5_tau12": {
+          "C1_HH_minus_best": 0.13422379130642906,
+          "saturation_ok": true,
+          "worst_effect": 0.0422480029103743
+        },
+        "interior_0.5_tau8": {
+          "C1_HH_minus_best": 0.2292193744455472,
+          "saturation_ok": true,
+          "worst_effect": 0.11400750721222028
+        }
+      },
+      "nominal": {
+        "C1_HH_minus_best": 0.2292193744455472,
+        "C1_quadrants": {
+          "HH": 0.22423280163914933,
+          "HL": -0.01689081053819457,
+          "LH": -0.005730253755396739,
+          "LL": -0.004986572806397891
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.22659650759801808,
+        "dM_ols": 0.5737745903411273,
+        "dM_ridge": 0.5737771368822157,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              11
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              5
+            ]
+          }
+        },
+        "metric_saturation": {
+          "M|ols_raw": {
+            "max_metric_value": 0.5702667894349814,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.14285714285714285
+          },
+          "M|ols_std": {
+            "max_metric_value": 0.5702667894349814,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.14285714285714285
+          },
+          "M|ridge": {
+            "max_metric_value": 0.5702693359760699,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.14285714285714285
+          },
+          "N|ols_raw": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ols_std": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ridge": {
+            "max_metric_value": 0.31726907016912786,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "ok": true
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.005026713496852408,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.02631578947368421
+        }
+      },
+      "tag": "L5_p0.95_t0.44_f0.3333",
+      "worst_effect": 0.0422480029103743
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.8,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.28757551636868156,
+        "C1_quadrants": {
+          "HH": 0.2825888976666465,
+          "HL": -0.019335567382763933,
+          "LH": -0.005730319165905198,
+          "LL": -0.004986618702035038
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.3074782281264218,
+        "dM_ols": 0.6845335744675605,
+        "dM_ridge": 0.6845391485856629,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "metric_saturation": {
+          "M|ols_raw": {
+            "max_metric_value": 0.6810257735614149,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.2857142857142857
+          },
+          "M|ols_std": {
+            "max_metric_value": 0.6810257735614149,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.2857142857142857
+          },
+          "M|ridge": {
+            "max_metric_value": 0.6810313476795171,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.2857142857142857
+          },
+          "N|ols_raw": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ols_std": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ridge": {
+            "max_metric_value": 0.31726907016912786,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "ok": false
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0030679165064790032,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L6_p0.8_t0.44_f0.3333",
+      "worst_effect": 0.2883561341134916
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.85,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "in_search_robustness": {
+        "interior_0.5_tau12": {
+          "C1_HH_minus_best": 0.1793939000998338,
+          "saturation_ok": true,
+          "worst_effect": 0.07646671940181397
+        },
+        "interior_0.5_tau8": {
+          "C1_HH_minus_best": 0.2961736269965741,
+          "saturation_ok": false,
+          "worst_effect": 0.14265704199981558
+        }
+      },
+      "nominal": {
+        "C1_HH_minus_best": 0.2961736269965741,
+        "C1_quadrants": {
+          "HH": 0.2911870082945391,
+          "HL": -0.019283135514886952,
+          "LH": -0.005730319165905198,
+          "LL": -0.004986618702035038
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.3070461222447379,
+        "dM_ols": 0.6988341940297188,
+        "dM_ridge": 0.6988386723192422,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "metric_saturation": {
+          "M|ols_raw": {
+            "max_metric_value": 0.695326393123573,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.14285714285714285
+          },
+          "M|ols_std": {
+            "max_metric_value": 0.695326393123573,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.14285714285714285
+          },
+          "M|ridge": {
+            "max_metric_value": 0.6953308714130965,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.14285714285714285
+          },
+          "N|ols_raw": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ols_std": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ridge": {
+            "max_metric_value": 0.31726907016912786,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "ok": true
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0025936634284770867,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.021929824561403508
+        }
+      },
+      "tag": "L6_p0.85_t0.44_f0.3333",
+      "worst_effect": 0.07646671940181397
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.9,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "in_search_robustness": {
+        "interior_0.5_tau12": {
+          "C1_HH_minus_best": 0.18004291709379094,
+          "saturation_ok": true,
+          "worst_effect": 0.07257492308101977
+        },
+        "interior_0.5_tau8": {
+          "C1_HH_minus_best": 0.3028224162374681,
+          "saturation_ok": false,
+          "worst_effect": 0.14246306207401063
+        }
+      },
+      "nominal": {
+        "C1_HH_minus_best": 0.3028224162374681,
+        "C1_quadrants": {
+          "HH": 0.29783579753543304,
+          "HL": -0.019352898574225397,
+          "LH": -0.005730319165905198,
+          "LL": -0.004986618702035038
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.3039940216590821,
+        "dM_ols": 0.7090371236540023,
+        "dM_ridge": 0.7090406483089416,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "metric_saturation": {
+          "M|ols_raw": {
+            "max_metric_value": 0.7055293227478565,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.14285714285714285
+          },
+          "M|ols_std": {
+            "max_metric_value": 0.7055293227478565,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.14285714285714285
+          },
+          "M|ridge": {
+            "max_metric_value": 0.7055328474027959,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.14285714285714285
+          },
+          "N|ols_raw": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ols_std": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ridge": {
+            "max_metric_value": 0.31726907016912786,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "ok": true
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0033028062845807983,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.021929824561403508
+        }
+      },
+      "tag": "L6_p0.9_t0.44_f0.3333",
+      "worst_effect": 0.07257492308101977
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.95,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.30690014157868817,
+        "C1_quadrants": {
+          "HH": 0.30191352287665313,
+          "HL": -0.019571059177102425,
+          "LH": -0.005730319165905198,
+          "LL": -0.004986618702035038
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.29781113043589913,
+        "dM_ols": 0.7145508007452894,
+        "dM_ridge": 0.7145534182238704,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "metric_saturation": {
+          "M|ols_raw": {
+            "max_metric_value": 0.7110429998391438,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.2857142857142857
+          },
+          "M|ols_std": {
+            "max_metric_value": 0.7110429998391438,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.2857142857142857
+          },
+          "M|ridge": {
+            "max_metric_value": 0.7110456173177245,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.2857142857142857
+          },
+          "N|ols_raw": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ols_std": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ridge": {
+            "max_metric_value": 0.31726907016912786,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "ok": false
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.003946419244365901,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L6_p0.95_t0.44_f0.3333",
+      "worst_effect": 0.2883561341134916
+    },
+    {
+      "candidate": {
+        "L": 7,
+        "p_max": 0.8,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.35704592968723176,
+        "C1_quadrants": {
+          "HH": 0.35205927656238006,
+          "HL": -0.023097099278322427,
+          "LH": -0.0057303682253531,
+          "LL": -0.004986653124851683
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.3726738580090925,
+        "dM_ols": 0.8005618469762675,
+        "dM_ridge": 0.8005688571164716,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              15
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              7
+            ]
+          }
+        },
+        "metric_saturation": {
+          "M|ols_raw": {
+            "max_metric_value": 0.797054046070122,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.42857142857142855
+          },
+          "M|ols_std": {
+            "max_metric_value": 0.7970540460701219,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.42857142857142855
+          },
+          "M|ridge": {
+            "max_metric_value": 0.7970610562103259,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.42857142857142855
+          },
+          "N|ols_raw": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ols_std": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ridge": {
+            "max_metric_value": 0.31726907016912786,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "ok": false
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0039063616076532165,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.039473684210526314
+        }
+      },
+      "tag": "L7_p0.8_t0.44_f0.3333",
+      "worst_effect": 0.2883561341134916
+    },
+    {
+      "candidate": {
+        "L": 7,
+        "p_max": 0.85,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.36860186466548284,
+        "C1_quadrants": {
+          "HH": 0.36361521154063114,
+          "HL": -0.023050467710677303,
+          "LH": -0.0057303682253531,
+          "LL": -0.004986653124851683
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.3811588272243148,
+        "dM_ols": 0.8227273693133096,
+        "dM_ridge": 0.8227328390185186,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              15
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              7
+            ]
+          }
+        },
+        "metric_saturation": {
+          "M|ols_raw": {
+            "max_metric_value": 0.8192195684071641,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.2857142857142857
+          },
+          "M|ols_std": {
+            "max_metric_value": 0.8192195684071641,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.2857142857142857
+          },
+          "M|ridge": {
+            "max_metric_value": 0.8192250381123729,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.2857142857142857
+          },
+          "N|ols_raw": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ols_std": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ridge": {
+            "max_metric_value": 0.31726907016912786,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "ok": false
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.004683223846112942,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L7_p0.85_t0.44_f0.3333",
+      "worst_effect": 0.2883561341134916
+    },
+    {
+      "candidate": {
+        "L": 7,
+        "p_max": 0.9,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "in_search_robustness": {
+        "interior_0.5_tau12": {
+          "C1_HH_minus_best": 0.22623774945623862,
+          "saturation_ok": true,
+          "worst_effect": 0.08483312862461535
+        },
+        "interior_0.5_tau8": {
+          "C1_HH_minus_best": 0.37844323762111853,
+          "saturation_ok": false,
+          "worst_effect": 0.18585311867376084
+        }
+      },
+      "nominal": {
+        "C1_HH_minus_best": 0.37844323762111853,
+        "C1_quadrants": {
+          "HH": 0.37345658449626684,
+          "HL": -0.02299381525907694,
+          "LH": -0.0057303682253531,
+          "LL": -0.004986653124851683
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.3862775821892045,
+        "dM_ols": 0.8413874236043002,
+        "dM_ridge": 0.8413915772902925,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              15
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              7
+            ]
+          }
+        },
+        "metric_saturation": {
+          "M|ols_raw": {
+            "max_metric_value": 0.8378796226981545,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.14285714285714285
+          },
+          "M|ols_std": {
+            "max_metric_value": 0.8378796226981545,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.14285714285714285
+          },
+          "M|ridge": {
+            "max_metric_value": 0.8378837763841467,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.14285714285714285
+          },
+          "N|ols_raw": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ols_std": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ridge": {
+            "max_metric_value": 0.31726907016912786,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "ok": true
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.005921079053817751,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.02631578947368421
+        }
+      },
+      "tag": "L7_p0.9_t0.44_f0.3333",
+      "worst_effect": 0.08483312862461535
+    },
+    {
+      "candidate": {
+        "L": 7,
+        "p_max": 0.95,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.38547610704740076,
+        "C1_quadrants": {
+          "HH": 0.38048945392254907,
+          "HL": -0.023003304472668847,
+          "LH": -0.0057303682253531,
+          "LL": -0.004986653124851683
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.3852770481161999,
+        "dM_ols": 0.8543739854666118,
+        "dM_ridge": 0.854376559226341,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              15
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              7
+            ]
+          }
+        },
+        "metric_saturation": {
+          "M|ols_raw": {
+            "max_metric_value": 0.8508661845604661,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.2857142857142857
+          },
+          "M|ols_std": {
+            "max_metric_value": 0.8508661845604661,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.2857142857142857
+          },
+          "M|ridge": {
+            "max_metric_value": 0.8508687583201953,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.2857142857142857
+          },
+          "N|ols_raw": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ols_std": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ridge": {
+            "max_metric_value": 0.31726907016912786,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "ok": false
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0070502861285647485,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L7_p0.95_t0.44_f0.3333",
+      "worst_effect": 0.2883561341134916
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.8,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.41899180924433727,
+        "C1_quadrants": {
+          "HH": 0.41400512934553824,
+          "HL": -0.026557776634735568,
+          "LH": -0.005730406383630455,
+          "LL": -0.00498667989879901
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.44394784844784746,
+        "dM_ols": 0.91593570712982,
+        "dM_ridge": 0.9159389990964677,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "metric_saturation": {
+          "M|ols_raw": {
+            "max_metric_value": 0.912427906223674,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.5714285714285714
+          },
+          "M|ols_std": {
+            "max_metric_value": 0.912427906223674,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.5714285714285714
+          },
+          "M|ridge": {
+            "max_metric_value": 0.912431198190322,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.5714285714285714
+          },
+          "N|ols_raw": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ols_std": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ridge": {
+            "max_metric_value": 0.31726907016912786,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "ok": false
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.003445834352894115,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.04824561403508772
+        }
+      },
+      "tag": "L8_p0.8_t0.44_f0.3333",
+      "worst_effect": 0.2883561341134916
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.85,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.4351734356252684,
+        "C1_quadrants": {
+          "HH": 0.43018675572646936,
+          "HL": -0.026090212217667975,
+          "LH": -0.005730406383630455,
+          "LL": -0.00498667989879901
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.45406319707232984,
+        "dM_ols": 0.9443777940799827,
+        "dM_ridge": 0.9443814616961177,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "metric_saturation": {
+          "M|ols_raw": {
+            "max_metric_value": 0.9408699931738369,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.42857142857142855
+          },
+          "M|ols_std": {
+            "max_metric_value": 0.9408699931738369,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.42857142857142855
+          },
+          "M|ridge": {
+            "max_metric_value": 0.9408736607899719,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.42857142857142855
+          },
+          "N|ols_raw": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ols_std": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ridge": {
+            "max_metric_value": 0.31726907016912786,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "ok": false
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.003377858935793263,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.039473684210526314
+        }
+      },
+      "tag": "L8_p0.85_t0.44_f0.3333",
+      "worst_effect": 0.2883561341134916
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.9,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.45103184266014457,
+        "C1_quadrants": {
+          "HH": 0.44604516276134554,
+          "HL": -0.025769085338599507,
+          "LH": -0.005730406383630455,
+          "LL": -0.00498667989879901
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.4633716670801995,
+        "dM_ols": 0.9720704367142836,
+        "dM_ridge": 0.972073812648172,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "metric_saturation": {
+          "M|ols_raw": {
+            "max_metric_value": 0.968562635808138,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.2857142857142857
+          },
+          "M|ols_std": {
+            "max_metric_value": 0.968562635808138,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.2857142857142857
+          },
+          "M|ridge": {
+            "max_metric_value": 0.9685660117420263,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.2857142857142857
+          },
+          "N|ols_raw": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ols_std": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ridge": {
+            "max_metric_value": 0.31726907016912786,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "ok": false
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.004216057485942183,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L8_p0.9_t0.44_f0.3333",
+      "worst_effect": 0.2883561341134916
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.95,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.4635000256746734,
+        "C1_quadrants": {
+          "HH": 0.4585133457758744,
+          "HL": -0.025655006681181446,
+          "LH": -0.005730406383630455,
+          "LL": -0.00498667989879901
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.46750015150964275,
+        "dM_ols": 0.99376778250902,
+        "dM_ridge": 0.9937697401069444,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "metric_saturation": {
+          "M|ols_raw": {
+            "max_metric_value": 0.9902599816028744,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.42857142857142855
+          },
+          "M|ols_std": {
+            "max_metric_value": 0.9902599816028744,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.42857142857142855
+          },
+          "M|ridge": {
+            "max_metric_value": 0.9902619392007986,
+            "ok": false,
+            "worst_constituent_saturated_fraction": 0.42857142857142855
+          },
+          "N|ols_raw": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ols_std": {
+            "max_metric_value": 0.31726995722555323,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "N|ridge": {
+            "max_metric_value": 0.31726907016912786,
+            "ok": true,
+            "worst_constituent_saturated_fraction": 0.0
+          },
+          "ok": false
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.004139513740987727,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.039473684210526314
+        }
+      },
+      "tag": "L8_p0.95_t0.44_f0.3333",
+      "worst_effect": 0.2883561341134916
+    }
+  ],
+  "ridge_alpha": 0.5,
+  "robust_in_search": true,
+  "robust_search_min": 0.15,
+  "rule": "among nominal-feasible, stress the 6 with the largest worst effect; choose the robust-feasible one with the largest worst-case effect; tie -> smaller L; remaining ties -> enumeration order (smallest p_max first)",
+  "runtime_s": 344.9,
+  "seeds": [
+    [
+      40000,
+      45000
+    ],
+    [
+      40001,
+      45001
+    ],
+    [
+      40002,
+      45002
+    ],
+    [
+      40003,
+      45003
+    ],
+    [
+      40004,
+      45004
+    ]
+  ],
+  "space": {
+    "L": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "p_max": [
+      0.8,
+      0.85,
+      0.9,
+      0.95
+    ],
+    "phi_over_pi": [
+      0.3333333333333333
+    ],
+    "theta_max_over_pi": [
+      0.44
+    ]
+  },
+  "stress": [
+    [
+      "p_max",
+      0.9
+    ],
+    [
+      "p_max",
+      1.1
+    ],
+    [
+      "theta_max",
+      0.9
+    ],
+    [
+      "theta_max",
+      1.1
+    ],
+    [
+      "phi",
+      0.9
+    ],
+    [
+      "phi",
+      1.1
+    ]
+  ],
+  "version": "V5.2"
+}

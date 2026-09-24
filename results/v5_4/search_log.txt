@@ -1,0 +1,45 @@
+=== V5.4 SEARCH ===
+    L12_p0.65_t0.38_f0.2500_s2   worst=+0.148 C1adv=+0.118 feasible=False
+    L12_p0.65_t0.38_f0.3333_s2   worst=+0.148 C1adv=+0.160 feasible=False
+    L12_p0.65_t0.4_f0.2500_s2    worst=+0.148 C1adv=+0.135 feasible=False
+    L12_p0.65_t0.4_f0.3333_s2    worst=+0.148 C1adv=+0.170 feasible=False
+    L12_p0.65_t0.42_f0.2500_s2   worst=+0.148 C1adv=+0.153 feasible=False
+    L12_p0.65_t0.42_f0.3333_s2   worst=+0.148 C1adv=+0.178 feasible=False
+    L12_p0.7_t0.38_f0.2500_s2    worst=+0.156 C1adv=+0.125 feasible=True
+    L12_p0.7_t0.38_f0.3333_s2    worst=+0.156 C1adv=+0.170 feasible=True
+    L12_p0.7_t0.4_f0.2500_s2     worst=+0.156 C1adv=+0.144 feasible=True
+    L12_p0.7_t0.4_f0.3333_s2     worst=+0.156 C1adv=+0.180 feasible=True
+    L12_p0.7_t0.42_f0.2500_s2    worst=+0.156 C1adv=+0.162 feasible=True
+    L12_p0.7_t0.42_f0.3333_s2    worst=+0.156 C1adv=+0.189 feasible=True
+    L12_p0.75_t0.38_f0.2500_s2   worst=+0.154 C1adv=+0.132 feasible=True
+    L12_p0.75_t0.38_f0.3333_s2   worst=+0.154 C1adv=+0.179 feasible=True
+    L12_p0.75_t0.4_f0.2500_s2    worst=+0.154 C1adv=+0.152 feasible=True
+    L12_p0.75_t0.4_f0.3333_s2    worst=+0.154 C1adv=+0.190 feasible=True
+    L12_p0.75_t0.42_f0.2500_s2   worst=+0.154 C1adv=+0.171 feasible=True
+    L12_p0.75_t0.42_f0.3333_s2   worst=+0.154 C1adv=+0.199 feasible=True
+    L16_p0.65_t0.38_f0.2500_s2   worst=+0.158 C1adv=+0.117 feasible=True
+    L16_p0.65_t0.38_f0.3333_s2   worst=+0.158 C1adv=+0.159 feasible=True
+    L16_p0.65_t0.4_f0.2500_s2    worst=+0.158 C1adv=+0.135 feasible=True
+    L16_p0.65_t0.4_f0.3333_s2    worst=+0.158 C1adv=+0.169 feasible=True
+    L16_p0.65_t0.42_f0.2500_s2   worst=+0.158 C1adv=+0.152 feasible=True
+    L16_p0.65_t0.42_f0.3333_s2   worst=+0.158 C1adv=+0.177 feasible=True
+    L16_p0.7_t0.38_f0.2500_s2    worst=+0.160 C1adv=+0.124 feasible=True
+    L16_p0.7_t0.38_f0.3333_s2    worst=+0.160 C1adv=+0.169 feasible=True
+    L16_p0.7_t0.4_f0.2500_s2     worst=+0.160 C1adv=+0.143 feasible=True
+    L16_p0.7_t0.4_f0.3333_s2     worst=+0.160 C1adv=+0.179 feasible=True
+    L16_p0.7_t0.42_f0.2500_s2    worst=+0.160 C1adv=+0.162 feasible=True
+    L16_p0.7_t0.42_f0.3333_s2    worst=+0.160 C1adv=+0.188 feasible=True
+    L16_p0.75_t0.38_f0.2500_s2   worst=+0.160 C1adv=+0.129 feasible=True
+    L16_p0.75_t0.38_f0.3333_s2   worst=+0.160 C1adv=+0.177 feasible=True
+    L16_p0.75_t0.4_f0.2500_s2    worst=+0.160 C1adv=+0.149 feasible=True
+    L16_p0.75_t0.4_f0.3333_s2    worst=+0.160 C1adv=+0.188 feasible=True
+    L16_p0.75_t0.42_f0.2500_s2   worst=+0.160 C1adv=+0.169 feasible=True
+    L16_p0.75_t0.42_f0.3333_s2   worst=+0.160 C1adv=+0.197 feasible=True
+    stress L16_p0.7_t0.38_f0.2500_s2    worst-case=+0.154 robust=False
+    stress L16_p0.7_t0.38_f0.3333_s2    worst-case=+0.160 robust=True
+    stress L16_p0.7_t0.4_f0.2500_s2     worst-case=+0.160 robust=False
+    stress L16_p0.7_t0.4_f0.3333_s2     worst-case=+0.160 robust=True
+    stress L16_p0.7_t0.42_f0.2500_s2    worst-case=+0.160 robust=True
+    stress L16_p0.7_t0.42_f0.3333_s2    worst-case=+0.160 robust=True
+  wrote results\v5_4\search.json
+  chosen: {'L': 16, 'p_max': 0.7, 'theta_max': 1.1938052083641213, 'phi': 1.0471975511965976, 'read_stride': 2}

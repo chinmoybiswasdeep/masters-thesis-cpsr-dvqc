@@ -1,0 +1,24 @@
+=== V5.3 SEARCH ===
+    L12_p0.6_t0.44_f0.3333_s2    worst=+0.134 C1adv=+0.173 feasible=False
+    L12_p0.65_t0.44_f0.3333_s2   worst=+0.148 C1adv=+0.184 feasible=False
+    L12_p0.7_t0.44_f0.3333_s2    worst=+0.156 C1adv=+0.196 feasible=True
+    L12_p0.75_t0.44_f0.3333_s2   worst=+0.154 C1adv=+0.207 feasible=True
+    L12_p0.8_t0.44_f0.3333_s2    worst=+0.152 C1adv=+0.216 feasible=True
+    L16_p0.6_t0.44_f0.3333_s2    worst=+0.155 C1adv=+0.171 feasible=True
+    L16_p0.65_t0.44_f0.3333_s2   worst=+0.158 C1adv=+0.184 feasible=True
+    L16_p0.7_t0.44_f0.3333_s2    worst=+0.160 C1adv=+0.195 feasible=True
+    L16_p0.75_t0.44_f0.3333_s2   worst=+0.160 C1adv=+0.205 feasible=True
+    L16_p0.8_t0.44_f0.3333_s2    worst=+0.157 C1adv=+0.212 feasible=True
+    L20_p0.6_t0.44_f0.3333_s2    worst=+0.143 C1adv=+0.168 feasible=False
+    L20_p0.65_t0.44_f0.3333_s2   worst=+0.145 C1adv=+0.182 feasible=False
+    L20_p0.7_t0.44_f0.3333_s2    worst=+0.147 C1adv=+0.194 feasible=False
+    L20_p0.75_t0.44_f0.3333_s2   worst=+0.149 C1adv=+0.204 feasible=False
+    L20_p0.8_t0.44_f0.3333_s2    worst=+0.149 C1adv=+0.210 feasible=False
+    stress L16_p0.7_t0.44_f0.3333_s2    worst-case=+0.160 robust=False
+    stress L16_p0.75_t0.44_f0.3333_s2   worst-case=+0.160 robust=False
+    stress L16_p0.65_t0.44_f0.3333_s2   worst-case=+0.158 robust=False
+    stress L16_p0.8_t0.44_f0.3333_s2    worst-case=+0.157 robust=False
+    stress L12_p0.7_t0.44_f0.3333_s2    worst-case=+0.156 robust=False
+    stress L16_p0.6_t0.44_f0.3333_s2    worst-case=+0.155 robust=False
+  wrote results\v5_3\search.json
+  chosen: None

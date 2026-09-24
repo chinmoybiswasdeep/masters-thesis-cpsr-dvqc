@@ -1,0 +1,92 @@
+{
+  "1_memory_local": {
+    "capacity_by_degree": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5": 0.0,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0
+    },
+    "max_degree": 0,
+    "nonlinear_capacity": 0.0,
+    "rank": 1
+  },
+  "2_nonlinear_local": {
+    "capacity_by_degree": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5": 0.0,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0
+    },
+    "max_degree": 0,
+    "nonlinear_capacity": 0.0,
+    "rank": 0
+  },
+  "3_operational_all": {
+    "capacity_by_degree": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5": 0.0,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0
+    },
+    "max_degree": 0,
+    "nonlinear_capacity": 0.0,
+    "rank": 1
+  },
+  "4_joint": {
+    "capacity_by_degree": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5": 0.0,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0
+    },
+    "max_degree": 0,
+    "nonlinear_capacity": 0.0,
+    "rank": 0
+  },
+  "5_nonlinear_local_at_g0": {
+    "capacity_by_degree": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5": 0.0,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0
+    },
+    "max_degree": 1,
+    "nonlinear_capacity": 0.0,
+    "rank": 1
+  },
+  "P_full_Z_algebra": {
+    "capacity_by_degree": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5": 0.0,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0
+    },
+    "max_degree": 2,
+    "nonlinear_capacity": 1.0,
+    "rank": 2
+  }
+}

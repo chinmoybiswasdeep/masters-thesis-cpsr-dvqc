@@ -1,0 +1,19 @@
+=== V5.2 SEARCH ===
+    L5_p0.8_t0.44_f0.3333        worst=+0.064 C1adv=+0.225 feasible=False
+    L5_p0.85_t0.44_f0.3333       worst=+0.058 C1adv=+0.228 feasible=False
+    L5_p0.9_t0.44_f0.3333        worst=+0.050 C1adv=+0.230 feasible=False
+    L5_p0.95_t0.44_f0.3333       worst=+0.042 C1adv=+0.229 feasible=False
+    L6_p0.8_t0.44_f0.3333        worst=+0.288 C1adv=+0.288 feasible=False
+    L6_p0.85_t0.44_f0.3333       worst=+0.076 C1adv=+0.296 feasible=False
+    L6_p0.9_t0.44_f0.3333        worst=+0.073 C1adv=+0.303 feasible=False
+    L6_p0.95_t0.44_f0.3333       worst=+0.288 C1adv=+0.307 feasible=False
+    L7_p0.8_t0.44_f0.3333        worst=+0.288 C1adv=+0.357 feasible=False
+    L7_p0.85_t0.44_f0.3333       worst=+0.288 C1adv=+0.369 feasible=False
+    L7_p0.9_t0.44_f0.3333        worst=+0.085 C1adv=+0.378 feasible=False
+    L7_p0.95_t0.44_f0.3333       worst=+0.288 C1adv=+0.385 feasible=False
+    L8_p0.8_t0.44_f0.3333        worst=+0.288 C1adv=+0.419 feasible=False
+    L8_p0.85_t0.44_f0.3333       worst=+0.288 C1adv=+0.435 feasible=False
+    L8_p0.9_t0.44_f0.3333        worst=+0.288 C1adv=+0.451 feasible=False
+    L8_p0.95_t0.44_f0.3333       worst=+0.288 C1adv=+0.464 feasible=False
+  wrote results\v5_2\search.json
+  chosen: None

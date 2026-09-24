@@ -1,0 +1,194 @@
+{
+  "payload": {
+    "alpha_ledger": [
+      {
+        "alpha": 0.01,
+        "look": 1,
+        "what": "V4 original confirmation (results/v4)"
+      },
+      {
+        "alpha": 0.01,
+        "look": 2,
+        "what": "V4 independent-audit confirmation (results/v4/independent_audit)"
+      },
+      {
+        "alpha": 0.01,
+        "look": 3,
+        "what": "V5.x confirmation: the first V5-lineage version to pass its dev freeze criterion (V5 did not; it never looked at confirmation data)"
+      }
+    ],
+    "confirmation_seeds": [
+      [
+        90000,
+        95000
+      ],
+      [
+        90001,
+        95001
+      ],
+      [
+        90002,
+        95002
+      ],
+      [
+        90003,
+        95003
+      ],
+      [
+        90004,
+        95004
+      ],
+      [
+        90005,
+        95005
+      ],
+      [
+        90006,
+        95006
+      ],
+      [
+        90007,
+        95007
+      ],
+      [
+        90008,
+        95008
+      ],
+      [
+        90009,
+        95009
+      ],
+      [
+        90010,
+        95010
+      ],
+      [
+        90011,
+        95011
+      ],
+      [
+        90012,
+        95012
+      ],
+      [
+        90013,
+        95013
+      ],
+      [
+        90014,
+        95014
+      ],
+      [
+        90015,
+        95015
+      ],
+      [
+        90016,
+        95016
+      ],
+      [
+        90017,
+        95017
+      ],
+      [
+        90018,
+        95018
+      ],
+      [
+        90019,
+        95019
+      ]
+    ],
+    "context": {
+      "T": 1600,
+      "alpha": 0.5,
+      "dtype": "float64",
+      "gap": 12,
+      "max_degree": 4,
+      "n_null": 120,
+      "n_targets": 401,
+      "pinv_cutoff": 1e-10,
+      "tau_L": 2,
+      "tau_S": 0,
+      "tau_max": 8,
+      "train_frac": 0.65,
+      "washout": 60
+    },
+    "created_utc": "2026-09-24T11:03:58Z",
+    "describe": {
+      "alpha": 0.5,
+      "kind": null,
+      "name": "V5",
+      "resources": {
+        "input_copies": 3,
+        "nonlinear_degree_P": 2,
+        "nonlinear_degree_R": 1,
+        "observables_P": 1,
+        "observables_R": 8,
+        "observables_joint": 8,
+        "observables_total": 17,
+        "processor_depth": 3,
+        "qubits": 19
+      },
+      "spec": {
+        "L": 16,
+        "joint": "z_r * f for every read rail r (injection rail excluded)",
+        "memory": "random-SWAP channel, single-site Z readout of the read rails",
+        "p_max": 0.7,
+        "phi": 1.0471975511965976,
+        "processor": "2 copies, Ry(pi/2), exp(-i theta Z0Z1/2), measure cos(phi)X0+sin(phi)Y0",
+        "read_rails": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16
+        ],
+        "read_stride": 2,
+        "theta_max": 1.1938052083641213,
+        "theta_max_over_pi": 0.37999999999999995
+      }
+    },
+    "dev_results_sha256": "cb6972dcf68bfa3f6cc5ba6d152f4ed8e30f7a2ec7918c7fc556549da76b9411",
+    "disclosure": "all V5.x searches reused the same DEVELOPMENT seeds (40000.., 45000..); no V5.x version has seen any confirmation seed; every criterion change across V5.x made the criteria stricter, none weaker",
+    "gate_levels_for_verdict": "sequential (alpha 0.01 per look)",
+    "gates": "run_v4_audit.all_gates, unchanged (claims 1-5)",
+    "grid": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "lineage_not_frozen": {
+      "V5": "freeze criterion not met: memory interior effect 0.070 < 0.10 under delay range 12 (L = 6 cannot reach tau 7..12)",
+      "V5.1": "met its criterion but memory metric saturated (6/7 constituents > 0.995 at m = 1, M_ols = 1.000); strict per-metric saturation criterion added",
+      "V5.2": "search found no candidate (saturation vs reach trade-off)",
+      "V5.3": "every finalist failed theta_max x1.1 stress (N saturated)"
+    },
+    "previously_used_seed_count": 248,
+    "ridge_alpha": 0.5,
+    "source_sha256": {
+      "code/decoupled_qrc/audit_checks.py": "9c0d901857af2ee9745072e9aee801da8cbdac4fe74bd3ad50a8039a6f694e03",
+      "code/decoupled_qrc/audit_core.py": "5e0e3b75c69aa4d0ca470bed614db931bb9f57331901325705a6c1114b52c72a",
+      "code/decoupled_qrc/audit_ipc.py": "94ccda6c7ca9c2ec95815d9bc2297cd252411ff0ffe3040c318fe2351d987c61",
+      "code/decoupled_qrc/audit_report.py": "10030f06538ec1f493638f20a98762f2a973d71a3a60510cf6675e8a89a71fab",
+      "code/decoupled_qrc/v5_architecture.py": "fad053ae6ccdee94974358f4cb2619c2491c17e617e8af119ca9a466897ce2a0",
+      "code/run_v4_audit.py": "181466d15f11b445815268d965c86bc64a77c0d66ccd1cdca879af2ee5e11257",
+      "code/run_v5_stage.py": "61e147bf9033e57196ceb0e3b367abbf22411586bd8052f8d89298ac14882d62"
+    },
+    "spec": {
+      "L": 16,
+      "p_max": 0.7,
+      "phi": 1.0471975511965976,
+      "read_stride": 2,
+      "theta_max": 1.1938052083641213
+    },
+    "success_definition": "claims 1-4 pass on confirmation at sequential levels; claim 5 reported, not required",
+    "version": "V5.4"
+  },
+  "sha256": "0a2f1e184db3977b81648b0823ca62dc13d560a9df8024a462723254a2c08a02"
+}

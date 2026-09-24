@@ -1,0 +1,3752 @@
+{
+  "chosen": {
+    "L": 6,
+    "p_max": 0.6,
+    "phi": 1.0471975511965976,
+    "theta_max": 1.382300767579509
+  },
+  "grid": [
+    0.0,
+    0.25,
+    1.0
+  ],
+  "margins": {
+    "c1_adv_min": 0.05,
+    "effect_min": 0.2
+  },
+  "results": [
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 0.6,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.09989201787428424,
+        "C1_quadrants": {
+          "HH": 0.09497642629792223,
+          "HL": -0.014539610854532573,
+          "LH": -0.004915591576362009,
+          "LL": -0.004986508555292953
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.17939139023520528,
+        "dM_ols": 0.4004925648853418,
+        "dM_ridge": 0.4005009938107628,
+        "dN_interior_ols": 0.23136450704746353,
+        "dN_ols": 0.2403720102250902,
+        "dN_ridge": 0.24036881147320038,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": -0.0010764024682253408,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L4_p0.6_t0.4_f0.2500",
+      "worst_effect": 0.17939139023520528
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 0.6,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.12378940812383651,
+        "C1_quadrants": {
+          "HH": 0.11880289956854355,
+          "HL": -0.014539610854532587,
+          "LH": -0.0053877353821119005,
+          "LL": -0.004986508555292959
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.17939139023520528,
+        "dM_ols": 0.4004925648853418,
+        "dM_ridge": 0.4005009938107628,
+        "dN_interior_ols": 0.2696999674424013,
+        "dN_ols": 0.29570553267570965,
+        "dN_ridge": 0.29570317701811627,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.00029044195932553807,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L4_p0.6_t0.4_f0.3333",
+      "worst_effect": 0.17939139023520528
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 0.6,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.11221656453782275,
+        "C1_quadrants": {
+          "HH": 0.1072300559825298,
+          "HL": -0.014539610854532573,
+          "LH": -0.005125037477242768,
+          "LL": -0.004986508555292953
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.17939139023520528,
+        "dM_ols": 0.4004925648853418,
+        "dM_ridge": 0.4005009938107628,
+        "dN_interior_ols": 0.2587206885348975,
+        "dN_ols": 0.2687105293550904,
+        "dN_ridge": 0.26870760801419263,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": -0.0009833177000274631,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L4_p0.6_t0.42_f0.2500",
+      "worst_effect": 0.17939139023520528
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 0.6,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.1294609255696299,
+        "C1_quadrants": {
+          "HH": 0.12447441701433695,
+          "HL": -0.014539610854532587,
+          "LH": -0.005556821663580835,
+          "LL": -0.004986508555292959
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.17939139023520528,
+        "dM_ols": 0.4004925648853418,
+        "dM_ridge": 0.4005009938107628,
+        "dN_interior_ols": 0.28038902947885824,
+        "dN_ols": 0.30904567309413683,
+        "dN_ridge": 0.30904374899674625,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0005985904135956451,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L4_p0.6_t0.42_f0.3333",
+      "worst_effect": 0.17939139023520528
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 0.6,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.12329728876068063,
+        "C1_quadrants": {
+          "HH": 0.11831078020538768,
+          "HL": -0.014539610854532573,
+          "LH": -0.0053746816833812276,
+          "LL": -0.004986508555292953
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.17939139023520528,
+        "dM_ols": 0.4004925648853418,
+        "dM_ridge": 0.4005009938107628,
+        "dN_interior_ols": 0.28352271545861213,
+        "dN_ols": 0.2945521507300354,
+        "dN_ridge": 0.2945497633220724,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.00023438870561794545,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L4_p0.6_t0.44_f0.2500",
+      "worst_effect": 0.17939139023520528
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 0.6,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.1339869803578202,
+        "C1_quadrants": {
+          "HH": 0.12900047180252724,
+          "HL": -0.014539610854532587,
+          "LH": -0.005730162184696662,
+          "LL": -0.004986508555292959
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.17939139023520528,
+        "dM_ols": 0.4004925648853418,
+        "dM_ridge": 0.4005009938107628,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0008553920198130999,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L4_p0.6_t0.44_f0.3333",
+      "worst_effect": 0.17939139023520528
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 0.75,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.11109008877471496,
+        "C1_quadrants": {
+          "HH": 0.10617449719835295,
+          "HL": -0.013859855766445758,
+          "LH": -0.004915591576362009,
+          "LL": -0.004986508555292953
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.17427481830963848,
+        "dM_ols": 0.4275310480040068,
+        "dM_ridge": 0.4275353633234502,
+        "dN_interior_ols": 0.23136450704746353,
+        "dN_ols": 0.2403720102250902,
+        "dN_ridge": 0.24036881147320038,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0010602720909780395,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.013157894736842105
+        }
+      },
+      "tag": "L4_p0.75_t0.4_f0.2500",
+      "worst_effect": 0.17427481830963848
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 0.75,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.13733400436277954,
+        "C1_quadrants": {
+          "HH": 0.1323474958074866,
+          "HL": -0.013859855766445777,
+          "LH": -0.0053877353821119005,
+          "LL": -0.004986508555292959
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.17427481830963848,
+        "dM_ols": 0.4275310480040068,
+        "dM_ridge": 0.4275353633234502,
+        "dN_interior_ols": 0.2696999674424013,
+        "dN_ols": 0.29570553267570965,
+        "dN_ridge": 0.29570317701811627,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0013841932344706449,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.013157894736842105
+        }
+      },
+      "tag": "L4_p0.75_t0.4_f0.3333",
+      "worst_effect": 0.17427481830963848
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 0.75,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.12462017005969717,
+        "C1_quadrants": {
+          "HH": 0.11963366150440422,
+          "HL": -0.013859855766445758,
+          "LH": -0.005125037477242768,
+          "LL": -0.004986508555292953
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.17427481830963848,
+        "dM_ols": 0.4275310480040068,
+        "dM_ridge": 0.4275353633234502,
+        "dN_interior_ols": 0.2587206885348975,
+        "dN_ols": 0.2687105293550904,
+        "dN_ridge": 0.26870760801419263,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0010162408549657378,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.013157894736842105
+        }
+      },
+      "tag": "L4_p0.75_t0.42_f0.2500",
+      "worst_effect": 0.17427481830963848
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 0.75,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.1435631607758093,
+        "C1_quadrants": {
+          "HH": 0.13857665222051635,
+          "HL": -0.013859855766445777,
+          "LH": -0.005556821663580835,
+          "LL": -0.004986508555292959
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.17427481830963848,
+        "dM_ols": 0.4275310480040068,
+        "dM_ridge": 0.4275353633234502,
+        "dN_interior_ols": 0.28038902947885824,
+        "dN_ols": 0.30904567309413683,
+        "dN_ridge": 0.30904374899674625,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.001158014689993576,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.013157894736842105
+        }
+      },
+      "tag": "L4_p0.75_t0.42_f0.3333",
+      "worst_effect": 0.17427481830963848
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 0.75,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.13679340326088404,
+        "C1_quadrants": {
+          "HH": 0.1318068947055911,
+          "HL": -0.013859855766445758,
+          "LH": -0.0053746816833812276,
+          "LL": -0.004986508555292953
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.17427481830963848,
+        "dM_ols": 0.4275310480040068,
+        "dM_ridge": 0.4275353633234502,
+        "dN_interior_ols": 0.28352271545861213,
+        "dN_ols": 0.2945521507300354,
+        "dN_ridge": 0.2945497633220724,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0013845200481706595,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.013157894736842105
+        }
+      },
+      "tag": "L4_p0.75_t0.44_f0.2500",
+      "worst_effect": 0.17427481830963848
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 0.75,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.1485310663250113,
+        "C1_quadrants": {
+          "HH": 0.14354455776971836,
+          "HL": -0.013859855766445777,
+          "LH": -0.005730162184696662,
+          "LL": -0.004986508555292959
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.17427481830963848,
+        "dM_ols": 0.4275310480040068,
+        "dM_ridge": 0.4275353633234502,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0016019255573899343,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.013157894736842105
+        }
+      },
+      "tag": "L4_p0.75_t0.44_f0.3333",
+      "worst_effect": 0.17427481830963848
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 0.9,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.11240143269008573,
+        "C1_quadrants": {
+          "HH": 0.10748584111372372,
+          "HL": -0.014188848994607692,
+          "LH": -0.004915591576362009,
+          "LL": -0.004986508555292953
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.15521128644526405,
+        "dM_ols": 0.43237385737062634,
+        "dM_ridge": 0.4323765214271985,
+        "dN_interior_ols": 0.23136450704746353,
+        "dN_ols": 0.2403720102250902,
+        "dN_ridge": 0.24036881147320038,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": -0.0010764024682253408,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.013157894736842105
+        }
+      },
+      "tag": "L4_p0.9_t0.4_f0.2500",
+      "worst_effect": 0.15521128644526405
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 0.9,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.13952162328340584,
+        "C1_quadrants": {
+          "HH": 0.1345351147281129,
+          "HL": -0.014188848994607674,
+          "LH": -0.0053877353821119005,
+          "LL": -0.004986508555292959
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.15521128644526405,
+        "dM_ols": 0.43237385737062634,
+        "dM_ridge": 0.4323765214271985,
+        "dN_interior_ols": 0.2696999674424013,
+        "dN_ols": 0.29570553267570965,
+        "dN_ridge": 0.29570317701811627,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.00026446980362900344,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.013157894736842105
+        }
+      },
+      "tag": "L4_p0.9_t0.4_f0.3333",
+      "worst_effect": 0.15521128644526405
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 0.9,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.12634566659571028,
+        "C1_quadrants": {
+          "HH": 0.12135915804041733,
+          "HL": -0.014188848994607692,
+          "LH": -0.005125037477242768,
+          "LL": -0.004986508555292953
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.15521128644526405,
+        "dM_ols": 0.43237385737062634,
+        "dM_ridge": 0.4323765214271985,
+        "dN_interior_ols": 0.2587206885348975,
+        "dN_ols": 0.2687105293550904,
+        "dN_ridge": 0.26870760801419263,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": -0.0007515364939504393,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.013157894736842105
+        }
+      },
+      "tag": "L4_p0.9_t0.42_f0.2500",
+      "worst_effect": 0.15521128644526405
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 0.9,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.14601284916296134,
+        "C1_quadrants": {
+          "HH": 0.1410263406076684,
+          "HL": -0.014188848994607674,
+          "LH": -0.005556821663580835,
+          "LL": -0.004986508555292959
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.15521128644526405,
+        "dM_ols": 0.43237385737062634,
+        "dM_ridge": 0.4323765214271985,
+        "dN_interior_ols": 0.28038902947885824,
+        "dN_ols": 0.30904567309413683,
+        "dN_ridge": 0.30904374899674625,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0012475492104213146,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.013157894736842105
+        }
+      },
+      "tag": "L4_p0.9_t0.42_f0.3333",
+      "worst_effect": 0.15521128644526405
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 0.9,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.13895959271307418,
+        "C1_quadrants": {
+          "HH": 0.13397308415778122,
+          "HL": -0.014188848994607692,
+          "LH": -0.0053746816833812276,
+          "LL": -0.004986508555292953
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.15521128644526405,
+        "dM_ols": 0.43237385737062634,
+        "dM_ridge": 0.4323765214271985,
+        "dN_interior_ols": 0.28352271545861213,
+        "dN_ols": 0.2945521507300354,
+        "dN_ridge": 0.2945497633220724,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.00024010784959278917,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.013157894736842105
+        }
+      },
+      "tag": "L4_p0.9_t0.44_f0.2500",
+      "worst_effect": 0.15521128644526405
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 0.9,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.15121731169173622,
+        "C1_quadrants": {
+          "HH": 0.14623080313644327,
+          "HL": -0.014188848994607674,
+          "LH": -0.005730162184696662,
+          "LL": -0.004986508555292959
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.15521128644526405,
+        "dM_ols": 0.43237385737062634,
+        "dM_ridge": 0.4323765214271985,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0022011741991579594,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.013157894736842105
+        }
+      },
+      "tag": "L4_p0.9_t0.44_f0.3333",
+      "worst_effect": 0.15521128644526405
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 1.0,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.11007284706284584,
+        "C1_quadrants": {
+          "HH": 0.10515725548648383,
+          "HL": -0.014570473746237534,
+          "LH": -0.004915591576362009,
+          "LL": -0.004986508555292953
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.14039460963399225,
+        "dM_ols": 0.4280104726583665,
+        "dM_ridge": 0.4280128876554265,
+        "dN_interior_ols": 0.23136450704746353,
+        "dN_ols": 0.2403720102250902,
+        "dN_ridge": 0.24036881147320038,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": -0.0010764024682253408,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.039473684210526314
+        }
+      },
+      "tag": "L4_p1.0_t0.4_f0.2500",
+      "worst_effect": 0.14039460963399225
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 1.0,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.13735235793294376,
+        "C1_quadrants": {
+          "HH": 0.1323658493776508,
+          "HL": -0.014570473746237525,
+          "LH": -0.0053877353821119005,
+          "LL": -0.004986508555292959
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.14039460963399225,
+        "dM_ols": 0.4280104726583665,
+        "dM_ridge": 0.4280128876554265,
+        "dN_interior_ols": 0.2696999674424013,
+        "dN_ols": 0.29570553267570965,
+        "dN_ridge": 0.29570317701811627,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": -0.0008946172101149796,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.039473684210526314
+        }
+      },
+      "tag": "L4_p1.0_t0.4_f0.3333",
+      "worst_effect": 0.14039460963399225
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 1.0,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.12407817269000249,
+        "C1_quadrants": {
+          "HH": 0.11909166413470954,
+          "HL": -0.014570473746237534,
+          "LH": -0.005125037477242768,
+          "LL": -0.004986508555292953
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.14039460963399225,
+        "dM_ols": 0.4280104726583665,
+        "dM_ridge": 0.4280128876554265,
+        "dN_interior_ols": 0.2587206885348975,
+        "dN_ols": 0.2687105293550904,
+        "dN_ridge": 0.26870760801419263,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": -0.0010746960325064318,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.039473684210526314
+        }
+      },
+      "tag": "L4_p1.0_t0.42_f0.2500",
+      "worst_effect": 0.14039460963399225
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 1.0,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.1439107599063672,
+        "C1_quadrants": {
+          "HH": 0.13892425135107425,
+          "HL": -0.014570473746237525,
+          "LH": -0.005556821663580835,
+          "LL": -0.004986508555292959
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.14039460963399225,
+        "dM_ols": 0.4280104726583665,
+        "dM_ridge": 0.4280128876554265,
+        "dN_interior_ols": 0.28038902947885824,
+        "dN_ols": 0.30904567309413683,
+        "dN_ridge": 0.30904374899674625,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": -0.00023791250699061166,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.039473684210526314
+        }
+      },
+      "tag": "L4_p1.0_t0.42_f0.3333",
+      "worst_effect": 0.14039460963399225
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 1.0,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.1367852014461836,
+        "C1_quadrants": {
+          "HH": 0.13179869289089066,
+          "HL": -0.014570473746237534,
+          "LH": -0.0053746816833812276,
+          "LL": -0.004986508555292953
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.14039460963399225,
+        "dM_ols": 0.4280104726583665,
+        "dM_ridge": 0.4280128876554265,
+        "dN_interior_ols": 0.28352271545861213,
+        "dN_ols": 0.2945521507300354,
+        "dN_ridge": 0.2945497633220724,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": -0.0009430737969246122,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.039473684210526314
+        }
+      },
+      "tag": "L4_p1.0_t0.44_f0.2500",
+      "worst_effect": 0.14039460963399225
+    },
+    {
+      "candidate": {
+        "L": 4,
+        "p_max": 1.0,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": false,
+      "nominal": {
+        "C1_HH_minus_best": 0.14918449391397912,
+        "C1_quadrants": {
+          "HH": 0.14419798535868616,
+          "HL": -0.014570473746237525,
+          "LH": -0.005730162184696662,
+          "LL": -0.004986508555292959
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.14039460963399225,
+        "dM_ols": 0.4280104726583665,
+        "dM_ridge": 0.4280128876554265,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              9
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              4
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.000472912075983053,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.039473684210526314
+        }
+      },
+      "tag": "L4_p1.0_t0.44_f0.3333",
+      "worst_effect": 0.14039460963399225
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.6,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.18603712482028167,
+        "C1_quadrants": {
+          "HH": 0.18112141154352596,
+          "HL": -0.020629969130757465,
+          "LH": -0.004915713276755713,
+          "LL": -0.004986618702035045
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.2939605474979693,
+        "dM_ols": 0.6089580713268081,
+        "dM_ridge": 0.6089771336747816,
+        "dN_interior_ols": 0.23136450704746353,
+        "dN_ols": 0.2403720102250902,
+        "dN_ridge": 0.24036881147320038,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0005154500568786986,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.039473684210526314
+        }
+      },
+      "tag": "L6_p0.6_t0.4_f0.2500",
+      "worst_effect": 0.23136450704746353
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.6,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.23137732703913566,
+        "C1_quadrants": {
+          "HH": 0.22639070833710062,
+          "HL": -0.020629969130757507,
+          "LH": -0.005387878032211702,
+          "LL": -0.004986618702035038
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.2939605474979693,
+        "dM_ols": 0.6089580713268081,
+        "dM_ridge": 0.6089771336747816,
+        "dN_interior_ols": 0.2696999674424013,
+        "dN_ols": 0.29570553267570965,
+        "dN_ridge": 0.29570317701811627,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.006183314322650093,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.039473684210526314
+        }
+      },
+      "tag": "L6_p0.6_t0.4_f0.3333",
+      "worst_effect": 0.2696999674424013
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.6,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.209321983764188,
+        "C1_quadrants": {
+          "HH": 0.20433536506215297,
+          "HL": -0.020629969130757465,
+          "LH": -0.005125168672697751,
+          "LL": -0.004986618702035045
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.2939605474979693,
+        "dM_ols": 0.6089580713268081,
+        "dM_ridge": 0.6089771336747816,
+        "dN_interior_ols": 0.2587206885348975,
+        "dN_ols": 0.2687105293550904,
+        "dN_ridge": 0.26870760801419263,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.003028451986730023,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.039473684210526314
+        }
+      },
+      "tag": "L6_p0.6_t0.42_f0.2500",
+      "worst_effect": 0.2587206885348975
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.6,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.24223529502763616,
+        "C1_quadrants": {
+          "HH": 0.23724867632560112,
+          "HL": -0.020629969130757507,
+          "LH": -0.005556971469737961,
+          "LL": -0.004986618702035038
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.2939605474979693,
+        "dM_ols": 0.6089580713268081,
+        "dM_ridge": 0.6089771336747816,
+        "dN_interior_ols": 0.28038902947885824,
+        "dN_ols": 0.30904567309413683,
+        "dN_ridge": 0.30904374899674625,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.007986271283010396,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.039473684210526314
+        }
+      },
+      "tag": "L6_p0.6_t0.42_f0.3333",
+      "worst_effect": 0.28038902947885824
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.6,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.23043677986901134,
+        "C1_quadrants": {
+          "HH": 0.2254501611669763,
+          "HL": -0.020629969130757465,
+          "LH": -0.005374823774342086,
+          "LL": -0.004986618702035045
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.2939605474979693,
+        "dM_ols": 0.6089580713268081,
+        "dM_ridge": 0.6089771336747816,
+        "dN_interior_ols": 0.28352271545861213,
+        "dN_ols": 0.2945521507300354,
+        "dN_ridge": 0.2945497633220724,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.006048036116767902,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.039473684210526314
+        }
+      },
+      "tag": "L6_p0.6_t0.44_f0.2500",
+      "worst_effect": 0.28352271545861213
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.6,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.2509285695980918,
+        "C1_quadrants": {
+          "HH": 0.24594195089605675,
+          "HL": -0.020629969130757507,
+          "LH": -0.005730319165905198,
+          "LL": -0.004986618702035038
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.2939605474979693,
+        "dM_ols": 0.6089580713268081,
+        "dM_ridge": 0.6089771336747816,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.00986932258890339,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.039473684210526314
+        }
+      },
+      "robust_feasible": true,
+      "stress": {
+        "p_maxx0.9": {
+          "C1_HH_minus_best": 0.24209910044277994,
+          "feasible": true,
+          "worst_effect": 0.2883561341134916
+        },
+        "p_maxx1.1": {
+          "C1_HH_minus_best": 0.26053113941804346,
+          "feasible": true,
+          "worst_effect": 0.2883561341134916
+        },
+        "phix0.9": {
+          "C1_HH_minus_best": 0.24462468806693194,
+          "feasible": true,
+          "worst_effect": 0.29152341660807907
+        },
+        "phix1.1": {
+          "C1_HH_minus_best": 0.2554588002491339,
+          "feasible": true,
+          "worst_effect": 0.27558631094634767
+        },
+        "theta_maxx0.9": {
+          "C1_HH_minus_best": 0.22896922856622193,
+          "feasible": true,
+          "worst_effect": 0.2672629992255974
+        },
+        "theta_maxx1.1": {
+          "C1_HH_minus_best": 0.261404753152941,
+          "feasible": true,
+          "worst_effect": 0.2939605474979693
+        }
+      },
+      "tag": "L6_p0.6_t0.44_f0.3333",
+      "worst_case_effect": 0.2672629992255974,
+      "worst_effect": 0.2883561341134916
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.75,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.20567394567723885,
+        "C1_quadrants": {
+          "HH": 0.20075823240048313,
+          "HL": -0.019485083583413047,
+          "LH": -0.004915713276755713,
+          "LL": -0.004986618702035045
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.3056770959869809,
+        "dM_ols": 0.6669728079930833,
+        "dM_ridge": 0.6669800383432674,
+        "dN_interior_ols": 0.23136450704746353,
+        "dN_ols": 0.2403720102250902,
+        "dN_ridge": 0.24036881147320038,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0017864549872704284,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L6_p0.75_t0.4_f0.2500",
+      "worst_effect": 0.23136450704746353
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.75,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.25601030323345203,
+        "C1_quadrants": {
+          "HH": 0.251023684531417,
+          "HL": -0.019485083583413065,
+          "LH": -0.005387878032211702,
+          "LL": -0.004986618702035038
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.3056770959869809,
+        "dM_ols": 0.6669728079930833,
+        "dM_ridge": 0.6669800383432674,
+        "dN_interior_ols": 0.2696999674424013,
+        "dN_ols": 0.29570553267570965,
+        "dN_ridge": 0.29570317701811627,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.003711799918074481,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L6_p0.75_t0.4_f0.3333",
+      "worst_effect": 0.2696999674424013
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.75,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.23149201176865464,
+        "C1_quadrants": {
+          "HH": 0.2265053930666196,
+          "HL": -0.019485083583413047,
+          "LH": -0.005125168672697751,
+          "LL": -0.004986618702035045
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.3056770959869809,
+        "dM_ols": 0.6669728079930833,
+        "dM_ridge": 0.6669800383432674,
+        "dN_interior_ols": 0.2587206885348975,
+        "dN_ols": 0.2687105293550904,
+        "dN_ridge": 0.26870760801419263,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.003601728143661071,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L6_p0.75_t0.42_f0.2500",
+      "worst_effect": 0.2587206885348975
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.75,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.2681182668631525,
+        "C1_quadrants": {
+          "HH": 0.26313164816111745,
+          "HL": -0.019485083583413065,
+          "LH": -0.005556971469737961,
+          "LL": -0.004986618702035038
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.3056770959869809,
+        "dM_ols": 0.6669728079930833,
+        "dM_ridge": 0.6669800383432674,
+        "dN_interior_ols": 0.28038902947885824,
+        "dN_ols": 0.30904567309413683,
+        "dN_ridge": 0.30904374899674625,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0039920789977772545,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L6_p0.75_t0.42_f0.3333",
+      "worst_effect": 0.28038902947885824
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.75,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.2549630219830315,
+        "C1_quadrants": {
+          "HH": 0.24997640328099643,
+          "HL": -0.019485083583413047,
+          "LH": -0.005374823774342086,
+          "LL": -0.004986618702035045
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.3056770959869809,
+        "dM_ols": 0.6669728079930833,
+        "dM_ridge": 0.6669800383432674,
+        "dN_interior_ols": 0.28352271545861213,
+        "dN_ols": 0.2945521507300354,
+        "dN_ridge": 0.2945497633220724,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0036922887346677296,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L6_p0.75_t0.44_f0.2500",
+      "worst_effect": 0.28352271545861213
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.75,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.27785083761667667,
+        "C1_quadrants": {
+          "HH": 0.27286421891464163,
+          "HL": -0.019485083583413065,
+          "LH": -0.005730319165905198,
+          "LL": -0.004986618702035038
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.3056770959869809,
+        "dM_ols": 0.6669728079930833,
+        "dM_ridge": 0.6669800383432674,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.004337811342204557,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "robust_feasible": true,
+      "stress": {
+        "p_maxx0.9": {
+          "C1_HH_minus_best": 0.2632242179426261,
+          "feasible": true,
+          "worst_effect": 0.2883561341134916
+        },
+        "p_maxx1.1": {
+          "C1_HH_minus_best": 0.29206993195786546,
+          "feasible": true,
+          "worst_effect": 0.2883561341134916
+        },
+        "phix0.9": {
+          "C1_HH_minus_best": 0.27078864120287166,
+          "feasible": true,
+          "worst_effect": 0.29152341660807907
+        },
+        "phix1.1": {
+          "C1_HH_minus_best": 0.28295180753657134,
+          "feasible": true,
+          "worst_effect": 0.27558631094634767
+        },
+        "theta_maxx0.9": {
+          "C1_HH_minus_best": 0.25332931783246937,
+          "feasible": true,
+          "worst_effect": 0.2672629992255974
+        },
+        "theta_maxx1.1": {
+          "C1_HH_minus_best": 0.28976564673683014,
+          "feasible": true,
+          "worst_effect": 0.2950923498252862
+        }
+      },
+      "tag": "L6_p0.75_t0.44_f0.3333",
+      "worst_case_effect": 0.2672629992255974,
+      "worst_effect": 0.2883561341134916
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.9,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.22428900727504267,
+        "C1_quadrants": {
+          "HH": 0.21937329399828695,
+          "HL": -0.019352898574225404,
+          "LH": -0.004915713276755713,
+          "LL": -0.004986618702035045
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.3039940216590821,
+        "dM_ols": 0.7090371236540023,
+        "dM_ridge": 0.7090406483089416,
+        "dN_interior_ols": 0.23136450704746353,
+        "dN_ols": 0.2403720102250902,
+        "dN_ridge": 0.24036881147320038,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.003302806284580978,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.021929824561403508
+        }
+      },
+      "tag": "L6_p0.9_t0.4_f0.2500",
+      "worst_effect": 0.23136450704746353
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.9,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.27911142809514633,
+        "C1_quadrants": {
+          "HH": 0.2741248093931113,
+          "HL": -0.019352898574225397,
+          "LH": -0.005387878032211702,
+          "LL": -0.004986618702035038
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.3039940216590821,
+        "dM_ols": 0.7090371236540023,
+        "dM_ridge": 0.7090406483089416,
+        "dN_interior_ols": 0.2696999674424013,
+        "dN_ols": 0.29570553267570965,
+        "dN_ridge": 0.29570317701811627,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0033028062845807983,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.021929824561403508
+        }
+      },
+      "tag": "L6_p0.9_t0.4_f0.3333",
+      "worst_effect": 0.2696999674424013
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.9,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.25242321318518074,
+        "C1_quadrants": {
+          "HH": 0.24743659448314567,
+          "HL": -0.019352898574225404,
+          "LH": -0.005125168672697751,
+          "LL": -0.004986618702035045
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.3039940216590821,
+        "dM_ols": 0.7090371236540023,
+        "dM_ridge": 0.7090406483089416,
+        "dN_interior_ols": 0.2587206885348975,
+        "dN_ols": 0.2687105293550904,
+        "dN_ridge": 0.26870760801419263,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0037094032703372873,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.021929824561403508
+        }
+      },
+      "tag": "L6_p0.9_t0.42_f0.2500",
+      "worst_effect": 0.2587206885348975
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.9,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.2922669253215074,
+        "C1_quadrants": {
+          "HH": 0.28728030661947235,
+          "HL": -0.019352898574225397,
+          "LH": -0.005556971469737961,
+          "LL": -0.004986618702035038
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.3039940216590821,
+        "dM_ols": 0.7090371236540023,
+        "dM_ridge": 0.7090406483089416,
+        "dN_interior_ols": 0.28038902947885824,
+        "dN_ols": 0.30904567309413683,
+        "dN_ridge": 0.30904374899674625,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0033028062845807983,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.021929824561403508
+        }
+      },
+      "tag": "L6_p0.9_t0.42_f0.3333",
+      "worst_effect": 0.28038902947885824
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.9,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.2779726146041362,
+        "C1_quadrants": {
+          "HH": 0.27298599590210115,
+          "HL": -0.019352898574225404,
+          "LH": -0.005374823774342086,
+          "LL": -0.004986618702035045
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.3039940216590821,
+        "dM_ols": 0.7090371236540023,
+        "dM_ridge": 0.7090406483089416,
+        "dN_interior_ols": 0.28352271545861213,
+        "dN_ols": 0.2945521507300354,
+        "dN_ridge": 0.2945497633220724,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.003302806284580978,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.021929824561403508
+        }
+      },
+      "tag": "L6_p0.9_t0.44_f0.2500",
+      "worst_effect": 0.28352271545861213
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 0.9,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.3028224162374681,
+        "C1_quadrants": {
+          "HH": 0.29783579753543304,
+          "HL": -0.019352898574225397,
+          "LH": -0.005730319165905198,
+          "LL": -0.004986618702035038
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.3039940216590821,
+        "dM_ols": 0.7090371236540023,
+        "dM_ridge": 0.7090406483089416,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0033028062845807983,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.021929824561403508
+        }
+      },
+      "robust_feasible": true,
+      "stress": {
+        "p_maxx0.9": {
+          "C1_HH_minus_best": 0.28941346498319587,
+          "feasible": true,
+          "worst_effect": 0.2883561341134916
+        },
+        "p_maxx1.1": {
+          "C1_HH_minus_best": 0.3081062768484067,
+          "feasible": true,
+          "worst_effect": 0.2883561341134916
+        },
+        "phix0.9": {
+          "C1_HH_minus_best": 0.2951651487023617,
+          "feasible": true,
+          "worst_effect": 0.29152341660807907
+        },
+        "phix1.1": {
+          "C1_HH_minus_best": 0.3083439176683658,
+          "feasible": true,
+          "worst_effect": 0.27558631094634767
+        },
+        "theta_maxx0.9": {
+          "C1_HH_minus_best": 0.276195873793864,
+          "feasible": true,
+          "worst_effect": 0.2672629992255974
+        },
+        "theta_maxx1.1": {
+          "C1_HH_minus_best": 0.31569071941327953,
+          "feasible": true,
+          "worst_effect": 0.2950923498252862
+        }
+      },
+      "tag": "L6_p0.9_t0.44_f0.3333",
+      "worst_case_effect": 0.2672629992255974,
+      "worst_effect": 0.2883561341134916
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 1.0,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.2284524305910834,
+        "C1_quadrants": {
+          "HH": 0.22353671731432767,
+          "HL": -0.01991357769706686,
+          "LH": -0.004915713276755713,
+          "LL": -0.004986618702035045
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.28766308820705006,
+        "dM_ols": 0.7147838682558152,
+        "dM_ridge": 0.7147859623216803,
+        "dN_interior_ols": 0.23136450704746353,
+        "dN_ols": 0.2403720102250902,
+        "dN_ridge": 0.24036881147320038,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0033985904105158036,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.05701754385964912
+        }
+      },
+      "tag": "L6_p1.0_t0.4_f0.2500",
+      "worst_effect": 0.23136450704746353
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 1.0,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.284104678284549,
+        "C1_quadrants": {
+          "HH": 0.27911805958251396,
+          "HL": -0.019913577697066878,
+          "LH": -0.005387878032211702,
+          "LL": -0.004986618702035038
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.28766308820705006,
+        "dM_ols": 0.7147838682558152,
+        "dM_ridge": 0.7147859623216803,
+        "dN_interior_ols": 0.2696999674424013,
+        "dN_ols": 0.29570553267570965,
+        "dN_ridge": 0.29570317701811627,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0033985904105158036,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.05701754385964912
+        }
+      },
+      "tag": "L6_p1.0_t0.4_f0.3333",
+      "worst_effect": 0.2696999674424013
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 1.0,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.25702788936630766,
+        "C1_quadrants": {
+          "HH": 0.2520412706642726,
+          "HL": -0.01991357769706686,
+          "LH": -0.005125168672697751,
+          "LL": -0.004986618702035045
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.28766308820705006,
+        "dM_ols": 0.7147838682558152,
+        "dM_ridge": 0.7147859623216803,
+        "dN_interior_ols": 0.2587206885348975,
+        "dN_ols": 0.2687105293550904,
+        "dN_ridge": 0.26870760801419263,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0033985904105158036,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.05701754385964912
+        }
+      },
+      "tag": "L6_p1.0_t0.42_f0.2500",
+      "worst_effect": 0.2587206885348975
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 1.0,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.2974308067115134,
+        "C1_quadrants": {
+          "HH": 0.29244418800947836,
+          "HL": -0.019913577697066878,
+          "LH": -0.005556971469737961,
+          "LL": -0.004986618702035038
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.28766308820705006,
+        "dM_ols": 0.7147838682558152,
+        "dM_ridge": 0.7147859623216803,
+        "dN_interior_ols": 0.28038902947885824,
+        "dN_ols": 0.30904567309413683,
+        "dN_ridge": 0.30904374899674625,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0033985904105158036,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.05701754385964912
+        }
+      },
+      "tag": "L6_p1.0_t0.42_f0.3333",
+      "worst_effect": 0.28038902947885824
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 1.0,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.2829502513952483,
+        "C1_quadrants": {
+          "HH": 0.2779636326932133,
+          "HL": -0.01991357769706686,
+          "LH": -0.005374823774342086,
+          "LL": -0.004986618702035045
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.28766308820705006,
+        "dM_ols": 0.7147838682558152,
+        "dM_ridge": 0.7147859623216803,
+        "dN_interior_ols": 0.28352271545861213,
+        "dN_ols": 0.2945521507300354,
+        "dN_ridge": 0.2945497633220724,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0033985904105158036,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.05701754385964912
+        }
+      },
+      "tag": "L6_p1.0_t0.44_f0.2500",
+      "worst_effect": 0.28352271545861213
+    },
+    {
+      "candidate": {
+        "L": 6,
+        "p_max": 1.0,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.308103527883098,
+        "C1_quadrants": {
+          "HH": 0.303116909181063,
+          "HL": -0.019913577697066878,
+          "LH": -0.005730319165905198,
+          "LL": -0.004986618702035038
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.28766308820705006,
+        "dM_ols": 0.7147838682558152,
+        "dM_ridge": 0.7147859623216803,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              13
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              6
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0033985904105158036,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.05701754385964912
+        }
+      },
+      "tag": "L6_p1.0_t0.44_f0.3333",
+      "worst_effect": 0.28766308820705006
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.6,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.279518646013608,
+        "C1_quadrants": {
+          "HH": 0.2746028651207587,
+          "HL": -0.02663689516878922,
+          "LH": -0.004915780892849254,
+          "LL": -0.0049866798987990135
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.4422502050451028,
+        "dM_ols": 0.8428718501950625,
+        "dM_ridge": 0.8428642891319018,
+        "dN_interior_ols": 0.23136450704746353,
+        "dN_ols": 0.2403720102250902,
+        "dN_ridge": 0.24036881147320038,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 7.225318958707129e-05,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.05701754385964912
+        }
+      },
+      "tag": "L8_p0.6_t0.4_f0.2500",
+      "worst_effect": 0.23136450704746353
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.6,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.3489536743212838,
+        "C1_quadrants": {
+          "HH": 0.3439669944224848,
+          "HL": -0.02663689516878919,
+          "LH": -0.005387957287739516,
+          "LL": -0.00498667989879901
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.4422502050451028,
+        "dM_ols": 0.8428718501950625,
+        "dM_ridge": 0.8428642891319018,
+        "dN_interior_ols": 0.2696999674424013,
+        "dN_ols": 0.29570553267570965,
+        "dN_ridge": 0.29570317701811627,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0023412034304414195,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.05701754385964912
+        }
+      },
+      "tag": "L8_p0.6_t0.4_f0.3333",
+      "worst_effect": 0.2696999674424013
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.6,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.31508876397514546,
+        "C1_quadrants": {
+          "HH": 0.31010208407634643,
+          "HL": -0.02663689516878922,
+          "LH": -0.005125241564149948,
+          "LL": -0.0049866798987990135
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.4422502050451028,
+        "dM_ols": 0.8428718501950625,
+        "dM_ridge": 0.8428642891319018,
+        "dN_interior_ols": 0.2587206885348975,
+        "dN_ols": 0.2687105293550904,
+        "dN_ridge": 0.26870760801419263,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0019654465055239734,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.05701754385964912
+        }
+      },
+      "tag": "L8_p0.6_t0.42_f0.2500",
+      "worst_effect": 0.2587206885348975
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.6,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.3657100486925142,
+        "C1_quadrants": {
+          "HH": 0.3607233687937152,
+          "HL": -0.02663689516878919,
+          "LH": -0.005557054701089527,
+          "LL": -0.00498667989879901
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.4422502050451028,
+        "dM_ols": 0.8428718501950625,
+        "dM_ridge": 0.8428642891319018,
+        "dN_interior_ols": 0.28038902947885824,
+        "dN_ols": 0.30904567309413683,
+        "dN_ridge": 0.30904374899674625,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0020595494733919237,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.05701754385964912
+        }
+      },
+      "tag": "L8_p0.6_t0.42_f0.3333",
+      "worst_effect": 0.28038902947885824
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.6,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.3475056102173082,
+        "C1_quadrants": {
+          "HH": 0.34251893031850916,
+          "HL": -0.02663689516878922,
+          "LH": -0.005374902719218715,
+          "LL": -0.0049866798987990135
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.4422502050451028,
+        "dM_ols": 0.8428718501950625,
+        "dM_ridge": 0.8428642891319018,
+        "dN_interior_ols": 0.28352271545861213,
+        "dN_ols": 0.2945521507300354,
+        "dN_ridge": 0.2945497633220724,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.00234057477979923,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.05701754385964912
+        }
+      },
+      "tag": "L8_p0.6_t0.44_f0.2500",
+      "worst_effect": 0.28352271545861213
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.6,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.3792102136618268,
+        "C1_quadrants": {
+          "HH": 0.37422353376302775,
+          "HL": -0.02663689516878919,
+          "LH": -0.005730406383630455,
+          "LL": -0.00498667989879901
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.4422502050451028,
+        "dM_ols": 0.8428718501950625,
+        "dM_ridge": 0.8428642891319018,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0014411830912740183,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.05701754385964912
+        }
+      },
+      "robust_feasible": true,
+      "stress": {
+        "p_maxx0.9": {
+          "C1_HH_minus_best": 0.3502016977958164,
+          "feasible": true,
+          "worst_effect": 0.2883561341134916
+        },
+        "p_maxx1.1": {
+          "C1_HH_minus_best": 0.39136566151870084,
+          "feasible": true,
+          "worst_effect": 0.2883561341134916
+        },
+        "phix0.9": {
+          "C1_HH_minus_best": 0.36941041769670735,
+          "feasible": true,
+          "worst_effect": 0.29152341660807907
+        },
+        "phix1.1": {
+          "C1_HH_minus_best": 0.3863092176956697,
+          "feasible": true,
+          "worst_effect": 0.27558631094634767
+        },
+        "theta_maxx0.9": {
+          "C1_HH_minus_best": 0.34524703715437915,
+          "feasible": true,
+          "worst_effect": 0.2672629992255974
+        },
+        "theta_maxx1.1": {
+          "C1_HH_minus_best": 0.39588843642835614,
+          "feasible": true,
+          "worst_effect": 0.2950923498252862
+        }
+      },
+      "tag": "L8_p0.6_t0.44_f0.3333",
+      "worst_case_effect": 0.2672629992255974,
+      "worst_effect": 0.2883561341134916
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.75,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.300147931676763,
+        "C1_quadrants": {
+          "HH": 0.29523215078391374,
+          "HL": -0.02701633034986589,
+          "LH": -0.004915780892849254,
+          "LL": -0.0049866798987990135
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.4374920440185779,
+        "dM_ols": 0.8918214454464948,
+        "dM_ridge": 0.8918240250605107,
+        "dN_interior_ols": 0.23136450704746353,
+        "dN_ols": 0.2403720102250902,
+        "dN_ridge": 0.24036881147320038,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0037829040320912968,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.05701754385964912
+        }
+      },
+      "tag": "L8_p0.75_t0.4_f0.2500",
+      "worst_effect": 0.23136450704746353
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.75,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.37376587861205596,
+        "C1_quadrants": {
+          "HH": 0.36877919871325693,
+          "HL": -0.02701633034986594,
+          "LH": -0.005387957287739516,
+          "LL": -0.00498667989879901
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.4374920440185779,
+        "dM_ols": 0.8918214454464948,
+        "dM_ridge": 0.8918240250605107,
+        "dN_interior_ols": 0.2696999674424013,
+        "dN_ols": 0.29570553267570965,
+        "dN_ridge": 0.29570317701811627,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.004913732133914808,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.05701754385964912
+        }
+      },
+      "tag": "L8_p0.75_t0.4_f0.3333",
+      "worst_effect": 0.2696999674424013
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.75,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.33790225240129496,
+        "C1_quadrants": {
+          "HH": 0.3329155725024959,
+          "HL": -0.02701633034986589,
+          "LH": -0.005125241564149948,
+          "LL": -0.0049866798987990135
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.4374920440185779,
+        "dM_ols": 0.8918214454464948,
+        "dM_ridge": 0.8918240250605107,
+        "dN_interior_ols": 0.2587206885348975,
+        "dN_ols": 0.2687105293550904,
+        "dN_ridge": 0.26870760801419263,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.005223521525598763,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.05701754385964912
+        }
+      },
+      "tag": "L8_p0.75_t0.42_f0.2500",
+      "worst_effect": 0.2587206885348975
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.75,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.39144927411963093,
+        "C1_quadrants": {
+          "HH": 0.3864625942208319,
+          "HL": -0.02701633034986594,
+          "LH": -0.005557054701089527,
+          "LL": -0.00498667989879901
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.4374920440185779,
+        "dM_ols": 0.8918214454464948,
+        "dM_ridge": 0.8918240250605107,
+        "dN_interior_ols": 0.28038902947885824,
+        "dN_ols": 0.30904567309413683,
+        "dN_ridge": 0.30904374899674625,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.004973079853288069,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.05701754385964912
+        }
+      },
+      "tag": "L8_p0.75_t0.42_f0.3333",
+      "worst_effect": 0.28038902947885824
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.75,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.37223511700245965,
+        "C1_quadrants": {
+          "HH": 0.3672484371036606,
+          "HL": -0.02701633034986589,
+          "LH": -0.005374902719218715,
+          "LL": -0.0049866798987990135
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.4374920440185779,
+        "dM_ols": 0.8918214454464948,
+        "dM_ridge": 0.8918240250605107,
+        "dN_interior_ols": 0.28352271545861213,
+        "dN_ols": 0.2945521507300354,
+        "dN_ridge": 0.2945497633220724,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.004914659422245994,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.05701754385964912
+        }
+      },
+      "tag": "L8_p0.75_t0.44_f0.2500",
+      "worst_effect": 0.28352271545861213
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.75,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.40563144962523906,
+        "C1_quadrants": {
+          "HH": 0.40064476972644003,
+          "HL": -0.02701633034986594,
+          "LH": -0.005730406383630455,
+          "LL": -0.00498667989879901
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.4374920440185779,
+        "dM_ols": 0.8918214454464948,
+        "dM_ridge": 0.8918240250605107,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.005123006385714995,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.05701754385964912
+        }
+      },
+      "robust_feasible": true,
+      "stress": {
+        "p_maxx0.9": {
+          "C1_HH_minus_best": 0.3933285601837535,
+          "feasible": true,
+          "worst_effect": 0.2883561341134916
+        },
+        "p_maxx1.1": {
+          "C1_HH_minus_best": 0.4269163273895772,
+          "feasible": true,
+          "worst_effect": 0.2883561341134916
+        },
+        "phix0.9": {
+          "C1_HH_minus_best": 0.39534440104814933,
+          "feasible": true,
+          "worst_effect": 0.29152341660807907
+        },
+        "phix1.1": {
+          "C1_HH_minus_best": 0.413040820928969,
+          "feasible": true,
+          "worst_effect": 0.27558631094634767
+        },
+        "theta_maxx0.9": {
+          "C1_HH_minus_best": 0.36984691839182987,
+          "feasible": true,
+          "worst_effect": 0.2672629992255974
+        },
+        "theta_maxx1.1": {
+          "C1_HH_minus_best": 0.4228508652146738,
+          "feasible": true,
+          "worst_effect": 0.2950923498252862
+        }
+      },
+      "tag": "L8_p0.75_t0.44_f0.3333",
+      "worst_case_effect": 0.2672629992255974,
+      "worst_effect": 0.2883561341134916
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.9,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.3345766428002634,
+        "C1_quadrants": {
+          "HH": 0.3296608619074141,
+          "HL": -0.025769085338599555,
+          "LH": -0.004915780892849254,
+          "LL": -0.0049866798987990135
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.4633716670801995,
+        "dM_ols": 0.9720704367142836,
+        "dM_ridge": 0.972073812648172,
+        "dN_interior_ols": 0.23136450704746353,
+        "dN_ols": 0.2403720102250902,
+        "dN_ridge": 0.24036881147320038,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.001446955543469644,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L8_p0.9_t0.4_f0.2500",
+      "worst_effect": 0.23136450704746353
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.9,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.4157233606135646,
+        "C1_quadrants": {
+          "HH": 0.41073668071476555,
+          "HL": -0.025769085338599507,
+          "LH": -0.005387957287739516,
+          "LL": -0.00498667989879901
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.4633716670801995,
+        "dM_ols": 0.9720704367142836,
+        "dM_ridge": 0.972073812648172,
+        "dN_interior_ols": 0.2696999674424013,
+        "dN_ols": 0.29570553267570965,
+        "dN_ridge": 0.29570317701811627,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.001446955543469422,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L8_p0.9_t0.4_f0.3333",
+      "worst_effect": 0.2696999674424013
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.9,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.376149468253218,
+        "C1_quadrants": {
+          "HH": 0.37116278835441896,
+          "HL": -0.025769085338599555,
+          "LH": -0.005125241564149948,
+          "LL": -0.0049866798987990135
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.4633716670801995,
+        "dM_ols": 0.9720704367142836,
+        "dM_ridge": 0.972073812648172,
+        "dN_interior_ols": 0.2587206885348975,
+        "dN_ols": 0.2687105293550904,
+        "dN_ridge": 0.26870760801419263,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.001446955543469644,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L8_p0.9_t0.42_f0.2500",
+      "worst_effect": 0.2587206885348975
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.9,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.43528935270294794,
+        "C1_quadrants": {
+          "HH": 0.4303026728041489,
+          "HL": -0.025769085338599507,
+          "LH": -0.005557054701089527,
+          "LL": -0.00498667989879901
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.4633716670801995,
+        "dM_ols": 0.9720704367142836,
+        "dM_ridge": 0.972073812648172,
+        "dN_interior_ols": 0.28038902947885824,
+        "dN_ols": 0.30904567309413683,
+        "dN_ridge": 0.30904374899674625,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0026972195014729264,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L8_p0.9_t0.42_f0.3333",
+      "worst_effect": 0.28038902947885824
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.9,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.41403178625751685,
+        "C1_quadrants": {
+          "HH": 0.4090451063587178,
+          "HL": -0.025769085338599555,
+          "LH": -0.005374902719218715,
+          "LL": -0.0049866798987990135
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.4633716670801995,
+        "dM_ols": 0.9720704367142836,
+        "dM_ridge": 0.972073812648172,
+        "dN_interior_ols": 0.28352271545861213,
+        "dN_ols": 0.2945521507300354,
+        "dN_ridge": 0.2945497633220724,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.001446955543469644,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "tag": "L8_p0.9_t0.44_f0.2500",
+      "worst_effect": 0.28352271545861213
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 0.9,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.45103184266014457,
+        "C1_quadrants": {
+          "HH": 0.44604516276134554,
+          "HL": -0.025769085338599507,
+          "LH": -0.005730406383630455,
+          "LL": -0.00498667989879901
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.4633716670801995,
+        "dM_ols": 0.9720704367142836,
+        "dM_ridge": 0.972073812648172,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.004216057485942183,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.03070175438596491
+        }
+      },
+      "robust_feasible": true,
+      "stress": {
+        "p_maxx0.9": {
+          "C1_HH_minus_best": 0.42209514734008613,
+          "feasible": true,
+          "worst_effect": 0.2883561341134916
+        },
+        "p_maxx1.1": {
+          "C1_HH_minus_best": 0.4689212925409195,
+          "feasible": true,
+          "worst_effect": 0.2883561341134916
+        },
+        "phix0.9": {
+          "C1_HH_minus_best": 0.43960712309494526,
+          "feasible": true,
+          "worst_effect": 0.29152341660807907
+        },
+        "phix1.1": {
+          "C1_HH_minus_best": 0.4592910681630894,
+          "feasible": true,
+          "worst_effect": 0.27558631094634767
+        },
+        "theta_maxx0.9": {
+          "C1_HH_minus_best": 0.4113932498632331,
+          "feasible": true,
+          "worst_effect": 0.2672629992255974
+        },
+        "theta_maxx1.1": {
+          "C1_HH_minus_best": 0.4703501311428561,
+          "feasible": true,
+          "worst_effect": 0.2950923498252862
+        }
+      },
+      "tag": "L8_p0.9_t0.44_f0.3333",
+      "worst_case_effect": 0.2672629992255974,
+      "worst_effect": 0.2883561341134916
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 1.0,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.34792571766446756,
+        "C1_quadrants": {
+          "HH": 0.3430099367716183,
+          "HL": -0.02568350305707881,
+          "LH": -0.004915780892849254,
+          "LL": -0.0049866798987990135
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.46114240315829347,
+        "dM_ols": 1.0035078009061458,
+        "dM_ridge": 1.0035075319690032,
+        "dN_interior_ols": 0.23136450704746353,
+        "dN_ols": 0.2403720102250902,
+        "dN_ridge": 0.24036881147320038,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.002347027739136349,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.07456140350877193
+        }
+      },
+      "tag": "L8_p1.0_t0.4_f0.2500",
+      "worst_effect": 0.23136450704746353
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 1.0,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.2566370614359172
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.4325822863682456,
+        "C1_quadrants": {
+          "HH": 0.42759560646944655,
+          "HL": -0.025683503057078838,
+          "LH": -0.005387957287739516,
+          "LL": -0.00498667989879901
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.46114240315829347,
+        "dM_ols": 1.0035078009061458,
+        "dM_ridge": 1.0035075319690032,
+        "dN_interior_ols": 0.2696999674424013,
+        "dN_ols": 0.29570553267570965,
+        "dN_ridge": 0.29570317701811627,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0023470277391361687,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.07456140350877193
+        }
+      },
+      "tag": "L8_p1.0_t0.4_f0.3333",
+      "worst_effect": 0.2696999674424013
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 1.0,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.39132558213037694,
+        "C1_quadrants": {
+          "HH": 0.3863389022315779,
+          "HL": -0.02568350305707881,
+          "LH": -0.005125241564149948,
+          "LL": -0.0049866798987990135
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.46114240315829347,
+        "dM_ols": 1.0035078009061458,
+        "dM_ridge": 1.0035075319690032,
+        "dN_interior_ols": 0.2587206885348975,
+        "dN_ols": 0.2687105293550904,
+        "dN_ridge": 0.26870760801419263,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.002347027739136349,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.07456140350877193
+        }
+      },
+      "tag": "L8_p1.0_t0.42_f0.2500",
+      "worst_effect": 0.2587206885348975
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 1.0,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.319468914507713
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.4529422248202925,
+        "C1_quadrants": {
+          "HH": 0.4479555449214935,
+          "HL": -0.025683503057078838,
+          "LH": -0.005557054701089527,
+          "LL": -0.00498667989879901
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.46114240315829347,
+        "dM_ols": 1.0035078009061458,
+        "dM_ridge": 1.0035075319690032,
+        "dN_interior_ols": 0.28038902947885824,
+        "dN_ols": 0.30904567309413683,
+        "dN_ridge": 0.30904374899674625,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.0025101046095988974,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.07456140350877193
+        }
+      },
+      "tag": "L8_p1.0_t0.42_f0.3333",
+      "worst_effect": 0.28038902947885824
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 1.0,
+        "phi": 0.7853981633974483,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.43082059440169757,
+        "C1_quadrants": {
+          "HH": 0.42583391450289854,
+          "HL": -0.02568350305707881,
+          "LH": -0.005374902719218715,
+          "LL": -0.0049866798987990135
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.46114240315829347,
+        "dM_ols": 1.0035078009061458,
+        "dM_ridge": 1.0035075319690032,
+        "dN_interior_ols": 0.28352271545861213,
+        "dN_ols": 0.2945521507300354,
+        "dN_ridge": 0.2945497633220724,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.002347027739136349,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.07456140350877193
+        }
+      },
+      "tag": "L8_p1.0_t0.44_f0.2500",
+      "worst_effect": 0.28352271545861213
+    },
+    {
+      "candidate": {
+        "L": 8,
+        "p_max": 1.0,
+        "phi": 1.0471975511965976,
+        "theta_max": 1.382300767579509
+      },
+      "feasible_nominal": true,
+      "nominal": {
+        "C1_HH_minus_best": 0.469291320252235,
+        "C1_quadrants": {
+          "HH": 0.464304640353436,
+          "HL": -0.025683503057078838,
+          "LH": -0.005730406383630455,
+          "LL": -0.00498667989879901
+        },
+        "M_spread_over_g": 0.0,
+        "N_spread_over_m": 0.0,
+        "dM_interior_ols": 0.46114240315829347,
+        "dM_ols": 1.0035078009061458,
+        "dM_ridge": 1.0035075319690032,
+        "dN_interior_ols": 0.2883561341134916,
+        "dN_ols": 0.31978515580474226,
+        "dN_ridge": 0.3197836939578635,
+        "feature_counts": {
+          "invariant": true,
+          "per_readout": {
+            "ALL": [
+              17
+            ],
+            "P": [
+              1
+            ],
+            "R": [
+              8
+            ]
+          }
+        },
+        "saturation": {
+          "saturation_ok": true,
+          "sentinel_excess_max": 0.004089515270837795,
+          "sentinel_ok": true,
+          "worst_saturated_fraction": 0.07456140350877193
+        }
+      },
+      "tag": "L8_p1.0_t0.44_f0.3333",
+      "worst_effect": 0.2883561341134916
+    }
+  ],
+  "ridge_alpha": 0.5,
+  "rule": "among nominal-feasible, stress the 6 with the largest worst effect; choose the robust-feasible one with the largest worst-case effect; tie -> smaller L",
+  "runtime_s": 1151.1,
+  "seeds": [
+    [
+      40000,
+      45000
+    ],
+    [
+      40001,
+      45001
+    ],
+    [
+      40002,
+      45002
+    ],
+    [
+      40003,
+      45003
+    ],
+    [
+      40004,
+      45004
+    ]
+  ],
+  "space": {
+    "L": [
+      4,
+      6,
+      8
+    ],
+    "p_max": [
+      0.6,
+      0.75,
+      0.9,
+      1.0
+    ],
+    "phi_over_pi": [
+      0.25,
+      0.3333333333333333
+    ],
+    "theta_max_over_pi": [
+      0.4,
+      0.42,
+      0.44
+    ]
+  },
+  "stress": [
+    [
+      "p_max",
+      0.9
+    ],
+    [
+      "p_max",
+      1.1
+    ],
+    [
+      "theta_max",
+      0.9
+    ],
+    [
+      "theta_max",
+      1.1
+    ],
+    [
+      "phi",
+      0.9
+    ],
+    [
+      "phi",
+      1.1
+    ]
+  ]
+}

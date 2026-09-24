@@ -1,0 +1,41 @@
+=== V5 DEVGATES ===
+  candidate {'L': 6, 'p_max': 0.6, 'theta_max': 1.382300767579509, 'theta_max_over_pi': 0.44, 'phi': 1.0471975511965976, 'memory': 'random-SWAP channel, single-site Z readout of rails 1..L', 'processor': '2 copies, Ry(pi/2), exp(-i theta Z0Z1/2), measure cos(phi)X0+sin(phi)Y0', 'joint': 'z_r * f for r=1..L (injection rail excluded)'}
+  wrote results\v5\encoder.json
+  wrote results\v5\structure.json
+  wrote results\v5\section6.json
+  section 6: CONTINUOUS INTRINSIC NONLINEAR CONTROL HOLDS
+    [dev] 25/250 points  (8s)
+    [dev] 50/250 points  (16s)
+    [dev] 75/250 points  (25s)
+    [dev] 100/250 points  (34s)
+    [dev] 125/250 points  (42s)
+    [dev] 150/250 points  (49s)
+    [dev] 175/250 points  (57s)
+    [dev] 200/250 points  (65s)
+    [dev] 225/250 points  (72s)
+    [dev] 250/250 points  (80s)
+  wrote results\v5\invalid_controls.json
+      baseline               worst=+0.144 dM=+0.609 dN=+0.320 dN_int_ols=+0.201 C1adv=+0.251 ok=True
+      longer_T3200           worst=+0.144 dM=+0.607 dN=+0.319 dN_int_ols=+0.198 C1adv=+0.254 ok=True
+      half_training          worst=+0.149 dM=+0.603 dN=+0.319 dN_int_ols=+0.198 C1adv=+0.234 ok=True
+      double_training        worst=+0.148 dM=+0.605 dN=+0.320 dN_int_ols=+0.198 C1adv=+0.253 ok=True
+      float32_readout        worst=+0.144 dM=+0.609 dN=+0.320 dN_int_ols=+0.201 C1adv=+0.251 ok=True
+      perturbed_controls     worst=+0.152 dM=+0.513 dN=+0.313 dN_int_ols=+0.207 C1adv=+0.231 ok=True
+      ridge_0.05             worst=+0.144 dM=+0.609 dN=+0.320 dN_int_ols=+0.201 C1adv=+0.251 ok=True
+      ridge_5.0              worst=+0.144 dM=+0.609 dN=+0.320 dN_int_ols=+0.201 C1adv=+0.248 ok=True
+      delay_range_12         worst=+0.070 dM=+0.421 dN=+0.320 dN_int_ols=+0.201 C1adv=+0.164 ok=False
+      degree_6               worst=+0.144 dM=+0.609 dN=+0.320 dN_int_ols=+0.201 C1adv=+0.251 ok=True
+      shots_1000             worst=+0.199 dM=+0.496 dN=+0.316 dN_int_ols=+0.199 C1adv=+0.074 ok=True
+      shots_10000            worst=+0.200 dM=+0.591 dN=+0.319 dN_int_ols=+0.200 C1adv=+0.173 ok=True
+      ibm_noise_FakeTorino   worst=+0.200 dM=+0.572 dN=+0.319 dN_int_ols=+0.200 C1adv=+0.133 ok=True
+  wrote results\v5\robustness.json
+  wrote results\v5\dev_gates.json
+  C1_structural                      PASS
+  C2_resource_constrained            PASS
+  C3_intrinsic                       PASS
+  C4_combined                        PASS
+  effects_with_margin                PASS
+  invalid_controls_all_detected      PASS
+  robustness_all_conditions          FAIL
+  effects: main_m_M_ridge=0.607, main_g_N_ridge=0.320, main_m_M_ols_std=0.607, main_g_N_ols_std=0.320, main_m_M_ols_raw=0.607, main_g_N_ols_raw=0.320, interior_m_M=0.298, interior_g_N=0.285
+  FREEZE CRITERION: NOT MET

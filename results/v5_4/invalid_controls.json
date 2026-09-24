@@ -1,0 +1,71 @@
+{
+  "all_detected": true,
+  "feature_count_changes": {
+    "detected": true,
+    "detector": "feature-count invariance",
+    "evidence": {
+      "invariant": false,
+      "per_readout": {
+        "ALL": [
+          16,
+          17
+        ],
+        "CLS": [
+          8
+        ],
+        "J": [
+          8
+        ],
+        "P": [
+          0,
+          1
+        ],
+        "R": [
+          8
+        ]
+      }
+    }
+  },
+  "g_into_R": {
+    "detected": true,
+    "detector": "structural dependency test",
+    "evidence": {
+      "max_dXP_dm": 0.0,
+      "max_dXR_dg": 0.4506560062900178
+    }
+  },
+  "leak_targets": {
+    "detected": true,
+    "detector": "unreachable-class + future-sentinel",
+    "evidence": {
+      "sentinel_excess": 0.997654670506288,
+      "unreachable_class_excess": 0.9971499546038202
+    }
+  },
+  "m_into_P": {
+    "detected": true,
+    "detector": "structural dependency test",
+    "evidence": {
+      "max_dXP_dm": 0.17005617350407398,
+      "max_dXR_dg": 0.0
+    }
+  },
+  "reuse_train_as_test": {
+    "detected": true,
+    "detector": "split integrity",
+    "evidence": {
+      "disjoint": false,
+      "n_test": 980,
+      "n_train": 980,
+      "overlap": 980
+    }
+  },
+  "serial": {
+    "detected": true,
+    "detector": "structural dependency test",
+    "evidence": {
+      "max_dXP_dm": 3.4522039829565365,
+      "max_dXR_dg": 0.0
+    }
+  }
+}

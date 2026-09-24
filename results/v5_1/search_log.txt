@@ -1,0 +1,17 @@
+=== V5.1 SEARCH ===
+    L8_p0.6_t0.44_f0.3333        worst=+0.111 C1adv=+0.379 feasible=False
+    L8_p0.75_t0.44_f0.3333       worst=+0.110 C1adv=+0.406 feasible=False
+    L8_p0.9_t0.44_f0.3333        worst=+0.101 C1adv=+0.451 feasible=False
+    L10_p0.6_t0.44_f0.3333       worst=+0.178 C1adv=+0.450 feasible=True
+    L10_p0.75_t0.44_f0.3333      worst=+0.150 C1adv=+0.466 feasible=False
+    L10_p0.9_t0.44_f0.3333       worst=+0.117 C1adv=+0.459 feasible=False
+    L12_p0.6_t0.44_f0.3333       worst=+0.201 C1adv=+0.447 feasible=True
+    L12_p0.75_t0.44_f0.3333      worst=+0.110 C1adv=+0.463 feasible=False
+    L12_p0.9_t0.44_f0.3333       worst=+0.014 C1adv=+0.461 feasible=False
+    L14_p0.6_t0.44_f0.3333       worst=+0.139 C1adv=+0.442 feasible=False
+    L14_p0.75_t0.44_f0.3333      worst=+0.030 C1adv=+0.462 feasible=False
+    L14_p0.9_t0.44_f0.3333       worst=-0.001 C1adv=+0.460 feasible=False
+    stress L12_p0.6_t0.44_f0.3333       worst-case=+0.201 robust=True
+    stress L10_p0.6_t0.44_f0.3333       worst-case=+0.178 robust=True
+  wrote results\v5_1\search.json
+  chosen: {'L': 12, 'p_max': 0.6, 'theta_max': 1.382300767579509, 'phi': 1.0471975511965976}
