@@ -1,0 +1,936 @@
+{
+  "audit": {
+    "capability_boundary": "affine single-copy injection + CPTP chain => the memory state is MULTILINEAR in the past inputs, so any target with degree >= 2 at a strictly positive delay is unreachable. N_long is therefore built from targets whose degree sits at delay 0.",
+    "encoder_polynomial_expansion": {
+      "1": {
+        "global_readout": {
+          "degrees_present": [
+            1
+          ],
+          "is_affine": true,
+          "max_degree": 1
+        },
+        "local_readout": {
+          "degrees_present": [
+            1
+          ],
+          "is_affine": true,
+          "max_degree": 1
+        },
+        "n_copies": 1,
+        "note": "the n copies carry degrees up to n; only the LOCAL readout is affine. Never describe this encoder as globally linear.",
+        "state_is_globally_affine": true
+      },
+      "2": {
+        "global_readout": {
+          "degrees_present": [
+            0,
+            2
+          ],
+          "is_affine": false,
+          "max_degree": 2
+        },
+        "local_readout": {
+          "degrees_present": [
+            1
+          ],
+          "is_affine": true,
+          "max_degree": 1
+        },
+        "n_copies": 2,
+        "note": "the n copies carry degrees up to n; only the LOCAL readout is affine. Never describe this encoder as globally linear.",
+        "state_is_globally_affine": false
+      },
+      "3": {
+        "global_readout": {
+          "degrees_present": [
+            1,
+            3
+          ],
+          "is_affine": false,
+          "max_degree": 3
+        },
+        "local_readout": {
+          "degrees_present": [
+            1
+          ],
+          "is_affine": true,
+          "max_degree": 1
+        },
+        "n_copies": 3,
+        "note": "the n copies carry degrees up to n; only the LOCAL readout is affine. Never describe this encoder as globally linear.",
+        "state_is_globally_affine": false
+      },
+      "4": {
+        "global_readout": {
+          "degrees_present": [
+            0,
+            2,
+            4
+          ],
+          "is_affine": false,
+          "max_degree": 4
+        },
+        "local_readout": {
+          "degrees_present": [
+            1
+          ],
+          "is_affine": true,
+          "max_degree": 1
+        },
+        "n_copies": 4,
+        "note": "the n copies carry degrees up to n; only the LOCAL readout is affine. Never describe this encoder as globally linear.",
+        "state_is_globally_affine": false
+      }
+    },
+    "finding": "((I+uZ)/2)^(x)n is NOT globally linear: the n-body observable carries degrees up to n. It is affine only at the LOCAL readout, and the n copies are counted as a nonlinear resource.",
+    "memory_route_multilinearity": {
+      "max_degree_per_input": {
+        "0": 1,
+        "1": 1,
+        "2": 1
+      },
+      "multilinear": true,
+      "per_input": {
+        "0": [
+          0,
+          1
+        ],
+        "1": [
+          0,
+          1
+        ],
+        "2": [
+          0,
+          1
+        ]
+      }
+    },
+    "stage": "AUDIT"
+  },
+  "calibration": {
+    "note": "the null procedure and the saturation limit are preregistered here and are not revisited after results are seen",
+    "null_threshold_median": 0.010738171529594538,
+    "passed": true,
+    "rows": [
+      {
+        "M": 0.00044478441387222186,
+        "N": 0.00037056285559626073,
+        "N_long": 0.0018167126918498162,
+        "g": 0.0,
+        "m": 0.0,
+        "n_primary_targets": 72,
+        "null_threshold": 0.0076271498813991895,
+        "saturated_fraction": 0.013888888888888888
+      },
+      {
+        "M": 0.00044478441387222186,
+        "N": 0.9617870282894664,
+        "N_long": 0.007836270194534015,
+        "g": 0.5,
+        "m": 0.0,
+        "n_primary_targets": 72,
+        "null_threshold": 0.0076271498813991895,
+        "saturated_fraction": 0.041666666666666664
+      },
+      {
+        "M": 0.00044478441387222186,
+        "N": 0.9985434301416799,
+        "N_long": 0.008242199962008126,
+        "g": 1.0,
+        "m": 0.0,
+        "n_primary_targets": 72,
+        "null_threshold": 0.0076271498813991895,
+        "saturated_fraction": 0.05555555555555555
+      },
+      {
+        "M": 0.23067164612693267,
+        "N": 0.00037056285559626073,
+        "N_long": 0.005077932881637622,
+        "g": 0.0,
+        "m": 0.5,
+        "n_primary_targets": 72,
+        "null_threshold": 0.010738171529594538,
+        "saturated_fraction": 0.013888888888888888
+      },
+      {
+        "M": 0.23067164612693267,
+        "N": 0.9617870282894664,
+        "N_long": 0.020488130486379225,
+        "g": 0.5,
+        "m": 0.5,
+        "n_primary_targets": 72,
+        "null_threshold": 0.010738171529594538,
+        "saturated_fraction": 0.041666666666666664
+      },
+      {
+        "M": 0.23067164612693267,
+        "N": 0.9985434301416799,
+        "N_long": 0.04583652357845166,
+        "g": 1.0,
+        "m": 0.5,
+        "n_primary_targets": 72,
+        "null_threshold": 0.010738171529594538,
+        "saturated_fraction": 0.05555555555555555
+      },
+      {
+        "M": 0.38644728113151106,
+        "N": 0.00037056285559626073,
+        "N_long": 0.06404280182658617,
+        "g": 0.0,
+        "m": 1.0,
+        "n_primary_targets": 72,
+        "null_threshold": 0.012960595201208205,
+        "saturated_fraction": 0.0
+      },
+      {
+        "M": 0.38644728113151106,
+        "N": 0.9617870282894664,
+        "N_long": 0.3143563249096857,
+        "g": 0.5,
+        "m": 1.0,
+        "n_primary_targets": 72,
+        "null_threshold": 0.012960595201208205,
+        "saturated_fraction": 0.027777777777777776
+      },
+      {
+        "M": 0.38644728113151106,
+        "N": 0.9985434301416799,
+        "N_long": 0.42997661012886007,
+        "g": 1.0,
+        "m": 1.0,
+        "n_primary_targets": 72,
+        "null_threshold": 0.012960595201208205,
+        "saturated_fraction": 0.041666666666666664
+      }
+    ],
+    "stage": "CALIBRATION",
+    "worst_saturated_fraction": 0.05555555555555555
+  },
+  "claim": "MEMORY-NONLINEARITY SEPARATION DEMONSTRATED",
+  "confirmation": {
+    "all_passed": true,
+    "claim": "MEMORY-NONLINEARITY SEPARATION DEMONSTRATED",
+    "claim_detail": {
+      "blockers": [],
+      "claim": "MEMORY-NONLINEARITY SEPARATION DEMONSTRATED",
+      "confirmation_complete": true,
+      "frozen_hash": "435357bfd39db1b0b407400c36debf416ff903cc1bbc54a939d4617a5be4d728",
+      "n_gates": 8,
+      "n_passed": 8,
+      "run_config_hash": "435357bfd39db1b0b407400c36debf416ff903cc1bbc54a939d4617a5be4d728",
+      "sequential_valid": true
+    },
+    "completeness": {
+      "complete": true,
+      "duplicates": [],
+      "missing": [],
+      "n_expected": 375,
+      "n_rows": 375,
+      "non_finite": [],
+      "unexpected": [],
+      "wrong_config_hash": []
+    },
+    "frozen_sha256": "435357bfd39db1b0b407400c36debf416ff903cc1bbc54a939d4617a5be4d728",
+    "gates": {
+      "combined_capability": {
+        "name": "combined_capability",
+        "passed": true,
+        "reason": "high-m/high-g beats every other quadrant with a CI above zero",
+        "status": "PASS",
+        "thresholds": {
+          "ci_level": 0.95,
+          "requires": "lower bound > 0"
+        },
+        "values": {
+          "N_long": {
+            "ci": [
+              0.05913607249624419,
+              0.07871866175120118
+            ],
+            "improvement": 0.06813843749279949,
+            "quadrant_means": {
+              "HH": 0.16217656745356027,
+              "HL": 0.09403812996076077,
+              "LH": 0.0031419565752021632,
+              "LL": 0.002222071267780595
+            }
+          },
+          "cross_delay_mean": {
+            "ci": [
+              0.05913607249624419,
+              0.0787186617512012
+            ],
+            "improvement": 0.06813843749279949,
+            "quadrant_means": {
+              "HH": 0.16217656745356027,
+              "HL": 0.09403812996076077,
+              "LH": 0.0031419565752021632,
+              "LL": 0.002222071267780595
+            }
+          },
+          "cross_family_mean": {
+            "ci": [
+              0.0014115147780607397,
+              0.0047259821654913525
+            ],
+            "improvement": 0.002828951937821235,
+            "quadrant_means": {
+              "HH": 0.011856121086314543,
+              "HL": 0.009027169148493308,
+              "LH": 0.0010627171392689784,
+              "LL": 0.001057964332833338
+            }
+          }
+        }
+      },
+      "controls": {
+        "name": "controls",
+        "passed": true,
+        "reason": "isolation exact, negative controls detected, no saturation or leakage",
+        "status": "PASS",
+        "thresholds": {
+          "atol": 1e-12,
+          "detect_min": 1e-06,
+          "saturation_max": 0.2
+        },
+        "values": {
+          "contaminated_detected": true,
+          "contaminated_max_dXP_dm": 0.0025027083333916678,
+          "density_matrix_ok": true,
+          "encoder_only_N": 0.0012306282476981117,
+          "factorisation_dev": 2.220446049250313e-16,
+          "max_dXP_dm": 0.0,
+          "max_dXR_dg": 0.0,
+          "null_threshold": 0.004097394763618853,
+          "serial_detected": true,
+          "serial_max_dXP_dm": 0.009089972337903374,
+          "unreachable_max_capacity": 0.01222528771993403,
+          "worst_saturated_fraction": 0.08333333333333333
+        }
+      },
+      "cross_g_to_M": {
+        "name": "cross_g_to_M",
+        "passed": true,
+        "reason": "cross effect equivalent to zero and ratio bounded",
+        "status": "PASS",
+        "thresholds": {
+          "ci_level": 0.9,
+          "margin": [
+            -0.03,
+            0.03
+          ],
+          "ratio_max": 0.2
+        },
+        "values": {
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "cross_delta": 0.0,
+          "equivalent": true,
+          "level": 0.9,
+          "n_outer": 5,
+          "ratio": 0.0,
+          "ratio_upper": 0.0
+        }
+      },
+      "cross_m_to_N": {
+        "name": "cross_m_to_N",
+        "passed": true,
+        "reason": "cross effect equivalent to zero and ratio bounded",
+        "status": "PASS",
+        "thresholds": {
+          "ci_level": 0.9,
+          "margin": [
+            -0.03,
+            0.03
+          ],
+          "ratio_max": 0.2
+        },
+        "values": {
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "cross_delta": 0.0,
+          "equivalent": true,
+          "level": 0.9,
+          "n_outer": 5,
+          "ratio": 0.0,
+          "ratio_upper": 0.0
+        }
+      },
+      "degree_profile_equivalence_g": {
+        "name": "degree_profile_equivalence_g",
+        "passed": true,
+        "reason": "every member of the family is equivalent to zero after correction",
+        "status": "PASS",
+        "thresholds": {
+          "margin": [
+            -0.03,
+            0.03
+          ]
+        },
+        "values": {
+          "control": "g",
+          "field": "delay_profile",
+          "members": {
+            "0": {
+              "ci": [
+                0.0,
+                0.0
+              ],
+              "delta": 0.0
+            },
+            "1": {
+              "ci": [
+                0.0,
+                0.0
+              ],
+              "delta": 0.0
+            },
+            "2": {
+              "ci": [
+                0.0,
+                0.0
+              ],
+              "delta": 0.0
+            },
+            "3": {
+              "ci": [
+                0.0,
+                0.0
+              ],
+              "delta": 0.0
+            },
+            "4": {
+              "ci": [
+                0.0,
+                0.0
+              ],
+              "delta": 0.0
+            },
+            "5": {
+              "ci": [
+                0.0,
+                0.0
+              ],
+              "delta": 0.0
+            },
+            "6": {
+              "ci": [
+                0.0,
+                0.0
+              ],
+              "delta": 0.0
+            },
+            "7": {
+              "ci": [
+                0.0,
+                0.0
+              ],
+              "delta": 0.0
+            },
+            "8": {
+              "ci": [
+                0.0,
+                0.0
+              ],
+              "delta": 0.0
+            }
+          },
+          "n_tests": 9
+        }
+      },
+      "degree_profile_equivalence_m": {
+        "name": "degree_profile_equivalence_m",
+        "passed": true,
+        "reason": "every member of the family is equivalent to zero after correction",
+        "status": "PASS",
+        "thresholds": {
+          "margin": [
+            -0.03,
+            0.03
+          ]
+        },
+        "values": {
+          "control": "m",
+          "field": "degree_profile",
+          "members": {
+            "d2_t0": {
+              "ci": [
+                0.0,
+                0.0
+              ],
+              "delta": 0.0
+            },
+            "d3_t0": {
+              "ci": [
+                0.0,
+                0.0
+              ],
+              "delta": 0.0
+            },
+            "d4_t0": {
+              "ci": [
+                0.0,
+                0.0
+              ],
+              "delta": 0.0
+            }
+          },
+          "n_tests": 3
+        }
+      },
+      "memory_main_effect": {
+        "name": "memory_main_effect",
+        "passed": true,
+        "reason": "main effect exceeds the threshold with a CI above zero",
+        "status": "PASS",
+        "thresholds": {
+          "ci_level": 0.95,
+          "min": 0.1
+        },
+        "values": {
+          "between_var": 0.0004917842846379458,
+          "ci": [
+            0.3535230570849643,
+            0.389878588491295
+          ],
+          "delta": 0.3710793599377305,
+          "level": 0.95,
+          "n_outer": 5,
+          "within_var": 0.00019611100390823236
+        }
+      },
+      "nonlinear_main_effect": {
+        "name": "nonlinear_main_effect",
+        "passed": true,
+        "reason": "main effect exceeds the threshold with a CI above zero",
+        "status": "PASS",
+        "thresholds": {
+          "ci_level": 0.95,
+          "min": 0.1
+        },
+        "values": {
+          "between_var": 2.6076622721537847e-05,
+          "ci": [
+            0.988814528399279,
+            0.9968407375020697
+          ],
+          "delta": 0.9929126322871655,
+          "level": 0.95,
+          "n_outer": 5,
+          "within_var": 1.560135537208759e-06
+        }
+      }
+    },
+    "grid_means": {
+      "m0.0_g0.0": {
+        "M": 0.0001670818879261846,
+        "N": 0.0012306282476981117,
+        "N_long": 0.0006583445450449372,
+        "cross_delay_mean": 0.0006583445450449372,
+        "cross_family_mean": 0.00041724439055995275,
+        "saturated_fraction": 0.013888888888888892
+      },
+      "m0.0_g0.25": {
+        "M": 0.0001670818879261846,
+        "N": 0.7203438774239692,
+        "N_long": 0.0007180382844122541,
+        "cross_delay_mean": 0.0007180382844122541,
+        "cross_family_mean": 0.00043352537197247103,
+        "saturated_fraction": 0.025000000000000005
+      },
+      "m0.0_g0.5": {
+        "M": 0.0001670818879261846,
+        "N": 0.9070845565138161,
+        "N_long": 0.0007892895730285435,
+        "cross_delay_mean": 0.0007892895730285435,
+        "cross_family_mean": 0.0004646834299955577,
+        "saturated_fraction": 0.03055555555555556
+      },
+      "m0.0_g0.75": {
+        "M": 0.0001670818879261846,
+        "N": 0.9727428424846717,
+        "N_long": 0.0008255827288951787,
+        "cross_delay_mean": 0.0008255827288951787,
+        "cross_family_mean": 0.00047987235191920564,
+        "saturated_fraction": 0.04166666666666666
+      },
+      "m0.0_g1.0": {
+        "M": 0.0001670818879261846,
+        "N": 0.9941432605348636,
+        "N_long": 0.0008418499649915405,
+        "cross_delay_mean": 0.0008418499649915405,
+        "cross_family_mean": 0.0004828154397752495,
+        "saturated_fraction": 0.04537037037037037
+      },
+      "m0.25_g0.0": {
+        "M": 0.143851965617609,
+        "N": 0.0012306282476981117,
+        "N_long": 0.0006520822431927309,
+        "cross_delay_mean": 0.0006520822431927309,
+        "cross_family_mean": 0.00080821514760263,
+        "saturated_fraction": 0.03333333333333334
+      },
+      "m0.25_g0.25": {
+        "M": 0.143851965617609,
+        "N": 0.7203438774239692,
+        "N_long": 0.0006548644806036551,
+        "cross_delay_mean": 0.0006548644806036551,
+        "cross_family_mean": 0.000613034682937706,
+        "saturated_fraction": 0.04444444444444444
+      },
+      "m0.25_g0.5": {
+        "M": 0.143851965617609,
+        "N": 0.9070845565138161,
+        "N_long": 0.0007131626550184966,
+        "cross_delay_mean": 0.0007131626550184966,
+        "cross_family_mean": 0.0006492518160499052,
+        "saturated_fraction": 0.049999999999999996
+      },
+      "m0.25_g0.75": {
+        "M": 0.143851965617609,
+        "N": 0.9727428424846717,
+        "N_long": 0.0007445778198015816,
+        "cross_delay_mean": 0.0007445778198015816,
+        "cross_family_mean": 0.0006666462066954087,
+        "saturated_fraction": 0.06111111111111111
+      },
+      "m0.25_g1.0": {
+        "M": 0.143851965617609,
+        "N": 0.9941432605348636,
+        "N_long": 0.0007152999587988911,
+        "cross_delay_mean": 0.0007152999587988911,
+        "cross_family_mean": 0.000669843995127334,
+        "saturated_fraction": 0.06481481481481483
+      },
+      "m0.5_g0.0": {
+        "M": 0.23083202549109544,
+        "N": 0.0012306282476981117,
+        "N_long": 0.002506594491248362,
+        "cross_delay_mean": 0.002506594491248362,
+        "cross_family_mean": 0.0022145602489212794,
+        "saturated_fraction": 0.019444444444444448
+      },
+      "m0.5_g0.25": {
+        "M": 0.23083202549109544,
+        "N": 0.7203438774239692,
+        "N_long": 0.005931980790376689,
+        "cross_delay_mean": 0.005931980790376689,
+        "cross_family_mean": 0.0019197452309548957,
+        "saturated_fraction": 0.030555555555555558
+      },
+      "m0.5_g0.5": {
+        "M": 0.23083202549109544,
+        "N": 0.9070845565138161,
+        "N_long": 0.007374284347099686,
+        "cross_delay_mean": 0.007374284347099686,
+        "cross_family_mean": 0.0020014186765056428,
+        "saturated_fraction": 0.036111111111111115
+      },
+      "m0.5_g0.75": {
+        "M": 0.23083202549109544,
+        "N": 0.9727428424846717,
+        "N_long": 0.007580116508198029,
+        "cross_delay_mean": 0.007580116508198029,
+        "cross_family_mean": 0.0020306570374922428,
+        "saturated_fraction": 0.047222222222222214
+      },
+      "m0.5_g1.0": {
+        "M": 0.23083202549109544,
+        "N": 0.9941432605348636,
+        "N_long": 0.008144312470527758,
+        "cross_delay_mean": 0.008144312470527758,
+        "cross_family_mean": 0.0020464678046044293,
+        "saturated_fraction": 0.050925925925925916
+      },
+      "m0.75_g0.0": {
+        "M": 0.37187537976931717,
+        "N": 0.0012306282476981117,
+        "N_long": 0.021352684560986965,
+        "cross_delay_mean": 0.021352684560986965,
+        "cross_family_mean": 0.005385805813193653,
+        "saturated_fraction": 0.013888888888888892
+      },
+      "m0.75_g0.25": {
+        "M": 0.37187537976931717,
+        "N": 0.7203438774239692,
+        "N_long": 0.06559228699456994,
+        "cross_delay_mean": 0.06559228699456994,
+        "cross_family_mean": 0.00574940583346349,
+        "saturated_fraction": 0.025000000000000005
+      },
+      "m0.75_g0.5": {
+        "M": 0.37187537976931717,
+        "N": 0.9070845565138161,
+        "N_long": 0.08074990640663914,
+        "cross_delay_mean": 0.08074990640663914,
+        "cross_family_mean": 0.00628390251377783,
+        "saturated_fraction": 0.03055555555555556
+      },
+      "m0.75_g0.75": {
+        "M": 0.37187537976931717,
+        "N": 0.9727428424846717,
+        "N_long": 0.08991866288204693,
+        "cross_delay_mean": 0.08991866288204693,
+        "cross_family_mean": 0.006715255858990922,
+        "saturated_fraction": 0.04166666666666666
+      },
+      "m0.75_g1.0": {
+        "M": 0.37187537976931717,
+        "N": 0.9941432605348636,
+        "N_long": 0.1052269036097136,
+        "cross_delay_mean": 0.1052269036097136,
+        "cross_family_mean": 0.007166460490023906,
+        "saturated_fraction": 0.04537037037037037
+      },
+      "m1.0_g0.0": {
+        "M": 0.37124644182565675,
+        "N": 0.0012306282476981117,
+        "N_long": 0.046017667317641724,
+        "cross_delay_mean": 0.046017667317641724,
+        "cross_family_mean": 0.009234954055152834,
+        "saturated_fraction": 0.012037037037037039
+      },
+      "m1.0_g0.25": {
+        "M": 0.37124644182565675,
+        "N": 0.7203438774239692,
+        "N_long": 0.1597458942635045,
+        "cross_delay_mean": 0.1597458942635045,
+        "cross_family_mean": 0.012896761102310878,
+        "saturated_fraction": 0.023148148148148154
+      },
+      "m1.0_g0.5": {
+        "M": 0.37124644182565675,
+        "N": 0.9070845565138161,
+        "N_long": 0.19077034022122238,
+        "cross_delay_mean": 0.19077034022122238,
+        "cross_family_mean": 0.014612185573061157,
+        "saturated_fraction": 0.02870370370370371
+      },
+      "m1.0_g0.75": {
+        "M": 0.37124644182565675,
+        "N": 0.9727428424846717,
+        "N_long": 0.21706157754092714,
+        "cross_delay_mean": 0.21706157754092714,
+        "cross_family_mean": 0.016085414456364588,
+        "saturated_fraction": 0.03981481481481482
+      },
+      "m1.0_g1.0": {
+        "M": 0.37124644182565675,
+        "N": 0.9941432605348636,
+        "N_long": 0.2364991257815534,
+        "cross_delay_mean": 0.2364991257815534,
+        "cross_family_mean": 0.017457353539878758,
+        "saturated_fraction": 0.04351851851851852
+      }
+    },
+    "jacobian": {
+      "condition_number": 2.6757420096169797,
+      "diagonal_mass": 1.363991992224896,
+      "matrix": [
+        [
+          0.3710793599377305,
+          0.0
+        ],
+        [
+          0.0,
+          0.9929126322871655
+        ]
+      ],
+      "off_diagonal_mass": 0.0,
+      "off_over_diag": 0.0,
+      "response_angle_deg": 90.0,
+      "singular_values": [
+        0.9929126322871655,
+        0.3710793599377305
+      ]
+    },
+    "n_fail": 0,
+    "n_not_evaluable": 0,
+    "n_pass": 8,
+    "nonlinear_memory": {
+      "max_boundary": 0.9996759494241776,
+      "mean_boundary": 0.24330152557022316,
+      "mean_reachable": 0.5655666266431186
+    },
+    "seeds": {
+      "arch": [
+        900,
+        901,
+        902,
+        903,
+        904
+      ],
+      "input": [
+        9000,
+        9001,
+        9002
+      ]
+    },
+    "sequential": {
+      "alpha_for_next": 0.01,
+      "alpha_spent": 0.01,
+      "alpha_total": 0.05,
+      "attempts": [
+        {
+          "alpha_this_look": 0.01,
+          "attempt": 1,
+          "passed": true,
+          "seed_bank": "arch=[900, 901, 902, 903, 904],input=[9000, 9001, 9002]",
+          "summary": {
+            "n_fail": 0,
+            "n_pass": 8
+          },
+          "version": "v4.0"
+        }
+      ],
+      "max_attempts": 5,
+      "n_attempts": 1
+    },
+    "stage": "CONFIRMATION"
+  },
+  "figures": [
+    {
+      "name": "03_response_surfaces",
+      "pdf": "03_response_surfaces.pdf",
+      "png": "03_response_surfaces.png",
+      "source": "confirmation.json",
+      "title": "M, N and N_long response surfaces"
+    },
+    {
+      "name": "04_main_and_cross_effects",
+      "pdf": "04_main_and_cross_effects.pdf",
+      "png": "04_main_and_cross_effects.png",
+      "source": "confirmation.json",
+      "title": "Main effects and cross-effect equivalence"
+    },
+    {
+      "name": "05_response_jacobian",
+      "pdf": "05_response_jacobian.pdf",
+      "png": "05_response_jacobian.png",
+      "source": "confirmation.json",
+      "title": "Response Jacobian"
+    },
+    {
+      "name": "09_gate_decisions",
+      "pdf": "09_gate_decisions.pdf",
+      "png": "09_gate_decisions.png",
+      "source": "confirmation.json",
+      "title": "Gate decision table"
+    },
+    {
+      "name": "08_nonlinear_memory",
+      "pdf": "08_nonlinear_memory.pdf",
+      "png": "08_nonlinear_memory.png",
+      "source": "confirmation.json",
+      "title": "Nonlinear-memory benchmark"
+    },
+    {
+      "name": "07_search_history",
+      "pdf": "07_search_history.pdf",
+      "png": "07_search_history.png",
+      "source": "search.json",
+      "title": "Architecture-search history"
+    }
+  ],
+  "frozen_sha256": "435357bfd39db1b0b407400c36debf416ff903cc1bbc54a939d4617a5be4d728",
+  "n_rendered": 6,
+  "n_skipped": 0,
+  "search_best": {
+    "candidate": {
+      "L_R": 4,
+      "N_P": 4,
+      "alpha": 0.5,
+      "depth": 2,
+      "dt": 0.6,
+      "g_scale": 0.5,
+      "hop": 0.7,
+      "m_max": 0.9,
+      "n_joint": 72,
+      "pair_readout": true,
+      "retention": "amplitude_damping",
+      "tau_mix": 1.0
+    },
+    "error": null,
+    "row_key": "hand_designed",
+    "score": -1.7695555783130592,
+    "summary": {
+      "encoder_only_N": 0.00018528142779811185,
+      "max_unreachable": 0.003368274054121323,
+      "null_threshold": 0.004822540052482868,
+      "worst_abs_dM_dg": 0.0,
+      "worst_abs_dN_dm": 0.0,
+      "worst_combined": 0.23035956758617535,
+      "worst_dM_dm": 0.3107011755180141,
+      "worst_dN_dg": 0.9981352676226942,
+      "worst_saturated_fraction": 0.05555555555555555
+    }
+  },
+  "search_n": 24,
+  "smoke": {
+    "M": 0.3084551747376401,
+    "N": 0.6666639837957015,
+    "N_long": 0.0,
+    "claim": "SEPARATION NOT DEMONSTRATED -- no gates were evaluated; confirmation run is not complete; missing frozen-config provenance",
+    "dm_audit": {
+      "hermiticity_dev": 9.025286578729947e-18,
+      "min_eigenvalue": 0.00013946295149201368,
+      "ok": true,
+      "trace_dev": 6.439293542825908e-15,
+      "trace_imag": 8.246683282333145e-18
+    },
+    "factorisation": {
+      "atol": 1e-12,
+      "factorises": true,
+      "max_abs_deviation": 1.1102230246251565e-16
+    },
+    "null": {
+      "max": 0.020219258990437528,
+      "mean": 0.0024889536807660593,
+      "n_null": 20,
+      "quantile": 0.99,
+      "std": 0.0054854551137707075,
+      "threshold": 0.01931982439945057
+    },
+    "resources": {
+      "input_copies": 4,
+      "nonlinear_degree_P": 3,
+      "nonlinear_degree_R": 1,
+      "observables_P": 9,
+      "observables_R": 8,
+      "observables_joint": 16,
+      "observables_total": 33,
+      "processor_depth": 2,
+      "qubits": 6
+    },
+    "route_independence": {
+      "P_independent_of_m": true,
+      "R_independent_of_g": true,
+      "architecture": "dual_product",
+      "atol": 1e-12,
+      "max_dXP_dm": 0.0,
+      "max_dXR_dg": 0.0,
+      "passed": true
+    },
+    "saturation": {
+      "ceiling": 0.995,
+      "max_saturated_fraction": 0.2,
+      "n_saturated": 3,
+      "n_targets": 50,
+      "reason": "ok",
+      "saturated": false,
+      "saturated_fraction": 0.06
+    },
+    "stage": "SMOKE"
+  },
+  "stress": {
+    "n_all_passed": 13,
+    "n_variants": 13,
+    "robust": true
+  },
+  "version": "v4.0"
+}

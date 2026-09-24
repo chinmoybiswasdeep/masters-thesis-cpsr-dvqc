@@ -1,0 +1,17 @@
+{
+  "alpha_total": 0.05,
+  "max_attempts": 5,
+  "attempts": [
+    {
+      "attempt": 1,
+      "version": "v4.0",
+      "seed_bank": "arch=[900, 901, 902, 903, 904],input=[9000, 9001, 9002]",
+      "alpha_this_look": 0.01,
+      "passed": true,
+      "summary": {
+        "n_pass": 8,
+        "n_fail": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,296 @@
+{
+  "created_utc": "2026-09-24T04:02:28Z",
+  "environment": {
+    "cpu_count": 12,
+    "git_commit": "b665a45174375c05bbffc2f435cd3897b0c9f1a0",
+    "numpy": "2.5.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "precision": "complex128",
+    "python": "3.14.4",
+    "scipy": "1.18.1"
+  },
+  "payload": {
+    "architecture": {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 4,
+        "alpha": 0.5,
+        "depth": 2,
+        "dt": 0.6,
+        "g_scale": 0.5,
+        "hop": 0.7,
+        "m_max": 0.9,
+        "n_joint": 72,
+        "pair_readout": true,
+        "retention": "amplitude_damping",
+        "tau_mix": 1.0
+      },
+      "spec": {
+        "architecture": "dual_product",
+        "contamination": 0.0,
+        "coupling": "NONE -- R and P are never coupled (strict product)",
+        "memory": {
+          "L_R": 4,
+          "control_map": "retention = m * m_max",
+          "field": 0.35,
+          "hop": 0.7,
+          "injection": {
+            "form": "rho_in(u) = I/2 + u Z/2 (exactly affine, one copy)",
+            "kind": "affine_single_copy",
+            "n_copies": 1
+          },
+          "m_max": 0.9,
+          "pair_readout": true,
+          "readout": [
+            "Z",
+            "X"
+          ],
+          "retention": "amplitude_damping",
+          "tau_mix": 1.0
+        },
+        "n_joint": 72,
+        "processor": {
+          "N_P": 4,
+          "depth": 2,
+          "dt": 0.6,
+          "field": 0.4,
+          "g_scale": 0.5,
+          "injection": {
+            "form": "rho_P(u) = ((I + uZ)/2)^(x)n_copies",
+            "kind": "reupload_product_z",
+            "n_copies": 4,
+            "resource_note": "the copies ARE the nonlinear resource and are held fixed across g; g scales interaction strength only"
+          },
+          "layer_order": "mix_first_then_interaction_plus_final_mix",
+          "mix_hi": 1.3,
+          "mix_lo": 0.7,
+          "readout": [
+            "Z",
+            "X",
+            "Y"
+          ]
+        }
+      }
+    },
+    "grid": {
+      "T": 1600,
+      "g_values": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "m_values": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ]
+    },
+    "ipc_config": {
+      "alpha": 0.5,
+      "cross_seed": 0,
+      "degree_weights": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "gap": 12,
+      "max_degree": 4,
+      "max_delay": 8,
+      "max_per_family": 18,
+      "n_null": 40,
+      "nlong_max_delay": 5,
+      "null_quantile": 0.99,
+      "tau_L": 2,
+      "tau_S": 0,
+      "train_frac": 0.65,
+      "washout": 60
+    },
+    "metrics": {
+      "M": "mean_{tau>=tau_L} C_{1,tau} from R-local observables",
+      "N": "weighted mean_{d=2..4, tau<=tau_S} C_{d,tau} from P-local observables",
+      "N_long": "mean over joint-observable cross-delay targets beyond tau_L",
+      "capacity": "C = 1 - MSE/Var on the held-out block"
+    },
+    "observables": {
+      "P": [
+        "P:Z0",
+        "P:X0",
+        "P:Y0",
+        "P:Z1",
+        "P:X1",
+        "P:Y1",
+        "P:Z2",
+        "P:X2",
+        "P:Y2",
+        "P:Z3",
+        "P:X3",
+        "P:Y3"
+      ],
+      "R": [
+        "R:Z0",
+        "R:X0",
+        "R:Z1",
+        "R:X1",
+        "R:Z2",
+        "R:X2",
+        "R:Z3",
+        "R:X3",
+        "R:Z0Z1",
+        "R:Z1Z2",
+        "R:Z2Z3"
+      ],
+      "n_joint": 72
+    },
+    "preprocessing": {
+      "gap": 12,
+      "standardisation": "train statistics only",
+      "train_frac": 0.65,
+      "washout": 60
+    },
+    "resources": {
+      "input_copies": 5,
+      "nonlinear_degree_P": 4,
+      "nonlinear_degree_R": 1,
+      "observables_P": 12,
+      "observables_R": 11,
+      "observables_joint": 72,
+      "observables_total": 95,
+      "processor_depth": 2,
+      "qubits": 8
+    },
+    "seed_bank": {
+      "confirmation_arch": [
+        900,
+        901,
+        902,
+        903,
+        904
+      ],
+      "confirmation_input": [
+        9000,
+        9001,
+        9002
+      ],
+      "development_arch": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139
+      ],
+      "development_input": [
+        1000,
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        1009,
+        1010,
+        1011,
+        1012,
+        1013,
+        1014,
+        1015,
+        1016,
+        1017,
+        1018,
+        1019,
+        1020,
+        1021,
+        1022,
+        1023,
+        1024,
+        1025,
+        1026,
+        1027,
+        1028,
+        1029,
+        1030,
+        1031,
+        1032,
+        1033,
+        1034,
+        1035,
+        1036,
+        1037,
+        1038,
+        1039
+      ],
+      "note": "confirmation seeds are untouched until CONFIRMATION"
+    },
+    "statistics": {
+      "bootstrap": "two-level, arch seeds then input seeds",
+      "equivalence": "TOST on the CI",
+      "equivalence_ci": 0.9,
+      "main_ci": 0.95,
+      "multiplicity": "Holm",
+      "n_boot": 4000
+    },
+    "target_libraries": {
+      "cross_delay": "P1P1, P2P1, P1P1P1 over distinct delays",
+      "nlong": "P_d(u_t) * P_1(u_{t-tau}), d in {2,3}, tau in 3..5",
+      "single_delay": "P_d(u_{t-tau}), d=1..4, tau=0..8",
+      "sunada": "sin(nu u_{t-tau})/nu, nu in {0,0.5,1,2,4}"
+    },
+    "thresholds": {
+      "combined_ci_level": 0.95,
+      "control_detect_min": 1e-06,
+      "cross_ratio_max": 0.2,
+      "encoder_null_slack": 3.0,
+      "equivalence_ci_level": 0.9,
+      "equivalence_margin": 0.03,
+      "freeze_cross_fraction": 0.5,
+      "freeze_main_multiple": 2.0,
+      "main_ci_level": 0.95,
+      "main_effect_min": 0.1,
+      "route_isolation_atol": 1e-12,
+      "saturation_ceiling": 0.995,
+      "saturation_max_fraction": 0.2
+    },
+    "version": "v4.0"
+  },
+  "sha256": "435357bfd39db1b0b407400c36debf416ff903cc1bbc54a939d4617a5be4d728"
+}

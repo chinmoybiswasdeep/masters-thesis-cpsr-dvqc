@@ -1,0 +1,32 @@
+{
+  "environment": {
+    "cpu_count": 12,
+    "git_commit": "b665a45174375c05bbffc2f435cd3897b0c9f1a0",
+    "numpy": "2.5.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "precision": "complex128",
+    "python": "3.14.4",
+    "scipy": "1.18.1"
+  },
+  "finished_utc": "2026-09-24T04:02:28Z",
+  "runtime_seconds": 0.12,
+  "sha256": "435357bfd39db1b0b407400c36debf416ff903cc1bbc54a939d4617a5be4d728",
+  "stage": "FREEZE",
+  "started_utc": "2026-09-24T04:02:28Z",
+  "thresholds": {
+    "combined_ci_level": 0.95,
+    "control_detect_min": 1e-06,
+    "cross_ratio_max": 0.2,
+    "encoder_null_slack": 3.0,
+    "equivalence_ci_level": 0.9,
+    "equivalence_margin": 0.03,
+    "freeze_cross_fraction": 0.5,
+    "freeze_main_multiple": 2.0,
+    "main_ci_level": 0.95,
+    "main_effect_min": 0.1,
+    "route_isolation_atol": 1e-12,
+    "saturation_ceiling": 0.995,
+    "saturation_max_fraction": 0.2
+  },
+  "version": "v4.0"
+}

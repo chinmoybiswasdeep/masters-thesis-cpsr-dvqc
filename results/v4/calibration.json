@@ -1,0 +1,99 @@
+{
+  "note": "the null procedure and the saturation limit are preregistered here and are not revisited after results are seen",
+  "null_threshold_median": 0.010738171529594538,
+  "passed": true,
+  "rows": [
+    {
+      "M": 0.00044478441387222186,
+      "N": 0.00037056285559626073,
+      "N_long": 0.0018167126918498162,
+      "g": 0.0,
+      "m": 0.0,
+      "n_primary_targets": 72,
+      "null_threshold": 0.0076271498813991895,
+      "saturated_fraction": 0.013888888888888888
+    },
+    {
+      "M": 0.00044478441387222186,
+      "N": 0.9617870282894664,
+      "N_long": 0.007836270194534015,
+      "g": 0.5,
+      "m": 0.0,
+      "n_primary_targets": 72,
+      "null_threshold": 0.0076271498813991895,
+      "saturated_fraction": 0.041666666666666664
+    },
+    {
+      "M": 0.00044478441387222186,
+      "N": 0.9985434301416799,
+      "N_long": 0.008242199962008126,
+      "g": 1.0,
+      "m": 0.0,
+      "n_primary_targets": 72,
+      "null_threshold": 0.0076271498813991895,
+      "saturated_fraction": 0.05555555555555555
+    },
+    {
+      "M": 0.23067164612693267,
+      "N": 0.00037056285559626073,
+      "N_long": 0.005077932881637622,
+      "g": 0.0,
+      "m": 0.5,
+      "n_primary_targets": 72,
+      "null_threshold": 0.010738171529594538,
+      "saturated_fraction": 0.013888888888888888
+    },
+    {
+      "M": 0.23067164612693267,
+      "N": 0.9617870282894664,
+      "N_long": 0.020488130486379225,
+      "g": 0.5,
+      "m": 0.5,
+      "n_primary_targets": 72,
+      "null_threshold": 0.010738171529594538,
+      "saturated_fraction": 0.041666666666666664
+    },
+    {
+      "M": 0.23067164612693267,
+      "N": 0.9985434301416799,
+      "N_long": 0.04583652357845166,
+      "g": 1.0,
+      "m": 0.5,
+      "n_primary_targets": 72,
+      "null_threshold": 0.010738171529594538,
+      "saturated_fraction": 0.05555555555555555
+    },
+    {
+      "M": 0.38644728113151106,
+      "N": 0.00037056285559626073,
+      "N_long": 0.06404280182658617,
+      "g": 0.0,
+      "m": 1.0,
+      "n_primary_targets": 72,
+      "null_threshold": 0.012960595201208205,
+      "saturated_fraction": 0.0
+    },
+    {
+      "M": 0.38644728113151106,
+      "N": 0.9617870282894664,
+      "N_long": 0.3143563249096857,
+      "g": 0.5,
+      "m": 1.0,
+      "n_primary_targets": 72,
+      "null_threshold": 0.012960595201208205,
+      "saturated_fraction": 0.027777777777777776
+    },
+    {
+      "M": 0.38644728113151106,
+      "N": 0.9985434301416799,
+      "N_long": 0.42997661012886007,
+      "g": 1.0,
+      "m": 1.0,
+      "n_primary_targets": 72,
+      "null_threshold": 0.012960595201208205,
+      "saturated_fraction": 0.041666666666666664
+    }
+  ],
+  "stage": "CALIBRATION",
+  "worst_saturated_fraction": 0.05555555555555555
+}

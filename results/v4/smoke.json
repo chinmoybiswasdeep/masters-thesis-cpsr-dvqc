@@ -1,0 +1,56 @@
+{
+  "M": 0.3084551747376401,
+  "N": 0.6666639837957015,
+  "N_long": 0.0,
+  "claim": "SEPARATION NOT DEMONSTRATED -- no gates were evaluated; confirmation run is not complete; missing frozen-config provenance",
+  "dm_audit": {
+    "hermiticity_dev": 9.025286578729947e-18,
+    "min_eigenvalue": 0.00013946295149201368,
+    "ok": true,
+    "trace_dev": 6.439293542825908e-15,
+    "trace_imag": 8.246683282333145e-18
+  },
+  "factorisation": {
+    "atol": 1e-12,
+    "factorises": true,
+    "max_abs_deviation": 1.1102230246251565e-16
+  },
+  "null": {
+    "max": 0.020219258990437528,
+    "mean": 0.0024889536807660593,
+    "n_null": 20,
+    "quantile": 0.99,
+    "std": 0.0054854551137707075,
+    "threshold": 0.01931982439945057
+  },
+  "resources": {
+    "input_copies": 4,
+    "nonlinear_degree_P": 3,
+    "nonlinear_degree_R": 1,
+    "observables_P": 9,
+    "observables_R": 8,
+    "observables_joint": 16,
+    "observables_total": 33,
+    "processor_depth": 2,
+    "qubits": 6
+  },
+  "route_independence": {
+    "P_independent_of_m": true,
+    "R_independent_of_g": true,
+    "architecture": "dual_product",
+    "atol": 1e-12,
+    "max_dXP_dm": 0.0,
+    "max_dXR_dg": 0.0,
+    "passed": true
+  },
+  "saturation": {
+    "ceiling": 0.995,
+    "max_saturated_fraction": 0.2,
+    "n_saturated": 3,
+    "n_targets": 50,
+    "reason": "ok",
+    "saturated": false,
+    "saturated_fraction": 0.06
+  },
+  "stage": "SMOKE"
+}

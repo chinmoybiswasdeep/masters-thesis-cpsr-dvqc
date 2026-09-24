@@ -1,0 +1,1623 @@
+{
+  "T": 1200,
+  "arch_seeds": [
+    100,
+    101
+  ],
+  "best": {
+    "candidate": {
+      "L_R": 4,
+      "N_P": 4,
+      "alpha": 0.5,
+      "depth": 2,
+      "dt": 0.6,
+      "g_scale": 0.5,
+      "hop": 0.7,
+      "m_max": 0.9,
+      "n_joint": 72,
+      "pair_readout": true,
+      "retention": "amplitude_damping",
+      "tau_mix": 1.0
+    },
+    "error": null,
+    "row_key": "hand_designed",
+    "score": -1.7695555783130592,
+    "summary": {
+      "encoder_only_N": 0.00018528142779811185,
+      "max_unreachable": 0.003368274054121323,
+      "null_threshold": 0.004822540052482868,
+      "worst_abs_dM_dg": 0.0,
+      "worst_abs_dN_dm": 0.0,
+      "worst_combined": 0.23035956758617535,
+      "worst_dM_dm": 0.3107011755180141,
+      "worst_dN_dg": 0.9981352676226942,
+      "worst_saturated_fraction": 0.05555555555555555
+    }
+  },
+  "g_values": [
+    0.0,
+    0.5,
+    1.0
+  ],
+  "hand_designed": {
+    "candidate": {
+      "L_R": 4,
+      "N_P": 4,
+      "alpha": 0.5,
+      "depth": 2,
+      "dt": 0.6,
+      "g_scale": 0.5,
+      "hop": 0.7,
+      "m_max": 0.9,
+      "n_joint": 72,
+      "pair_readout": true,
+      "retention": "amplitude_damping",
+      "tau_mix": 1.0
+    },
+    "error": null,
+    "row_key": "hand_designed",
+    "score": -1.7695555783130592,
+    "summary": {
+      "encoder_only_N": 0.00018528142779811185,
+      "max_unreachable": 0.003368274054121323,
+      "null_threshold": 0.004822540052482868,
+      "worst_abs_dM_dg": 0.0,
+      "worst_abs_dN_dm": 0.0,
+      "worst_combined": 0.23035956758617535,
+      "worst_dM_dm": 0.3107011755180141,
+      "worst_dN_dg": 0.9981352676226942,
+      "worst_saturated_fraction": 0.05555555555555555
+    }
+  },
+  "history": [
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 4,
+        "alpha": 1.0,
+        "depth": 1,
+        "dt": 0.6,
+        "g_scale": 0.25,
+        "hop": 0.9,
+        "m_max": 0.9,
+        "n_joint": 36,
+        "pair_readout": false,
+        "retention": "depolarizing",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0000",
+      "score": -0.5004563213338984,
+      "summary": {
+        "encoder_only_N": 0.0001852800151037337,
+        "max_unreachable": 0.005749785436673371,
+        "null_threshold": 0.0039026166693313484,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": -9.363546204815831e-06,
+        "worst_dM_dm": 0.1413378212985423,
+        "worst_dN_dg": 0.3591372271277657,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 4,
+        "alpha": 0.2,
+        "depth": 3,
+        "dt": 0.8,
+        "g_scale": 0.8,
+        "hop": 0.5,
+        "m_max": 0.85,
+        "n_joint": 72,
+        "pair_readout": true,
+        "retention": "amplitude_damping",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0001",
+      "score": -1.6239073486704239,
+      "summary": {
+        "encoder_only_N": 0.0001852822749757177,
+        "max_unreachable": 0.0033684179569127837,
+        "null_threshold": 0.005135623045234778,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.13664086661876906,
+        "worst_dM_dm": 0.3512478375987406,
+        "worst_dN_dg": 0.999377777834145,
+        "worst_saturated_fraction": 0.05555555555555555
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 3,
+        "alpha": 0.2,
+        "depth": 3,
+        "dt": 0.8,
+        "g_scale": 0.8,
+        "hop": 0.9,
+        "m_max": 0.9,
+        "n_joint": 36,
+        "pair_readout": false,
+        "retention": "depolarizing",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0002",
+      "score": -1.0918434812615514,
+      "summary": {
+        "encoder_only_N": 0.00018528208674249239,
+        "max_unreachable": 0.0050297483852095315,
+        "null_threshold": 0.006091039820272506,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.07206522210869507,
+        "worst_dM_dm": 0.2814179712820611,
+        "worst_dN_dg": 0.6662950657621002,
+        "worst_saturated_fraction": 0.06944444444444445
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 3,
+        "alpha": 0.5,
+        "depth": 2,
+        "dt": 0.8,
+        "g_scale": 0.5,
+        "hop": 0.5,
+        "m_max": 0.95,
+        "n_joint": 36,
+        "pair_readout": false,
+        "retention": "amplitude_damping",
+        "tau_mix": 1.0
+      },
+      "error": null,
+      "row_key": "cand0003",
+      "score": -0.9896526634840591,
+      "summary": {
+        "encoder_only_N": 0.00018528095700164524,
+        "max_unreachable": 0.0036706237284814813,
+        "null_threshold": 0.005580803913923446,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.041318185789935576,
+        "worst_dM_dm": 0.28220674188984635,
+        "worst_dN_dg": 0.6248095500143416,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 3,
+        "alpha": 0.5,
+        "depth": 1,
+        "dt": 0.4,
+        "g_scale": 0.5,
+        "hop": 0.9,
+        "m_max": 0.85,
+        "n_joint": 36,
+        "pair_readout": false,
+        "retention": "depolarizing",
+        "tau_mix": 0.8
+      },
+      "error": null,
+      "row_key": "cand0004",
+      "score": -0.48243746020369904,
+      "summary": {
+        "encoder_only_N": 0.00018528095700164524,
+        "max_unreachable": 0.002764887015369921,
+        "null_threshold": 0.004220378051003299,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.0013913128300155715,
+        "worst_dM_dm": 0.13697087086602067,
+        "worst_dN_dg": 0.34268396367764725,
+        "worst_saturated_fraction": 0.027777777777777776
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 3,
+        "alpha": 0.5,
+        "depth": 2,
+        "dt": 0.4,
+        "g_scale": 0.8,
+        "hop": 0.9,
+        "m_max": 0.9,
+        "n_joint": 36,
+        "pair_readout": true,
+        "retention": "amplitude_damping",
+        "tau_mix": 0.8
+      },
+      "error": null,
+      "row_key": "cand0005",
+      "score": -1.1976923227348755,
+      "summary": {
+        "encoder_only_N": 0.00018528095700164524,
+        "max_unreachable": 0.0033680799139786943,
+        "null_threshold": 0.0057211195460639425,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.11411055527433782,
+        "worst_dM_dm": 0.30511615958290905,
+        "worst_dN_dg": 0.6643550526032908,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 3,
+        "alpha": 0.5,
+        "depth": 1,
+        "dt": 0.8,
+        "g_scale": 0.25,
+        "hop": 0.5,
+        "m_max": 0.9,
+        "n_joint": 36,
+        "pair_readout": true,
+        "retention": "depolarizing",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0006",
+      "score": -0.6927382818233806,
+      "summary": {
+        "encoder_only_N": 0.00018528095700163597,
+        "max_unreachable": 0.004756703403667628,
+        "null_threshold": 0.006090246264541943,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.02449707731761682,
+        "worst_dM_dm": 0.159533819793928,
+        "worst_dN_dg": 0.484210307394219,
+        "worst_saturated_fraction": 0.027777777777777776
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 3,
+        "alpha": 0.2,
+        "depth": 3,
+        "dt": 0.4,
+        "g_scale": 0.5,
+        "hop": 0.5,
+        "m_max": 0.9,
+        "n_joint": 36,
+        "pair_readout": false,
+        "retention": "depolarizing",
+        "tau_mix": 1.0
+      },
+      "error": null,
+      "row_key": "cand0007",
+      "score": -1.0674106967205264,
+      "summary": {
+        "encoder_only_N": 0.00018528208674249239,
+        "max_unreachable": 0.005024206143108723,
+        "null_threshold": 0.004549108156645584,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.06778203198356597,
+        "worst_dM_dm": 0.2685644964287247,
+        "worst_dN_dg": 0.6632821363246698,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 4,
+        "alpha": 0.5,
+        "depth": 3,
+        "dt": 0.4,
+        "g_scale": 0.25,
+        "hop": 0.5,
+        "m_max": 0.95,
+        "n_joint": 72,
+        "pair_readout": true,
+        "retention": "amplitude_damping",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0008",
+      "score": -1.08452013734082,
+      "summary": {
+        "encoder_only_N": 0.00018528142779809334,
+        "max_unreachable": 0.004455539626397553,
+        "null_threshold": 0.00592575435580662,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.051911891890902714,
+        "worst_dM_dm": 0.18366844820981865,
+        "worst_dN_dg": 0.7970279053491959,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 3,
+        "alpha": 0.5,
+        "depth": 3,
+        "dt": 0.8,
+        "g_scale": 0.5,
+        "hop": 0.9,
+        "m_max": 0.85,
+        "n_joint": 72,
+        "pair_readout": true,
+        "retention": "depolarizing",
+        "tau_mix": 0.8
+      },
+      "error": null,
+      "row_key": "cand0009",
+      "score": -0.8697347788476884,
+      "summary": {
+        "encoder_only_N": 0.00018528095700164524,
+        "max_unreachable": 0.00502993148749642,
+        "null_threshold": 0.006057254402772515,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.0338571120757859,
+        "worst_dM_dm": 0.1357277883118198,
+        "worst_dN_dg": 0.6662927663842967,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 4,
+        "alpha": 1.0,
+        "depth": 1,
+        "dt": 0.6,
+        "g_scale": 0.5,
+        "hop": 0.5,
+        "m_max": 0.95,
+        "n_joint": 36,
+        "pair_readout": false,
+        "retention": "amplitude_damping",
+        "tau_mix": 0.8
+      },
+      "error": null,
+      "row_key": "cand0010",
+      "score": -0.866296189042411,
+      "summary": {
+        "encoder_only_N": 0.0001852800151037337,
+        "max_unreachable": 0.003478595038187926,
+        "null_threshold": 0.00528800067449257,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.01959263879788196,
+        "worst_dM_dm": 0.24770145619557074,
+        "worst_dN_dg": 0.5794094552510763,
+        "worst_saturated_fraction": 0.027777777777777776
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 4,
+        "alpha": 0.5,
+        "depth": 1,
+        "dt": 0.4,
+        "g_scale": 0.5,
+        "hop": 0.7,
+        "m_max": 0.85,
+        "n_joint": 36,
+        "pair_readout": false,
+        "retention": "amplitude_damping",
+        "tau_mix": 0.8
+      },
+      "error": null,
+      "row_key": "cand0011",
+      "score": -0.7620876831472146,
+      "summary": {
+        "encoder_only_N": 0.00018528142779809334,
+        "max_unreachable": 0.0033672328761717996,
+        "null_threshold": 0.0059026396830322726,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.021156056271050057,
+        "worst_dM_dm": 0.17902689976137362,
+        "worst_dN_dg": 0.5407486708437409,
+        "worst_saturated_fraction": 0.027777777777777776
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 4,
+        "alpha": 1.0,
+        "depth": 3,
+        "dt": 0.6,
+        "g_scale": 0.25,
+        "hop": 0.9,
+        "m_max": 0.95,
+        "n_joint": 36,
+        "pair_readout": false,
+        "retention": "amplitude_damping",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0012",
+      "score": -0.9184733885465198,
+      "summary": {
+        "encoder_only_N": 0.00018528001510387249,
+        "max_unreachable": 0.0063774389027083656,
+        "null_threshold": 0.0045788476500205144,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": -0.0005679955500523986,
+        "worst_dM_dm": 0.1420757402185301,
+        "worst_dN_dg": 0.7775336394280945,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 4,
+        "alpha": 0.5,
+        "depth": 2,
+        "dt": 0.4,
+        "g_scale": 0.8,
+        "hop": 0.7,
+        "m_max": 0.9,
+        "n_joint": 36,
+        "pair_readout": true,
+        "retention": "amplitude_damping",
+        "tau_mix": 1.0
+      },
+      "error": null,
+      "row_key": "cand0013",
+      "score": -1.5991464898864263,
+      "summary": {
+        "encoder_only_N": 0.00018528142779830614,
+        "max_unreachable": 0.003368156807479483,
+        "null_threshold": 0.004822540052482868,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.1450917327815647,
+        "worst_dM_dm": 0.3107011755180141,
+        "worst_dN_dg": 0.9982618488052827,
+        "worst_saturated_fraction": 0.05555555555555555
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 3,
+        "alpha": 1.0,
+        "depth": 3,
+        "dt": 0.8,
+        "g_scale": 0.8,
+        "hop": 0.7,
+        "m_max": 0.95,
+        "n_joint": 72,
+        "pair_readout": false,
+        "retention": "depolarizing",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0014",
+      "score": -1.1928746403963295,
+      "summary": {
+        "encoder_only_N": 0.00018527907279984138,
+        "max_unreachable": 0.005030162409890404,
+        "null_threshold": 0.006147773127542323,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.11776982031856575,
+        "worst_dM_dm": 0.29106444788826985,
+        "worst_dN_dg": 0.6662705518709281,
+        "worst_saturated_fraction": 0.05555555555555555
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 4,
+        "alpha": 0.2,
+        "depth": 3,
+        "dt": 0.8,
+        "g_scale": 0.5,
+        "hop": 0.9,
+        "m_max": 0.85,
+        "n_joint": 36,
+        "pair_readout": true,
+        "retention": "depolarizing",
+        "tau_mix": 1.0
+      },
+      "error": null,
+      "row_key": "cand0015",
+      "score": -1.2584817112675917,
+      "summary": {
+        "encoder_only_N": 0.0001852822749757177,
+        "max_unreachable": 0.005084870643841999,
+        "null_threshold": 0.006090926443753455,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.05480835474584943,
+        "worst_dM_dm": 0.15032887194953914,
+        "worst_dN_dg": 0.9985361298263536,
+        "worst_saturated_fraction": 0.05555555555555555
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 3,
+        "alpha": 1.0,
+        "depth": 2,
+        "dt": 0.8,
+        "g_scale": 0.25,
+        "hop": 0.7,
+        "m_max": 0.85,
+        "n_joint": 36,
+        "pair_readout": true,
+        "retention": "depolarizing",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0016",
+      "score": -0.561979502908527,
+      "summary": {
+        "encoder_only_N": 0.00018527907279984138,
+        "max_unreachable": 0.004994587672285666,
+        "null_threshold": 0.005507540469188795,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.029566317706388207,
+        "worst_dM_dm": 0.1524752505220004,
+        "worst_dN_dg": 0.3503716169737503,
+        "worst_saturated_fraction": 0.027777777777777776
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 4,
+        "alpha": 0.2,
+        "depth": 1,
+        "dt": 0.4,
+        "g_scale": 0.5,
+        "hop": 0.9,
+        "m_max": 0.9,
+        "n_joint": 72,
+        "pair_readout": false,
+        "retention": "amplitude_damping",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0017",
+      "score": -0.7589973501945537,
+      "summary": {
+        "encoder_only_N": 0.0001852822749757177,
+        "max_unreachable": 0.003722022792809754,
+        "null_threshold": 0.00458960134397577,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.00022565972758595287,
+        "worst_dM_dm": 0.1419026231231684,
+        "worst_dN_dg": 0.6166434076162134,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 3,
+        "alpha": 0.5,
+        "depth": 2,
+        "dt": 0.6,
+        "g_scale": 0.5,
+        "hop": 0.5,
+        "m_max": 0.85,
+        "n_joint": 36,
+        "pair_readout": false,
+        "retention": "amplitude_damping",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0018",
+      "score": -0.8383602342698958,
+      "summary": {
+        "encoder_only_N": 0.00018528095700165448,
+        "max_unreachable": 0.005311220498789626,
+        "null_threshold": 0.00501050513147345,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.009056664851353055,
+        "worst_dM_dm": 0.15453532503663148,
+        "worst_dN_dg": 0.6657115795305583,
+        "worst_saturated_fraction": 0.05555555555555555
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 4,
+        "alpha": 0.2,
+        "depth": 2,
+        "dt": 0.6,
+        "g_scale": 0.8,
+        "hop": 0.7,
+        "m_max": 0.95,
+        "n_joint": 72,
+        "pair_readout": false,
+        "retention": "depolarizing",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0019",
+      "score": -1.5839659153405932,
+      "summary": {
+        "encoder_only_N": 0.0001852822749757177,
+        "max_unreachable": 0.005001042374248921,
+        "null_threshold": 0.006212484043933482,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.1465779165357255,
+        "worst_dM_dm": 0.2911868789758243,
+        "worst_dN_dg": 0.9996232032933178,
+        "worst_saturated_fraction": 0.06944444444444445
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 3,
+        "alpha": 0.2,
+        "depth": 3,
+        "dt": 0.6,
+        "g_scale": 0.25,
+        "hop": 0.5,
+        "m_max": 0.9,
+        "n_joint": 36,
+        "pair_readout": true,
+        "retention": "amplitude_damping",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0020",
+      "score": -0.9465127380361569,
+      "summary": {
+        "encoder_only_N": 0.00018528208674249239,
+        "max_unreachable": 0.004018206309086558,
+        "null_threshold": 0.006091107848012489,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.045933118088550016,
+        "worst_dM_dm": 0.19123441527952154,
+        "worst_dN_dg": 0.6634120865795353,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 4,
+        "alpha": 0.2,
+        "depth": 1,
+        "dt": 0.6,
+        "g_scale": 0.8,
+        "hop": 0.7,
+        "m_max": 0.95,
+        "n_joint": 72,
+        "pair_readout": false,
+        "retention": "amplitude_damping",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0021",
+      "score": -1.283237967195447,
+      "summary": {
+        "encoder_only_N": 0.00018528227497557892,
+        "max_unreachable": 0.004960776355838026,
+        "null_threshold": 0.00652462036177207,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.14670109420664051,
+        "worst_dM_dm": 0.29576547127007063,
+        "worst_dN_dg": 0.6940703075120952,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 4,
+        "alpha": 1.0,
+        "depth": 2,
+        "dt": 0.6,
+        "g_scale": 0.5,
+        "hop": 0.5,
+        "m_max": 0.85,
+        "n_joint": 36,
+        "pair_readout": true,
+        "retention": "amplitude_damping",
+        "tau_mix": 0.8
+      },
+      "error": null,
+      "row_key": "cand0022",
+      "score": -1.4022461429516977,
+      "summary": {
+        "encoder_only_N": 0.00018528001510387249,
+        "max_unreachable": 0.0034928326912218033,
+        "null_threshold": 0.0060514616742115696,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.03389233972462871,
+        "worst_dM_dm": 0.3400941648838763,
+        "worst_dN_dg": 0.994367298618564,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 4,
+        "alpha": 0.5,
+        "depth": 1,
+        "dt": 0.4,
+        "g_scale": 0.5,
+        "hop": 0.7,
+        "m_max": 0.95,
+        "n_joint": 36,
+        "pair_readout": true,
+        "retention": "amplitude_damping",
+        "tau_mix": 0.8
+      },
+      "error": null,
+      "row_key": "cand0023",
+      "score": -0.8202868362040251,
+      "summary": {
+        "encoder_only_N": 0.00018528142779809334,
+        "max_unreachable": 0.003368168152815376,
+        "null_threshold": 0.007182631286228673,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.04096586650907401,
+        "worst_dM_dm": 0.19760643234213618,
+        "worst_dN_dg": 0.5407486708437409,
+        "worst_saturated_fraction": 0.027777777777777776
+      }
+    }
+  ],
+  "input_seeds": [
+    1000,
+    1001
+  ],
+  "m_values": [
+    0.0,
+    0.5,
+    1.0
+  ],
+  "n_evaluated": 24,
+  "n_feasible": 24,
+  "ranked": [
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 4,
+        "alpha": 0.5,
+        "depth": 2,
+        "dt": 0.6,
+        "g_scale": 0.5,
+        "hop": 0.7,
+        "m_max": 0.9,
+        "n_joint": 72,
+        "pair_readout": true,
+        "retention": "amplitude_damping",
+        "tau_mix": 1.0
+      },
+      "error": null,
+      "row_key": "hand_designed",
+      "score": -1.7695555783130592,
+      "summary": {
+        "encoder_only_N": 0.00018528142779811185,
+        "max_unreachable": 0.003368274054121323,
+        "null_threshold": 0.004822540052482868,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.23035956758617535,
+        "worst_dM_dm": 0.3107011755180141,
+        "worst_dN_dg": 0.9981352676226942,
+        "worst_saturated_fraction": 0.05555555555555555
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 4,
+        "alpha": 0.2,
+        "depth": 3,
+        "dt": 0.8,
+        "g_scale": 0.8,
+        "hop": 0.5,
+        "m_max": 0.85,
+        "n_joint": 72,
+        "pair_readout": true,
+        "retention": "amplitude_damping",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0001",
+      "score": -1.6239073486704239,
+      "summary": {
+        "encoder_only_N": 0.0001852822749757177,
+        "max_unreachable": 0.0033684179569127837,
+        "null_threshold": 0.005135623045234778,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.13664086661876906,
+        "worst_dM_dm": 0.3512478375987406,
+        "worst_dN_dg": 0.999377777834145,
+        "worst_saturated_fraction": 0.05555555555555555
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 4,
+        "alpha": 0.5,
+        "depth": 2,
+        "dt": 0.4,
+        "g_scale": 0.8,
+        "hop": 0.7,
+        "m_max": 0.9,
+        "n_joint": 36,
+        "pair_readout": true,
+        "retention": "amplitude_damping",
+        "tau_mix": 1.0
+      },
+      "error": null,
+      "row_key": "cand0013",
+      "score": -1.5991464898864263,
+      "summary": {
+        "encoder_only_N": 0.00018528142779830614,
+        "max_unreachable": 0.003368156807479483,
+        "null_threshold": 0.004822540052482868,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.1450917327815647,
+        "worst_dM_dm": 0.3107011755180141,
+        "worst_dN_dg": 0.9982618488052827,
+        "worst_saturated_fraction": 0.05555555555555555
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 4,
+        "alpha": 0.2,
+        "depth": 2,
+        "dt": 0.6,
+        "g_scale": 0.8,
+        "hop": 0.7,
+        "m_max": 0.95,
+        "n_joint": 72,
+        "pair_readout": false,
+        "retention": "depolarizing",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0019",
+      "score": -1.5839659153405932,
+      "summary": {
+        "encoder_only_N": 0.0001852822749757177,
+        "max_unreachable": 0.005001042374248921,
+        "null_threshold": 0.006212484043933482,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.1465779165357255,
+        "worst_dM_dm": 0.2911868789758243,
+        "worst_dN_dg": 0.9996232032933178,
+        "worst_saturated_fraction": 0.06944444444444445
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 4,
+        "alpha": 1.0,
+        "depth": 2,
+        "dt": 0.6,
+        "g_scale": 0.5,
+        "hop": 0.5,
+        "m_max": 0.85,
+        "n_joint": 36,
+        "pair_readout": true,
+        "retention": "amplitude_damping",
+        "tau_mix": 0.8
+      },
+      "error": null,
+      "row_key": "cand0022",
+      "score": -1.4022461429516977,
+      "summary": {
+        "encoder_only_N": 0.00018528001510387249,
+        "max_unreachable": 0.0034928326912218033,
+        "null_threshold": 0.0060514616742115696,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.03389233972462871,
+        "worst_dM_dm": 0.3400941648838763,
+        "worst_dN_dg": 0.994367298618564,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 4,
+        "alpha": 0.2,
+        "depth": 1,
+        "dt": 0.6,
+        "g_scale": 0.8,
+        "hop": 0.7,
+        "m_max": 0.95,
+        "n_joint": 72,
+        "pair_readout": false,
+        "retention": "amplitude_damping",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0021",
+      "score": -1.283237967195447,
+      "summary": {
+        "encoder_only_N": 0.00018528227497557892,
+        "max_unreachable": 0.004960776355838026,
+        "null_threshold": 0.00652462036177207,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.14670109420664051,
+        "worst_dM_dm": 0.29576547127007063,
+        "worst_dN_dg": 0.6940703075120952,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 4,
+        "alpha": 0.2,
+        "depth": 3,
+        "dt": 0.8,
+        "g_scale": 0.5,
+        "hop": 0.9,
+        "m_max": 0.85,
+        "n_joint": 36,
+        "pair_readout": true,
+        "retention": "depolarizing",
+        "tau_mix": 1.0
+      },
+      "error": null,
+      "row_key": "cand0015",
+      "score": -1.2584817112675917,
+      "summary": {
+        "encoder_only_N": 0.0001852822749757177,
+        "max_unreachable": 0.005084870643841999,
+        "null_threshold": 0.006090926443753455,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.05480835474584943,
+        "worst_dM_dm": 0.15032887194953914,
+        "worst_dN_dg": 0.9985361298263536,
+        "worst_saturated_fraction": 0.05555555555555555
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 3,
+        "alpha": 0.5,
+        "depth": 2,
+        "dt": 0.4,
+        "g_scale": 0.8,
+        "hop": 0.9,
+        "m_max": 0.9,
+        "n_joint": 36,
+        "pair_readout": true,
+        "retention": "amplitude_damping",
+        "tau_mix": 0.8
+      },
+      "error": null,
+      "row_key": "cand0005",
+      "score": -1.1976923227348755,
+      "summary": {
+        "encoder_only_N": 0.00018528095700164524,
+        "max_unreachable": 0.0033680799139786943,
+        "null_threshold": 0.0057211195460639425,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.11411055527433782,
+        "worst_dM_dm": 0.30511615958290905,
+        "worst_dN_dg": 0.6643550526032908,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 3,
+        "alpha": 1.0,
+        "depth": 3,
+        "dt": 0.8,
+        "g_scale": 0.8,
+        "hop": 0.7,
+        "m_max": 0.95,
+        "n_joint": 72,
+        "pair_readout": false,
+        "retention": "depolarizing",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0014",
+      "score": -1.1928746403963295,
+      "summary": {
+        "encoder_only_N": 0.00018527907279984138,
+        "max_unreachable": 0.005030162409890404,
+        "null_threshold": 0.006147773127542323,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.11776982031856575,
+        "worst_dM_dm": 0.29106444788826985,
+        "worst_dN_dg": 0.6662705518709281,
+        "worst_saturated_fraction": 0.05555555555555555
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 3,
+        "alpha": 0.2,
+        "depth": 3,
+        "dt": 0.8,
+        "g_scale": 0.8,
+        "hop": 0.9,
+        "m_max": 0.9,
+        "n_joint": 36,
+        "pair_readout": false,
+        "retention": "depolarizing",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0002",
+      "score": -1.0918434812615514,
+      "summary": {
+        "encoder_only_N": 0.00018528208674249239,
+        "max_unreachable": 0.0050297483852095315,
+        "null_threshold": 0.006091039820272506,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.07206522210869507,
+        "worst_dM_dm": 0.2814179712820611,
+        "worst_dN_dg": 0.6662950657621002,
+        "worst_saturated_fraction": 0.06944444444444445
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 4,
+        "alpha": 0.5,
+        "depth": 3,
+        "dt": 0.4,
+        "g_scale": 0.25,
+        "hop": 0.5,
+        "m_max": 0.95,
+        "n_joint": 72,
+        "pair_readout": true,
+        "retention": "amplitude_damping",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0008",
+      "score": -1.08452013734082,
+      "summary": {
+        "encoder_only_N": 0.00018528142779809334,
+        "max_unreachable": 0.004455539626397553,
+        "null_threshold": 0.00592575435580662,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.051911891890902714,
+        "worst_dM_dm": 0.18366844820981865,
+        "worst_dN_dg": 0.7970279053491959,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 3,
+        "alpha": 0.2,
+        "depth": 3,
+        "dt": 0.4,
+        "g_scale": 0.5,
+        "hop": 0.5,
+        "m_max": 0.9,
+        "n_joint": 36,
+        "pair_readout": false,
+        "retention": "depolarizing",
+        "tau_mix": 1.0
+      },
+      "error": null,
+      "row_key": "cand0007",
+      "score": -1.0674106967205264,
+      "summary": {
+        "encoder_only_N": 0.00018528208674249239,
+        "max_unreachable": 0.005024206143108723,
+        "null_threshold": 0.004549108156645584,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.06778203198356597,
+        "worst_dM_dm": 0.2685644964287247,
+        "worst_dN_dg": 0.6632821363246698,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 3,
+        "alpha": 0.5,
+        "depth": 2,
+        "dt": 0.8,
+        "g_scale": 0.5,
+        "hop": 0.5,
+        "m_max": 0.95,
+        "n_joint": 36,
+        "pair_readout": false,
+        "retention": "amplitude_damping",
+        "tau_mix": 1.0
+      },
+      "error": null,
+      "row_key": "cand0003",
+      "score": -0.9896526634840591,
+      "summary": {
+        "encoder_only_N": 0.00018528095700164524,
+        "max_unreachable": 0.0036706237284814813,
+        "null_threshold": 0.005580803913923446,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.041318185789935576,
+        "worst_dM_dm": 0.28220674188984635,
+        "worst_dN_dg": 0.6248095500143416,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 3,
+        "alpha": 0.2,
+        "depth": 3,
+        "dt": 0.6,
+        "g_scale": 0.25,
+        "hop": 0.5,
+        "m_max": 0.9,
+        "n_joint": 36,
+        "pair_readout": true,
+        "retention": "amplitude_damping",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0020",
+      "score": -0.9465127380361569,
+      "summary": {
+        "encoder_only_N": 0.00018528208674249239,
+        "max_unreachable": 0.004018206309086558,
+        "null_threshold": 0.006091107848012489,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.045933118088550016,
+        "worst_dM_dm": 0.19123441527952154,
+        "worst_dN_dg": 0.6634120865795353,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 4,
+        "alpha": 1.0,
+        "depth": 3,
+        "dt": 0.6,
+        "g_scale": 0.25,
+        "hop": 0.9,
+        "m_max": 0.95,
+        "n_joint": 36,
+        "pair_readout": false,
+        "retention": "amplitude_damping",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0012",
+      "score": -0.9184733885465198,
+      "summary": {
+        "encoder_only_N": 0.00018528001510387249,
+        "max_unreachable": 0.0063774389027083656,
+        "null_threshold": 0.0045788476500205144,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": -0.0005679955500523986,
+        "worst_dM_dm": 0.1420757402185301,
+        "worst_dN_dg": 0.7775336394280945,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 3,
+        "alpha": 0.5,
+        "depth": 3,
+        "dt": 0.8,
+        "g_scale": 0.5,
+        "hop": 0.9,
+        "m_max": 0.85,
+        "n_joint": 72,
+        "pair_readout": true,
+        "retention": "depolarizing",
+        "tau_mix": 0.8
+      },
+      "error": null,
+      "row_key": "cand0009",
+      "score": -0.8697347788476884,
+      "summary": {
+        "encoder_only_N": 0.00018528095700164524,
+        "max_unreachable": 0.00502993148749642,
+        "null_threshold": 0.006057254402772515,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.0338571120757859,
+        "worst_dM_dm": 0.1357277883118198,
+        "worst_dN_dg": 0.6662927663842967,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 4,
+        "N_P": 4,
+        "alpha": 1.0,
+        "depth": 1,
+        "dt": 0.6,
+        "g_scale": 0.5,
+        "hop": 0.5,
+        "m_max": 0.95,
+        "n_joint": 36,
+        "pair_readout": false,
+        "retention": "amplitude_damping",
+        "tau_mix": 0.8
+      },
+      "error": null,
+      "row_key": "cand0010",
+      "score": -0.866296189042411,
+      "summary": {
+        "encoder_only_N": 0.0001852800151037337,
+        "max_unreachable": 0.003478595038187926,
+        "null_threshold": 0.00528800067449257,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.01959263879788196,
+        "worst_dM_dm": 0.24770145619557074,
+        "worst_dN_dg": 0.5794094552510763,
+        "worst_saturated_fraction": 0.027777777777777776
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 3,
+        "alpha": 0.5,
+        "depth": 2,
+        "dt": 0.6,
+        "g_scale": 0.5,
+        "hop": 0.5,
+        "m_max": 0.85,
+        "n_joint": 36,
+        "pair_readout": false,
+        "retention": "amplitude_damping",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0018",
+      "score": -0.8383602342698958,
+      "summary": {
+        "encoder_only_N": 0.00018528095700165448,
+        "max_unreachable": 0.005311220498789626,
+        "null_threshold": 0.00501050513147345,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.009056664851353055,
+        "worst_dM_dm": 0.15453532503663148,
+        "worst_dN_dg": 0.6657115795305583,
+        "worst_saturated_fraction": 0.05555555555555555
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 4,
+        "alpha": 0.5,
+        "depth": 1,
+        "dt": 0.4,
+        "g_scale": 0.5,
+        "hop": 0.7,
+        "m_max": 0.95,
+        "n_joint": 36,
+        "pair_readout": true,
+        "retention": "amplitude_damping",
+        "tau_mix": 0.8
+      },
+      "error": null,
+      "row_key": "cand0023",
+      "score": -0.8202868362040251,
+      "summary": {
+        "encoder_only_N": 0.00018528142779809334,
+        "max_unreachable": 0.003368168152815376,
+        "null_threshold": 0.007182631286228673,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.04096586650907401,
+        "worst_dM_dm": 0.19760643234213618,
+        "worst_dN_dg": 0.5407486708437409,
+        "worst_saturated_fraction": 0.027777777777777776
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 4,
+        "alpha": 0.5,
+        "depth": 1,
+        "dt": 0.4,
+        "g_scale": 0.5,
+        "hop": 0.7,
+        "m_max": 0.85,
+        "n_joint": 36,
+        "pair_readout": false,
+        "retention": "amplitude_damping",
+        "tau_mix": 0.8
+      },
+      "error": null,
+      "row_key": "cand0011",
+      "score": -0.7620876831472146,
+      "summary": {
+        "encoder_only_N": 0.00018528142779809334,
+        "max_unreachable": 0.0033672328761717996,
+        "null_threshold": 0.0059026396830322726,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.021156056271050057,
+        "worst_dM_dm": 0.17902689976137362,
+        "worst_dN_dg": 0.5407486708437409,
+        "worst_saturated_fraction": 0.027777777777777776
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 4,
+        "alpha": 0.2,
+        "depth": 1,
+        "dt": 0.4,
+        "g_scale": 0.5,
+        "hop": 0.9,
+        "m_max": 0.9,
+        "n_joint": 72,
+        "pair_readout": false,
+        "retention": "amplitude_damping",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0017",
+      "score": -0.7589973501945537,
+      "summary": {
+        "encoder_only_N": 0.0001852822749757177,
+        "max_unreachable": 0.003722022792809754,
+        "null_threshold": 0.00458960134397577,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.00022565972758595287,
+        "worst_dM_dm": 0.1419026231231684,
+        "worst_dN_dg": 0.6166434076162134,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 3,
+        "alpha": 0.5,
+        "depth": 1,
+        "dt": 0.8,
+        "g_scale": 0.25,
+        "hop": 0.5,
+        "m_max": 0.9,
+        "n_joint": 36,
+        "pair_readout": true,
+        "retention": "depolarizing",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0006",
+      "score": -0.6927382818233806,
+      "summary": {
+        "encoder_only_N": 0.00018528095700163597,
+        "max_unreachable": 0.004756703403667628,
+        "null_threshold": 0.006090246264541943,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.02449707731761682,
+        "worst_dM_dm": 0.159533819793928,
+        "worst_dN_dg": 0.484210307394219,
+        "worst_saturated_fraction": 0.027777777777777776
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 3,
+        "alpha": 1.0,
+        "depth": 2,
+        "dt": 0.8,
+        "g_scale": 0.25,
+        "hop": 0.7,
+        "m_max": 0.85,
+        "n_joint": 36,
+        "pair_readout": true,
+        "retention": "depolarizing",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0016",
+      "score": -0.561979502908527,
+      "summary": {
+        "encoder_only_N": 0.00018527907279984138,
+        "max_unreachable": 0.004994587672285666,
+        "null_threshold": 0.005507540469188795,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.029566317706388207,
+        "worst_dM_dm": 0.1524752505220004,
+        "worst_dN_dg": 0.3503716169737503,
+        "worst_saturated_fraction": 0.027777777777777776
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 4,
+        "alpha": 1.0,
+        "depth": 1,
+        "dt": 0.6,
+        "g_scale": 0.25,
+        "hop": 0.9,
+        "m_max": 0.9,
+        "n_joint": 36,
+        "pair_readout": false,
+        "retention": "depolarizing",
+        "tau_mix": 1.3
+      },
+      "error": null,
+      "row_key": "cand0000",
+      "score": -0.5004563213338984,
+      "summary": {
+        "encoder_only_N": 0.0001852800151037337,
+        "max_unreachable": 0.005749785436673371,
+        "null_threshold": 0.0039026166693313484,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": -9.363546204815831e-06,
+        "worst_dM_dm": 0.1413378212985423,
+        "worst_dN_dg": 0.3591372271277657,
+        "worst_saturated_fraction": 0.041666666666666664
+      }
+    },
+    {
+      "candidate": {
+        "L_R": 3,
+        "N_P": 3,
+        "alpha": 0.5,
+        "depth": 1,
+        "dt": 0.4,
+        "g_scale": 0.5,
+        "hop": 0.9,
+        "m_max": 0.85,
+        "n_joint": 36,
+        "pair_readout": false,
+        "retention": "depolarizing",
+        "tau_mix": 0.8
+      },
+      "error": null,
+      "row_key": "cand0004",
+      "score": -0.48243746020369904,
+      "summary": {
+        "encoder_only_N": 0.00018528095700164524,
+        "max_unreachable": 0.002764887015369921,
+        "null_threshold": 0.004220378051003299,
+        "worst_abs_dM_dg": 0.0,
+        "worst_abs_dN_dm": 0.0,
+        "worst_combined": 0.0013913128300155715,
+        "worst_dM_dm": 0.13697087086602067,
+        "worst_dN_dg": 0.34268396367764725,
+        "worst_saturated_fraction": 0.027777777777777776
+      }
+    }
+  ],
+  "seed": 20260923,
+  "space": {
+    "L_R": [
+      3,
+      4
+    ],
+    "N_P": [
+      3,
+      4
+    ],
+    "alpha": [
+      0.2,
+      0.5,
+      1.0
+    ],
+    "depth": [
+      1,
+      2,
+      3
+    ],
+    "dt": [
+      0.4,
+      0.6,
+      0.8
+    ],
+    "g_scale": [
+      0.25,
+      0.5,
+      0.8
+    ],
+    "hop": [
+      0.5,
+      0.7,
+      0.9
+    ],
+    "m_max": [
+      0.85,
+      0.9,
+      0.95
+    ],
+    "n_joint": [
+      36,
+      72
+    ],
+    "pair_readout": [
+      true,
+      false
+    ],
+    "retention": [
+      "amplitude_damping",
+      "depolarizing"
+    ],
+    "tau_mix": [
+      0.8,
+      1.0,
+      1.3
+    ]
+  },
+  "stage": "ARCHITECTURE_SEARCH",
+  "weights": {
+    "lam_comb": 2.0,
+    "lam_cross_M": 12.0,
+    "lam_cross_N": 12.0,
+    "lam_leak": 6.0,
+    "lam_sat": 6.0
+  }
+}

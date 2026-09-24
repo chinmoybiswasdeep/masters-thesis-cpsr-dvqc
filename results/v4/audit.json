@@ -1,0 +1,109 @@
+{
+  "capability_boundary": "affine single-copy injection + CPTP chain => the memory state is MULTILINEAR in the past inputs, so any target with degree >= 2 at a strictly positive delay is unreachable. N_long is therefore built from targets whose degree sits at delay 0.",
+  "encoder_polynomial_expansion": {
+    "1": {
+      "global_readout": {
+        "degrees_present": [
+          1
+        ],
+        "is_affine": true,
+        "max_degree": 1
+      },
+      "local_readout": {
+        "degrees_present": [
+          1
+        ],
+        "is_affine": true,
+        "max_degree": 1
+      },
+      "n_copies": 1,
+      "note": "the n copies carry degrees up to n; only the LOCAL readout is affine. Never describe this encoder as globally linear.",
+      "state_is_globally_affine": true
+    },
+    "2": {
+      "global_readout": {
+        "degrees_present": [
+          0,
+          2
+        ],
+        "is_affine": false,
+        "max_degree": 2
+      },
+      "local_readout": {
+        "degrees_present": [
+          1
+        ],
+        "is_affine": true,
+        "max_degree": 1
+      },
+      "n_copies": 2,
+      "note": "the n copies carry degrees up to n; only the LOCAL readout is affine. Never describe this encoder as globally linear.",
+      "state_is_globally_affine": false
+    },
+    "3": {
+      "global_readout": {
+        "degrees_present": [
+          1,
+          3
+        ],
+        "is_affine": false,
+        "max_degree": 3
+      },
+      "local_readout": {
+        "degrees_present": [
+          1
+        ],
+        "is_affine": true,
+        "max_degree": 1
+      },
+      "n_copies": 3,
+      "note": "the n copies carry degrees up to n; only the LOCAL readout is affine. Never describe this encoder as globally linear.",
+      "state_is_globally_affine": false
+    },
+    "4": {
+      "global_readout": {
+        "degrees_present": [
+          0,
+          2,
+          4
+        ],
+        "is_affine": false,
+        "max_degree": 4
+      },
+      "local_readout": {
+        "degrees_present": [
+          1
+        ],
+        "is_affine": true,
+        "max_degree": 1
+      },
+      "n_copies": 4,
+      "note": "the n copies carry degrees up to n; only the LOCAL readout is affine. Never describe this encoder as globally linear.",
+      "state_is_globally_affine": false
+    }
+  },
+  "finding": "((I+uZ)/2)^(x)n is NOT globally linear: the n-body observable carries degrees up to n. It is affine only at the LOCAL readout, and the n copies are counted as a nonlinear resource.",
+  "memory_route_multilinearity": {
+    "max_degree_per_input": {
+      "0": 1,
+      "1": 1,
+      "2": 1
+    },
+    "multilinear": true,
+    "per_input": {
+      "0": [
+        0,
+        1
+      ],
+      "1": [
+        0,
+        1
+      ],
+      "2": [
+        0,
+        1
+      ]
+    }
+  },
+  "stage": "AUDIT"
+}

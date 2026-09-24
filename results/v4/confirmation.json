@@ -1,0 +1,585 @@
+{
+  "all_passed": true,
+  "claim": "MEMORY-NONLINEARITY SEPARATION DEMONSTRATED",
+  "claim_detail": {
+    "blockers": [],
+    "claim": "MEMORY-NONLINEARITY SEPARATION DEMONSTRATED",
+    "confirmation_complete": true,
+    "frozen_hash": "435357bfd39db1b0b407400c36debf416ff903cc1bbc54a939d4617a5be4d728",
+    "n_gates": 8,
+    "n_passed": 8,
+    "run_config_hash": "435357bfd39db1b0b407400c36debf416ff903cc1bbc54a939d4617a5be4d728",
+    "sequential_valid": true
+  },
+  "completeness": {
+    "complete": true,
+    "duplicates": [],
+    "missing": [],
+    "n_expected": 375,
+    "n_rows": 375,
+    "non_finite": [],
+    "unexpected": [],
+    "wrong_config_hash": []
+  },
+  "frozen_sha256": "435357bfd39db1b0b407400c36debf416ff903cc1bbc54a939d4617a5be4d728",
+  "gates": {
+    "combined_capability": {
+      "name": "combined_capability",
+      "passed": true,
+      "reason": "high-m/high-g beats every other quadrant with a CI above zero",
+      "status": "PASS",
+      "thresholds": {
+        "ci_level": 0.95,
+        "requires": "lower bound > 0"
+      },
+      "values": {
+        "N_long": {
+          "ci": [
+            0.05913607249624419,
+            0.07871866175120118
+          ],
+          "improvement": 0.06813843749279949,
+          "quadrant_means": {
+            "HH": 0.16217656745356027,
+            "HL": 0.09403812996076077,
+            "LH": 0.0031419565752021632,
+            "LL": 0.002222071267780595
+          }
+        },
+        "cross_delay_mean": {
+          "ci": [
+            0.05913607249624419,
+            0.0787186617512012
+          ],
+          "improvement": 0.06813843749279949,
+          "quadrant_means": {
+            "HH": 0.16217656745356027,
+            "HL": 0.09403812996076077,
+            "LH": 0.0031419565752021632,
+            "LL": 0.002222071267780595
+          }
+        },
+        "cross_family_mean": {
+          "ci": [
+            0.0014115147780607397,
+            0.0047259821654913525
+          ],
+          "improvement": 0.002828951937821235,
+          "quadrant_means": {
+            "HH": 0.011856121086314543,
+            "HL": 0.009027169148493308,
+            "LH": 0.0010627171392689784,
+            "LL": 0.001057964332833338
+          }
+        }
+      }
+    },
+    "controls": {
+      "name": "controls",
+      "passed": true,
+      "reason": "isolation exact, negative controls detected, no saturation or leakage",
+      "status": "PASS",
+      "thresholds": {
+        "atol": 1e-12,
+        "detect_min": 1e-06,
+        "saturation_max": 0.2
+      },
+      "values": {
+        "contaminated_detected": true,
+        "contaminated_max_dXP_dm": 0.0025027083333916678,
+        "density_matrix_ok": true,
+        "encoder_only_N": 0.0012306282476981117,
+        "factorisation_dev": 2.220446049250313e-16,
+        "max_dXP_dm": 0.0,
+        "max_dXR_dg": 0.0,
+        "null_threshold": 0.004097394763618853,
+        "serial_detected": true,
+        "serial_max_dXP_dm": 0.009089972337903374,
+        "unreachable_max_capacity": 0.01222528771993403,
+        "worst_saturated_fraction": 0.08333333333333333
+      }
+    },
+    "cross_g_to_M": {
+      "name": "cross_g_to_M",
+      "passed": true,
+      "reason": "cross effect equivalent to zero and ratio bounded",
+      "status": "PASS",
+      "thresholds": {
+        "ci_level": 0.9,
+        "margin": [
+          -0.03,
+          0.03
+        ],
+        "ratio_max": 0.2
+      },
+      "values": {
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "cross_delta": 0.0,
+        "equivalent": true,
+        "level": 0.9,
+        "n_outer": 5,
+        "ratio": 0.0,
+        "ratio_upper": 0.0
+      }
+    },
+    "cross_m_to_N": {
+      "name": "cross_m_to_N",
+      "passed": true,
+      "reason": "cross effect equivalent to zero and ratio bounded",
+      "status": "PASS",
+      "thresholds": {
+        "ci_level": 0.9,
+        "margin": [
+          -0.03,
+          0.03
+        ],
+        "ratio_max": 0.2
+      },
+      "values": {
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "cross_delta": 0.0,
+        "equivalent": true,
+        "level": 0.9,
+        "n_outer": 5,
+        "ratio": 0.0,
+        "ratio_upper": 0.0
+      }
+    },
+    "degree_profile_equivalence_g": {
+      "name": "degree_profile_equivalence_g",
+      "passed": true,
+      "reason": "every member of the family is equivalent to zero after correction",
+      "status": "PASS",
+      "thresholds": {
+        "margin": [
+          -0.03,
+          0.03
+        ]
+      },
+      "values": {
+        "control": "g",
+        "field": "delay_profile",
+        "members": {
+          "0": {
+            "ci": [
+              0.0,
+              0.0
+            ],
+            "delta": 0.0
+          },
+          "1": {
+            "ci": [
+              0.0,
+              0.0
+            ],
+            "delta": 0.0
+          },
+          "2": {
+            "ci": [
+              0.0,
+              0.0
+            ],
+            "delta": 0.0
+          },
+          "3": {
+            "ci": [
+              0.0,
+              0.0
+            ],
+            "delta": 0.0
+          },
+          "4": {
+            "ci": [
+              0.0,
+              0.0
+            ],
+            "delta": 0.0
+          },
+          "5": {
+            "ci": [
+              0.0,
+              0.0
+            ],
+            "delta": 0.0
+          },
+          "6": {
+            "ci": [
+              0.0,
+              0.0
+            ],
+            "delta": 0.0
+          },
+          "7": {
+            "ci": [
+              0.0,
+              0.0
+            ],
+            "delta": 0.0
+          },
+          "8": {
+            "ci": [
+              0.0,
+              0.0
+            ],
+            "delta": 0.0
+          }
+        },
+        "n_tests": 9
+      }
+    },
+    "degree_profile_equivalence_m": {
+      "name": "degree_profile_equivalence_m",
+      "passed": true,
+      "reason": "every member of the family is equivalent to zero after correction",
+      "status": "PASS",
+      "thresholds": {
+        "margin": [
+          -0.03,
+          0.03
+        ]
+      },
+      "values": {
+        "control": "m",
+        "field": "degree_profile",
+        "members": {
+          "d2_t0": {
+            "ci": [
+              0.0,
+              0.0
+            ],
+            "delta": 0.0
+          },
+          "d3_t0": {
+            "ci": [
+              0.0,
+              0.0
+            ],
+            "delta": 0.0
+          },
+          "d4_t0": {
+            "ci": [
+              0.0,
+              0.0
+            ],
+            "delta": 0.0
+          }
+        },
+        "n_tests": 3
+      }
+    },
+    "memory_main_effect": {
+      "name": "memory_main_effect",
+      "passed": true,
+      "reason": "main effect exceeds the threshold with a CI above zero",
+      "status": "PASS",
+      "thresholds": {
+        "ci_level": 0.95,
+        "min": 0.1
+      },
+      "values": {
+        "between_var": 0.0004917842846379458,
+        "ci": [
+          0.3535230570849643,
+          0.389878588491295
+        ],
+        "delta": 0.3710793599377305,
+        "level": 0.95,
+        "n_outer": 5,
+        "within_var": 0.00019611100390823236
+      }
+    },
+    "nonlinear_main_effect": {
+      "name": "nonlinear_main_effect",
+      "passed": true,
+      "reason": "main effect exceeds the threshold with a CI above zero",
+      "status": "PASS",
+      "thresholds": {
+        "ci_level": 0.95,
+        "min": 0.1
+      },
+      "values": {
+        "between_var": 2.6076622721537847e-05,
+        "ci": [
+          0.988814528399279,
+          0.9968407375020697
+        ],
+        "delta": 0.9929126322871655,
+        "level": 0.95,
+        "n_outer": 5,
+        "within_var": 1.560135537208759e-06
+      }
+    }
+  },
+  "grid_means": {
+    "m0.0_g0.0": {
+      "M": 0.0001670818879261846,
+      "N": 0.0012306282476981117,
+      "N_long": 0.0006583445450449372,
+      "cross_delay_mean": 0.0006583445450449372,
+      "cross_family_mean": 0.00041724439055995275,
+      "saturated_fraction": 0.013888888888888892
+    },
+    "m0.0_g0.25": {
+      "M": 0.0001670818879261846,
+      "N": 0.7203438774239692,
+      "N_long": 0.0007180382844122541,
+      "cross_delay_mean": 0.0007180382844122541,
+      "cross_family_mean": 0.00043352537197247103,
+      "saturated_fraction": 0.025000000000000005
+    },
+    "m0.0_g0.5": {
+      "M": 0.0001670818879261846,
+      "N": 0.9070845565138161,
+      "N_long": 0.0007892895730285435,
+      "cross_delay_mean": 0.0007892895730285435,
+      "cross_family_mean": 0.0004646834299955577,
+      "saturated_fraction": 0.03055555555555556
+    },
+    "m0.0_g0.75": {
+      "M": 0.0001670818879261846,
+      "N": 0.9727428424846717,
+      "N_long": 0.0008255827288951787,
+      "cross_delay_mean": 0.0008255827288951787,
+      "cross_family_mean": 0.00047987235191920564,
+      "saturated_fraction": 0.04166666666666666
+    },
+    "m0.0_g1.0": {
+      "M": 0.0001670818879261846,
+      "N": 0.9941432605348636,
+      "N_long": 0.0008418499649915405,
+      "cross_delay_mean": 0.0008418499649915405,
+      "cross_family_mean": 0.0004828154397752495,
+      "saturated_fraction": 0.04537037037037037
+    },
+    "m0.25_g0.0": {
+      "M": 0.143851965617609,
+      "N": 0.0012306282476981117,
+      "N_long": 0.0006520822431927309,
+      "cross_delay_mean": 0.0006520822431927309,
+      "cross_family_mean": 0.00080821514760263,
+      "saturated_fraction": 0.03333333333333334
+    },
+    "m0.25_g0.25": {
+      "M": 0.143851965617609,
+      "N": 0.7203438774239692,
+      "N_long": 0.0006548644806036551,
+      "cross_delay_mean": 0.0006548644806036551,
+      "cross_family_mean": 0.000613034682937706,
+      "saturated_fraction": 0.04444444444444444
+    },
+    "m0.25_g0.5": {
+      "M": 0.143851965617609,
+      "N": 0.9070845565138161,
+      "N_long": 0.0007131626550184966,
+      "cross_delay_mean": 0.0007131626550184966,
+      "cross_family_mean": 0.0006492518160499052,
+      "saturated_fraction": 0.049999999999999996
+    },
+    "m0.25_g0.75": {
+      "M": 0.143851965617609,
+      "N": 0.9727428424846717,
+      "N_long": 0.0007445778198015816,
+      "cross_delay_mean": 0.0007445778198015816,
+      "cross_family_mean": 0.0006666462066954087,
+      "saturated_fraction": 0.06111111111111111
+    },
+    "m0.25_g1.0": {
+      "M": 0.143851965617609,
+      "N": 0.9941432605348636,
+      "N_long": 0.0007152999587988911,
+      "cross_delay_mean": 0.0007152999587988911,
+      "cross_family_mean": 0.000669843995127334,
+      "saturated_fraction": 0.06481481481481483
+    },
+    "m0.5_g0.0": {
+      "M": 0.23083202549109544,
+      "N": 0.0012306282476981117,
+      "N_long": 0.002506594491248362,
+      "cross_delay_mean": 0.002506594491248362,
+      "cross_family_mean": 0.0022145602489212794,
+      "saturated_fraction": 0.019444444444444448
+    },
+    "m0.5_g0.25": {
+      "M": 0.23083202549109544,
+      "N": 0.7203438774239692,
+      "N_long": 0.005931980790376689,
+      "cross_delay_mean": 0.005931980790376689,
+      "cross_family_mean": 0.0019197452309548957,
+      "saturated_fraction": 0.030555555555555558
+    },
+    "m0.5_g0.5": {
+      "M": 0.23083202549109544,
+      "N": 0.9070845565138161,
+      "N_long": 0.007374284347099686,
+      "cross_delay_mean": 0.007374284347099686,
+      "cross_family_mean": 0.0020014186765056428,
+      "saturated_fraction": 0.036111111111111115
+    },
+    "m0.5_g0.75": {
+      "M": 0.23083202549109544,
+      "N": 0.9727428424846717,
+      "N_long": 0.007580116508198029,
+      "cross_delay_mean": 0.007580116508198029,
+      "cross_family_mean": 0.0020306570374922428,
+      "saturated_fraction": 0.047222222222222214
+    },
+    "m0.5_g1.0": {
+      "M": 0.23083202549109544,
+      "N": 0.9941432605348636,
+      "N_long": 0.008144312470527758,
+      "cross_delay_mean": 0.008144312470527758,
+      "cross_family_mean": 0.0020464678046044293,
+      "saturated_fraction": 0.050925925925925916
+    },
+    "m0.75_g0.0": {
+      "M": 0.37187537976931717,
+      "N": 0.0012306282476981117,
+      "N_long": 0.021352684560986965,
+      "cross_delay_mean": 0.021352684560986965,
+      "cross_family_mean": 0.005385805813193653,
+      "saturated_fraction": 0.013888888888888892
+    },
+    "m0.75_g0.25": {
+      "M": 0.37187537976931717,
+      "N": 0.7203438774239692,
+      "N_long": 0.06559228699456994,
+      "cross_delay_mean": 0.06559228699456994,
+      "cross_family_mean": 0.00574940583346349,
+      "saturated_fraction": 0.025000000000000005
+    },
+    "m0.75_g0.5": {
+      "M": 0.37187537976931717,
+      "N": 0.9070845565138161,
+      "N_long": 0.08074990640663914,
+      "cross_delay_mean": 0.08074990640663914,
+      "cross_family_mean": 0.00628390251377783,
+      "saturated_fraction": 0.03055555555555556
+    },
+    "m0.75_g0.75": {
+      "M": 0.37187537976931717,
+      "N": 0.9727428424846717,
+      "N_long": 0.08991866288204693,
+      "cross_delay_mean": 0.08991866288204693,
+      "cross_family_mean": 0.006715255858990922,
+      "saturated_fraction": 0.04166666666666666
+    },
+    "m0.75_g1.0": {
+      "M": 0.37187537976931717,
+      "N": 0.9941432605348636,
+      "N_long": 0.1052269036097136,
+      "cross_delay_mean": 0.1052269036097136,
+      "cross_family_mean": 0.007166460490023906,
+      "saturated_fraction": 0.04537037037037037
+    },
+    "m1.0_g0.0": {
+      "M": 0.37124644182565675,
+      "N": 0.0012306282476981117,
+      "N_long": 0.046017667317641724,
+      "cross_delay_mean": 0.046017667317641724,
+      "cross_family_mean": 0.009234954055152834,
+      "saturated_fraction": 0.012037037037037039
+    },
+    "m1.0_g0.25": {
+      "M": 0.37124644182565675,
+      "N": 0.7203438774239692,
+      "N_long": 0.1597458942635045,
+      "cross_delay_mean": 0.1597458942635045,
+      "cross_family_mean": 0.012896761102310878,
+      "saturated_fraction": 0.023148148148148154
+    },
+    "m1.0_g0.5": {
+      "M": 0.37124644182565675,
+      "N": 0.9070845565138161,
+      "N_long": 0.19077034022122238,
+      "cross_delay_mean": 0.19077034022122238,
+      "cross_family_mean": 0.014612185573061157,
+      "saturated_fraction": 0.02870370370370371
+    },
+    "m1.0_g0.75": {
+      "M": 0.37124644182565675,
+      "N": 0.9727428424846717,
+      "N_long": 0.21706157754092714,
+      "cross_delay_mean": 0.21706157754092714,
+      "cross_family_mean": 0.016085414456364588,
+      "saturated_fraction": 0.03981481481481482
+    },
+    "m1.0_g1.0": {
+      "M": 0.37124644182565675,
+      "N": 0.9941432605348636,
+      "N_long": 0.2364991257815534,
+      "cross_delay_mean": 0.2364991257815534,
+      "cross_family_mean": 0.017457353539878758,
+      "saturated_fraction": 0.04351851851851852
+    }
+  },
+  "jacobian": {
+    "condition_number": 2.6757420096169797,
+    "diagonal_mass": 1.363991992224896,
+    "matrix": [
+      [
+        0.3710793599377305,
+        0.0
+      ],
+      [
+        0.0,
+        0.9929126322871655
+      ]
+    ],
+    "off_diagonal_mass": 0.0,
+    "off_over_diag": 0.0,
+    "response_angle_deg": 90.0,
+    "singular_values": [
+      0.9929126322871655,
+      0.3710793599377305
+    ]
+  },
+  "n_fail": 0,
+  "n_not_evaluable": 0,
+  "n_pass": 8,
+  "nonlinear_memory": {
+    "max_boundary": 0.9996759494241776,
+    "mean_boundary": 0.24330152557022316,
+    "mean_reachable": 0.5655666266431186
+  },
+  "seeds": {
+    "arch": [
+      900,
+      901,
+      902,
+      903,
+      904
+    ],
+    "input": [
+      9000,
+      9001,
+      9002
+    ]
+  },
+  "sequential": {
+    "alpha_for_next": 0.01,
+    "alpha_spent": 0.01,
+    "alpha_total": 0.05,
+    "attempts": [
+      {
+        "alpha_this_look": 0.01,
+        "attempt": 1,
+        "passed": true,
+        "seed_bank": "arch=[900, 901, 902, 903, 904],input=[9000, 9001, 9002]",
+        "summary": {
+          "n_fail": 0,
+          "n_pass": 8
+        },
+        "version": "v4.0"
+      }
+    ],
+    "max_attempts": 5,
+    "n_attempts": 1
+  },
+  "stage": "CONFIRMATION"
+}
