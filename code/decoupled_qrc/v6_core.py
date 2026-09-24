@@ -145,7 +145,7 @@ def classical_blocks(f: dict) -> dict:
     CLS_F: marginals plus EVERY same-time degree-2 product of marginals."""
     rp = sorted({i for pr in f.get("R_pairs_rails_idx", []) for i in pr})
     marg = np.hstack([f["R"], f["P"], f["PY"], f["Qz"]] + ([f["Rall"][:, rp]] if rp else []))
-    prods = [f["R"] * f["PY"]]
+    prods = [f["R"][:, f.get("J_idx", slice(None))] * f["PY"]]
     for a, b in f["Q_pairs_rails_idx"]:
         prods.append((f["Qall"][:, a] * f["Qall"][:, b])[:, None])
     for a, b in f.get("R_pairs_rails_idx", []):

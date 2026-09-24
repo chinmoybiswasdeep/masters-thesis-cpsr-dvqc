@@ -199,6 +199,7 @@ class V6Spec:
     phiW: float = None
     chiW_power: int = 1                # V6.3: writer cubic angle = g**chiW_power * chiW_max
     shots: int = 0                     # V6.3: features are S-shot estimates (0 = exact)
+    J_rails: tuple = None              # V6.4: R rails used by the joint readout (None = all read)
     # V6.2: g-rotated pair readouts on the LINEAR memory register R (old x old, C3).
     # Separate measurement settings, assigned to the combined route; M never uses them.
     r_pairs: tuple = ()
@@ -214,6 +215,8 @@ class V6Spec:
         for a, b in self.r_pairs:
             if not (1 <= a <= self.L_R and 1 <= b <= self.L_R and a != b):
                 raise ValueError(f"bad R pair {(a, b)}")
+        if self.J_rails is not None and not set(self.J_rails) <= set(self.rails_R):
+            raise ValueError("J_rails must be read R rails")
         if not (0 < self.pR_max <= 1 and 0 < self.pQ_max <= 1):
             raise ValueError("transport probabilities must be in (0, 1]")
         if self.joint not in ("Y", "rotated"):
@@ -222,6 +225,10 @@ class V6Spec:
     @property
     def rails_R(self) -> list:
         return list(range(self.stride_R, self.L_R + 1, self.stride_R))
+
+    @property
+    def j_rails(self) -> list:
+        return list(self.J_rails) if self.J_rails is not None else self.rails_R
 
     @property
     def rails_Q(self) -> list:
@@ -245,7 +252,7 @@ class V6Spec:
     def resources(self) -> dict:
         return {"qubits": (self.L_R + 1) + 3 + 3 + (self.L_Q + 1),
                 "input_copies_per_step": 1 + 3 + 3 + 3,
-                "features": {"R": len(self.rails_R), "P": 1, "J": len(self.rails_R),
+                "features": {"R": len(self.rails_R), "P": 1, "J": len(self.j_rails),
                              "Q": len(self.rails_Q) + len(self.q_pairs) + len(self.r_pairs)},
                 "measurement_settings": self.settings()}
 
@@ -311,7 +318,8 @@ class V6Adapter:
             # R rail a and the P output qubit (rotated n -> z, dephased) read by the same
             # g-rotated two-qubit circuit as the Q pairs: product state -> <Z_a Z_b> = z_a f
             pj = pair_readout_coeffs(g * s.thetaJ_max, s.phiJ)
-            XJ = pj["c0"] + pj["ca"] * XR + pj["cb"] * fP[:, None] + pj["cab"] * XR * fP[:, None]
+            XRj = XR[:, [s.rails_R.index(r) for r in s.j_rails]]
+            XJ = pj["c0"] + pj["ca"] * XRj + pj["cb"] * fP[:, None] + pj["cab"] * XRj * fP[:, None]
             fJ = fP                                   # P-side marginal of the joint observable
         else:
             XJ = XR * fY[:, None]
@@ -327,7 +335,7 @@ class V6Adapter:
                 "Qall": zQ[:, 1:], "Q_pairs_rails_idx": [(a - 1, b - 1) for a, b in s.q_pairs],
                 "Rall": zR, "R_pairs_rails_idx": [(a - 1, b - 1) for a, b in s.r_pairs],
                 "labels_R": [f"R:Z{r}" for r in s.rails_R], "labels_P": ["P:n.sigma0"],
-                "labels_J": [f"J:Z{r}*Y0" for r in s.rails_R],
+                "labels_J": [f"J:Z{r}*P" for r in s.j_rails], "J_idx": [s.rails_R.index(r) for r in s.j_rails],
                 "labels_Q": [f"Q:Z{r}" for r in s.rails_Q] + [f"Q:pair{a}-{b}" for a, b in s.q_pairs]}
 
     def processor_fn(self, g):

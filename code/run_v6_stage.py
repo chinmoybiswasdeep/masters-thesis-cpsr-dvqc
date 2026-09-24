@@ -169,6 +169,7 @@ def used_seeds() -> dict:
     import run_v5_stage as S
     return {"v4_original": W.USED_BEFORE, "v4_audit_dev": W.DEV_SEEDS, "v4_audit_conf": W.CONF_SEEDS,
             "v5_dev": S.DEV_SEEDS, "v5_4_conf": S.CONF_SEEDS, "v6_dev": DEV_SEEDS,
+            "v6_sentinel_calibration": [s for b in sorted(set(CAL_BLOCK.values())) for s in cal_seeds(b)],
             "v6_algebra": [990001, 990002]}
 
 
@@ -329,6 +330,38 @@ def v6_versions() -> dict:
                               "effect. The primary N control is intrinsic (single-feature "
                               "composition). The exact-expectation perturbed-controls grid is run "
                               "and reported as a non-gating diagnostic."},
+        # V6.3 rejected at DEVGATES: gate 17 future sentinel 0.0257 > 0.02 (one row) -- chance
+        # fits of 46 full-rank noisy features; 500-row dev calibration: 2/500 rows exceed.
+        # V6.4 cuts the operational readout to 22 features (calibration 0/500 at K 27; K 22
+        # chosen by long-sequence algebra, design Y) and keeps every other V6.3 choice.
+        "V6.4": {"spec": V6Spec(L_R=12, theta_max=0.12 * np.pi, chi_max=-0.30 * np.pi, phi=np.pi / 4,
+                                joint="rotated", thetaJ_max=0.40 * np.pi, phiJ=np.pi / 4,
+                                J_rails=(2, 4, 6),
+                                thetaW_max=0.14 * np.pi, chiW_max=-0.24 * np.pi, phiW=np.pi / 4,
+                                chiW_power=2, L_Q=6, q_pairs=(),
+                                r_pairs=((1, 2), (1, 3), (2, 4), (3, 5), (2, 5), (4, 6)),
+                                thetaRP_max=0.40 * np.pi, phiRP=np.pi / 4, shots=10000),
+                 "rationale": "V6.3 with the operational readout reduced from 46 to 22 features "
+                              "(R: L 12 stride 2 -> 6; P 1; J on rails 2,4,6 -> 3; Q register L 6 "
+                              "all read -> 6; 6 R pairs) so that OLS chance fits stay inside the "
+                              "preregistered sentinel margin at confirmation size. Long-sequence "
+                              "algebra at (1, .97): C1 .15, C2 .55, C3 .20, C4 .16; all ~0 at "
+                              "g = .03. New dev freeze margin: sentinel calibration on 500 extra dev "
+                              "rows, no exceedance and max <= 0.016. Same disclosed limitation as "
+                              "V6.3 (C2/C3 gradation is a finite-shot effect)."},
+        # V6.4 rejected at SENTCAL: max excess 0.0168 > 0.016 margin (no row > 0.02).
+        "V6.5": {"spec": V6Spec(L_R=12, theta_max=0.12 * np.pi, chi_max=-0.30 * np.pi, phi=np.pi / 4,
+                                joint="rotated", thetaJ_max=0.40 * np.pi, phiJ=np.pi / 4,
+                                J_rails=(2, 4),
+                                thetaW_max=0.14 * np.pi, chiW_max=-0.24 * np.pi, phiW=np.pi / 4,
+                                chiW_power=2, L_Q=5, q_pairs=(),
+                                r_pairs=((1, 2), (1, 3), (2, 4), (3, 5)),
+                                thetaRP_max=0.40 * np.pi, phiRP=np.pi / 4, shots=10000),
+                 "rationale": "V6.4 reduced to 18 operational features (R 6, P 1, J rails 2,4 -> 2, "
+                              "Q register L 5 -> 5, 4 R pairs); chance-fit tail ~ sqrt(K) -> expected "
+                              "max ~0.015. Algebra (T 12000, S 1e4): M(.25) .12, M(1) .50; classes "
+                              "at (1,.97) C1 .13 C2 .49 C3 .15 C4 .15, at g .03 all <= .006. "
+                              "Calibrated on a FRESH dev block (block 1)."},
     }
 
 
@@ -615,6 +648,14 @@ def stage_devgates(version: str):
             margins[f"{cls}|{meth}|support"] = c["best"] >= c["null_q99"] + G6.DEV_MARGIN["support_margin"]
             margins[f"{cls}|{meth}|hh_adv"] = c["HH_advantage"] >= G6.DEV_MARGIN["hh_adv_min"]
     margins["robustness_all"] = all(v["passed"] for k, v in rob.items() if k not in DIAGNOSTICS)
+    if version not in ("V6.0", "V6.1", "V6.2", "V6.3"):      # margin introduced with V6.4
+        cal = vdir(version) / "sentinel_calibration.json"
+        if not cal.exists():
+            raise SystemExit("run --stage SENTCAL first")
+        c = json.loads(cal.read_text(encoding="utf-8"))
+        margins["sentinel_calibration"] = bool(
+            c["rows_exceeding_0.02"] <= SENTCAL_MARGIN["rows_exceeding_0.02"]
+            and c["max_excess"] <= SENTCAL_MARGIN["max_excess"])
     crit = {"gates_all": g["passed_all"], "margins_all": all(margins.values())}
     crit["passed"] = bool(crit["gates_all"] and crit["margins_all"])
     write(d / "dev_gates.json", {"gates": g, "margins": margins, "freeze_criterion": crit,
@@ -802,7 +843,70 @@ def stage_report(version: str):
     build(vdir(version), version)
 
 
+# =============================================================================
+# SENTCAL -- development-only sentinel calibration at confirmation size
+# =============================================================================
+CAL_BLOCK = {"V6.4": 0, "V6.5": 1}   # a FRESH 500-row dev block per version (no reuse)
+
+
+def cal_seeds(block: int) -> list:
+    if not 0 <= block <= 8:
+        raise ValueError("calibration blocks 0..8 only (keeps arch / input ranges disjoint)")
+    return [(100100 + 500 * block + k, 105100 + 500 * block + k) for k in range(500)]
+
+
+CAL_SEEDS = cal_seeds(0)
+SENTCAL_MARGIN = {"rows_exceeding_0.02": 0, "max_excess": 0.016}   # V6.4 dev freeze margin (set
+# before V6.4 was calibrated): no exceedance in 500 dev rows AND 20% headroom below 0.02
+
+
+def sentinel_calibration(spec, tag: str, n: int = 500, block: int = 0) -> dict:
+    """Chance rate of the preregistered future / unreachable sentinels (max member -
+    null99 > 0.02) over n development rows at grid points cycled deterministically."""
+    from decoupled_qrc import audit_ipc as A
+    from decoupled_qrc import v6_core as K6
+    ctx = K6.Ctx()
+    keep = [t for t in ctx.lib if t.cls in K6.SENTINELS]
+    lib = keep + [A.T(f"null{i}", "NULL", ((0, 1),)) for i in range(ctx.n_null)]
+    cls = np.array([t.cls for t in lib])
+    ad = make_adapter(spec)
+    cp = OUT / "sentcal" / f"{tag}.jsonl"
+    done = {json.loads(l)["i"]: json.loads(l) for l in cp.read_text().splitlines()} if cp.exists() else {}
+    cp.parent.mkdir(parents=True, exist_ok=True)
+    recs = []
+    for i, sp in enumerate(cal_seeds(block)[:n]):
+        if i in done:
+            recs.append(done[i]); continue
+        m, g = GRID[i % 5], GRID[(i // 5) % 5]
+        u = np.random.default_rng(sp[1]).uniform(-1, 1, ctx.T)
+        Y = np.hstack([A.build_Y(u, keep), A.null_targets(ctx.T, ctx.n_null, seed=sp[1] + 7_000_003)])
+        f = ad.run(u, m, g, sp[0])
+        X = np.hstack([f["R"], f["P"], f["J"], f["Q"]])
+        rec = {"i": i, "m": m, "g": g, "K": int(X.shape[1])}
+        for meth in K6.METHODS:
+            c = A.score_all(X, Y, lib, ctx.split, meth, alpha=ctx.alpha)
+            q99 = float(np.quantile(c[cls == "NULL"], 0.99))
+            for s in K6.SENTINELS:
+                rec[f"{s}|{meth}"] = float(c[cls == s].max() - q99)
+        with open(cp, "a", encoding="utf-8") as fh:
+            fh.write(json.dumps(rec) + "\n")
+        recs.append(rec)
+    ex = np.array([[r[k] for k in r if "|" in k] for r in recs])
+    return {"n_rows": len(recs), "K": recs[0]["K"], "block": block, "max_excess": float(ex.max()),
+            "rows_exceeding_0.02": int(np.sum(ex.max(axis=1) > 0.02)),
+            "q99_row_max_excess": float(np.quantile(ex.max(axis=1), 0.99))}
+
+
+def stage_sentcal(version: str):
+    ensure_specified(version)
+    r = sentinel_calibration(v6_versions()[version]["spec"], version, block=CAL_BLOCK[version])
+    write(vdir(version) / "sentinel_calibration.json", r)
+    print(f"  {version}: K {r['K']}  rows {r['n_rows']}  max excess {r['max_excess']:+.4f}  "
+          f"rows > 0.02: {r['rows_exceeding_0.02']}  margin {SENTCAL_MARGIN}")
+
+
 STAGES = {"STEP1": stage_step1, "PREREG_GATES": stage_prereg_gates, "ALGEBRA": stage_algebra,
+          "SENTCAL": stage_sentcal,
           "PROBE": stage_probe, "DEVGATES": stage_devgates, "TESTS": stage_tests,
           "FREEZE": stage_freeze, "CONFIRM": stage_confirm, "REPORT": stage_report}
 

@@ -1,0 +1,18 @@
+{
+  "id": "gates_amendment_01",
+  "utc": "2026-09-24T17:34:58Z",
+  "applies_to": "gate 15 (encoder leakage), empirical part, all V6 versions from V6.4 on",
+  "preregistered_text": "at g = 0 every operational feature is EXACTLY affine in the input history (superposition test, tol 1e-10) and no nonlinear class exceeds null99 + 0.02 at g = 0",
+  "preregistered_class_score": "mean member capacity on ALL = R+P+J+Q",
+  "defect": "implementation compared the MAX member of each class (and additionally the non-V6 families x_P1P1, x_P2P1, up to 72 targets) with null99 + 0.02, while the text says 'no nonlinear class exceeds null99 + 0.02' and defines the class score as the mean member capacity",
+  "evidence": "null simulation (features independent of the input, full rank K, T = 1600): per-row P(max-member excess > 0.02) = 0.013 (K 24), 0.033 (K 32), 0.077 (K 46), i.e. the max-member rule false-alarms on 74% / 97% / 100% of 100-row g = 0 blocks",
+  "disclosure": "found while diagnosing the V6.3 dev failure (max-member excess 0.0219). V6.3 also failed gate 17 as preregistered and stays rejected. The exact-affinity part of gate 15 is unchanged. The max-member statistic is still computed and reported.",
+  "not_changed": "thresholds (0.02), sentinels 17/18 (preregistered as max member, unchanged)",
+  "source_changes": {
+    "code/decoupled_qrc/v6_gates.py": {
+      "from": "b42eaf916d3ad002a4f2a02991e97301676a421d70947d712c21d2ec143da91f",
+      "to": "1eb7e98a6948a6ffc77fc54d0d10da9b4c201c712442891a6a2bd5da4ccb7865"
+    }
+  },
+  "diff": "diff --git a/code/decoupled_qrc/v6_gates.py b/code/decoupled_qrc/v6_gates.py\nindex 7aeefd7..fd79774 100644\n--- a/code/decoupled_qrc/v6_gates.py\n+++ b/code/decoupled_qrc/v6_gates.py\n@@ -182,18 +182,27 @@ def feature_count_invariance(rows) -> dict:\n \n def encoder_leakage(rows, exact: dict) -> dict:\n     \"\"\"(a) exact: at g = 0 every ALL feature is affine in the input history\n-    (checked by the caller on the architecture); (b) empirical: at g = 0 no\n-    nonlinear class exceeds null99 + margin on any readout.\"\"\"\n-    worst = -np.inf\n+    (checked by the caller on the architecture); (b) empirical, as preregistered:\n+    at g = 0 no nonlinear CLASS (class score = mean member capacity, the\n+    preregistered class score) exceeds null99 + 0.02 on any readout.\n+\n+    Amendment 01 (results/v6/amendments/gates_amendment_01.json): the original\n+    code used the MAX member over each class and also scanned x_P1P1 / x_P2P1,\n+    which is stricter than the preregistered text; that statistic is kept below\n+    as a reported, non-gating diagnostic.\"\"\"\n+    worst_cls, worst_max = -np.inf, -np.inf\n     for r in rows:\n         if r[\"g\"] != 0.0:\n             continue\n         for meth in METHODS:\n             b = r[\"blocks\"][f\"ALL|{meth}\"]\n+            for c in V6_CLASSES:\n+                worst_cls = max(worst_cls, b[\"class\"][c] - b[\"null_q99\"])\n             for c in V6_CLASSES + (\"x_P1P1\", \"x_P2P1\"):\n-                worst = max(worst, b[\"class\"][c + \"__max\"] - b[\"null_q99\"])\n-    emp = bool(worst <= THRESH[\"sentinel_margin\"])\n-    return {\"exact\": exact, \"empirical_max_excess_at_g0\": float(worst),\n+                worst_max = max(worst_max, b[\"class\"][c + \"__max\"] - b[\"null_q99\"])\n+    emp = bool(worst_cls <= THRESH[\"sentinel_margin\"])\n+    return {\"exact\": exact, \"empirical_class_score_max_excess_at_g0\": float(worst_cls),\n+            \"diagnostic_max_member_excess_at_g0\": float(worst_max),\n             \"passed\": bool(exact.get(\"passed\", False) and emp)}\n \n \n"
+}

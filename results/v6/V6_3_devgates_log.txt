@@ -1,0 +1,82 @@
+=== V6 DEVGATES V6.3 ===
+  wrote results\v6\V6_3\structure.json
+  wrote results\v6\V6_3\section6.json
+  section 6: CONTINUOUS INTRINSIC NONLINEAR CONTROL HOLDS
+    [dev] 25/250 points (30s)
+    [dev] 50/250 points (59s)
+    [dev] 75/250 points (88s)
+    [dev] 100/250 points (124s)
+    [dev] 125/250 points (162s)
+    [dev] 150/250 points (193s)
+    [dev] 175/250 points (222s)
+    [dev] 200/250 points (251s)
+    [dev] 225/250 points (285s)
+    [dev] 250/250 points (313s)
+  wrote results\v6\V6_3\invalid_controls.json
+  robustness (5 dev seeds):
+      baseline               worst effect +0.268  worst HH adv +0.143  iso True  sat True  -> ok
+      longer_T3200           worst effect +0.269  worst HH adv +0.159  iso True  sat True  -> ok
+      half_training          worst effect +0.271  worst HH adv +0.130  iso True  sat True  -> ok
+      double_training        worst effect +0.262  worst HH adv +0.153  iso True  sat True  -> ok
+      float32_readout        worst effect +0.268  worst HH adv +0.143  iso True  sat True  -> ok
+      perturbed_controls     worst effect +0.259  worst HH adv +0.132  iso True  sat True  -> ok
+      ridge_0.05             worst effect +0.269  worst HH adv +0.143  iso True  sat True  -> ok
+      ridge_5.0              worst effect +0.268  worst HH adv +0.143  iso True  sat True  -> ok
+      delay_range_12         worst effect +0.239  worst HH adv +0.143  iso True  sat True  -> ok
+      degree_6               worst effect +0.268  worst HH adv +0.143  iso True  sat True  -> ok
+      shots_1000             worst effect +0.257  worst HH adv +0.034  iso True  sat True  -> ok
+      shots_10000            worst effect +0.268  worst HH adv +0.143  iso True  sat True  -> ok
+      shots_100000           worst effect +0.244  worst HH adv +0.184  iso True  sat True  -> ok
+      pR_max_x0.9            worst effect +0.234  worst HH adv +0.112  iso True  sat True  -> ok
+      pR_max_x1.1            worst effect +0.272  worst HH adv +0.160  iso True  sat True  -> ok
+      theta_max_x0.9         worst effect +0.268  worst HH adv +0.123  iso True  sat True  -> ok
+      theta_max_x1.1         worst effect +0.268  worst HH adv +0.163  iso True  sat True  -> ok
+      chi_max_x0.9           worst effect +0.216  worst HH adv +0.124  iso True  sat True  -> ok
+      chi_max_x1.1           worst effect +0.268  worst HH adv +0.144  iso True  sat True  -> ok
+      phi_x0.9               worst effect +0.233  worst HH adv +0.133  iso True  sat True  -> ok
+      phi_x1.1               worst effect +0.268  worst HH adv +0.150  iso True  sat True  -> ok
+      pQ_max_x0.9            worst effect +0.268  worst HH adv +0.138  iso True  sat True  -> ok
+      pQ_max_x1.1            worst effect +0.268  worst HH adv +0.144  iso True  sat True  -> ok
+      thetaQ_max_x0.9        worst effect +0.268  worst HH adv +0.143  iso True  sat True  -> ok
+      thetaQ_max_x1.1        worst effect +0.268  worst HH adv +0.143  iso True  sat True  -> ok
+      phiQ_x0.9              worst effect +0.268  worst HH adv +0.143  iso True  sat True  -> ok
+      phiQ_x1.1              worst effect +0.268  worst HH adv +0.143  iso True  sat True  -> ok
+      thetaJ_max_x0.9        worst effect +0.268  worst HH adv +0.140  iso True  sat True  -> ok
+      thetaJ_max_x1.1        worst effect +0.268  worst HH adv +0.148  iso True  sat True  -> ok
+      phiJ_x0.9              worst effect +0.268  worst HH adv +0.143  iso True  sat True  -> ok
+      phiJ_x1.1              worst effect +0.268  worst HH adv +0.157  iso True  sat True  -> ok
+      thetaW_max_x0.9        worst effect +0.268  worst HH adv +0.145  iso True  sat True  -> ok
+      thetaW_max_x1.1        worst effect +0.268  worst HH adv +0.134  iso True  sat True  -> ok
+      chiW_max_x0.9          worst effect +0.268  worst HH adv +0.134  iso True  sat True  -> ok
+      chiW_max_x1.1          worst effect +0.268  worst HH adv +0.143  iso True  sat True  -> ok
+      phiW_x0.9              worst effect +0.268  worst HH adv +0.132  iso True  sat True  -> ok
+      phiW_x1.1              worst effect +0.268  worst HH adv +0.140  iso True  sat True  -> ok
+      ibm_noise_FakeTorino   worst effect +0.268  worst HH adv +0.100  iso True  sat True  -> ok
+      exact_expectations_perturbed_controls worst effect +0.173  worst HH adv -0.114  iso True  sat True  -> FAIL
+  wrote results\v6\V6_3\robustness_dev.json
+  wrote results\v6\V6_3\dev_gates.json
+  PASS  01_main_m_M
+  PASS  02_main_g_N
+  PASS  03_cross_m_N_equivalent
+  PASS  04_cross_g_M_equivalent
+  PASS  05_cross_main_ratio
+  PASS  06_degree_profile_under_m
+  PASS  07_memory_curve_under_g
+  PASS  08_separation_ols_raw
+  PASS  09_separation_ols_std
+  PASS  10_separation_ridge
+  PASS  11_interior_effects
+  PASS  11b_section6_intrinsic_P
+  PASS  12_combined_C1_C4_all_pass
+  PASS  13_HH_best_every_class
+  PASS  14_feature_counts_invariant
+  FAIL  15_no_encoder_leakage
+  PASS  16_no_saturation
+  FAIL  17_future_sentinel_null
+  PASS  18_unreachable_sentinel_null
+  PASS  19_isolation_and_contaminated_controls
+  PASS  20_invalid_controls_detected
+  PASS  21_seed_reproducibility
+  PASS  26_unit_tests_pass
+  margins failing: none
+  FREEZE CRITERION: NOT MET

@@ -182,18 +182,27 @@ def feature_count_invariance(rows) -> dict:
 
 def encoder_leakage(rows, exact: dict) -> dict:
     """(a) exact: at g = 0 every ALL feature is affine in the input history
-    (checked by the caller on the architecture); (b) empirical: at g = 0 no
-    nonlinear class exceeds null99 + margin on any readout."""
-    worst = -np.inf
+    (checked by the caller on the architecture); (b) empirical, as preregistered:
+    at g = 0 no nonlinear CLASS (class score = mean member capacity, the
+    preregistered class score) exceeds null99 + 0.02 on any readout.
+
+    Amendment 01 (results/v6/amendments/gates_amendment_01.json): the original
+    code used the MAX member over each class and also scanned x_P1P1 / x_P2P1,
+    which is stricter than the preregistered text; that statistic is kept below
+    as a reported, non-gating diagnostic."""
+    worst_cls, worst_max = -np.inf, -np.inf
     for r in rows:
         if r["g"] != 0.0:
             continue
         for meth in METHODS:
             b = r["blocks"][f"ALL|{meth}"]
+            for c in V6_CLASSES:
+                worst_cls = max(worst_cls, b["class"][c] - b["null_q99"])
             for c in V6_CLASSES + ("x_P1P1", "x_P2P1"):
-                worst = max(worst, b["class"][c + "__max"] - b["null_q99"])
-    emp = bool(worst <= THRESH["sentinel_margin"])
-    return {"exact": exact, "empirical_max_excess_at_g0": float(worst),
+                worst_max = max(worst_max, b["class"][c + "__max"] - b["null_q99"])
+    emp = bool(worst_cls <= THRESH["sentinel_margin"])
+    return {"exact": exact, "empirical_class_score_max_excess_at_g0": float(worst_cls),
+            "diagnostic_max_member_excess_at_g0": float(worst_max),
             "passed": bool(exact.get("passed", False) and emp)}
 
 

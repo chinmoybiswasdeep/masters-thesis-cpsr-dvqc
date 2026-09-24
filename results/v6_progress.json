@@ -31,14 +31,38 @@
       "diagnosis": "combined classes switch on at g=0+ under OLS; need composition-graded combined features",
       "next_command": "design V6.3",
       "utc": "2026-09-24T16:54:29Z"
+    },
+    {
+      "version": "V6.3",
+      "stage": "DEVGATES",
+      "status": "freeze criterion NOT met",
+      "diagnosis": "see dev_gates.json",
+      "next_command": "python run_v6_stage.py --stage DIAGNOSE --version V6.3",
+      "utc": "2026-09-24T17:29:06Z"
+    },
+    {
+      "version": "V6.3",
+      "stage": "DEVGATES",
+      "status": "rejected (sentinel/leakage statistics)",
+      "diagnosis": "46 full-rank noisy features widen chance fits",
+      "next_command": "V6.4: reduce feature count; sentinel calibration",
+      "utc": "2026-09-24T17:35:16Z"
+    },
+    {
+      "version": "V6.5",
+      "stage": "SENTCAL",
+      "status": "rejected; dev sentinel margin shown to be below the pure-null chance floor",
+      "diagnosis": "decision needed on the dev calibration margin",
+      "next_command": "see docs/V6_PROGRESS.md",
+      "utc": "2026-09-24T17:58:32Z"
     }
   ],
   "current": {
-    "version": "V6.2",
-    "stage": "DEVGATES",
-    "status": "rejected (freeze margins)",
-    "diagnosis": "combined classes switch on at g=0+ under OLS; need composition-graded combined features",
-    "next_command": "design V6.3",
-    "utc": "2026-09-24T16:54:29Z"
+    "version": "V6.5",
+    "stage": "SENTCAL",
+    "status": "rejected; dev sentinel margin shown to be below the pure-null chance floor",
+    "diagnosis": "decision needed on the dev calibration margin",
+    "next_command": "see docs/V6_PROGRESS.md",
+    "utc": "2026-09-24T17:58:32Z"
   }
 }
