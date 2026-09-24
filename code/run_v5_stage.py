@@ -462,8 +462,17 @@ def verify_frozen() -> dict:
     blob = json.loads(FROZEN.read_text(encoding="utf-8"))
     if W.sha_obj(blob["payload"]) != blob["sha256"]:
         raise SystemExit("frozen artifact modified after freezing")
+    # A source may differ from the freeze ONLY through a recorded, hashed
+    # amendment that names the exact from -> to hashes (implementation bug fixes).
+    amended = {}
+    for a in sorted(OUT.glob("amendment_*.json")):
+        if W.sha_file(a) != a.with_suffix(".sha256").read_text().strip():
+            raise SystemExit(f"amendment {a.name} modified after it was recorded")
+        for f, ch in json.loads(a.read_text(encoding="utf-8"))["source_changes"].items():
+            amended.setdefault(f, set()).add((ch["from"], ch["to"]))
     for f, want in blob["payload"]["source_sha256"].items():
-        if W.sha_file(ROOT / f) != want:
+        now = W.sha_file(ROOT / f)
+        if now != want and (want, now) not in amended.get(f, set()):
             raise SystemExit(f"source {f} changed since freeze; refusing")
     return blob
 
@@ -514,14 +523,14 @@ def classical_baseline(ad, ctx, seeds, shots=(100, 1000, 10000)) -> dict:
         out["exact"].append({"max_abs_J_minus_classical": float(np.abs(f["J"] - XC).max())})
         for S in shots:
             rng = np.random.default_rng(sp[0] * 7 + int(S))
-            q, c = C.joint_estimators(f["R"], f["P"], [(r, 0) for r in range(ad.spec.L)], S, rng)
+            q, c = C.joint_estimators(f["R"], f["P"], [(r, 0) for r in range(len(ad.spec.read_rails))], S, rng)
             sq = K.A.score_all(q, Y, lib, ctx.split, "ridge", alpha=ctx.alpha)
             sc = K.A.score_all(c, Y, lib, ctx.split, "ridge", alpha=ctx.alpha)
             out["shots"].setdefault(f"S{S}", []).append(
                 {"quantum_joint_C1": float(np.mean(sq[c1])), "classical_product_C1": float(np.mean(sc[c1])),
                  "quantum_joint_sunada": float(np.mean(sq[sun])),
                  "classical_product_sunada": float(np.mean(sc[sun]))})
-    L = ad.spec.L
+    L = len(ad.spec.read_rails)                 # observables actually read
     out["resources"] = {
         "quantum_joint": {"observables": L, "measurement_settings": 1,
                           "circuits_per_step": 1, "qubits": ad.spec.resources()["qubits"]},
