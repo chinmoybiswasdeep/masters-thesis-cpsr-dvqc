@@ -362,6 +362,21 @@ def v6_versions() -> dict:
                               "max ~0.015. Algebra (T 12000, S 1e4): M(.25) .12, M(1) .50; classes "
                               "at (1,.97) C1 .13 C2 .49 C3 .15 C4 .15, at g .03 all <= .006. "
                               "Calibrated on a FRESH dev block (block 1)."},
+        # V6.5 rejected at SENTCAL (0.0162 > 0.016). Pure-null floor: input-independent AR(0.9)
+        # features reach 0.0171 at K 18 and single-row outliers already at K 12, but stay at
+        # 0.008-0.009 for K 8-10. The user kept the 0.016 margin -> V6.6 is built to ~10
+        # features by making every combined-route feature carry only class-relevant content.
+        "V6.6": {"spec": V6Spec(L_R=10, theta_max=0.12 * np.pi, chi_max=-0.30 * np.pi, phi=np.pi / 4,
+                                joint="u2", thetaJ_max=0.45 * np.pi, J_rails=(2,),
+                                L_Q=2, q_pairs=(), r_pairs=((1, 2), (2, 4)),
+                                thetaRP_max=0.40 * np.pi, phiRP=np.pi / 2, shots=10000),
+                 "rationale": "11 operational features: R L 10 stride 2 (5); P (1); J = z_2 x "
+                              "sin(theta_J g) u_t^2 from a dedicated 2-copy Y-channel (pure degree 2, "
+                              "0 at g = 0) (1); Q register L 2 written by the P-type processor (no "
+                              "linear part at g = 1; P2/P3 share monotone in g) (2); two pure-product "
+                              "R pair readouts (phi = pi/2: y = sin(theta g) <Z_a Z_b>) (2). Quick dev "
+                              "check (3 seeds): HH advantage C1 .089 C2 .120 C3 .058 C4 .066, support "
+                              "+.08..+.15; M interior .27 (tau 8) / .18 (tau 12). Fresh cal block 2."},
     }
 
 
@@ -846,7 +861,7 @@ def stage_report(version: str):
 # =============================================================================
 # SENTCAL -- development-only sentinel calibration at confirmation size
 # =============================================================================
-CAL_BLOCK = {"V6.4": 0, "V6.5": 1}   # a FRESH 500-row dev block per version (no reuse)
+CAL_BLOCK = {"V6.4": 0, "V6.5": 1, "V6.6": 2}   # a FRESH 500-row dev block per version (no reuse)
 
 
 def cal_seeds(block: int) -> list:

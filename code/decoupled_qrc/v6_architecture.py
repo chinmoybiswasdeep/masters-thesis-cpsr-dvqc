@@ -219,8 +219,8 @@ class V6Spec:
             raise ValueError("J_rails must be read R rails")
         if not (0 < self.pR_max <= 1 and 0 < self.pQ_max <= 1):
             raise ValueError("transport probabilities must be in (0, 1]")
-        if self.joint not in ("Y", "rotated"):
-            raise ValueError("joint must be 'Y' or 'rotated'")
+        if self.joint not in ("Y", "rotated", "u2"):
+            raise ValueError("joint must be 'Y', 'rotated' or 'u2'")
 
     @property
     def rails_R(self) -> list:
@@ -314,7 +314,14 @@ class V6Adapter:
         XQp = (np.column_stack([pc["c0"] + pc["ca"] * zQ[:, a] + pc["cb"] * zQ[:, b]
                                 + pc["cab"] * CQ[:, a, b] for a, b in s.q_pairs])
                if s.q_pairs else np.empty((len(u), 0)))
-        if s.joint == "rotated":
+        if s.joint == "u2":
+            # V6.6: dedicated 2-copy processor (Ry(pi/2), exp(-i theta_J Z0Z1/2), measure Y0)
+            # -> f_J = sin(theta_J) u^2 exactly (pure degree 2, 0 at g = 0), read jointly
+            # with Z on R rail r: J_r = <Z_r (x) Y_0> = z_r f_J (product state)
+            fJ = np.sin(g * s.thetaJ_max) * u ** 2
+            XRj = XR[:, [s.rails_R.index(r) for r in s.j_rails]]
+            XJ = XRj * fJ[:, None]
+        elif s.joint == "rotated":
             # R rail a and the P output qubit (rotated n -> z, dephased) read by the same
             # g-rotated two-qubit circuit as the Q pairs: product state -> <Z_a Z_b> = z_a f
             pj = pair_readout_coeffs(g * s.thetaJ_max, s.phiJ)

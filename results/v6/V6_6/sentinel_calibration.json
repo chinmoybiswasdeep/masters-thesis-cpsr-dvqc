@@ -1,0 +1,8 @@
+{
+  "K": 11,
+  "block": 2,
+  "max_excess": 0.017611412014835938,
+  "n_rows": 500,
+  "q99_row_max_excess": 0.0051619070314494545,
+  "rows_exceeding_0.02": 0
+}
