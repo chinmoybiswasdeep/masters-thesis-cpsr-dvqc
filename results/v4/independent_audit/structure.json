@@ -1,0 +1,94 @@
+{
+  "frozen": {
+    "delta": 1e-06,
+    "isolated": true,
+    "kind": "V4 as frozen",
+    "max_dXP_dm": 0.0,
+    "max_dXR_dg": 0.0,
+    "max_range_change_XP_over_m": 0.0,
+    "max_range_change_XR_over_g": 0.0,
+    "n_draws": 100
+  },
+  "g_into_R": {
+    "delta": 1e-06,
+    "isolated": false,
+    "kind": "g_into_R",
+    "max_dXP_dm": 0.0,
+    "max_dXR_dg": 0.2998856866720523,
+    "max_range_change_XP_over_m": 0.0,
+    "max_range_change_XR_over_g": 0.29392021308875005,
+    "n_draws": 100
+  },
+  "indirect_inspection": [
+    {
+      "channel": "shared normalization",
+      "finding": "none across routes: each readout standardises its OWN feature block on its own train rows",
+      "risk": "none"
+    },
+    {
+      "channel": "shared random seeds",
+      "finding": "R and P both derive disorder from the SAME architecture seed; this couples their realisations, not their controls -- neither route receives the other's control",
+      "risk": "none for control dependence; reported"
+    },
+    {
+      "channel": "shared preprocessing",
+      "finding": "none",
+      "risk": "none"
+    },
+    {
+      "channel": "joint feature construction",
+      "finding": "J = X_R * X_P depends on both controls by design; J is never used for M or N",
+      "risk": "none for M/N; J-based metrics are combined by design"
+    },
+    {
+      "channel": "readout regularization",
+      "finding": "one fixed alpha per readout, fitted per readout",
+      "risk": "none"
+    },
+    {
+      "channel": "observable scaling",
+      "finding": "none",
+      "risk": "none"
+    },
+    {
+      "channel": "cached states",
+      "finding": "none: routes are constructed fresh per run_v4 call",
+      "risk": "none"
+    },
+    {
+      "channel": "mutable global configuration",
+      "finding": "v4_experiment.THRESHOLDS is a module-level mutable dict; no code path mutates it",
+      "risk": "latent"
+    },
+    {
+      "channel": "feature selection",
+      "finding": "joint pairs chosen by seed only, never by data",
+      "risk": "none"
+    },
+    {
+      "channel": "training-data-dependent transformations",
+      "finding": "standardisation statistics are computed on the train block of the SAME readout",
+      "risk": "none"
+    }
+  ],
+  "m_into_P": {
+    "delta": 1e-06,
+    "isolated": false,
+    "kind": "m_into_P",
+    "max_dXP_dm": 1.0830250299492805,
+    "max_dXR_dg": 0.0,
+    "max_range_change_XP_over_m": 0.9818393126583806,
+    "max_range_change_XR_over_g": 0.0,
+    "n_draws": 100
+  },
+  "serial": {
+    "delta": 1e-06,
+    "isolated": false,
+    "kind": "serial",
+    "max_dXP_dm": 0.8939219104941998,
+    "max_dXR_dg": 0.0,
+    "max_range_change_XP_over_m": 0.6003804342969421,
+    "max_range_change_XR_over_g": 0.0,
+    "n_draws": 100
+  }
+}

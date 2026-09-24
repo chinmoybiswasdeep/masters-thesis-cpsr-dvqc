@@ -3,3 +3,8 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 code/_dqrc_cache/
+
+# regenerable row checkpoints (hashed in each results manifest)
+results/v4/independent_audit/*.jsonl
+results/v5*/**/*.jsonl
+results/v5*/*.jsonl

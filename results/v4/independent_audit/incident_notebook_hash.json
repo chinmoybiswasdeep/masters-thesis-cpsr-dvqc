@@ -1,0 +1,7 @@
+{
+  "what": "ARTIFACTS refused: code/DQRC_DualRoute_Decoupling_V4_Colab.ipynb hash 439693d7... != preregistered f338ec28...",
+  "cause": "file re-serialized on disk at 2026-09-24T03:13-04:00 (after ENV hashed it at 01:42) by an editor: unicode escapes -> literal characters. Parsed cell sources identical (12/12 cells), no outputs. Not a scientific change.",
+  "secondary_defect": "PREREG copied the V4 source hashes from env.json instead of re-hashing at PREREG time, so the mismatch was only caught at ARTIFACTS.",
+  "resolution": "re-ran the notebook's own builder (_build_notebook_dualroute_v4_colab.py), which reproduces the preregistered bytes exactly (sha256 f338ec2838a1902e9810e1b107534982778860c1eb7402ac3204bbe8656e1cba). The preregistration file was NOT modified. No confirmation data existed at this point (CONFIRM had not started).",
+  "backup_of_reserialized_file": "session scratchpad: V4_notebook_editor_reserialized_backup.ipynb"
+}

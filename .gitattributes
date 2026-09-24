@@ -1,0 +1,14 @@
+# Files whose sha256 is recorded in a preregistration / frozen artifact must keep
+# the exact bytes they were hashed with (-text: no EOL conversion); core.autocrlf would break
+# every hash on a fresh Windows checkout.
+code/decoupled_qrc/v4_*.py -text
+code/decoupled_qrc/v5_*.py -text
+code/decoupled_qrc/audit_*.py -text
+code/run_v4_stage.py -text
+code/run_v4_audit.py -text
+code/run_v5_stage.py -text
+code/_build_notebook_dualroute_v4_colab.py -text
+code/DQRC_DualRoute_Decoupling_V4_Colab.ipynb -text
+tests/test_v4_*.py -text
+results/v4/independent_audit/** -text
+results/v5*/** -text

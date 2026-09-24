@@ -1,0 +1,552 @@
+{
+  "architecture": {
+    "alpha": 0.5,
+    "candidate": {
+      "L_R": 4,
+      "N_P": 4,
+      "alpha": 0.5,
+      "depth": 2,
+      "dt": 0.6,
+      "g_scale": 0.5,
+      "hop": 0.7,
+      "m_max": 0.9,
+      "n_joint": 72,
+      "pair_readout": true,
+      "retention": "amplitude_damping",
+      "tau_mix": 1.0
+    },
+    "frozen_sha256": "435357bfd39db1b0b407400c36debf416ff903cc1bbc54a939d4617a5be4d728",
+    "name": "V4",
+    "resources": {
+      "input_copies": 5,
+      "nonlinear_degree_P": 4,
+      "nonlinear_degree_R": 1,
+      "observables_P": 12,
+      "observables_R": 11,
+      "observables_joint": 72,
+      "observables_total": 95,
+      "processor_depth": 2,
+      "qubits": 8
+    },
+    "spec": {
+      "architecture": "dual_product",
+      "contamination": 0.0,
+      "coupling": "NONE -- R and P are never coupled (strict product)",
+      "memory": {
+        "L_R": 4,
+        "control_map": "retention = m * m_max",
+        "field": 0.35,
+        "hop": 0.7,
+        "injection": {
+          "form": "rho_in(u) = I/2 + u Z/2 (exactly affine, one copy)",
+          "kind": "affine_single_copy",
+          "n_copies": 1
+        },
+        "m_max": 0.9,
+        "pair_readout": true,
+        "readout": [
+          "Z",
+          "X"
+        ],
+        "retention": "amplitude_damping",
+        "tau_mix": 1.0
+      },
+      "n_joint": 72,
+      "processor": {
+        "N_P": 4,
+        "depth": 2,
+        "dt": 0.6,
+        "field": 0.4,
+        "g_scale": 0.5,
+        "injection": {
+          "form": "rho_P(u) = ((I + uZ)/2)^(x)n_copies",
+          "kind": "reupload_product_z",
+          "n_copies": 4,
+          "resource_note": "the copies ARE the nonlinear resource and are held fixed across g; g scales interaction strength only"
+        },
+        "layer_order": "mix_first_then_interaction_plus_final_mix",
+        "mix_hi": 1.3,
+        "mix_lo": 0.7,
+        "readout": [
+          "Z",
+          "X",
+          "Y"
+        ]
+      }
+    }
+  },
+  "capacity": "C = 1 - MSE/Var on the held-out block, NOT clipped",
+  "claims": {
+    "1_structural": "frozen V4 isolated to exactly 0 over 100 random input/state draws (dX_R/dg, dX_P/dm, full-range changes); all 3 contaminated controls detected; M bit-identical across g and N across m for all analyses",
+    "2_resource_constrained": "ridge: main effects >=0.10 LB>0; cross TOST in +-0.03 and ratio UB<0.20 both directions; degree-profile (m) and memory-curve (g) equivalence; no saturation; sentinel ok; feature counts invariant",
+    "3_intrinsic": "claim-2 separation gates pass under BOTH ols_std and ols_raw; interior effects M(1)-M(0.25) and N(1)-N(0.25) >=0.10 LB>0 under ols_std; section-6 verdict HOLDS; N-target saturation over g>0 <= 0.20",
+    "4_combined": "operational readout (R+P+J), ridge. A class is SUPPORTED if its best quadrant mean exceeds the null 99th pct + 0.02. PASS iff >=1 supported class and HH beats LL, LH, HL with LB>0 on EVERY supported class. Quadrants: L={0,0.25}, H={0.75,1}.",
+    "5_quantum_specific": "quantum joint features beat the equally resourced classical product composition on C1 with LB>0"
+  },
+  "controls": {
+    "g": "normalised nonlinear control in [0,1]; interaction = g * g_scale",
+    "m": "normalised memory control in [0,1]; retention = m * m_max"
+  },
+  "created_utc": "2026-09-24T09:36:59Z",
+  "data": {
+    "T": 1600,
+    "alpha": 0.5,
+    "dtype": "float64",
+    "gap": 12,
+    "input": "u_t ~ U[-1,1] i.i.d., one sequence per seed",
+    "max_degree": 4,
+    "n_null": 120,
+    "n_targets": 401,
+    "pinv_cutoff": 1e-10,
+    "split": {
+      "disjoint": true,
+      "n_test": 548,
+      "n_train": 980,
+      "overlap": 0
+    },
+    "tau_L": 2,
+    "tau_S": 0,
+    "tau_max": 8,
+    "train_frac": 0.65,
+    "validation_set": "none (fixed ridge; OLS)",
+    "washout": 60
+  },
+  "disclosure": "The auditor saw V4's earlier confirmation numbers in a previous session. All gates above are the brief's own values (or stricter repository values); none was chosen with reference to those numbers. audit_checks.py gained two V4-inert hooks (section 6 takes the processor map from adapter.processor_fn when present; structural_dependency_adapter) after the DEV process had loaded it; ARTIFACTS regenerates V4 section 6 from the current source and records the difference.",
+  "git_commit": "66ace2cbcfc8ec84ee646e79cc2fd868bf58c6ea",
+  "grid": {
+    "g": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "m": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ]
+  },
+  "hypothesis_under_test": "V4 as frozen at sha256 435357bfd39db1b0b407400c36debf416ff903cc1bbc54a939d4617a5be4d728",
+  "margins": {
+    "cross_ratio_max": 0.2,
+    "equivalence": [
+      -0.03,
+      0.03
+    ],
+    "main_effect_min": 0.1,
+    "saturation_ceiling": 0.995,
+    "saturation_max_fraction": 0.2,
+    "sentinel_excess_max": 0.02,
+    "supported_class_margin_over_null": 0.02
+  },
+  "null": "120 independent-sequence Legendre targets per point; threshold = 99th pct",
+  "observables": {
+    "CLS": "all pairwise classical products of R and P locals",
+    "J": "72 fixed O_R (x) O_P pairs",
+    "P": [
+      "P:Z0",
+      "P:X0",
+      "P:Y0",
+      "P:Z1",
+      "P:X1",
+      "P:Y1",
+      "P:Z2",
+      "P:X2",
+      "P:Y2",
+      "P:Z3",
+      "P:X3",
+      "P:Y3"
+    ],
+    "R": [
+      "R:Z0",
+      "R:X0",
+      "R:Z1",
+      "R:X1",
+      "R:Z2",
+      "R:X2",
+      "R:Z3",
+      "R:X3",
+      "R:Z0Z1",
+      "R:Z1Z2",
+      "R:Z2Z3"
+    ]
+  },
+  "overall_mapping": {
+    "1 fails": "V4 DOES NOT DEMONSTRATE MEMORY-NONLINEARITY SEPARATION",
+    "1 passes, 2 fails": "V4 PROVIDES MODULAR ISOLATION BUT NOT COMPUTATIONAL SEPARATION",
+    "1,2 pass, 3 fails": "V4 WORKS ONLY UNDER A RESOURCE-CONSTRAINED DEFINITION",
+    "all five pass": "V4 WORKS AS CLAIMED"
+  },
+  "readouts": {
+    "ols_raw": "centred raw, pseudo-inverse, relative cutoff 1e-10",
+    "ols_std": "standardised, pseudo-inverse, relative cutoff 1e-10",
+    "ridge": "standardised, alpha=0.5 (V4's preregistered penalty)",
+    "standardisation": "train-block mean/std of the SAME readout; sd<1e-12 -> 1"
+  },
+  "seeds": {
+    "confirmation": [
+      [
+        70000,
+        80000
+      ],
+      [
+        70001,
+        80001
+      ],
+      [
+        70002,
+        80002
+      ],
+      [
+        70003,
+        80003
+      ],
+      [
+        70004,
+        80004
+      ],
+      [
+        70005,
+        80005
+      ],
+      [
+        70006,
+        80006
+      ],
+      [
+        70007,
+        80007
+      ],
+      [
+        70008,
+        80008
+      ],
+      [
+        70009,
+        80009
+      ],
+      [
+        70010,
+        80010
+      ],
+      [
+        70011,
+        80011
+      ],
+      [
+        70012,
+        80012
+      ],
+      [
+        70013,
+        80013
+      ],
+      [
+        70014,
+        80014
+      ],
+      [
+        70015,
+        80015
+      ],
+      [
+        70016,
+        80016
+      ],
+      [
+        70017,
+        80017
+      ],
+      [
+        70018,
+        80018
+      ],
+      [
+        70019,
+        80019
+      ]
+    ],
+    "confirmation_bank_fresh": true,
+    "development": [
+      [
+        20000,
+        30000
+      ],
+      [
+        20001,
+        30001
+      ],
+      [
+        20002,
+        30002
+      ],
+      [
+        20003,
+        30003
+      ],
+      [
+        20004,
+        30004
+      ],
+      [
+        20005,
+        30005
+      ],
+      [
+        20006,
+        30006
+      ],
+      [
+        20007,
+        30007
+      ],
+      [
+        20008,
+        30008
+      ],
+      [
+        20009,
+        30009
+      ]
+    ],
+    "previously_used": {
+      "probes": [
+        3,
+        5,
+        7,
+        11,
+        12,
+        77,
+        900,
+        9000,
+        31337,
+        424242
+      ],
+      "v4_conf_arch": [
+        900,
+        901,
+        902,
+        903,
+        904,
+        905,
+        906,
+        907,
+        908,
+        909,
+        910,
+        911,
+        912,
+        913,
+        914,
+        915,
+        916,
+        917,
+        918,
+        919,
+        920,
+        921,
+        922,
+        923,
+        924,
+        925,
+        926,
+        927,
+        928,
+        929,
+        930,
+        931,
+        932,
+        933,
+        934,
+        935,
+        936,
+        937,
+        938,
+        939
+      ],
+      "v4_conf_input": [
+        9000,
+        9001,
+        9002,
+        9003,
+        9004,
+        9005,
+        9006,
+        9007,
+        9008,
+        9009,
+        9010,
+        9011,
+        9012,
+        9013,
+        9014,
+        9015,
+        9016,
+        9017,
+        9018,
+        9019,
+        9020,
+        9021,
+        9022,
+        9023,
+        9024,
+        9025,
+        9026,
+        9027,
+        9028,
+        9029,
+        9030,
+        9031,
+        9032,
+        9033,
+        9034,
+        9035,
+        9036,
+        9037,
+        9038,
+        9039
+      ],
+      "v4_dev_arch": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139
+      ],
+      "v4_dev_input": [
+        1000,
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        1009,
+        1010,
+        1011,
+        1012,
+        1013,
+        1014,
+        1015,
+        1016,
+        1017,
+        1018,
+        1019,
+        1020,
+        1021,
+        1022,
+        1023,
+        1024,
+        1025,
+        1026,
+        1027,
+        1028,
+        1029,
+        1030,
+        1031,
+        1032,
+        1033,
+        1034,
+        1035,
+        1036,
+        1037,
+        1038,
+        1039
+      ]
+    }
+  },
+  "source_sha256": {
+    "audit": {
+      "code/decoupled_qrc/audit_checks.py": "9c0d901857af2ee9745072e9aee801da8cbdac4fe74bd3ad50a8039a6f694e03",
+      "code/decoupled_qrc/audit_core.py": "5e0e3b75c69aa4d0ca470bed614db931bb9f57331901325705a6c1114b52c72a",
+      "code/decoupled_qrc/audit_ipc.py": "94ccda6c7ca9c2ec95815d9bc2297cd252411ff0ffe3040c318fe2351d987c61",
+      "code/decoupled_qrc/audit_report.py": "10030f06538ec1f493638f20a98762f2a973d71a3a60510cf6675e8a89a71fab",
+      "code/run_v4_audit.py": "181466d15f11b445815268d965c86bc64a77c0d66ccd1cdca879af2ee5e11257"
+    },
+    "v4": {
+      "code/DQRC_DualRoute_Decoupling_V4_Colab.ipynb": "f338ec2838a1902e9810e1b107534982778860c1eb7402ac3204bbe8656e1cba",
+      "code/_build_notebook_dualroute_v4_colab.py": "79271ca1ea54ca2a25db4edf27d5e80dd7ba130f914dbd5f11a4db7b503dff06",
+      "code/run_v4_stage.py": "10557e436796cffb477bf830b32efd4720d4e23e3a595970e5e5396a11523fe0",
+      "code\\decoupled_qrc\\v4_architecture.py": "73d92d4d7812b56b37c41ee3f325b994f1345ed19f14434282a8823256cae408",
+      "code\\decoupled_qrc\\v4_artifacts.py": "b8c0c5cdbfd89f8c1b9461385631d679d1014a4ef89718c6e2eedadfc09a4f37",
+      "code\\decoupled_qrc\\v4_encoder.py": "b32e9619edc804d61f07d7f09719186c7ccc3324bdfd4f74b2e17db27765888d",
+      "code\\decoupled_qrc\\v4_experiment.py": "aa4dd86b2baf6ac42855ebe5bb08c11e34092d8d16fbd3a06b145f9a06a41525",
+      "code\\decoupled_qrc\\v4_ipc.py": "2fa2c5573cc94038017a7d397a0a2815c5c0b3094a806c085ea407e70ae754e1",
+      "code\\decoupled_qrc\\v4_nonlinear_memory.py": "86aef1cd951c1c342dd081fb5a565c55417ea91e5c3720197fc79117cac07ac4",
+      "code\\decoupled_qrc\\v4_report.py": "aeca7bd99acf3e6db7948b148184976af76fce9f2dbd24b46c3d455e1bf69e9c",
+      "code\\decoupled_qrc\\v4_search.py": "474dc81c5f1a8c8569850835d1ed3b1957f49689624299a7d7240569126ce7d0",
+      "code\\decoupled_qrc\\v4_statistics.py": "54c4dd55e9568d67ce92bbdfd61dd8a08eb489a313a0aa9c55b553d9c083608a",
+      "tests\\test_v4_architecture.py": "b1c7306a6e2fe1ffad2720d4036e8cb86ef97d00e16387c245cc66e8d17b4040",
+      "tests\\test_v4_artifacts.py": "e4a24c18a74193b7615a49f7b904ff8436aeba00aadc9e8fc737f789bc7992e9",
+      "tests\\test_v4_encoder.py": "65bdd280c58ecebf71e6fc88d11b40c08f8742fbf798fa90caf2ee4240c2f404",
+      "tests\\test_v4_ipc.py": "916979b99e1db199411a22a42dfb1d9e0ef6768ee857e40d9ed41352b0ccb01c",
+      "tests\\test_v4_statistics.py": "266567ed9dee54f8bbbaf030eab7530c871f11e656d6ee5671e207754d13550b"
+    }
+  },
+  "statistics": {
+    "bootstrap": "10000 resamples of seeds",
+    "levels_for_verdicts": "SEQUENTIAL (stricter): repository ledger spends alpha=0.01 per look -> main LB at 1st pct, TOST 98% interval, ratio UB 99th pct",
+    "levels_reported": [
+      "user default",
+      "sequential"
+    ],
+    "profile_equivalence": "Bonferroni over members (>= Holm strictness)",
+    "unit": "seed (one architecture seed + one input seed)"
+  },
+  "target_library": {
+    "C1_curNL_x_oldLin": 12,
+    "C2_oldNL": 24,
+    "C3_old_x_old": 28,
+    "C4_old3": 56,
+    "SENTINEL_future": 2,
+    "V4_NLONG": 6,
+    "single_d1": 9,
+    "single_d2": 9,
+    "single_d3": 9,
+    "single_d4": 9,
+    "sunada": 45,
+    "x_P1P1": 36,
+    "x_P1P1P1": 84,
+    "x_P2P1": 72
+  }
+}

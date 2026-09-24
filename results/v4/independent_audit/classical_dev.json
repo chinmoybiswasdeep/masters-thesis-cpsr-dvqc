@@ -1,0 +1,630 @@
+{
+  "exact": {
+    "m0.0_g0.0": [
+      {
+        "CLS_same_pairs_C1": -0.0064530823019142885,
+        "J_C1": -0.0064530823019142885,
+        "max_abs_feature_diff": 0.0
+      },
+      {
+        "CLS_same_pairs_C1": -0.007079303577234751,
+        "J_C1": -0.007079303577234751,
+        "max_abs_feature_diff": 0.0
+      },
+      {
+        "CLS_same_pairs_C1": 0.003183698030400639,
+        "J_C1": 0.003183698030400639,
+        "max_abs_feature_diff": 0.0
+      },
+      {
+        "CLS_same_pairs_C1": -0.017421067637154286,
+        "J_C1": -0.017421067637154286,
+        "max_abs_feature_diff": 0.0
+      },
+      {
+        "CLS_same_pairs_C1": -0.014712661056085133,
+        "J_C1": -0.014712661056085133,
+        "max_abs_feature_diff": 0.0
+      }
+    ],
+    "m0.0_g1.0": [
+      {
+        "CLS_same_pairs_C1": -0.010518277069435561,
+        "J_C1": -0.010518277069435561,
+        "max_abs_feature_diff": 0.0
+      },
+      {
+        "CLS_same_pairs_C1": -0.012027162789359355,
+        "J_C1": -0.012027162789359355,
+        "max_abs_feature_diff": 0.0
+      },
+      {
+        "CLS_same_pairs_C1": 0.006673114107646529,
+        "J_C1": 0.006673114107646529,
+        "max_abs_feature_diff": 0.0
+      },
+      {
+        "CLS_same_pairs_C1": -0.03538259685398284,
+        "J_C1": -0.03538259685398284,
+        "max_abs_feature_diff": 0.0
+      },
+      {
+        "CLS_same_pairs_C1": -0.022046839593349448,
+        "J_C1": -0.022046839593349448,
+        "max_abs_feature_diff": 0.0
+      }
+    ],
+    "m1.0_g0.0": [
+      {
+        "CLS_same_pairs_C1": 0.018464174128391558,
+        "J_C1": 0.018464174128391558,
+        "max_abs_feature_diff": 0.0
+      },
+      {
+        "CLS_same_pairs_C1": 0.03881959920472294,
+        "J_C1": 0.03881959920472294,
+        "max_abs_feature_diff": 0.0
+      },
+      {
+        "CLS_same_pairs_C1": 0.024001321088620325,
+        "J_C1": 0.024001321088620325,
+        "max_abs_feature_diff": 0.0
+      },
+      {
+        "CLS_same_pairs_C1": 0.02911322737608767,
+        "J_C1": 0.02911322737608767,
+        "max_abs_feature_diff": 0.0
+      },
+      {
+        "CLS_same_pairs_C1": 0.010702555538430155,
+        "J_C1": 0.010702555538430155,
+        "max_abs_feature_diff": 0.0
+      }
+    ],
+    "m1.0_g1.0": [
+      {
+        "CLS_same_pairs_C1": 0.22036750138812344,
+        "J_C1": 0.22036750138812344,
+        "max_abs_feature_diff": 0.0
+      },
+      {
+        "CLS_same_pairs_C1": 0.2115138587948596,
+        "J_C1": 0.2115138587948596,
+        "max_abs_feature_diff": 0.0
+      },
+      {
+        "CLS_same_pairs_C1": 0.2151974656563244,
+        "J_C1": 0.2151974656563244,
+        "max_abs_feature_diff": 0.0
+      },
+      {
+        "CLS_same_pairs_C1": 0.19665399634193395,
+        "J_C1": 0.19665399634193395,
+        "max_abs_feature_diff": 0.0
+      },
+      {
+        "CLS_same_pairs_C1": 0.1612856210146897,
+        "J_C1": 0.1612856210146897,
+        "max_abs_feature_diff": 0.0
+      }
+    ]
+  },
+  "resources": {
+    "classical_product": {
+      "measurement_settings_parallel": 3,
+      "note": "R and P are measured in parallel on separate registers; products are formed in post-processing",
+      "observables_measured": 23
+    },
+    "energy": "not available: no hardware run",
+    "quantum_joint": {
+      "measurement_settings": 13,
+      "observables": 72
+    }
+  },
+  "shots": {
+    "S10000_m0.0_g0.0": [
+      {
+        "classical_product_C1": -0.06546717154211949,
+        "classical_product_sunada": 0.09048332165368148,
+        "feature_rmse_classical": 0.0067382235503675265,
+        "feature_rmse_quantum": 0.009729638697157124,
+        "quantum_joint_C1": -0.056892406814933426,
+        "quantum_joint_sunada": 0.09049474994488656
+      },
+      {
+        "classical_product_C1": -0.07978544546213,
+        "classical_product_sunada": 0.09200009312318441,
+        "feature_rmse_classical": 0.006735594738528566,
+        "feature_rmse_quantum": 0.00969953242853623,
+        "quantum_joint_C1": -0.06416785777966318,
+        "quantum_joint_sunada": 0.09163429022280649
+      },
+      {
+        "classical_product_C1": -0.04795956951454013,
+        "classical_product_sunada": 0.09228631102518013,
+        "feature_rmse_classical": 0.006296226864608541,
+        "feature_rmse_quantum": 0.009720377755713118,
+        "quantum_joint_C1": -0.0536813331055079,
+        "quantum_joint_sunada": 0.09155676122084035
+      },
+      {
+        "classical_product_C1": -0.08121987735114798,
+        "classical_product_sunada": 0.09089786054854823,
+        "feature_rmse_classical": 0.0065108836176647365,
+        "feature_rmse_quantum": 0.009689658102169365,
+        "quantum_joint_C1": -0.061741618557601984,
+        "quantum_joint_sunada": 0.08985737579957473
+      },
+      {
+        "classical_product_C1": -0.08583447946100801,
+        "classical_product_sunada": 0.09049627546630601,
+        "feature_rmse_classical": 0.006317439862231922,
+        "feature_rmse_quantum": 0.009770060855211477,
+        "quantum_joint_C1": -0.06989942941067767,
+        "quantum_joint_sunada": 0.09028110391100039
+      }
+    ],
+    "S10000_m0.0_g1.0": [
+      {
+        "classical_product_C1": -0.08834896878504173,
+        "classical_product_sunada": 0.10990217908160257,
+        "feature_rmse_classical": 0.006696564681279426,
+        "feature_rmse_quantum": 0.009896580964204623,
+        "quantum_joint_C1": -0.07544982700338576,
+        "quantum_joint_sunada": 0.11140517086617571
+      },
+      {
+        "classical_product_C1": -0.08907300945137181,
+        "classical_product_sunada": 0.11261824873929269,
+        "feature_rmse_classical": 0.006703371994720072,
+        "feature_rmse_quantum": 0.00990271484864467,
+        "quantum_joint_C1": -0.08029800547465321,
+        "quantum_joint_sunada": 0.1115872534622205
+      },
+      {
+        "classical_product_C1": -0.07180045246578141,
+        "classical_product_sunada": 0.11206485187082504,
+        "feature_rmse_classical": 0.006252468434754355,
+        "feature_rmse_quantum": 0.009897370671191858,
+        "quantum_joint_C1": -0.0610151667841096,
+        "quantum_joint_sunada": 0.11134703852632694
+      },
+      {
+        "classical_product_C1": -0.10834106786802439,
+        "classical_product_sunada": 0.11185334764870367,
+        "feature_rmse_classical": 0.0064137678594191954,
+        "feature_rmse_quantum": 0.009861597897111198,
+        "quantum_joint_C1": -0.09197308042199354,
+        "quantum_joint_sunada": 0.11056999650169362
+      },
+      {
+        "classical_product_C1": -0.0915286796163254,
+        "classical_product_sunada": 0.11084153389164424,
+        "feature_rmse_classical": 0.0062685624027047655,
+        "feature_rmse_quantum": 0.009919314824183007,
+        "quantum_joint_C1": -0.08732059832097765,
+        "quantum_joint_sunada": 0.11214022785593136
+      }
+    ],
+    "S10000_m1.0_g0.0": [
+      {
+        "classical_product_C1": -0.05755046373182845,
+        "classical_product_sunada": 0.1400766395047676,
+        "feature_rmse_classical": 0.004231142045794143,
+        "feature_rmse_quantum": 0.009926607458243317,
+        "quantum_joint_C1": -0.05035044238591666,
+        "quantum_joint_sunada": 0.1289622884851947
+      },
+      {
+        "classical_product_C1": -0.04688117919161261,
+        "classical_product_sunada": 0.13372686664758146,
+        "feature_rmse_classical": 0.004575166764591287,
+        "feature_rmse_quantum": 0.009917129763384262,
+        "quantum_joint_C1": -0.044044116638388864,
+        "quantum_joint_sunada": 0.1263876471537044
+      },
+      {
+        "classical_product_C1": -0.03939995402882101,
+        "classical_product_sunada": 0.15823020576642735,
+        "feature_rmse_classical": 0.004168573425219307,
+        "feature_rmse_quantum": 0.009930246358155616,
+        "quantum_joint_C1": -0.05976202456769789,
+        "quantum_joint_sunada": 0.15634380380594978
+      },
+      {
+        "classical_product_C1": -0.04531947829490101,
+        "classical_product_sunada": 0.14997127800244703,
+        "feature_rmse_classical": 0.004429162392348833,
+        "feature_rmse_quantum": 0.00990208879367276,
+        "quantum_joint_C1": -0.03156611441455873,
+        "quantum_joint_sunada": 0.14385918620309307
+      },
+      {
+        "classical_product_C1": -0.06852218918404429,
+        "classical_product_sunada": 0.1516043195168804,
+        "feature_rmse_classical": 0.004001008350477927,
+        "feature_rmse_quantum": 0.009941042270950206,
+        "quantum_joint_C1": -0.05347851646612808,
+        "quantum_joint_sunada": 0.1373722534819568
+      }
+    ],
+    "S10000_m1.0_g1.0": [
+      {
+        "classical_product_C1": 0.04241875543360793,
+        "classical_product_sunada": 0.24096859117553143,
+        "feature_rmse_classical": 0.0034464188560037645,
+        "feature_rmse_quantum": 0.009967545585780587,
+        "quantum_joint_C1": -0.028220084308313752,
+        "quantum_joint_sunada": 0.18673620429746463
+      },
+      {
+        "classical_product_C1": 0.03135110852526712,
+        "classical_product_sunada": 0.2194771349322148,
+        "feature_rmse_classical": 0.003830446873263133,
+        "feature_rmse_quantum": 0.009973551600358567,
+        "quantum_joint_C1": -0.028330975670672654,
+        "quantum_joint_sunada": 0.17549347328367967
+      },
+      {
+        "classical_product_C1": 0.03925896158814441,
+        "classical_product_sunada": 0.25302180283376036,
+        "feature_rmse_classical": 0.0033968022279079572,
+        "feature_rmse_quantum": 0.009978495125800376,
+        "quantum_joint_C1": -0.015860836210696727,
+        "quantum_joint_sunada": 0.2050576398412604
+      },
+      {
+        "classical_product_C1": 0.04239942737922358,
+        "classical_product_sunada": 0.23546324247478473,
+        "feature_rmse_classical": 0.0036511055822556855,
+        "feature_rmse_quantum": 0.009935573537278667,
+        "quantum_joint_C1": -0.00040894539659835916,
+        "quantum_joint_sunada": 0.19874086199922764
+      },
+      {
+        "classical_product_C1": 0.030127924917343934,
+        "classical_product_sunada": 0.24178288912853235,
+        "feature_rmse_classical": 0.0033103526659671433,
+        "feature_rmse_quantum": 0.009984136030814734,
+        "quantum_joint_C1": -0.028889578921926822,
+        "quantum_joint_sunada": 0.18542910505160431
+      }
+    ],
+    "S1000_m0.0_g0.0": [
+      {
+        "classical_product_C1": -0.09011550348034508,
+        "classical_product_sunada": 0.09009931655936647,
+        "feature_rmse_classical": 0.021246192247603116,
+        "feature_rmse_quantum": 0.030801222209038127,
+        "quantum_joint_C1": -0.06486088021442198,
+        "quantum_joint_sunada": 0.09012276157774776
+      },
+      {
+        "classical_product_C1": -0.09898060535945587,
+        "classical_product_sunada": 0.09004069119780934,
+        "feature_rmse_classical": 0.02122612940551121,
+        "feature_rmse_quantum": 0.030632162864590723,
+        "quantum_joint_C1": -0.08720150571081331,
+        "quantum_joint_sunada": 0.09078341578868603
+      },
+      {
+        "classical_product_C1": -0.08114408579870919,
+        "classical_product_sunada": 0.09138410905839371,
+        "feature_rmse_classical": 0.02004717098029761,
+        "feature_rmse_quantum": 0.030894508592830893,
+        "quantum_joint_C1": -0.07562655858716337,
+        "quantum_joint_sunada": 0.09132165161750494
+      },
+      {
+        "classical_product_C1": -0.1205419170286296,
+        "classical_product_sunada": 0.09094804733386022,
+        "feature_rmse_classical": 0.020769310969607817,
+        "feature_rmse_quantum": 0.03088516533015994,
+        "quantum_joint_C1": -0.09334890916232658,
+        "quantum_joint_sunada": 0.08978737233711119
+      },
+      {
+        "classical_product_C1": -0.10559093552203867,
+        "classical_product_sunada": 0.09035635006780919,
+        "feature_rmse_classical": 0.02000076247961678,
+        "feature_rmse_quantum": 0.030842872080432453,
+        "quantum_joint_C1": -0.09437649053347293,
+        "quantum_joint_sunada": 0.08957371616246632
+      }
+    ],
+    "S1000_m0.0_g1.0": [
+      {
+        "classical_product_C1": -0.09457858529757096,
+        "classical_product_sunada": 0.10911733604151025,
+        "feature_rmse_classical": 0.021270695868753516,
+        "feature_rmse_quantum": 0.031408226921005665,
+        "quantum_joint_C1": -0.06965785318943185,
+        "quantum_joint_sunada": 0.10907289845137266
+      },
+      {
+        "classical_product_C1": -0.10734961684551869,
+        "classical_product_sunada": 0.1101154974500158,
+        "feature_rmse_classical": 0.02122698595481898,
+        "feature_rmse_quantum": 0.03136960866698212,
+        "quantum_joint_C1": -0.09400202859264196,
+        "quantum_joint_sunada": 0.1089092084984949
+      },
+      {
+        "classical_product_C1": -0.09155160710818167,
+        "classical_product_sunada": 0.11010369993323446,
+        "feature_rmse_classical": 0.019772390952166242,
+        "feature_rmse_quantum": 0.031296141614073715,
+        "quantum_joint_C1": -0.07515092641229731,
+        "quantum_joint_sunada": 0.10954327925889541
+      },
+      {
+        "classical_product_C1": -0.13281839468627507,
+        "classical_product_sunada": 0.10893786796585374,
+        "feature_rmse_classical": 0.020428485026057718,
+        "feature_rmse_quantum": 0.03139299407508104,
+        "quantum_joint_C1": -0.10285731113054915,
+        "quantum_joint_sunada": 0.10888171442510713
+      },
+      {
+        "classical_product_C1": -0.1015677359077523,
+        "classical_product_sunada": 0.1103164428159718,
+        "feature_rmse_classical": 0.019829112428614185,
+        "feature_rmse_quantum": 0.03134080838440995,
+        "quantum_joint_C1": -0.09595067541521467,
+        "quantum_joint_sunada": 0.10927501358122771
+      }
+    ],
+    "S1000_m1.0_g0.0": [
+      {
+        "classical_product_C1": -0.08563035226816572,
+        "classical_product_sunada": 0.12446155864688725,
+        "feature_rmse_classical": 0.013320604642593587,
+        "feature_rmse_quantum": 0.03143406609317813,
+        "quantum_joint_C1": -0.05953900837788508,
+        "quantum_joint_sunada": 0.10683099104563419
+      },
+      {
+        "classical_product_C1": -0.06612619978873889,
+        "classical_product_sunada": 0.12060963650432925,
+        "feature_rmse_classical": 0.014372169151435975,
+        "feature_rmse_quantum": 0.03122593356964654,
+        "quantum_joint_C1": -0.07482159988038646,
+        "quantum_joint_sunada": 0.10829900565601953
+      },
+      {
+        "classical_product_C1": -0.060746906879852715,
+        "classical_product_sunada": 0.1516805805983764,
+        "feature_rmse_classical": 0.013316710512789893,
+        "feature_rmse_quantum": 0.03153666208405346,
+        "quantum_joint_C1": -0.07914925253651796,
+        "quantum_joint_sunada": 0.13759643265815938
+      },
+      {
+        "classical_product_C1": -0.0808167454252549,
+        "classical_product_sunada": 0.1313447965684416,
+        "feature_rmse_classical": 0.014119468239507976,
+        "feature_rmse_quantum": 0.03142693830819242,
+        "quantum_joint_C1": -0.05914011220381545,
+        "quantum_joint_sunada": 0.11769408144273089
+      },
+      {
+        "classical_product_C1": -0.09411583087714154,
+        "classical_product_sunada": 0.14014911813359984,
+        "feature_rmse_classical": 0.012633704652992125,
+        "feature_rmse_quantum": 0.03137793203659817,
+        "quantum_joint_C1": -0.08541056941081308,
+        "quantum_joint_sunada": 0.12008127215639551
+      }
+    ],
+    "S1000_m1.0_g1.0": [
+      {
+        "classical_product_C1": -0.05575377595826192,
+        "classical_product_sunada": 0.16865753859398855,
+        "feature_rmse_classical": 0.010943947334841444,
+        "feature_rmse_quantum": 0.03156790210129772,
+        "quantum_joint_C1": -0.06160453595825625,
+        "quantum_joint_sunada": 0.12167343890049592
+      },
+      {
+        "classical_product_C1": -0.06359480831251997,
+        "classical_product_sunada": 0.1557500753709897,
+        "feature_rmse_classical": 0.012137193218501149,
+        "feature_rmse_quantum": 0.031530324416204486,
+        "quantum_joint_C1": -0.06656228688429455,
+        "quantum_joint_sunada": 0.11257280403138718
+      },
+      {
+        "classical_product_C1": -0.04189909495485528,
+        "classical_product_sunada": 0.19607422086218904,
+        "feature_rmse_classical": 0.010810612314703512,
+        "feature_rmse_quantum": 0.03156599523948399,
+        "quantum_joint_C1": -0.07129566983666363,
+        "quantum_joint_sunada": 0.14752213167821582
+      },
+      {
+        "classical_product_C1": -0.058454983593971326,
+        "classical_product_sunada": 0.17037003455673635,
+        "feature_rmse_classical": 0.011687365601185506,
+        "feature_rmse_quantum": 0.03158034041272717,
+        "quantum_joint_C1": -0.06698957767123502,
+        "quantum_joint_sunada": 0.1279505101279848
+      },
+      {
+        "classical_product_C1": -0.046219325730535527,
+        "classical_product_sunada": 0.18897753201601006,
+        "feature_rmse_classical": 0.010461489585498671,
+        "feature_rmse_quantum": 0.03150448259861991,
+        "quantum_joint_C1": -0.06418463749768323,
+        "quantum_joint_sunada": 0.136783744495667
+      }
+    ],
+    "S100_m0.0_g0.0": [
+      {
+        "classical_product_C1": -0.08976160770715881,
+        "classical_product_sunada": 0.0903374689540102,
+        "feature_rmse_classical": 0.06784249426879256,
+        "feature_rmse_quantum": 0.09716334440567129,
+        "quantum_joint_C1": -0.07138052724212952,
+        "quantum_joint_sunada": 0.09007431777500735
+      },
+      {
+        "classical_product_C1": -0.10124229965773045,
+        "classical_product_sunada": 0.0900074579029618,
+        "feature_rmse_classical": 0.06798904346686153,
+        "feature_rmse_quantum": 0.09709960303640124,
+        "quantum_joint_C1": -0.09162236087634518,
+        "quantum_joint_sunada": 0.09025351350594353
+      },
+      {
+        "classical_product_C1": -0.10535726253368755,
+        "classical_product_sunada": 0.09034925059224105,
+        "feature_rmse_classical": 0.0636776206216508,
+        "feature_rmse_quantum": 0.09729313515031325,
+        "quantum_joint_C1": -0.08244775052662072,
+        "quantum_joint_sunada": 0.09066572041788457
+      },
+      {
+        "classical_product_C1": -0.10560553560881362,
+        "classical_product_sunada": 0.08996624287237807,
+        "feature_rmse_classical": 0.06587379900679474,
+        "feature_rmse_quantum": 0.09769053296225325,
+        "quantum_joint_C1": -0.08939920111910625,
+        "quantum_joint_sunada": 0.08942836431664922
+      },
+      {
+        "classical_product_C1": -0.11562465771390762,
+        "classical_product_sunada": 0.09059834887850442,
+        "feature_rmse_classical": 0.06372855160291571,
+        "feature_rmse_quantum": 0.09765199201036176,
+        "quantum_joint_C1": -0.09300963080505657,
+        "quantum_joint_sunada": 0.09208748223763351
+      }
+    ],
+    "S100_m0.0_g1.0": [
+      {
+        "classical_product_C1": -0.10472693324018816,
+        "classical_product_sunada": 0.10575560927716367,
+        "feature_rmse_classical": 0.06754252936184889,
+        "feature_rmse_quantum": 0.09897720251113473,
+        "quantum_joint_C1": -0.06840335594318787,
+        "quantum_joint_sunada": 0.10218202959849253
+      },
+      {
+        "classical_product_C1": -0.10114332469820632,
+        "classical_product_sunada": 0.10564871662959838,
+        "feature_rmse_classical": 0.06772069582183309,
+        "feature_rmse_quantum": 0.09907282119662356,
+        "quantum_joint_C1": -0.0895551261083997,
+        "quantum_joint_sunada": 0.10165872734635628
+      },
+      {
+        "classical_product_C1": -0.08529945798452271,
+        "classical_product_sunada": 0.1064346609035838,
+        "feature_rmse_classical": 0.06313357336820073,
+        "feature_rmse_quantum": 0.09914846719731875,
+        "quantum_joint_C1": -0.06641040997664177,
+        "quantum_joint_sunada": 0.10159207738275143
+      },
+      {
+        "classical_product_C1": -0.11510586722964589,
+        "classical_product_sunada": 0.10275304160305644,
+        "feature_rmse_classical": 0.0648530297735677,
+        "feature_rmse_quantum": 0.09933350346462587,
+        "quantum_joint_C1": -0.10266330136391667,
+        "quantum_joint_sunada": 0.09884290812813343
+      },
+      {
+        "classical_product_C1": -0.12565342959041786,
+        "classical_product_sunada": 0.10618987709676823,
+        "feature_rmse_classical": 0.06328715883680804,
+        "feature_rmse_quantum": 0.09940411336053545,
+        "quantum_joint_C1": -0.10708460887760478,
+        "quantum_joint_sunada": 0.10387014844934421
+      }
+    ],
+    "S100_m1.0_g0.0": [
+      {
+        "classical_product_C1": -0.10032243516311078,
+        "classical_product_sunada": 0.09688793405899053,
+        "feature_rmse_classical": 0.04309970621038545,
+        "feature_rmse_quantum": 0.09922576985416263,
+        "quantum_joint_C1": -0.07606347824491748,
+        "quantum_joint_sunada": 0.08701024760577646
+      },
+      {
+        "classical_product_C1": -0.0955462797036095,
+        "classical_product_sunada": 0.09570093489548961,
+        "feature_rmse_classical": 0.04668618344137817,
+        "feature_rmse_quantum": 0.09921530625775374,
+        "quantum_joint_C1": -0.07881640146688275,
+        "quantum_joint_sunada": 0.09125648438279098
+      },
+      {
+        "classical_product_C1": -0.10931809171704143,
+        "classical_product_sunada": 0.1271496154091146,
+        "feature_rmse_classical": 0.0426692337999963,
+        "feature_rmse_quantum": 0.09933443379134374,
+        "quantum_joint_C1": -0.07636913208469921,
+        "quantum_joint_sunada": 0.10480831770293232
+      },
+      {
+        "classical_product_C1": -0.08067089960882128,
+        "classical_product_sunada": 0.10257948110800377,
+        "feature_rmse_classical": 0.04536400457968639,
+        "feature_rmse_quantum": 0.09948742727949181,
+        "quantum_joint_C1": -0.08863033963085377,
+        "quantum_joint_sunada": 0.0908197433351707
+      },
+      {
+        "classical_product_C1": -0.09234275442796826,
+        "classical_product_sunada": 0.11616519124735984,
+        "feature_rmse_classical": 0.040797564219964104,
+        "feature_rmse_quantum": 0.09940050117914448,
+        "quantum_joint_C1": -0.07640315298477653,
+        "quantum_joint_sunada": 0.09233995272186916
+      }
+    ],
+    "S100_m1.0_g1.0": [
+      {
+        "classical_product_C1": -0.11240626748949663,
+        "classical_product_sunada": 0.11122063935427697,
+        "feature_rmse_classical": 0.03575736894187226,
+        "feature_rmse_quantum": 0.09960463352234171,
+        "quantum_joint_C1": -0.06973205046232418,
+        "quantum_joint_sunada": 0.08542623162347665
+      },
+      {
+        "classical_product_C1": -0.1028275765278166,
+        "classical_product_sunada": 0.1025704317817797,
+        "feature_rmse_classical": 0.03951583317837198,
+        "feature_rmse_quantum": 0.09961917832974755,
+        "quantum_joint_C1": -0.08482633327581318,
+        "quantum_joint_sunada": 0.0877787308246551
+      },
+      {
+        "classical_product_C1": -0.07751545971154293,
+        "classical_product_sunada": 0.13802058149043658,
+        "feature_rmse_classical": 0.03527946894360946,
+        "feature_rmse_quantum": 0.09963470133938061,
+        "quantum_joint_C1": -0.07021888000125565,
+        "quantum_joint_sunada": 0.09406882939676274
+      },
+      {
+        "classical_product_C1": -0.09350231119720764,
+        "classical_product_sunada": 0.1117207740835127,
+        "feature_rmse_classical": 0.037849467689690795,
+        "feature_rmse_quantum": 0.09970951401321855,
+        "quantum_joint_C1": -0.09455121442186158,
+        "quantum_joint_sunada": 0.08929673026400103
+      },
+      {
+        "classical_product_C1": -0.0814803634374768,
+        "classical_product_sunada": 0.13006050708732117,
+        "feature_rmse_classical": 0.034228098001986965,
+        "feature_rmse_quantum": 0.09981042055954754,
+        "quantum_joint_C1": -0.08501512951363983,
+        "quantum_joint_sunada": 0.08374851341206797
+      }
+    ]
+  }
+}

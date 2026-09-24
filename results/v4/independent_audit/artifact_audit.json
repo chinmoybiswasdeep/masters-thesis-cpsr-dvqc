@@ -1,0 +1,93 @@
+{
+  "claim_guard": {
+    "confirmation_json_hashed": false,
+    "provenance_check_is_tautological": true,
+    "refuses_without_complete_confirmation": true,
+    "report_recomputes_claim": false,
+    "sequential_alpha_used_in_gate_CIs": false
+  },
+  "confirmation_rows": {
+    "all_carry_frozen_hash": true,
+    "n_expected": 375,
+    "n_rows": 375,
+    "seeds_arch": [
+      900,
+      901,
+      902,
+      903,
+      904
+    ],
+    "seeds_input": [
+      9000,
+      9001,
+      9002
+    ]
+  },
+  "discovery_confirmation_disjoint": true,
+  "frozen_config": {
+    "rehash_ok": true,
+    "sha256": "435357bfd39db1b0b407400c36debf416ff903cc1bbc54a939d4617a5be4d728"
+  },
+  "gate_implementation_findings": {
+    "combined_gate_max_abs(N_long - cross_delay_mean)": 1.1102230246251565e-16,
+    "combined_gate_two_of_three_metrics_identical": true,
+    "gate_ci_levels": {
+      "combined_ci_level": 0.95,
+      "equivalence_ci_level": 0.9,
+      "main_ci_level": 0.95
+    },
+    "holm_equivalence_adjusts_interval_level": false,
+    "ledger_alpha_per_look": 0.01,
+    "v4_capacity_clipped_to_0_1": true
+  },
+  "manual_edit_detectable": {
+    "confirmation.json / report.*": "no (unhashed)",
+    "confirmation_rows": "only via regeneration (no per-row hash)",
+    "frozen_config": "yes (re-hash on load)"
+  },
+  "regeneration_from_current_source": {
+    "max_abs_diff": 0.0,
+    "rows": [
+      {
+        "dM": 0.0,
+        "dN": 0.0,
+        "dNL": 0.0,
+        "key": "a901_i9001_m0.0_g0.0"
+      },
+      {
+        "dM": 0.0,
+        "dN": 0.0,
+        "dNL": 0.0,
+        "key": "a903_i9000_m0.5_g0.25"
+      },
+      {
+        "dM": 0.0,
+        "dN": 0.0,
+        "dNL": 0.0,
+        "key": "a902_i9001_m0.75_g0.0"
+      },
+      {
+        "dM": 0.0,
+        "dN": 0.0,
+        "dNL": 0.0,
+        "key": "a901_i9001_m0.75_g0.0"
+      },
+      {
+        "dM": 0.0,
+        "dN": 0.0,
+        "dNL": 0.0,
+        "key": "a900_i9000_m0.75_g0.0"
+      },
+      {
+        "dM": 0.0,
+        "dN": 0.0,
+        "dNL": 0.0,
+        "key": "a904_i9000_m0.5_g1.0"
+      }
+    ]
+  },
+  "section6_regenerated_from_current_source": {
+    "max_abs_diff_ols_and_ridge_curves": 0.0,
+    "same_verdict": true
+  }
+}

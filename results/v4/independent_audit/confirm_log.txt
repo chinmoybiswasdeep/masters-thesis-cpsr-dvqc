@@ -1,0 +1,34 @@
+=== V4 AUDIT ARTIFACTS ===
+  wrote results\v4\independent_audit\artifact_audit.json
+  regeneration max |diff| = 0.00e+00; rows 375/375; disjoint=True; tautological provenance=True
+=== V4 AUDIT CONFIRM ===
+  prereg 72885188a1a2 verified; confirmation bank (70000, 80000)..(70019, 80019)
+    [conf] 25/500 points  (42s)
+    [conf] 50/500 points  (84s)
+    [conf] 75/500 points  (123s)
+    [conf] 100/500 points  (164s)
+    [conf] 125/500 points  (203s)
+    [conf] 150/500 points  (250s)
+    [conf] 175/500 points  (290s)
+    [conf] 200/500 points  (326s)
+    [conf] 225/500 points  (368s)
+    [conf] 250/500 points  (408s)
+    [conf] 275/500 points  (451s)
+    [conf] 300/500 points  (489s)
+    [conf] 325/500 points  (536s)
+    [conf] 350/500 points  (575s)
+    [conf] 375/500 points  (616s)
+    [conf] 400/500 points  (654s)
+    [conf] 425/500 points  (699s)
+    [conf] 450/500 points  (741s)
+    [conf] 475/500 points  (783s)
+    [conf] 500/500 points  (809s)
+  wrote results\v4\independent_audit\section6_confirmation.json
+  wrote results\v4\independent_audit\classical_confirmation.json
+  wrote results\v4\independent_audit\gates.json
+  C1_structural              PASS
+  C2_resource_constrained    PASS
+  C3_intrinsic               FAIL
+  C4_combined                PASS
+  C5_quantum_specific        FAIL
+  OVERALL: V4 WORKS ONLY UNDER A RESOURCE-CONSTRAINED DEFINITION

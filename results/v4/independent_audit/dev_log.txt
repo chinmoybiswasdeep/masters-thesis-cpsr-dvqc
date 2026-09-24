@@ -1,0 +1,40 @@
+=== V4 AUDIT DEV ===
+  [1] encoder algebra + encoder-only capacity
+  wrote results\v4\independent_audit\encoder.json
+  [2] structural dependency + contaminated controls (100 draws each)
+  wrote results\v4\independent_audit\structure.json
+  [3] section 6: intrinsic nonlinear control vs ridge artifact
+  wrote results\v4\independent_audit\section6.json
+  [4] dev factorial: 10 seeds x 5x5
+    [dev] 25/250 points  (29s)
+    [dev] 50/250 points  (55s)
+    [dev] 75/250 points  (80s)
+    [dev] 100/250 points  (107s)
+    [dev] 125/250 points  (136s)
+    [dev] 150/250 points  (161s)
+    [dev] 175/250 points  (185s)
+    [dev] 200/250 points  (205s)
+    [dev] 225/250 points  (228s)
+    [dev] 250/250 points  (262s)
+      250 rows
+  [5] invalid controls
+  wrote results\v4\independent_audit\invalid_controls.json
+  [6] classical baseline at finite shots + Sunada finite-shot (dev)
+  wrote results\v4\independent_audit\classical_dev.json
+  [7] robustness conditions
+      baseline               dM=+0.369 dN=+0.990 dN_int_ols=+0.000 isoM=0.0e+00 isoN=0.0e+00 C1_HHadv=+0.219
+      longer_T3200           dM=+0.366 dN=+0.997 dN_int_ols=+0.000 isoM=0.0e+00 isoN=0.0e+00 C1_HHadv=+0.239
+      half_training          dM=+0.364 dN=+0.980 dN_int_ols=+0.000 isoM=0.0e+00 isoN=0.0e+00 C1_HHadv=+0.195
+      double_training        dM=+0.374 dN=+0.997 dN_int_ols=+0.000 isoM=0.0e+00 isoN=0.0e+00 C1_HHadv=+0.245
+      float32_readout        dM=+0.369 dN=+0.990 dN_int_ols=+0.000 isoM=0.0e+00 isoN=0.0e+00 C1_HHadv=+0.219
+      perturbed_controls     dM=+0.358 dN=+0.655 dN_int_ols=+0.000 isoM=0.0e+00 isoN=0.0e+00 C1_HHadv=+0.185
+      ridge_0.05             dM=+0.370 dN=+1.003 dN_int_ols=+0.000 isoM=0.0e+00 isoN=0.0e+00 C1_HHadv=+0.265
+      ridge_5.0              dM=+0.355 dN=+0.875 dN_int_ols=+0.000 isoM=0.0e+00 isoN=0.0e+00 C1_HHadv=+0.143
+      delay_range_12         dM=+0.244 dN=+0.990 dN_int_ols=+0.000 isoM=0.0e+00 isoN=0.0e+00 C1_HHadv=+0.130
+      degree_6               dM=+0.369 dN=+0.990 dN_int_ols=+0.000 isoM=0.0e+00 isoN=0.0e+00 C1_HHadv=+0.219
+      shots_1000             dM=+0.273 dN=+0.618 dN_int_ols=+0.154 isoM=0.0e+00 isoN=0.0e+00 C1_HHadv=-0.012
+      shots_10000            dM=+0.348 dN=+0.816 dN_int_ols=+0.134 isoM=0.0e+00 isoN=0.0e+00 C1_HHadv=+0.026
+      ibm_noise_FakeTorino   dM=+0.314 dN=+0.719 dN_int_ols=+0.144 isoM=0.0e+00 isoN=0.0e+00 C1_HHadv=+0.151
+  wrote results\v4\independent_audit\robustness.json
+  wrote results\v4\independent_audit\dev_gates.json
+  DEV done in 3347s
