@@ -1,0 +1,34 @@
+{
+  "all_detected": true,
+  "feature_count_changes": {
+    "detected": true,
+    "detector": "feature-count invariance"
+  },
+  "g_into_R": {
+    "detected": true,
+    "detector": "structural dependency test"
+  },
+  "leak_targets": {
+    "detected": true,
+    "detector": "R-only delayed-nonlinear class + future sentinel",
+    "evidence": {
+      "R_C2_excess": 0.9979720748535791,
+      "future": {
+        "max_excess_over_null99": 0.996855587984579,
+        "ok": false
+      }
+    }
+  },
+  "m_into_P": {
+    "detected": true,
+    "detector": "structural dependency test"
+  },
+  "reuse_train_as_test": {
+    "detected": true,
+    "detector": "split integrity"
+  },
+  "serial": {
+    "detected": true,
+    "detector": "structural dependency test"
+  }
+}

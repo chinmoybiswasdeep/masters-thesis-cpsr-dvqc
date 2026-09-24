@@ -1,0 +1,210 @@
+{
+  "payload": {
+    "alpha": 0.01,
+    "alpha_ledger": {
+      "before_v6": [
+        0.01,
+        0.01,
+        0.01
+      ],
+      "cumulative": 0.04,
+      "v6_attempts": [
+        0.01
+      ]
+    },
+    "attempt": 1,
+    "confirmation_seeds": [
+      [
+        110000,
+        115000
+      ],
+      [
+        110001,
+        115001
+      ],
+      [
+        110002,
+        115002
+      ],
+      [
+        110003,
+        115003
+      ],
+      [
+        110004,
+        115004
+      ],
+      [
+        110005,
+        115005
+      ],
+      [
+        110006,
+        115006
+      ],
+      [
+        110007,
+        115007
+      ],
+      [
+        110008,
+        115008
+      ],
+      [
+        110009,
+        115009
+      ],
+      [
+        110010,
+        115010
+      ],
+      [
+        110011,
+        115011
+      ],
+      [
+        110012,
+        115012
+      ],
+      [
+        110013,
+        115013
+      ],
+      [
+        110014,
+        115014
+      ],
+      [
+        110015,
+        115015
+      ],
+      [
+        110016,
+        115016
+      ],
+      [
+        110017,
+        115017
+      ],
+      [
+        110018,
+        115018
+      ],
+      [
+        110019,
+        115019
+      ]
+    ],
+    "created_utc": "2026-09-24T23:36:27Z",
+    "dev_gates_sha256": "153855de1ce8781b24caee539f7934756df8965e8ccabac42cc9d57c37bc656e",
+    "n_previously_used_seeds": 9310,
+    "prereg_sha256": "2054fa1083bef9ff4ca547ec4c7be675e692b3ec7b70d68abb146929d420d64e",
+    "rationale": "RE-DRAW 1 of the V6.6 design on fresh sentinel-calibration block 3 (user decision: keep the 0.016 margin, re-draw; selection on noise, disclosed). Spec identical to V6.6.",
+    "robustness_seeds": [
+      [
+        110000,
+        115000
+      ],
+      [
+        110001,
+        115001
+      ],
+      [
+        110002,
+        115002
+      ],
+      [
+        110003,
+        115003
+      ],
+      [
+        110004,
+        115004
+      ],
+      [
+        110005,
+        115005
+      ],
+      [
+        110006,
+        115006
+      ],
+      [
+        110007,
+        115007
+      ],
+      [
+        110008,
+        115008
+      ],
+      [
+        110009,
+        115009
+      ]
+    ],
+    "source_sha256": {
+      "code/decoupled_qrc/audit_checks.py": "9c0d901857af2ee9745072e9aee801da8cbdac4fe74bd3ad50a8039a6f694e03",
+      "code/decoupled_qrc/audit_ipc.py": "94ccda6c7ca9c2ec95815d9bc2297cd252411ff0ffe3040c318fe2351d987c61",
+      "code/decoupled_qrc/v5_architecture.py": "fad053ae6ccdee94974358f4cb2619c2491c17e617e8af119ca9a466897ce2a0",
+      "code/decoupled_qrc/v6_algebra.py": "dfacf1cba9d1c815d0349f99732a03507ef91ef2fda45aa03579248f2170c33e",
+      "code/decoupled_qrc/v6_architecture.py": "a90510c0ed44b61c673bca5f778c6cec7c3c31a554af4dc29e99366d6031db23",
+      "code/decoupled_qrc/v6_core.py": "0cc5013618809b6b35d73d3cdbebe2235fa685da27fa50eccdcc8ce031bbc64e",
+      "code/decoupled_qrc/v6_gates.py": "1eb7e98a6948a6ffc77fc54d0d10da9b4c201c712442891a6a2bd5da4ccb7865",
+      "code/run_v6_stage.py": "9eb9adc3a232e2cca5520d71b7e588bffc3bb926f317dad94edb5f14c803074c"
+    },
+    "spec": {
+      "J_rails": [
+        2
+      ],
+      "L_Q": 2,
+      "L_R": 10,
+      "chiW_max": null,
+      "chiW_power": 1,
+      "chi_max": -0.9424777960769379,
+      "chi_max_over_pi": -0.3,
+      "joint": "u2",
+      "pQ_max": 0.7,
+      "pR_max": 0.7,
+      "phi": 0.7853981633974483,
+      "phiJ": 0.7853981633974483,
+      "phiQ": 0.7853981633974483,
+      "phiRP": 1.5707963267948966,
+      "phiW": null,
+      "q_pairs": [],
+      "r_pairs": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "rails_Q": [
+        1,
+        2
+      ],
+      "rails_R": [
+        2,
+        4,
+        6,
+        8,
+        10
+      ],
+      "shots": 10000,
+      "stride_Q": 1,
+      "stride_R": 2,
+      "thetaJ_max": 1.413716694115407,
+      "thetaQ_max": 1.2566370614359172,
+      "thetaQ_max_over_pi": 0.4,
+      "thetaRP_max": 1.2566370614359172,
+      "thetaW_max": null,
+      "theta_max": 0.37699111843077515,
+      "theta_max_over_pi": 0.12
+    },
+    "test_log_sha256": "bb7458b328b5053232d8ddd23a2f873051db80714088d6bbe0448f2d6240bfce",
+    "version": "V6.7"
+  },
+  "sha256": "01b183eb83c98dfe0f9e3c837e8d88f8103e61b4289a4b86f608ffb77a3f8381"
+}

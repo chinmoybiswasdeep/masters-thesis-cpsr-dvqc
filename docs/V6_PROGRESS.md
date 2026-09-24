@@ -50,7 +50,31 @@ Long-sequence check (T = 40 000), from `results/v6/algebra/V5.4.json`:
 | V6.0 | PROBE | rejected | ΔN = 0.027: the P1 part of u³ dominates the processor output. The P2 content of the Q write is non-monotone in g. |
 | V6.1 | PROBE | rejected | C3 HH 0.013 < HL 0.082: products of the nonlinear write lose their P1P1 part as g grows (structural). |
 | V6.2 | DEVGATES | rejected | All 26 gates pass on dev seeds, but two freeze margins fail. C4's HH advantage is 0.044 < 0.05 under OLS. The perturbed-controls robustness condition fails, with worst HH advantage −0.178. |
-| V6.3 | DEVGATES | running | V6.2 with two changes: the g² writer cubic mapping, and a declared readout budget of 10⁴ shots |
+| V6.3 | DEVGATES | rejected | Every gate and margin passes, including 38/38 robustness conditions, except two. The future sentinel reaches 0.0257 (one row) and the gate-15 max-member statistic 0.0219. Cause: 46 full-rank noisy features. |
+| V6.4 | SENTCAL | rejected | 22 features; maximum excess 0.0168 > 0.016 dev margin |
+| V6.5 | SENTCAL | rejected | 18 features; 0.0162 > 0.016 |
+| V6.6 | SENTCAL | rejected | 11 features, pure-product combined route; all class margins met on the quick dev check; 0.0176 from one future-sentinel row |
+| V6.7+ | SENTCAL | re-draws | The V6.6 design, unchanged, on fresh dev blocks 3–8 (user decision). |
+
+### Decisions and amendments after V6.3
+
+- **gates_amendment_01 (hashed):** the gate-15 empirical check now compares
+  class scores (mean member), as the preregistered text says. The previous
+  max-member statistic stays reported as a diagnostic. The discrepancy was found
+  while diagnosing V6.3, and this is disclosed. Sentinels 17 and 18 are unchanged.
+- **Dev sentinel margin:** fixed before V6.4. Over 500 extra dev rows, no row may
+  exceed 0.02 and the maximum excess must be ≤ 0.016.
+- **The margin behaves like chance:** input-independent AR(0.9) features reach
+  0.0171 at 18 features. Pooled across designs, about 1 row in 500 exceeds 0.016,
+  always from a single chance draw of an independent sentinel target. So a
+  500-row block passes about 37% of the time whatever the design.
+- **Minimum design size:** 10-feature variants miss class margins, so 11 features
+  is the minimum.
+- **User decision 1:** keep the 0.016 margin and keep searching.
+- **User decision 2:** re-draw the V6.6 design on fresh dev blocks until one
+  passes. Any resulting freeze is **selection on noise for this margin** and is
+  labelled so in every report. The preregistered confirmation gates are
+  unaffected.
 
 ### The V6.2 → V6.3 diagnosis
 

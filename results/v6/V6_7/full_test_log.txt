@@ -1,0 +1,25 @@
+COMMAND: python -m pytest tests/ -q
+exit_code=0 runtime_s=818
+--- STDOUT ---
+........................................................................ [ 10%]
+........................................................................ [ 21%]
+........................................................................ [ 32%]
+........................................................................ [ 43%]
+........................................................................ [ 54%]
+........................................................................ [ 65%]
+........................................................................ [ 76%]
+........................................................................ [ 87%]
+........................................................................ [ 98%]
+............                                                             [100%]
+============================== warnings summary ===============================
+tests/test_discovery_sampling.py::test_sobol_non_power_of_two_count
+tests/test_run_stages.py::test_discovery_stage_visits_exactly_n_points_with_unique_discovery_seeds
+tests/test_run_stages.py::test_discovery_stage_records_both_valid_and_invalid_points
+tests/test_run_stages.py::test_discovery_then_confirmation_never_naturally_overlap
+  D:\Research\QML\results_1\dvqc\masters-thesis-cpsr-dvqc\tests\..\code\decoupled_qrc\discovery_sampling.py:27: UserWarning: The balance properties of Sobol' points require n to be a power of 2.
+    pts = sampler.random_base2(m=m) if 2 ** m == n_points else sampler.random(n_points)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+660 passed, 4 warnings in 816.11s (0:13:36)
+
+--- STDERR ---

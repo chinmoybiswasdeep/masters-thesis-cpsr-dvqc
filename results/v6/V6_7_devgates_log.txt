@@ -1,0 +1,80 @@
+=== V6 ALGEBRA V6.7 ===
+  wrote results\v6\algebra\V6.7.json
+  V6.7 V6_C1                  m1g1 reachable     max +0.9385 | m0g1 +0.0001 | m1g0 +0.0001
+  V6.7 V6_C2                  m1g1 reachable     max +0.5932 | m0g1 -0.0003 | m1g0 +0.0001
+  V6.7 V6_C3                  m1g1 reachable     max +0.9289 | m0g1 +0.0001 | m1g0 +0.0006
+  V6.7 V6_C4                  m1g1 reachable     max +0.3357 | m0g1 +0.0000 | m1g0 -0.0002
+  V6.7 SENTINEL_unreachable   m1g1 unreachable   max -0.0000 | m0g1 +0.0000 | m1g0 -0.0003
+  affine at g=0: [True, True, True]  at g=1: False  -> ALGEBRA PASS
+=== V6 DEVGATES V6.7 ===
+  wrote results\v6\V6_7\structure.json
+  wrote results\v6\V6_7\section6.json
+  section 6: CONTINUOUS INTRINSIC NONLINEAR CONTROL HOLDS
+    [dev] 25/250 points (25s)
+    [dev] 50/250 points (50s)
+    [dev] 75/250 points (77s)
+    [dev] 100/250 points (102s)
+    [dev] 125/250 points (128s)
+    [dev] 150/250 points (154s)
+    [dev] 175/250 points (180s)
+    [dev] 200/250 points (208s)
+    [dev] 225/250 points (235s)
+    [dev] 250/250 points (262s)
+  wrote results\v6\V6_7\invalid_controls.json
+  robustness (5 dev seeds):
+      baseline               worst effect +0.266  worst HH adv +0.109  iso True  sat True  -> ok
+      longer_T3200           worst effect +0.268  worst HH adv +0.103  iso True  sat True  -> ok
+      half_training          worst effect +0.271  worst HH adv +0.100  iso True  sat True  -> ok
+      double_training        worst effect +0.263  worst HH adv +0.104  iso True  sat True  -> ok
+      float32_readout        worst effect +0.266  worst HH adv +0.109  iso True  sat True  -> ok
+      perturbed_controls     worst effect +0.259  worst HH adv +0.105  iso True  sat True  -> ok
+      ridge_0.05             worst effect +0.266  worst HH adv +0.109  iso True  sat True  -> ok
+      ridge_5.0              worst effect +0.266  worst HH adv +0.109  iso True  sat True  -> ok
+      delay_range_12         worst effect +0.180  worst HH adv +0.109  iso True  sat True  -> ok
+      degree_6               worst effect +0.266  worst HH adv +0.109  iso True  sat True  -> ok
+      shots_1000             worst effect +0.260  worst HH adv +0.093  iso True  sat True  -> ok
+      shots_10000            worst effect +0.266  worst HH adv +0.109  iso True  sat True  -> ok
+      shots_100000           worst effect +0.238  worst HH adv +0.111  iso True  sat True  -> ok
+      pR_max_x0.9            worst effect +0.229  worst HH adv +0.103  iso True  sat True  -> ok
+      pR_max_x1.1            worst effect +0.272  worst HH adv +0.109  iso True  sat True  -> ok
+      theta_max_x0.9         worst effect +0.266  worst HH adv +0.113  iso True  sat True  -> ok
+      theta_max_x1.1         worst effect +0.266  worst HH adv +0.096  iso True  sat True  -> ok
+      chi_max_x0.9           worst effect +0.216  worst HH adv +0.087  iso True  sat True  -> ok
+      chi_max_x1.1           worst effect +0.266  worst HH adv +0.113  iso True  sat True  -> ok
+      phi_x0.9               worst effect +0.233  worst HH adv +0.088  iso True  sat True  -> ok
+      phi_x1.1               worst effect +0.266  worst HH adv +0.113  iso True  sat True  -> ok
+      pQ_max_x0.9            worst effect +0.266  worst HH adv +0.111  iso True  sat True  -> ok
+      pQ_max_x1.1            worst effect +0.266  worst HH adv +0.109  iso True  sat True  -> ok
+      thetaQ_max_x0.9        worst effect +0.266  worst HH adv +0.109  iso True  sat True  -> ok
+      thetaQ_max_x1.1        worst effect +0.266  worst HH adv +0.109  iso True  sat True  -> ok
+      phiQ_x0.9              worst effect +0.266  worst HH adv +0.109  iso True  sat True  -> ok
+      phiQ_x1.1              worst effect +0.266  worst HH adv +0.109  iso True  sat True  -> ok
+      ibm_noise_FakeTorino   worst effect +0.269  worst HH adv +0.113  iso True  sat True  -> ok
+      exact_expectations_perturbed_controls worst effect +0.204  worst HH adv -0.001  iso True  sat True  -> FAIL
+  wrote results\v6\V6_7\robustness_dev.json
+  wrote results\v6\V6_7\dev_gates.json
+  PASS  01_main_m_M
+  PASS  02_main_g_N
+  PASS  03_cross_m_N_equivalent
+  PASS  04_cross_g_M_equivalent
+  PASS  05_cross_main_ratio
+  PASS  06_degree_profile_under_m
+  PASS  07_memory_curve_under_g
+  PASS  08_separation_ols_raw
+  PASS  09_separation_ols_std
+  PASS  10_separation_ridge
+  PASS  11_interior_effects
+  PASS  11b_section6_intrinsic_P
+  PASS  12_combined_C1_C4_all_pass
+  PASS  13_HH_best_every_class
+  PASS  14_feature_counts_invariant
+  PASS  15_no_encoder_leakage
+  PASS  16_no_saturation
+  PASS  17_future_sentinel_null
+  PASS  18_unreachable_sentinel_null
+  PASS  19_isolation_and_contaminated_controls
+  PASS  20_invalid_controls_detected
+  PASS  21_seed_reproducibility
+  PASS  26_unit_tests_pass
+  margins failing: none
+  FREEZE CRITERION: MET

@@ -275,7 +275,7 @@ PROGRESS = ROOT / "results" / "v6_progress.json"
 def v6_versions() -> dict:
     """Every V6 candidate, specified BEFORE it is evaluated. Never edited after use."""
     from decoupled_qrc.v6_architecture import V6Spec
-    return {
+    out = {
         "V6.0": {"spec": V6Spec(),
                  "rationale": "R = V5.4 memory (L16, stride 2, p 0.7); P = 3-copy processor, one "
                               "observable, degrees 1-3 mixed by g (theta 0.38 pi, chi 0.30 pi, "
@@ -378,6 +378,17 @@ def v6_versions() -> dict:
                               "check (3 seeds): HH advantage C1 .089 C2 .120 C3 .058 C4 .066, support "
                               "+.08..+.15; M interior .27 (tau 8) / .18 (tau 12). Fresh cal block 2."},
     }
+    # V6.6 rejected at SENTCAL (0.0176, one future-sentinel row). 10-feature variants miss class
+    # margins, so 11 features is the minimum. Pooled: ~1 row in 500 exceeds 0.016 for any design.
+    # The user chose to keep the 0.016 margin and RE-DRAW the V6.6 design on fresh dev blocks
+    # until one passes. These versions are identical to V6.6; any freeze is labelled as
+    # selection on noise in every report.
+    for k, vid in enumerate(("V6.7", "V6.8", "V6.9", "V6.10", "V6.11", "V6.12")):
+        out[vid] = {"spec": out["V6.6"]["spec"],
+                    "rationale": f"RE-DRAW {k + 1} of the V6.6 design on fresh sentinel-calibration "
+                                 f"block {3 + k} (user decision: keep the 0.016 margin, re-draw; "
+                                 f"selection on noise, disclosed). Spec identical to V6.6."}
+    return out
 
 
 def registry() -> list:
@@ -861,7 +872,9 @@ def stage_report(version: str):
 # =============================================================================
 # SENTCAL -- development-only sentinel calibration at confirmation size
 # =============================================================================
-CAL_BLOCK = {"V6.4": 0, "V6.5": 1, "V6.6": 2}   # a FRESH 500-row dev block per version (no reuse)
+CAL_BLOCK = {"V6.4": 0, "V6.5": 1, "V6.6": 2,
+             # user-authorised re-draws of the V6.6 design (selection on noise; disclosed)
+             "V6.7": 3, "V6.8": 4, "V6.9": 5, "V6.10": 6, "V6.11": 7, "V6.12": 8}   # a FRESH 500-row dev block per version (no reuse)
 
 
 def cal_seeds(block: int) -> list:

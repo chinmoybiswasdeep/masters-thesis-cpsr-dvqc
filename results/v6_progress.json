@@ -55,14 +55,30 @@
       "diagnosis": "decision needed on the dev calibration margin",
       "next_command": "see docs/V6_PROGRESS.md",
       "utc": "2026-09-24T17:58:32Z"
+    },
+    {
+      "version": "V6.7",
+      "stage": "DEVGATES",
+      "status": "freeze criterion met",
+      "diagnosis": "see dev_gates.json",
+      "next_command": "python run_v6_stage.py --stage FREEZE --version V6.7",
+      "utc": "2026-09-24T23:35:49Z"
+    },
+    {
+      "version": "V6.7",
+      "stage": "FREEZE",
+      "status": "frozen, attempt 1, alpha 0.01",
+      "diagnosis": "",
+      "next_command": "python run_v6_stage.py --stage CONFIRM --version V6.7",
+      "utc": "2026-09-24T23:36:27Z"
     }
   ],
   "current": {
-    "version": "V6.5",
-    "stage": "SENTCAL",
-    "status": "rejected; dev sentinel margin shown to be below the pure-null chance floor",
-    "diagnosis": "decision needed on the dev calibration margin",
-    "next_command": "see docs/V6_PROGRESS.md",
-    "utc": "2026-09-24T17:58:32Z"
+    "version": "V6.7",
+    "stage": "FREEZE",
+    "status": "frozen, attempt 1, alpha 0.01",
+    "diagnosis": "",
+    "next_command": "python run_v6_stage.py --stage CONFIRM --version V6.7",
+    "utc": "2026-09-24T23:36:27Z"
   }
 }
