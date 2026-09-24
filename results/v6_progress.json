@@ -23,14 +23,22 @@
       "diagnosis": "see dev_gates.json",
       "next_command": "python run_v6_stage.py --stage DIAGNOSE --version V6.2",
       "utc": "2026-09-24T16:17:36Z"
+    },
+    {
+      "version": "V6.2",
+      "stage": "DEVGATES",
+      "status": "rejected (freeze margins)",
+      "diagnosis": "combined classes switch on at g=0+ under OLS; need composition-graded combined features",
+      "next_command": "design V6.3",
+      "utc": "2026-09-24T16:54:29Z"
     }
   ],
   "current": {
     "version": "V6.2",
     "stage": "DEVGATES",
-    "status": "freeze criterion NOT met",
-    "diagnosis": "see dev_gates.json",
-    "next_command": "python run_v6_stage.py --stage DIAGNOSE --version V6.2",
-    "utc": "2026-09-24T16:17:36Z"
+    "status": "rejected (freeze margins)",
+    "diagnosis": "combined classes switch on at g=0+ under OLS; need composition-graded combined features",
+    "next_command": "design V6.3",
+    "utc": "2026-09-24T16:54:29Z"
   }
 }
