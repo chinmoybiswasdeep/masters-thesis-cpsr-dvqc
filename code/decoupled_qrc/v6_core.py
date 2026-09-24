@@ -143,10 +143,13 @@ def classical_blocks(f: dict) -> dict:
            plus exactly the products of marginals that correspond to each quantum
            joint observable (J_r <-> zR_r * fY ;  Q pair (a,b) <-> zQ_a * zQ_b).
     CLS_F: marginals plus EVERY same-time degree-2 product of marginals."""
-    marg = np.hstack([f["R"], f["P"], f["PY"], f["Qz"]])
+    rp = sorted({i for pr in f.get("R_pairs_rails_idx", []) for i in pr})
+    marg = np.hstack([f["R"], f["P"], f["PY"], f["Qz"]] + ([f["Rall"][:, rp]] if rp else []))
     prods = [f["R"] * f["PY"]]
     for a, b in f["Q_pairs_rails_idx"]:
         prods.append((f["Qall"][:, a] * f["Qall"][:, b])[:, None])
+    for a, b in f.get("R_pairs_rails_idx", []):
+        prods.append((f["Rall"][:, a] * f["Rall"][:, b])[:, None])
     cls_m = np.hstack([f["R"], f["P"], np.hstack(prods), f["Qz"]])
     iu = np.triu_indices(marg.shape[1])
     cls_f = np.hstack([marg, (marg[:, :, None] * marg[:, None, :])[:, iu[0], iu[1]]])

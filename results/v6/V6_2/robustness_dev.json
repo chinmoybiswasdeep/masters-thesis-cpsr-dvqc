@@ -1,0 +1,2394 @@
+{
+  "baseline": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.22778288682220585,
+      "V6_C1|ols_std": 0.22778288682220596,
+      "V6_C1|ridge": 0.23065779348461554,
+      "V6_C2|ols_raw": 0.7345922825956888,
+      "V6_C2|ols_std": 0.7345922825956887,
+      "V6_C2|ridge": 0.7354542159222539,
+      "V6_C3|ols_raw": 0.8016632689349149,
+      "V6_C3|ols_std": 0.8016632689349148,
+      "V6_C3|ridge": 0.8020520179124664,
+      "V6_C4|ols_raw": 0.16365123191814346,
+      "V6_C4|ols_std": 0.16365123191814337,
+      "V6_C4|ridge": 0.16593429870527845
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.16365123191814337
+  },
+  "chiW_max_x0.9": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.22737371472884618,
+      "V6_C1|ols_std": 0.22737371472884618,
+      "V6_C1|ridge": 0.230267812453202,
+      "V6_C2|ols_raw": 0.7447147320965025,
+      "V6_C2|ols_std": 0.7447147320965025,
+      "V6_C2|ridge": 0.7455780472824876,
+      "V6_C3|ols_raw": 0.8032055517959235,
+      "V6_C3|ols_std": 0.8032055517959235,
+      "V6_C3|ridge": 0.8035840011552554,
+      "V6_C4|ols_raw": 0.13383131337790447,
+      "V6_C4|ols_std": 0.1338313133779045,
+      "V6_C4|ridge": 0.13622435058350904
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.13383131337790447
+  },
+  "chiW_max_x1.1": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.22819142081194477,
+      "V6_C1|ols_std": 0.2281914208119449,
+      "V6_C1|ridge": 0.2310534508526011,
+      "V6_C2|ols_raw": 0.7210546847359991,
+      "V6_C2|ols_std": 0.7210546847359991,
+      "V6_C2|ridge": 0.7219272282228119,
+      "V6_C3|ols_raw": 0.8004745112170868,
+      "V6_C3|ols_std": 0.8004745112170867,
+      "V6_C3|ridge": 0.8008745564162735,
+      "V6_C4|ols_raw": 0.19392402191298524,
+      "V6_C4|ols_std": 0.19392402191298533,
+      "V6_C4|ridge": 0.1961170410930512
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.19392402191298524
+  },
+  "chi_max_x0.9": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.21693119536763947,
+      "dN_interior_ols_std": 0.21693119536763944,
+      "dN_interior_ridge": 0.2169375697760195,
+      "dN_ols_raw": 0.2398195184134971,
+      "dN_ols_std": 0.23981951841349702,
+      "dN_ridge": 0.2398242280555792
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.1820099726580041,
+      "V6_C1|ols_std": 0.18200997265800417,
+      "V6_C1|ridge": 0.18480374989089102,
+      "V6_C2|ols_raw": 0.73464229147215,
+      "V6_C2|ols_std": 0.7346422914721499,
+      "V6_C2|ridge": 0.7354038965118294,
+      "V6_C3|ols_raw": 0.8019277374896205,
+      "V6_C3|ols_std": 0.8019277374896205,
+      "V6_C3|ridge": 0.8022321377768109,
+      "V6_C4|ols_raw": 0.16352239913292912,
+      "V6_C4|ols_std": 0.16352239913292915,
+      "V6_C4|ridge": 0.16559823105499102
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.23752602785444962,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.23752602785444962,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.237530989150422,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.16352239913292912
+  },
+  "chi_max_x1.1": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2921941553526729,
+      "dN_interior_ols_std": 0.2921941553526729,
+      "dN_interior_ridge": 0.2921955093558948,
+      "dN_ols_raw": 0.3274039749992719,
+      "dN_ols_std": 0.32740397499927176,
+      "dN_ridge": 0.32740353590393584
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.2343230032802005,
+      "V6_C1|ols_std": 0.23432300328020034,
+      "V6_C1|ridge": 0.23737785650860843,
+      "V6_C2|ols_raw": 0.7345114816187372,
+      "V6_C2|ols_std": 0.734511481618737,
+      "V6_C2|ridge": 0.7354286044921501,
+      "V6_C3|ols_raw": 0.8015802510786989,
+      "V6_C3|ols_std": 0.8015802510786989,
+      "V6_C3|ridge": 0.8020217047674746,
+      "V6_C4|ols_raw": 0.16344118202650218,
+      "V6_C4|ols_std": 0.16344118202650235,
+      "V6_C4|ridge": 0.16595739751456742
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.32511048444022433,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.32511048444022433,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.3251102969987785,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.16344118202650218
+  },
+  "degree_6": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.22778288682220585,
+      "V6_C1|ols_std": 0.22778288682220596,
+      "V6_C1|ridge": 0.23065779348461554,
+      "V6_C2|ols_raw": 0.7345922825956888,
+      "V6_C2|ols_std": 0.7345922825956887,
+      "V6_C2|ridge": 0.7354542159222539,
+      "V6_C3|ols_raw": 0.8016632689349149,
+      "V6_C3|ols_std": 0.8016632689349148,
+      "V6_C3|ridge": 0.8020520179124664,
+      "V6_C4|ols_raw": 0.16365123191814346,
+      "V6_C4|ols_std": 0.16365123191814337,
+      "V6_C4|ridge": 0.16593429870527845
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.16365123191814337
+  },
+  "delay_range_12": {
+    "effects": {
+      "dM_interior_ols_raw": 0.17427454804763864,
+      "dM_interior_ols_std": 0.17427454804763645,
+      "dM_interior_ridge": 0.2581653240434888,
+      "dM_ols_raw": 0.49502541141232576,
+      "dM_ols_std": 0.49502541141232576,
+      "dM_ridge": 0.49414526768761585,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.22778288682220585,
+      "V6_C1|ols_std": 0.22778288682220596,
+      "V6_C1|ridge": 0.23065779348461554,
+      "V6_C2|ols_raw": 0.7345922825956888,
+      "V6_C2|ols_std": 0.7345922825956887,
+      "V6_C2|ridge": 0.7354542159222539,
+      "V6_C3|ols_raw": 0.8016632689349149,
+      "V6_C3|ols_std": 0.8016632689349149,
+      "V6_C3|ridge": 0.8020520179124664,
+      "V6_C4|ols_raw": 0.16365123191814346,
+      "V6_C4|ols_std": 0.16365123191814337,
+      "V6_C4|ridge": 0.16593429870527845
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.4934719778404802,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.4934719778404802,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.4925918341157702,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.17427454804763645,
+    "worst_hh_advantage": 0.16365123191814337
+  },
+  "double_training": {
+    "effects": {
+      "dM_interior_ols_raw": 0.15393566362894479,
+      "dM_interior_ols_std": 0.15393566362894992,
+      "dM_interior_ridge": 0.2139290468760325,
+      "dM_ols_raw": 0.5267280413262829,
+      "dM_ols_std": 0.5267280413262829,
+      "dM_ridge": 0.526772655084561,
+      "dN_interior_ols_raw": 0.27188709798987376,
+      "dN_interior_ols_std": 0.27188709798987376,
+      "dN_interior_ridge": 0.27188834456421795,
+      "dN_ols_raw": 0.30000252693801566,
+      "dN_ols_std": 0.30000252693801566,
+      "dN_ridge": 0.3000030849477238
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.25509472919524123,
+      "V6_C1|ols_std": 0.25509472919524107,
+      "V6_C1|ridge": 0.2553164835011981,
+      "V6_C2|ols_raw": 0.7462124687049728,
+      "V6_C2|ols_std": 0.7462124687049728,
+      "V6_C2|ridge": 0.7465115975097564,
+      "V6_C3|ols_raw": 0.803683071585085,
+      "V6_C3|ols_std": 0.8036830715850848,
+      "V6_C3|ridge": 0.8038554799086723,
+      "V6_C4|ols_raw": 0.160718098043245,
+      "V6_C4|ols_std": 0.16071809804324488,
+      "V6_C4|ridge": 0.16146338186827608
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5243008161418609,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5243008161418609,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.524345429900139,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.294288209442968,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.294288209442968,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.2942897421303819,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.15393566362894479,
+    "worst_hh_advantage": 0.16071809804324488
+  },
+  "float32_readout": {
+    "effects": {
+      "dM_interior_ols_raw": 0.16336562149171718,
+      "dM_interior_ols_std": 0.16336580869262712,
+      "dM_interior_ridge": 0.23037675413747669,
+      "dM_ols_raw": 0.5220491156586016,
+      "dM_ols_std": 0.5220491155813483,
+      "dM_ridge": 0.5222801334333527,
+      "dN_interior_ols_raw": 0.273872456740745,
+      "dN_interior_ols_std": 0.2738724570155139,
+      "dN_interior_ridge": 0.2738774804275537,
+      "dN_ols_raw": 0.30219978764562383,
+      "dN_ols_std": 0.3021997882851326,
+      "dN_ridge": 0.3022030592698872
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.22887048110420946,
+      "V6_C1|ols_std": 0.22893067729557515,
+      "V6_C1|ridge": 0.23065778489150887,
+      "V6_C2|ols_raw": 0.7162089785793938,
+      "V6_C2|ols_std": 0.7345922396329752,
+      "V6_C2|ridge": 0.7354541721565074,
+      "V6_C3|ols_raw": 0.8020511079795495,
+      "V6_C3|ols_std": 0.8020511195695992,
+      "V6_C3|ridge": 0.8020520126314045,
+      "V6_C4|ols_raw": 0.163651274513222,
+      "V6_C4|ols_std": 0.16365127811384927,
+      "V6_C4|ridge": 0.1659343425666218
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440165794625,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440165022092,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750343542135,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629746935,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.29990629765503235,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.2999098201272321,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336562149171718,
+    "worst_hh_advantage": 0.163651274513222
+  },
+  "half_training": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1661972536540969,
+      "dM_interior_ols_std": 0.16619725365409033,
+      "dM_interior_ridge": 0.24129485923056332,
+      "dM_ols_raw": 0.5279012009253393,
+      "dM_ols_std": 0.5279012009253393,
+      "dM_ridge": 0.5280916186348844,
+      "dN_interior_ols_raw": 0.2802741106970347,
+      "dN_interior_ols_std": 0.2802741106970347,
+      "dN_interior_ridge": 0.28026940941509454,
+      "dN_ols_raw": 0.30365114978027,
+      "dN_ols_std": 0.30365114978026997,
+      "dN_ridge": 0.3036497585127725
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.19530497856410314,
+      "V6_C1|ols_std": 0.1953049785641032,
+      "V6_C1|ridge": 0.20464959276738465,
+      "V6_C2|ols_raw": 0.7324095561088303,
+      "V6_C2|ols_std": 0.7324095561088303,
+      "V6_C2|ridge": 0.7347232735329889,
+      "V6_C3|ols_raw": 0.7870898805872635,
+      "V6_C3|ols_std": 0.7870898805872633,
+      "V6_C3|ridge": 0.7871436361569691,
+      "V6_C4|ols_raw": 0.14416541002047537,
+      "V6_C4|ols_std": 0.1441654100204756,
+      "V6_C4|ridge": 0.15229093540454622
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5258000034501056,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5258000034501056,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5259904211596508,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.3004568774689604,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.3004568774689604,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.30045888058753284,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16619725365409033,
+    "worst_hh_advantage": 0.14416541002047537
+  },
+  "ibm_noise_FakeTorino": {
+    "effects": {
+      "dM_interior_ols_raw": 0.2708572949529083,
+      "dM_interior_ols_std": 0.2708572949529081,
+      "dM_interior_ridge": 0.2708111208362937,
+      "dM_ols_raw": 0.4875755855682831,
+      "dM_ols_std": 0.48757558556828295,
+      "dM_ridge": 0.4874016815043728,
+      "dN_interior_ols_raw": 0.26921265452013504,
+      "dN_interior_ols_std": 0.2692126545201351,
+      "dN_interior_ridge": 0.2692175913685254,
+      "dN_ols_raw": 0.2973281526915161,
+      "dN_ols_std": 0.2973281526915162,
+      "dN_ridge": 0.2973315176730237
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.10277948474007026,
+      "V6_C1|ols_std": 0.10277948474007018,
+      "V6_C1|ridge": 0.10241140376469543,
+      "V6_C2|ols_raw": 0.5855518675674424,
+      "V6_C2|ols_std": 0.5855518675674424,
+      "V6_C2|ridge": 0.5850856064642105,
+      "V6_C3|ols_raw": 0.44505173366506695,
+      "V6_C3|ols_std": 0.4450517336650669,
+      "V6_C3|ridge": 0.44275516169062007,
+      "V6_C4|ols_raw": 0.15117271974001972,
+      "V6_C4|ols_std": 0.15117271974001975,
+      "V6_C4|ridge": 0.1508031410626776
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "note": "not required under noise",
+      "ok": true
+    },
+    "worst_effect": 0.26921265452013504,
+    "worst_hh_advantage": 0.10241140376469543
+  },
+  "longer_T3200": {
+    "effects": {
+      "dM_interior_ols_raw": 0.15813298324513428,
+      "dM_interior_ols_std": 0.15813298324513597,
+      "dM_interior_ridge": 0.21886145157791267,
+      "dM_ols_raw": 0.5306243972766902,
+      "dM_ols_std": 0.5306243972766902,
+      "dM_ridge": 0.5306393282119309,
+      "dN_interior_ols_raw": 0.275655899730625,
+      "dN_interior_ols_std": 0.275655899730625,
+      "dN_interior_ridge": 0.2756566474151996,
+      "dN_ols_raw": 0.3033553123619739,
+      "dN_ols_std": 0.3033553123619739,
+      "dN_ridge": 0.3033556320629406
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.26089378214930387,
+      "V6_C1|ols_std": 0.2608937821493037,
+      "V6_C1|ridge": 0.2613973766329677,
+      "V6_C2|ols_raw": 0.7478109159483932,
+      "V6_C2|ols_std": 0.7478109159483933,
+      "V6_C2|ridge": 0.7480997079345288,
+      "V6_C3|ols_raw": 0.8044528063210423,
+      "V6_C3|ols_std": 0.8044528063210423,
+      "V6_C3|ridge": 0.8046527874425257,
+      "V6_C4|ols_raw": 0.1676081374217502,
+      "V6_C4|ols_std": 0.1676081374217501,
+      "V6_C4|ridge": 0.16827068856950822
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5294732427432759,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5294732427432759,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5294881736785167,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29972614262382363,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.29972614262382363,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.299727234340097,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.15813298324513428,
+    "worst_hh_advantage": 0.1676081374217501
+  },
+  "pQ_max_x0.9": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.22676316677342256,
+      "V6_C1|ols_std": 0.22676316677342268,
+      "V6_C1|ridge": 0.23085764525520672,
+      "V6_C2|ols_raw": 0.7347414358546234,
+      "V6_C2|ols_std": 0.7347414358546233,
+      "V6_C2|ridge": 0.735934760821021,
+      "V6_C3|ols_raw": 0.8021891937783787,
+      "V6_C3|ols_std": 0.8021891937783786,
+      "V6_C3|ridge": 0.8029453320368094,
+      "V6_C4|ols_raw": 0.1632216149241045,
+      "V6_C4|ols_std": 0.1632216149241044,
+      "V6_C4|ridge": 0.16635517842431202
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.1632216149241044
+  },
+  "pQ_max_x1.1": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.22788274850333717,
+      "V6_C1|ols_std": 0.2278827485033371,
+      "V6_C1|ridge": 0.23058674925941525,
+      "V6_C2|ols_raw": 0.7346602483478436,
+      "V6_C2|ols_std": 0.7346602483478434,
+      "V6_C2|ridge": 0.7354384181532525,
+      "V6_C3|ols_raw": 0.8013824759809659,
+      "V6_C3|ols_std": 0.8013824759809659,
+      "V6_C3|ridge": 0.8016986004127059,
+      "V6_C4|ols_raw": 0.16434406242521768,
+      "V6_C4|ols_std": 0.16434406242521762,
+      "V6_C4|ridge": 0.1664434790870554
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.16434406242521762
+  },
+  "pR_max_x0.9": {
+    "effects": {
+      "dM_interior_ols_raw": 0.16255735634973803,
+      "dM_interior_ols_std": 0.16255735634973573,
+      "dM_interior_ridge": 0.22196488036250078,
+      "dM_ols_raw": 0.49130169242641186,
+      "dM_ols_std": 0.49130169242641186,
+      "dM_ridge": 0.49096719482336404,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.20789238951252165,
+      "V6_C1|ols_std": 0.20789238951252148,
+      "V6_C1|ridge": 0.21272456620703192,
+      "V6_C2|ols_raw": 0.728930006637042,
+      "V6_C2|ols_std": 0.7289300066370421,
+      "V6_C2|ridge": 0.7302806122452317,
+      "V6_C3|ols_raw": 0.7259444642968124,
+      "V6_C3|ols_std": 0.7259444642968123,
+      "V6_C3|ridge": 0.7231533339916357,
+      "V6_C4|ols_raw": 0.16451586281166392,
+      "V6_C4|ols_std": 0.16451586281166408,
+      "V6_C4|ridge": 0.16873791910503078
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.4896965937098288,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.48969659370982893,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.48936209610678105,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16255735634973573,
+    "worst_hh_advantage": 0.16451586281166392
+  },
+  "pR_max_x1.1": {
+    "effects": {
+      "dM_interior_ols_raw": 0.15864966771354175,
+      "dM_interior_ols_std": 0.15864966771354125,
+      "dM_interior_ridge": 0.23036493598715327,
+      "dM_ols_raw": 0.5465439557946155,
+      "dM_ols_std": 0.5465439557946155,
+      "dM_ridge": 0.5465725273064923,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.24087445400211507,
+      "V6_C1|ols_std": 0.24087445400211482,
+      "V6_C1|ridge": 0.2423566288288794,
+      "V6_C2|ols_raw": 0.7328417922916449,
+      "V6_C2|ols_std": 0.732841792291645,
+      "V6_C2|ridge": 0.7332564415596252,
+      "V6_C3|ols_raw": 0.8485524690407955,
+      "V6_C3|ols_std": 0.8485524690407954,
+      "V6_C3|ridge": 0.8488447377173495,
+      "V6_C4|ols_raw": 0.16177323513937403,
+      "V6_C4|ols_std": 0.16177323513937406,
+      "V6_C4|ridge": 0.16289141571448648
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5449388570780324,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5449388570780324,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5449674285899092,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.15864966771354125,
+    "worst_hh_advantage": 0.16177323513937403
+  },
+  "perturbed_controls": {
+    "effects": {
+      "dM_interior_ols_raw": 0.17276002706867993,
+      "dM_interior_ols_std": 0.17276002706868115,
+      "dM_interior_ridge": 0.23514241369631222,
+      "dM_ols_raw": 2.7206767513180696,
+      "dM_ols_std": 2.7206767513178045,
+      "dM_ridge": 0.7479270920756291,
+      "dN_interior_ols_raw": 0.2603578607809661,
+      "dN_interior_ols_std": 0.2603578607809661,
+      "dN_interior_ridge": 0.2603637538550459,
+      "dN_ols_raw": 0.28368660271366813,
+      "dN_ols_std": 0.2836866027136682,
+      "dN_ridge": 0.28369085841625846
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.2653659409581899,
+      "V6_C1|ols_std": 0.2653659409581897,
+      "V6_C1|ridge": 0.22806654923092787,
+      "V6_C2|ols_raw": 0.2472963460665341,
+      "V6_C2|ols_std": 0.24729634606653217,
+      "V6_C2|ridge": 0.6432598017722778,
+      "V6_C3|ols_raw": -0.0007706048827158529,
+      "V6_C3|ols_std": -0.0007706048827138545,
+      "V6_C3|ridge": 0.7371643852078537,
+      "V6_C4|ols_raw": -0.17824954859297504,
+      "V6_C4|ols_std": -0.17824954859296965,
+      "V6_C4|ridge": 0.11537641444945528
+    },
+    "isolated": true,
+    "passed": false,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.511544232109209,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.511544232109209,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5119057078134521,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.28158832955364693,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2815883295536469,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.2815927211468796,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.17276002706867993,
+    "worst_hh_advantage": -0.17824954859297504
+  },
+  "phiJ_x0.9": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.22778288682220638,
+      "V6_C1|ols_std": 0.22778288682220607,
+      "V6_C1|ridge": 0.23082784767931347,
+      "V6_C2|ols_raw": 0.7345922825956887,
+      "V6_C2|ols_std": 0.7345922825956888,
+      "V6_C2|ridge": 0.7354997042417354,
+      "V6_C3|ols_raw": 0.8016632689349149,
+      "V6_C3|ols_std": 0.8016632689349149,
+      "V6_C3|ridge": 0.8020886597133341,
+      "V6_C4|ols_raw": 0.16365123191814326,
+      "V6_C4|ols_std": 0.1636512319181432,
+      "V6_C4|ridge": 0.16606603614927432
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.1636512319181432
+  },
+  "phiJ_x1.1": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.227782886822206,
+      "V6_C1|ols_std": 0.22778288682220607,
+      "V6_C1|ridge": 0.2304902442746331,
+      "V6_C2|ols_raw": 0.7345922825956888,
+      "V6_C2|ols_std": 0.7345922825956887,
+      "V6_C2|ridge": 0.7354125283253958,
+      "V6_C3|ols_raw": 0.8016632689349149,
+      "V6_C3|ols_std": 0.8016632689349149,
+      "V6_C3|ridge": 0.8020203272418439,
+      "V6_C4|ols_raw": 0.16365123191814337,
+      "V6_C4|ols_std": 0.16365123191814362,
+      "V6_C4|ridge": 0.1658161839361049
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.16365123191814337
+  },
+  "phiQ_x0.9": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.22778288682220585,
+      "V6_C1|ols_std": 0.22778288682220596,
+      "V6_C1|ridge": 0.23065779348461554,
+      "V6_C2|ols_raw": 0.7345922825956888,
+      "V6_C2|ols_std": 0.7345922825956887,
+      "V6_C2|ridge": 0.7354542159222539,
+      "V6_C3|ols_raw": 0.8016632689349149,
+      "V6_C3|ols_std": 0.8016632689349148,
+      "V6_C3|ridge": 0.8020520179124664,
+      "V6_C4|ols_raw": 0.16365123191814346,
+      "V6_C4|ols_std": 0.16365123191814337,
+      "V6_C4|ridge": 0.16593429870527845
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.16365123191814337
+  },
+  "phiQ_x1.1": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.22778288682220585,
+      "V6_C1|ols_std": 0.22778288682220596,
+      "V6_C1|ridge": 0.23065779348461554,
+      "V6_C2|ols_raw": 0.7345922825956888,
+      "V6_C2|ols_std": 0.7345922825956887,
+      "V6_C2|ridge": 0.7354542159222539,
+      "V6_C3|ols_raw": 0.8016632689349149,
+      "V6_C3|ols_std": 0.8016632689349148,
+      "V6_C3|ridge": 0.8020520179124664,
+      "V6_C4|ols_raw": 0.16365123191814346,
+      "V6_C4|ols_std": 0.16365123191814337,
+      "V6_C4|ridge": 0.16593429870527845
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.16365123191814337
+  },
+  "phiW_x0.9": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.22737266114801474,
+      "V6_C1|ols_std": 0.22737266114801485,
+      "V6_C1|ridge": 0.23026794289353567,
+      "V6_C2|ols_raw": 0.7431269447558647,
+      "V6_C2|ols_std": 0.7431269447558647,
+      "V6_C2|ridge": 0.7439973556105396,
+      "V6_C3|ols_raw": 0.8032950500971284,
+      "V6_C3|ols_std": 0.8032950500971284,
+      "V6_C3|ridge": 0.8036732597316639,
+      "V6_C4|ols_raw": 0.13427198791880238,
+      "V6_C4|ols_std": 0.13427198791880263,
+      "V6_C4|ridge": 0.13666448707568976
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.13427198791880238
+  },
+  "phiW_x1.1": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.22819459636370135,
+      "V6_C1|ols_std": 0.22819459636370132,
+      "V6_C1|ridge": 0.2310563297014509,
+      "V6_C2|ols_raw": 0.7224142043636287,
+      "V6_C2|ols_std": 0.7224142043636289,
+      "V6_C2|ridge": 0.7232808782377493,
+      "V6_C3|ols_raw": 0.800421751514477,
+      "V6_C3|ols_std": 0.800421751514477,
+      "V6_C3|ridge": 0.8008222020190044,
+      "V6_C4|ols_raw": 0.19342031996449469,
+      "V6_C4|ols_std": 0.19342031996449482,
+      "V6_C4|ridge": 0.19561581818158075
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.19342031996449469
+  },
+  "phi_x0.9": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.23398104119886826,
+      "dN_interior_ols_std": 0.2339810411988683,
+      "dN_interior_ridge": 0.23398736466029865,
+      "dN_ols_raw": 0.25447568036770357,
+      "dN_ols_std": 0.2544756803677036,
+      "dN_ridge": 0.25448033998457964
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.19812786980164085,
+      "V6_C1|ols_std": 0.19812786980164063,
+      "V6_C1|ridge": 0.20094954346942628,
+      "V6_C2|ols_raw": 0.7346332050366088,
+      "V6_C2|ols_std": 0.7346332050366089,
+      "V6_C2|ridge": 0.735416804948377,
+      "V6_C3|ols_raw": 0.8018782551614289,
+      "V6_C3|ols_std": 0.8018782551614291,
+      "V6_C3|ridge": 0.8021994629163227,
+      "V6_C4|ols_raw": 0.1635461230646702,
+      "V6_C4|ols_std": 0.16354612306467037,
+      "V6_C4|ridge": 0.16566137529613012
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.25218218980865603,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.25218218980865614,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.2521871010794223,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.1635461230646702
+  },
+  "phi_x1.1": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2864600166016508,
+      "dN_interior_ols_std": 0.28646001660165094,
+      "dN_interior_ridge": 0.28646212993939824,
+      "dN_ols_raw": 0.3266829062341804,
+      "dN_ols_std": 0.32668290623418034,
+      "dN_ridge": 0.3266833153139598
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.23171818182268164,
+      "V6_C1|ols_std": 0.23171818182268172,
+      "V6_C1|ridge": 0.23470549128644516,
+      "V6_C2|ols_raw": 0.7345253788671792,
+      "V6_C2|ols_std": 0.7345253788671793,
+      "V6_C2|ridge": 0.7354390138765463,
+      "V6_C3|ols_raw": 0.8015597367379691,
+      "V6_C3|ols_std": 0.8015597367379689,
+      "V6_C3|ridge": 0.801995011774978,
+      "V6_C4|ols_raw": 0.16348782541518278,
+      "V6_C4|ols_std": 0.16348782541518295,
+      "V6_C4|ridge": 0.16596306792659596
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.3243894156751328,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.3243894156751328,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.3243900764088025,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.16348782541518278
+  },
+  "ridge_0.05": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.21001232214995208,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5220785922040647,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.2738729661028759,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.3022001227412652
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.22778288682220585,
+      "V6_C1|ols_std": 0.22778288682220596,
+      "V6_C1|ridge": 0.22845352933972599,
+      "V6_C2|ols_raw": 0.7345922825956888,
+      "V6_C2|ols_std": 0.7345922825956887,
+      "V6_C2|ridge": 0.7348309574055684,
+      "V6_C3|ols_raw": 0.8016632689349149,
+      "V6_C3|ols_std": 0.8016632689349148,
+      "V6_C3|ridge": 0.8018457031545889,
+      "V6_C4|ols_raw": 0.16365123191814346,
+      "V6_C4|ols_std": 0.16365123191814337,
+      "V6_C4|ridge": 0.16418259564530494
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5204734934874818,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.2999066573849719,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.16365123191814337
+  },
+  "ridge_5.0": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.25888763907621554,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.522466481867896,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.2739158796547899,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30222518883446975
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.22778288682220585,
+      "V6_C1|ols_std": 0.22778288682220596,
+      "V6_C1|ridge": 0.23082557205754167,
+      "V6_C2|ols_raw": 0.7345922825956888,
+      "V6_C2|ols_std": 0.7345922825956887,
+      "V6_C2|ridge": 0.7368472646092818,
+      "V6_C3|ols_raw": 0.8016632689349149,
+      "V6_C3|ols_std": 0.8016632689349148,
+      "V6_C3|ridge": 0.7897440115586133,
+      "V6_C4|ols_raw": 0.16365123191814346,
+      "V6_C4|ols_std": 0.16365123191814337,
+      "V6_C4|ridge": 0.17211449504343326
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5208613831513131,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29993417776606407,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.16365123191814337
+  },
+  "shots_1000": {
+    "effects": {
+      "dM_interior_ols_raw": 0.266558579539269,
+      "dM_interior_ols_std": 0.266558579539269,
+      "dM_interior_ridge": 0.2663390430904317,
+      "dM_ols_raw": 0.4343831486959024,
+      "dM_ols_std": 0.4343831486959024,
+      "dM_ridge": 0.4343985684546731,
+      "dN_interior_ols_raw": 0.2595857915695184,
+      "dN_interior_ols_std": 0.25958579156951833,
+      "dN_interior_ridge": 0.2595925846978721,
+      "dN_ols_raw": 0.2877791776699129,
+      "dN_ols_std": 0.28777917766991284,
+      "dN_ridge": 0.28778432421018085
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.035843004190379835,
+      "V6_C1|ols_std": 0.03584300419037986,
+      "V6_C1|ridge": 0.03586391766817891,
+      "V6_C2|ols_raw": 0.43586923119222976,
+      "V6_C2|ols_std": 0.4358692311922298,
+      "V6_C2|ridge": 0.4359461857478918,
+      "V6_C3|ols_raw": 0.2718833979141422,
+      "V6_C3|ols_std": 0.27188339791414207,
+      "V6_C3|ridge": 0.27197849303406924,
+      "V6_C4|ols_raw": 0.10517298831997918,
+      "V6_C4|ols_std": 0.10517298831997922,
+      "V6_C4|ridge": 0.10515405795750782
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "note": "not required under noise",
+      "ok": true
+    },
+    "worst_effect": 0.25958579156951833,
+    "worst_hh_advantage": 0.035843004190379835
+  },
+  "shots_10000": {
+    "effects": {
+      "dM_interior_ols_raw": 0.26693315377671556,
+      "dM_interior_ols_std": 0.2669331537767156,
+      "dM_interior_ridge": 0.26608147693004036,
+      "dM_ols_raw": 0.5043955778795401,
+      "dM_ols_std": 0.5043955778795403,
+      "dM_ridge": 0.5044623530968029,
+      "dN_interior_ols_raw": 0.27224569446931635,
+      "dN_interior_ols_std": 0.2722456944693164,
+      "dN_interior_ridge": 0.272251314934362,
+      "dN_ols_raw": 0.3004394440865379,
+      "dN_ols_std": 0.30043944408653794,
+      "dN_ridge": 0.3004433351144652
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.1434430348366073,
+      "V6_C1|ols_std": 0.14344303483660745,
+      "V6_C1|ridge": 0.14398169604562935,
+      "V6_C2|ols_raw": 0.6724065536043253,
+      "V6_C2|ols_std": 0.6724065536043252,
+      "V6_C2|ridge": 0.6725536660104169,
+      "V6_C3|ols_raw": 0.5741043767809989,
+      "V6_C3|ols_std": 0.574104376780999,
+      "V6_C3|ridge": 0.5734023592681012,
+      "V6_C4|ols_raw": 0.16411722478807023,
+      "V6_C4|ols_std": 0.16411722478807,
+      "V6_C4|ridge": 0.1636559617509129
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "note": "not required under noise",
+      "ok": true
+    },
+    "worst_effect": 0.26608147693004036,
+    "worst_hh_advantage": 0.1434430348366073
+  },
+  "thetaJ_max_x0.9": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.22778288682220593,
+      "V6_C1|ols_std": 0.227782886822206,
+      "V6_C1|ridge": 0.23103035201245462,
+      "V6_C2|ols_raw": 0.7345922825956888,
+      "V6_C2|ols_std": 0.7345922825956884,
+      "V6_C2|ridge": 0.7355672133096975,
+      "V6_C3|ols_raw": 0.8016632689349148,
+      "V6_C3|ols_std": 0.8016632689349149,
+      "V6_C3|ridge": 0.8021471840622512,
+      "V6_C4|ols_raw": 0.16365123191814349,
+      "V6_C4|ols_std": 0.16365123191814343,
+      "V6_C4|ridge": 0.16626620119685012
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.16365123191814343
+  },
+  "thetaJ_max_x1.1": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.22778288682220596,
+      "V6_C1|ols_std": 0.227782886822206,
+      "V6_C1|ridge": 0.23014573292434454,
+      "V6_C2|ols_raw": 0.7345922825956888,
+      "V6_C2|ols_std": 0.7345922825956887,
+      "V6_C2|ridge": 0.7353281958881231,
+      "V6_C3|ols_raw": 0.8016632689349149,
+      "V6_C3|ols_std": 0.8016632689349149,
+      "V6_C3|ridge": 0.801961027446851,
+      "V6_C4|ols_raw": 0.16365123191814354,
+      "V6_C4|ols_std": 0.16365123191814346,
+      "V6_C4|ridge": 0.16558652344785005
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.16365123191814346
+  },
+  "thetaQ_max_x0.9": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.22778288682220585,
+      "V6_C1|ols_std": 0.22778288682220596,
+      "V6_C1|ridge": 0.23065779348461554,
+      "V6_C2|ols_raw": 0.7345922825956888,
+      "V6_C2|ols_std": 0.7345922825956887,
+      "V6_C2|ridge": 0.7354542159222539,
+      "V6_C3|ols_raw": 0.8016632689349149,
+      "V6_C3|ols_std": 0.8016632689349148,
+      "V6_C3|ridge": 0.8020520179124664,
+      "V6_C4|ols_raw": 0.16365123191814346,
+      "V6_C4|ols_std": 0.16365123191814337,
+      "V6_C4|ridge": 0.16593429870527845
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.16365123191814337
+  },
+  "thetaQ_max_x1.1": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.22778288682220585,
+      "V6_C1|ols_std": 0.22778288682220596,
+      "V6_C1|ridge": 0.23065779348461554,
+      "V6_C2|ols_raw": 0.7345922825956888,
+      "V6_C2|ols_std": 0.7345922825956887,
+      "V6_C2|ridge": 0.7354542159222539,
+      "V6_C3|ols_raw": 0.8016632689349149,
+      "V6_C3|ols_std": 0.8016632689349148,
+      "V6_C3|ridge": 0.8020520179124664,
+      "V6_C4|ols_raw": 0.16365123191814346,
+      "V6_C4|ols_std": 0.16365123191814337,
+      "V6_C4|ridge": 0.16593429870527845
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.16365123191814337
+  },
+  "thetaW_max_x0.9": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.2281980922049312,
+      "V6_C1|ols_std": 0.2281980922049315,
+      "V6_C1|ridge": 0.23108870839130619,
+      "V6_C2|ols_raw": 0.6848207411571884,
+      "V6_C2|ols_std": 0.6848207411571884,
+      "V6_C2|ridge": 0.6858613756568233,
+      "V6_C3|ols_raw": 0.8022005691055658,
+      "V6_C3|ols_std": 0.8022005691055658,
+      "V6_C3|ridge": 0.8025965685098789,
+      "V6_C4|ols_raw": 0.20599560671465428,
+      "V6_C4|ols_std": 0.20599560671465428,
+      "V6_C4|ridge": 0.20816371435464942
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.20599560671465428
+  },
+  "thetaW_max_x1.1": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2738724569068253,
+      "dN_interior_ols_std": 0.27387245690682527,
+      "dN_interior_ridge": 0.27387748009779733,
+      "dN_ols_raw": 0.30219978829304184,
+      "dN_ols_std": 0.3021997882930418,
+      "dN_ridge": 0.30220305897969724
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.2274131977802019,
+      "V6_C1|ols_std": 0.2274131977802018,
+      "V6_C1|ridge": 0.23027476089546958,
+      "V6_C2|ols_raw": 0.775974342558974,
+      "V6_C2|ols_std": 0.7759743425589738,
+      "V6_C2|ridge": 0.7766906477023099,
+      "V6_C3|ols_raw": 0.8012117182562629,
+      "V6_C3|ols_std": 0.8012117182562629,
+      "V6_C3|ridge": 0.8015932042853219,
+      "V6_C4|ols_raw": 0.12877390877426428,
+      "V6_C4|ols_std": 0.1287739087742641,
+      "V6_C4|ridge": 0.13114780712090426
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.29990629773399435,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2999062977339943,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.29990982007454,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.1287739087742641
+  },
+  "theta_max_x0.9": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.2726072925086235,
+      "dN_interior_ols_std": 0.2726072925086234,
+      "dN_interior_ridge": 0.2726127212008784,
+      "dN_ols_raw": 0.29847019827109417,
+      "dN_ols_std": 0.29847019827109417,
+      "dN_ridge": 0.29847377568840217
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.1999495231822085,
+      "V6_C1|ols_std": 0.19994952318220868,
+      "V6_C1|ridge": 0.20288042483933746,
+      "V6_C2|ols_raw": 0.7345856869095854,
+      "V6_C2|ols_std": 0.7345856869095853,
+      "V6_C2|ridge": 0.7354725247953142,
+      "V6_C3|ols_raw": 0.8016117602214554,
+      "V6_C3|ols_std": 0.8016117602214553,
+      "V6_C3|ridge": 0.8020185619815087,
+      "V6_C4|ols_raw": 0.1636348800233816,
+      "V6_C4|ols_std": 0.16363488002338186,
+      "V6_C4|ridge": 0.16599563513520535
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.2961767077120466,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.2961767077120466,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.2961805367832449,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.1636348800233816
+  },
+  "theta_max_x1.1": {
+    "effects": {
+      "dM_interior_ols_raw": 0.1633637824424008,
+      "dM_interior_ols_std": 0.16336378244239824,
+      "dM_interior_ridge": 0.23037676459112966,
+      "dM_ols_raw": 0.5220491147421555,
+      "dM_ols_std": 0.5220491147421554,
+      "dM_ridge": 0.5222801327621177,
+      "dN_interior_ols_raw": 0.27455968936061653,
+      "dN_interior_ols_std": 0.27455968936061653,
+      "dN_interior_ridge": 0.2745642924299462,
+      "dN_ols_raw": 0.30558769689681053,
+      "dN_ols_std": 0.3055876968968105,
+      "dN_ridge": 0.3055906586428934
+    },
+    "hh_advantage": {
+      "V6_C1|ols_raw": 0.2525697908518348,
+      "V6_C1|ols_std": 0.2525697908518348,
+      "V6_C1|ridge": 0.25537737085967704,
+      "V6_C2|ols_raw": 0.7346007896298504,
+      "V6_C2|ols_std": 0.7346007896298504,
+      "V6_C2|ridge": 0.7354383286115482,
+      "V6_C3|ols_raw": 0.8017141534029377,
+      "V6_C3|ols_std": 0.8017141534029377,
+      "V6_C3|ridge": 0.8020866562715805,
+      "V6_C4|ols_raw": 0.16365677878389387,
+      "V6_C4|ols_std": 0.16365677878389354,
+      "V6_C4|ridge": 0.16586916546840005
+    },
+    "isolated": true,
+    "passed": true,
+    "saturation": {
+      "M|ols_raw": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ols_std": {
+        "max_metric_value": 0.5204440160255724,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "M|ridge": {
+        "max_metric_value": 0.5206750340455345,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_raw": {
+        "max_metric_value": 0.303294206337763,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ols_std": {
+        "max_metric_value": 0.3032942063377629,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "N|ridge": {
+        "max_metric_value": 0.30329741973773616,
+        "ok": true,
+        "worst_constituent_saturated_fraction": 0.0
+      },
+      "ok": true
+    },
+    "worst_effect": 0.16336378244239824,
+    "worst_hh_advantage": 0.16365677878389354
+  }
+}

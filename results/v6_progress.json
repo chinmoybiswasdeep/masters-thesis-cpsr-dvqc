@@ -1,0 +1,36 @@
+{
+  "history": [
+    {
+      "version": "V6.0",
+      "stage": "PROBE",
+      "status": "rejected",
+      "diagnosis": "processor parameterisation: linear part dominates; P2 content non-monotone in g",
+      "next_command": "design V6.1 processor by exact quadrature",
+      "utc": "2026-09-24T15:34:49Z"
+    },
+    {
+      "version": "V6.1",
+      "stage": "PROBE",
+      "status": "rejected",
+      "diagnosis": "C3 needs clean linear x linear products; separate them from the nonlinear write",
+      "next_command": "V6.2: g-rotated pair readouts on the linear R register for C3",
+      "utc": "2026-09-24T15:44:27Z"
+    },
+    {
+      "version": "V6.2",
+      "stage": "DEVGATES",
+      "status": "freeze criterion NOT met",
+      "diagnosis": "see dev_gates.json",
+      "next_command": "python run_v6_stage.py --stage DIAGNOSE --version V6.2",
+      "utc": "2026-09-24T16:17:36Z"
+    }
+  ],
+  "current": {
+    "version": "V6.2",
+    "stage": "DEVGATES",
+    "status": "freeze criterion NOT met",
+    "diagnosis": "see dev_gates.json",
+    "next_command": "python run_v6_stage.py --stage DIAGNOSE --version V6.2",
+    "utc": "2026-09-24T16:17:36Z"
+  }
+}

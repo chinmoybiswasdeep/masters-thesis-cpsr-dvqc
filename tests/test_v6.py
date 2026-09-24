@@ -76,3 +76,18 @@ def test_shot_adapter_keeps_routes_isolated():
     u = np.random.default_rng(5).uniform(-1, 1, 50)
     assert np.array_equal(ad.run(u, 0.2, 0.6, 3)["P"], ad.run(u, 0.9, 0.6, 3)["P"])
     assert np.array_equal(ad.run(u, 0.6, 0.1, 3)["R"], ad.run(u, 0.6, 0.9, 3)["R"])
+
+
+def test_r_register_first_moments_match_v5_memory_exactly():
+    from decoupled_qrc.v5_architecture import memory_features
+    u = np.random.default_rng(8).uniform(-1, 1, 60)
+    Z, _ = V6.q_register(u, 0.55, 6)
+    assert np.abs(Z[:, 1:] - memory_features(u, 0.55, 6)).max() < 1e-14
+
+
+def test_r_pair_readout_is_affine_at_g0_and_isolated():
+    s = V6.V6Spec(L_R=6, L_Q=4, q_pairs=(), r_pairs=((1, 2), (1, 3)))
+    ad = V6.V6Adapter(s)
+    assert ALG.exact_affinity(ALG.v6_operational(ad, 0.8, 0.0), T=100)["affine"]
+    u = np.random.default_rng(9).uniform(-1, 1, 40)
+    assert np.array_equal(ad.run(u, 0.5, 0.2)["R"], ad.run(u, 0.5, 0.9)["R"])

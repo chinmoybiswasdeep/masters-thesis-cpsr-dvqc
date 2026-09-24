@@ -190,6 +190,19 @@ class V6Spec:
                       (1, 3), (2, 5), (4, 8), (6, 11))
     thetaQ_max: float = 0.40 * np.pi
     phiQ: float = np.pi / 4
+    # V6.1 additions (defaults reproduce V6.0 exactly)
+    joint: str = "Y"                   # "Y": J = z^R f_Y ; "rotated": g-rotated joint readout
+    thetaJ_max: float = 0.40 * np.pi   # used when joint == "rotated"
+    phiJ: float = np.pi / 4
+    thetaW_max: float = None           # Q-writer processor; None -> same as P
+    chiW_max: float = None
+    phiW: float = None
+    chiW_power: int = 1                # V6.3: writer cubic angle = g**chiW_power * chiW_max
+    # V6.2: g-rotated pair readouts on the LINEAR memory register R (old x old, C3).
+    # Separate measurement settings, assigned to the combined route; M never uses them.
+    r_pairs: tuple = ()
+    thetaRP_max: float = 0.40 * np.pi
+    phiRP: float = np.pi / 4
 
     def __post_init__(self):
         if not 1 <= self.stride_R <= self.L_R or not 1 <= self.stride_Q <= self.L_Q:
@@ -197,8 +210,13 @@ class V6Spec:
         for a, b in self.q_pairs:
             if not (1 <= a <= self.L_Q and 1 <= b <= self.L_Q and a != b):
                 raise ValueError(f"bad Q pair {(a, b)}")
+        for a, b in self.r_pairs:
+            if not (1 <= a <= self.L_R and 1 <= b <= self.L_R and a != b):
+                raise ValueError(f"bad R pair {(a, b)}")
         if not (0 < self.pR_max <= 1 and 0 < self.pQ_max <= 1):
             raise ValueError("transport probabilities must be in (0, 1]")
+        if self.joint not in ("Y", "rotated"):
+            raise ValueError("joint must be 'Y' or 'rotated'")
 
     @property
     def rails_R(self) -> list:
@@ -211,20 +229,23 @@ class V6Spec:
     def settings(self) -> dict:
         """Measurement settings per step (commuting groups)."""
         # Q pairs: pairs sharing a rail need separate settings; greedy colouring
-        groups = []
-        for a, b in self.q_pairs:
-            for gset in groups:
-                if a not in gset and b not in gset:
-                    gset.update((a, b)); break
-            else:
-                groups.append({a, b})
-        return {"R_Z": 1, "P_n": 1, "P_Y_joint": 1, "Q_Z": 1, "Q_pairs": len(groups)}
+        def colour(pairs):
+            groups = []
+            for a, b in pairs:
+                for gset in groups:
+                    if a not in gset and b not in gset:
+                        gset.update((a, b)); break
+                else:
+                    groups.append({a, b})
+            return len(groups)
+        return {"R_Z": 1, "P_n": 1, "joint": 1, "Q_Z": 1, "Q_pairs": colour(self.q_pairs),
+                "R_pairs": colour(self.r_pairs)}
 
     def resources(self) -> dict:
         return {"qubits": (self.L_R + 1) + 3 + 3 + (self.L_Q + 1),
                 "input_copies_per_step": 1 + 3 + 3 + 3,
                 "features": {"R": len(self.rails_R), "P": 1, "J": len(self.rails_R),
-                             "Q": len(self.rails_Q) + len(self.q_pairs)},
+                             "Q": len(self.rails_Q) + len(self.q_pairs) + len(self.r_pairs)},
                 "measurement_settings": self.settings()}
 
     def as_dict(self) -> dict:
@@ -252,8 +273,11 @@ class V6Adapter:
         s = self.spec
         scale = 1.0 + (self.eps * m if self.kind == "m_into_P" else 0.0)
         th, ch = g * s.theta_max * scale, g * s.chi_max * scale
+        tw = s.theta_max if s.thetaW_max is None else s.thetaW_max
+        cw = s.chi_max if s.chiW_max is None else s.chiW_max
+        pw = s.phi if s.phiW is None else s.phiW
         return (processor_poly(th, ch, s.phi, "n"), processor_poly(th, ch, s.phi, "Y"),
-                processor_poly(g * s.theta_max, g * s.chi_max, s.phi, "n"))
+                processor_poly(g * tw, g ** s.chiW_power * cw, pw, "n"))
 
     def run(self, u, m, g, seed=None) -> dict:
         s = self.spec
@@ -261,7 +285,11 @@ class V6Adapter:
         m, g = float(m), float(g)
         pR = m * s.pR_max * (1.0 + (self.eps * g if self.kind == "g_into_R" else 0.0))
         pR = float(np.clip(pR, 0.0, 1.0))
-        if self.depol_R:
+        if s.r_pairs:
+            # first AND second moments of R (same channel; z identical to memory_features)
+            ZR, CR = q_register(u, pR, s.L_R, depol=self.depol_R)
+            zR = ZR[:, 1:]
+        elif self.depol_R:
             zR = _memory_depol(u, pR, s.L_R, self.depol_R)
         else:
             zR = memory_features(u, pR, s.L_R)
@@ -275,12 +303,28 @@ class V6Adapter:
         zQ, CQ = q_register(w, m * s.pQ_max, s.L_Q, depol=self.depol_Q)
         XQz = zQ[:, s.rails_Q]
         pc = pair_readout_coeffs(g * s.thetaQ_max, s.phiQ)
-        XQp = np.column_stack([pc["c0"] + pc["ca"] * zQ[:, a] + pc["cb"] * zQ[:, b]
-                               + pc["cab"] * CQ[:, a, b] for a, b in s.q_pairs])
-        XJ = XR * fY[:, None]
-        return {"R": XR, "P": fP[:, None], "PY": fY[:, None], "J": XJ,
-                "Q": np.hstack([XQz, XQp]), "Qz": XQz, "Qp": XQp,
+        XQp = (np.column_stack([pc["c0"] + pc["ca"] * zQ[:, a] + pc["cb"] * zQ[:, b]
+                                + pc["cab"] * CQ[:, a, b] for a, b in s.q_pairs])
+               if s.q_pairs else np.empty((len(u), 0)))
+        if s.joint == "rotated":
+            # R rail a and the P output qubit (rotated n -> z, dephased) read by the same
+            # g-rotated two-qubit circuit as the Q pairs: product state -> <Z_a Z_b> = z_a f
+            pj = pair_readout_coeffs(g * s.thetaJ_max, s.phiJ)
+            XJ = pj["c0"] + pj["ca"] * XR + pj["cb"] * fP[:, None] + pj["cab"] * XR * fP[:, None]
+            fJ = fP                                   # P-side marginal of the joint observable
+        else:
+            XJ = XR * fY[:, None]
+            fJ = fY
+        if s.r_pairs:
+            pr = pair_readout_coeffs(g * s.thetaRP_max, s.phiRP)
+            XRp = np.column_stack([pr["c0"] + pr["ca"] * ZR[:, a] + pr["cb"] * ZR[:, b]
+                                   + pr["cab"] * CR[:, a, b] for a, b in s.r_pairs])
+        else:
+            XRp = np.empty((len(u), 0))
+        return {"R": XR, "P": fP[:, None], "PY": fJ[:, None], "J": XJ,
+                "Q": np.hstack([XQz, XQp, XRp]), "Qz": XQz, "Qp": XQp, "Rp": XRp,
                 "Qall": zQ[:, 1:], "Q_pairs_rails_idx": [(a - 1, b - 1) for a, b in s.q_pairs],
+                "Rall": zR, "R_pairs_rails_idx": [(a - 1, b - 1) for a, b in s.r_pairs],
                 "labels_R": [f"R:Z{r}" for r in s.rails_R], "labels_P": ["P:n.sigma0"],
                 "labels_J": [f"J:Z{r}*Y0" for r in s.rails_R],
                 "labels_Q": [f"Q:Z{r}" for r in s.rails_Q] + [f"Q:pair{a}-{b}" for a, b in s.q_pairs]}
@@ -329,12 +373,14 @@ class V6ShotAdapter:
         f = self.base.run(u, m, g, seed)
         sc = 1.0 - 2.0 * self.ro
         out = dict(f)
-        for k, off in (("R", 1), ("P", 2), ("PY", 3), ("J", 4), ("Qz", 5), ("Qp", 6)):
+        for k, off in (("R", 1), ("P", 2), ("PY", 3), ("J", 4), ("Qz", 5), ("Qp", 6), ("Rp", 8)):
+            if f[k].size == 0:
+                continue
             rng = np.random.default_rng(7 * int(seed) + off)
             x = sc * f[k] if k != "J" else sc * sc * f[k]
             p = np.clip((1 + x) / 2, 0, 1)
             out[k] = (2.0 * rng.binomial(self.shots, p) - self.shots) / self.shots
-        out["Q"] = np.hstack([out["Qz"], out["Qp"]])
+        out["Q"] = np.hstack([out["Qz"], out["Qp"], out["Rp"]])
         # classical baseline uses the same noisy marginals
         qall = f["Qall"].copy()
         qall[:, np.array(self.spec.rails_Q) - 1] = out["Qz"]
