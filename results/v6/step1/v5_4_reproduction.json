@@ -1,0 +1,86 @@
+{
+  "all_verdicts_match": true,
+  "gate_verdicts_reproduced": {
+    "C1_structural": {
+      "now": true,
+      "stored": true
+    },
+    "C2_resource_constrained": {
+      "now": true,
+      "stored": true
+    },
+    "C3_intrinsic": {
+      "now": true,
+      "stored": true
+    },
+    "C4_combined": {
+      "now": true,
+      "stored": true
+    },
+    "C5_quantum_specific": {
+      "now": false,
+      "stored": false
+    }
+  },
+  "git_commit": "209a7fcf75a76664cd15f7ca7fb321d0a73ba7bf",
+  "principal_estimates": {
+    "now": {
+      "C1_HH": 0.11874458930020777,
+      "dM_ridge": 0.5219392094032089,
+      "dN_ridge": 0.27999276437140785,
+      "interior_g_N": 0.2552591761538663,
+      "interior_m_M": 0.31574061876319925
+    },
+    "stored": {
+      "C1_HH": 0.11874458930020777,
+      "dM_ridge": 0.5219392094032089,
+      "dN_ridge": 0.27999276437140785,
+      "interior_g_N": 0.2552591761538663,
+      "interior_m_M": 0.31574061876319925
+    }
+  },
+  "row_comparison": {
+    "argmax": null,
+    "bit_identical_leaves": 754000,
+    "max_abs_diff": 0.0,
+    "numeric_leaves": 754000,
+    "rows_a": 500,
+    "rows_b": 500,
+    "rows_compared": 500
+  },
+  "runtime_s": 291.9,
+  "thread_dependence": {
+    "threads_1": {
+      "argmax": [
+        "conf|a90001|i95001|m1.0|g0.0",
+        "/R|ridge/sunada/sunada_nu0.0_t2"
+      ],
+      "bit_identical_leaves": 3844,
+      "max_abs_diff": 1.1102230246251565e-15,
+      "numeric_leaves": 6032,
+      "rows_a": 500,
+      "rows_b": 4,
+      "rows_compared": 4
+    },
+    "threads_4": {
+      "argmax": [
+        "conf|a90000|i95000|m1.0|g0.0",
+        "/ALL|ridge/sunada/sunada_nu2.0_t4"
+      ],
+      "bit_identical_leaves": 5655,
+      "max_abs_diff": 4.440892098500626e-16,
+      "numeric_leaves": 6032,
+      "rows_a": 500,
+      "rows_b": 4,
+      "rows_compared": 4
+    }
+  },
+  "v4_audit_prereg_verified": "72885188a1a2ca622a36e1730b3a5d8fb19b877113198cf459a672a76f751e1f",
+  "v5_4_amendment_scope": "classical_baseline (claim-5 side analysis) + the amendment-aware source check in verify_frozen. No gate, threshold, metric, seed, spec or architecture code changed. The 500 confirmation rows were produced by the frozen source and are reused from the checkpoint, not recomputed.",
+  "v5_4_frozen_verified": "0a2f1e184db3977b81648b0823ca62dc13d560a9df8024a462723254a2c08a02",
+  "v5_4_history": [
+    "c0796ce 2026-09-24T07:04:11-04:00 V5 lineage: V5.4 frozen before confirmation (V5-V5.3 not frozen)",
+    "a321d78 2026-09-24T07:07:37-04:00 V5.4 amendment 01: stride bug in classical_baseline, recorded before any gate result",
+    "209a7fc 2026-09-24T07:15:17-04:00 V5.4 confirmation: memory-nonlinearity separation passes claims 1-4"
+  ]
+}

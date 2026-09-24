@@ -1,0 +1,650 @@
+{
+  "amendment_rule": "implementation bugs may be fixed before a confirmation via a hashed amendment in results/v6/amendments/; criteria and thresholds never",
+  "created_utc": "2026-09-24T15:31:13Z",
+  "data": {
+    "T": 1600,
+    "capacity": "C = 1 - MSE/Var on held-out block, NOT clipped",
+    "grid": {
+      "g": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1
+      ],
+      "m": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1
+      ]
+    },
+    "input": "u_t ~ i.i.d. U[-1,1], one sequence per seed",
+    "null": "120 independent-sequence Legendre targets per point; 99th pct",
+    "quadrants": {
+      "H": [
+        0.75,
+        1.0
+      ],
+      "L": [
+        0.0,
+        0.25
+      ]
+    },
+    "readouts": {
+      "ols_raw": "centred raw, pseudo-inverse, rel. cutoff 1e-10",
+      "ols_std": "standardised, pseudo-inverse, rel. cutoff 1e-10",
+      "ridge": "standardised, alpha = 0.5 (V4/V5 value, never tuned)"
+    },
+    "split": "washout 60, 65% train, gap 12, rest test (chronological)"
+  },
+  "dev_freeze_margins": {
+    "effect_min": 0.2,
+    "hh_adv_min": 0.05,
+    "robust_effect_min": 0.15,
+    "robust_hh_adv_min": 0.02,
+    "support_margin": 0.04
+  },
+  "error_control": {
+    "bootstrap": "100 000 seed-level resamples",
+    "ledger_before_v6": [
+      {
+        "alpha": 0.01,
+        "look": 1,
+        "what": "V4 original confirmation"
+      },
+      {
+        "alpha": 0.01,
+        "look": 2,
+        "what": "V4 independent-audit confirmation"
+      },
+      {
+        "alpha": 0.01,
+        "look": 3,
+        "what": "V5.4 confirmation"
+      }
+    ],
+    "v6_attempt_k_alpha": "0.01 / 2^(k-1)  (0.01, 0.005, 0.0025, ...; sum <= 0.02; cumulative over V4, V5 and V6 <= 0.05)"
+  },
+  "gates": {
+    "01/02 main effects": "m->M and g->N >= 0.10, bootstrap LB(alpha) > 0, and >= 90% of seeds individually >= 0.10; ridge AND ols_std AND ols_raw",
+    "03/04 cross effects": "TOST interval [alpha, 1-alpha] inside +-0.03, every readout",
+    "05 ratio": "|cross|/main upper bound (1-alpha) < 0.20, both directions, every readout",
+    "06 degree profile": "C[P_d(u_t)], d = 2,3,4, under m: TOST, Bonferroni alpha/3",
+    "07 memory curve": "C[P1(u_{t-tau})], tau 0..8, under g: TOST, Bonferroni alpha/9",
+    "08-10 separation": "01-07 all hold for raw OLS, standardised OLS, fixed ridge",
+    "11 interior": "M(1)-M(0.25) and N(1)-N(0.25) as 01/02, every readout; P section-6 verdict HOLDS",
+    "12 combined": "EVERY class C1..C4 and EVERY readout: (1) best quadrant > null99 + 0.02; (2) HH > LL, LH, HL; (3) each HH contrast LB > 0 at alpha/36 (Bonferroni over 4 classes x 3 contrasts x 3 readouts); (4) all readouts; (5) <= 20% of members > 0.995 in every quadrant and class mean <= 0.95; (6) HH - max(other) > 0 in >= 90% of seeds; (7) sentinels at null",
+    "13 HH best": "HH point estimate best AND contrasts pass, every class and readout",
+    "14 feature counts": "identical at every (m, g), every readout",
+    "15 encoder leakage": "at g = 0 every operational feature is EXACTLY affine in the input history (superposition test, tol 1e-10) and no nonlinear class exceeds null99 + 0.02 at g = 0",
+    "16 saturation": "per metric (M, N): <= 20% of constituents > 0.995 at every control value and metric <= 0.95; pooled <= 20%; per class as in 12(5)",
+    "17/18 sentinels": "future and unreachable: max member - null99 <= 0.02, every row",
+    "19 isolation": "dX_R/dg = dX_P/dm = 0 exactly over 100 random draws + full-range; g->R, m->P, serial contaminations detected; M bit-identical over g and N over m",
+    "20 invalid controls": "target leakage, feature-count change, train-as-test detected",
+    "21 seeds": "as in 01/02 and 12(6)",
+    "22-25 robustness": "longer T, half/double training, float32, perturbed controls, +-10% continuous parameters, ridge 0.05/5, delay range 12, degree 6, 1000 and 10000 shots, FakeTorino-informed noise: every main and interior(0.5->1) effect >= 0.10, cross exactly 0, every class/readout HH - max(other) > 0, no metric saturation (noiseless conditions); run on dev AND on confirmation seeds",
+    "26 unit tests": "complete suite passes"
+  },
+  "implementation_of_record": {
+    "code/decoupled_qrc/audit_ipc.py": "94ccda6c7ca9c2ec95815d9bc2297cd252411ff0ffe3040c318fe2351d987c61",
+    "code/decoupled_qrc/v6_core.py": "213fb8ffc801bcca75fd25e55daa7a956224984c2717dc84ae23748c63b9d03e",
+    "code/decoupled_qrc/v6_gates.py": "b42eaf916d3ad002a4f2a02991e97301676a421d70947d712c21d2ec143da91f"
+  },
+  "metrics": {
+    "M": "R-local, mean_{tau=2..8} C[P1(u_{t-tau})]",
+    "N": "P-local, mean_{d=2,3,4} C[P_d(u_t)]",
+    "classes": {
+      "V6_C1": "P2(u_t) P1(u_{t-tau}), tau 1..6",
+      "V6_C2": "P2(u_{t-tau}), tau 1..6",
+      "V6_C3": "P1(u_{t-t1}) P1(u_{t-t2}), 1 <= t1 < t2 <= 6 (15)",
+      "V6_C4": "P3(u_{t-tau}), tau 1..6",
+      "class_score": "mean member capacity on ALL = R+P+J+Q"
+    },
+    "sentinels": {
+      "future": "P1(u_{t+1}), P1(u_{t+2})",
+      "unreachable": "P5(u_{t-tau}), tau 0..3 (> 3 copies of one input)"
+    }
+  },
+  "quantum_specific_claim": {
+    "fail_statement": "General memory-nonlinearity separation succeeds, but the mechanism is classically reproducible.",
+    "pass_rule": "(a) ALL beats BOTH classical baselines (CLS_M matched budget: marginals + the product of marginals for each quantum joint observable; CLS_F: marginals + every same-time degree-2 product) on the HH mean of the four class scores with LB(alpha) > 0, AND (b) the mechanism is not classically simulable: a register that stays diagonal in a fixed product basis is a classical Markov chain and FAILS (b) by definition",
+    "status": "reported separately; NOT part of the V6 mandatory objective"
+  },
+  "scope": "every V6.x candidate; written before any V6 development experiment",
+  "seeds": {
+    "confirmation_attempt_k": "(110000 + 10000(k-1) + j, 115000 + 10000(k-1) + j), j < 20",
+    "previously_used": {
+      "v4_audit_conf": [
+        [
+          70000,
+          80000
+        ],
+        [
+          70001,
+          80001
+        ],
+        [
+          70002,
+          80002
+        ],
+        [
+          70003,
+          80003
+        ],
+        [
+          70004,
+          80004
+        ],
+        [
+          70005,
+          80005
+        ],
+        [
+          70006,
+          80006
+        ],
+        [
+          70007,
+          80007
+        ],
+        [
+          70008,
+          80008
+        ],
+        [
+          70009,
+          80009
+        ],
+        [
+          70010,
+          80010
+        ],
+        [
+          70011,
+          80011
+        ],
+        [
+          70012,
+          80012
+        ],
+        [
+          70013,
+          80013
+        ],
+        [
+          70014,
+          80014
+        ],
+        [
+          70015,
+          80015
+        ],
+        [
+          70016,
+          80016
+        ],
+        [
+          70017,
+          80017
+        ],
+        [
+          70018,
+          80018
+        ],
+        [
+          70019,
+          80019
+        ]
+      ],
+      "v4_audit_dev": [
+        [
+          20000,
+          30000
+        ],
+        [
+          20001,
+          30001
+        ],
+        [
+          20002,
+          30002
+        ],
+        [
+          20003,
+          30003
+        ],
+        [
+          20004,
+          30004
+        ],
+        [
+          20005,
+          30005
+        ],
+        [
+          20006,
+          30006
+        ],
+        [
+          20007,
+          30007
+        ],
+        [
+          20008,
+          30008
+        ],
+        [
+          20009,
+          30009
+        ]
+      ],
+      "v4_original": {
+        "probes": [
+          3,
+          5,
+          7,
+          11,
+          12,
+          77,
+          900,
+          9000,
+          31337,
+          424242
+        ],
+        "v4_conf_arch": [
+          900,
+          901,
+          902,
+          903,
+          904,
+          905,
+          906,
+          907,
+          908,
+          909,
+          910,
+          911,
+          912,
+          913,
+          914,
+          915,
+          916,
+          917,
+          918,
+          919,
+          920,
+          921,
+          922,
+          923,
+          924,
+          925,
+          926,
+          927,
+          928,
+          929,
+          930,
+          931,
+          932,
+          933,
+          934,
+          935,
+          936,
+          937,
+          938,
+          939
+        ],
+        "v4_conf_input": [
+          9000,
+          9001,
+          9002,
+          9003,
+          9004,
+          9005,
+          9006,
+          9007,
+          9008,
+          9009,
+          9010,
+          9011,
+          9012,
+          9013,
+          9014,
+          9015,
+          9016,
+          9017,
+          9018,
+          9019,
+          9020,
+          9021,
+          9022,
+          9023,
+          9024,
+          9025,
+          9026,
+          9027,
+          9028,
+          9029,
+          9030,
+          9031,
+          9032,
+          9033,
+          9034,
+          9035,
+          9036,
+          9037,
+          9038,
+          9039
+        ],
+        "v4_dev_arch": [
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128,
+          129,
+          130,
+          131,
+          132,
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139
+        ],
+        "v4_dev_input": [
+          1000,
+          1001,
+          1002,
+          1003,
+          1004,
+          1005,
+          1006,
+          1007,
+          1008,
+          1009,
+          1010,
+          1011,
+          1012,
+          1013,
+          1014,
+          1015,
+          1016,
+          1017,
+          1018,
+          1019,
+          1020,
+          1021,
+          1022,
+          1023,
+          1024,
+          1025,
+          1026,
+          1027,
+          1028,
+          1029,
+          1030,
+          1031,
+          1032,
+          1033,
+          1034,
+          1035,
+          1036,
+          1037,
+          1038,
+          1039
+        ]
+      },
+      "v5_4_conf": [
+        [
+          90000,
+          95000
+        ],
+        [
+          90001,
+          95001
+        ],
+        [
+          90002,
+          95002
+        ],
+        [
+          90003,
+          95003
+        ],
+        [
+          90004,
+          95004
+        ],
+        [
+          90005,
+          95005
+        ],
+        [
+          90006,
+          95006
+        ],
+        [
+          90007,
+          95007
+        ],
+        [
+          90008,
+          95008
+        ],
+        [
+          90009,
+          95009
+        ],
+        [
+          90010,
+          95010
+        ],
+        [
+          90011,
+          95011
+        ],
+        [
+          90012,
+          95012
+        ],
+        [
+          90013,
+          95013
+        ],
+        [
+          90014,
+          95014
+        ],
+        [
+          90015,
+          95015
+        ],
+        [
+          90016,
+          95016
+        ],
+        [
+          90017,
+          95017
+        ],
+        [
+          90018,
+          95018
+        ],
+        [
+          90019,
+          95019
+        ]
+      ],
+      "v5_dev": [
+        [
+          40000,
+          45000
+        ],
+        [
+          40001,
+          45001
+        ],
+        [
+          40002,
+          45002
+        ],
+        [
+          40003,
+          45003
+        ],
+        [
+          40004,
+          45004
+        ],
+        [
+          40005,
+          45005
+        ],
+        [
+          40006,
+          45006
+        ],
+        [
+          40007,
+          45007
+        ],
+        [
+          40008,
+          45008
+        ],
+        [
+          40009,
+          45009
+        ]
+      ],
+      "v6_algebra": [
+        990001,
+        990002
+      ],
+      "v6_dev": [
+        [
+          100000,
+          105000
+        ],
+        [
+          100001,
+          105001
+        ],
+        [
+          100002,
+          105002
+        ],
+        [
+          100003,
+          105003
+        ],
+        [
+          100004,
+          105004
+        ],
+        [
+          100005,
+          105005
+        ],
+        [
+          100006,
+          105006
+        ],
+        [
+          100007,
+          105007
+        ],
+        [
+          100008,
+          105008
+        ],
+        [
+          100009,
+          105009
+        ]
+      ]
+    },
+    "v6_dev": [
+      [
+        100000,
+        105000
+      ],
+      [
+        100001,
+        105001
+      ],
+      [
+        100002,
+        105002
+      ],
+      [
+        100003,
+        105003
+      ],
+      [
+        100004,
+        105004
+      ],
+      [
+        100005,
+        105005
+      ],
+      [
+        100006,
+        105006
+      ],
+      [
+        100007,
+        105007
+      ],
+      [
+        100008,
+        105008
+      ],
+      [
+        100009,
+        105009
+      ]
+    ]
+  },
+  "thresholds": {
+    "equivalence": 0.03,
+    "main_min": 0.1,
+    "metric_headroom": 0.95,
+    "ratio_max": 0.2,
+    "sat_ceiling": 0.995,
+    "sat_fraction": 0.2,
+    "seed_consistency": 0.9,
+    "sentinel_margin": 0.02,
+    "support_margin": 0.02
+  }
+}

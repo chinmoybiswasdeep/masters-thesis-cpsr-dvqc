@@ -1,0 +1,24 @@
+=== V6 STEP1  ===
+    [conf] 25/500 points  (13s)
+    [conf] 50/500 points  (25s)
+    [conf] 75/500 points  (38s)
+    [conf] 100/500 points  (50s)
+    [conf] 125/500 points  (63s)
+    [conf] 150/500 points  (76s)
+    [conf] 175/500 points  (88s)
+    [conf] 200/500 points  (105s)
+    [conf] 225/500 points  (119s)
+    [conf] 250/500 points  (138s)
+    [conf] 275/500 points  (155s)
+    [conf] 300/500 points  (173s)
+    [conf] 325/500 points  (189s)
+    [conf] 350/500 points  (203s)
+    [conf] 375/500 points  (221s)
+    [conf] 400/500 points  (235s)
+    [conf] 425/500 points  (249s)
+    [conf] 450/500 points  (261s)
+    [conf] 475/500 points  (273s)
+    [conf] 500/500 points  (287s)
+  wrote results\v6\step1\v5_4_reproduction.json
+  rows 500/500  bit-identical leaves 754000/754000  max|diff| 0.000e+00
+  verdicts reproduced: True  threads: threads_1 max|diff| 1.11e-15, threads_4 max|diff| 4.44e-16
