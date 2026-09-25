@@ -1,0 +1,10 @@
+{
+  "bank": "development",
+  "frozen_utc": "2026-09-24T00:00:00Z",
+  "seeds": [
+    {"input": 200000, "simulator": 201000, "transpiler": 202000},
+    {"input": 200001, "simulator": 201001, "transpiler": 202001},
+    {"input": 200002, "simulator": 201002, "transpiler": 202002},
+    {"input": 200003, "simulator": 201003, "transpiler": 202003}
+  ]
+}

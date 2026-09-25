@@ -1,0 +1,6 @@
+git status --short --branch
+git rev-parse HEAD
+.\.venv\Scripts\python.exe -c "import qiskit,qiskit_aer"
+.\.venv\Scripts\python.exe code\run_v7_stage.py --stage SMOKE --version V7.1
+Exact corner diagnostics: V7.2, V7.3, V7.4, V7.5, V7.6, V7.7, V7.8
+.\.venv\Scripts\python.exe -m pytest tests\test_v7_*.py -q

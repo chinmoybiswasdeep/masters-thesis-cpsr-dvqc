@@ -1,0 +1,10 @@
+{
+  "bank": "internal_validation",
+  "frozen_utc": "2026-09-24T00:00:00Z",
+  "seeds": [
+    {"input": 210000, "simulator": 211000, "transpiler": 212000},
+    {"input": 210001, "simulator": 211001, "transpiler": 212001},
+    {"input": 210002, "simulator": 211002, "transpiler": 212002},
+    {"input": 210003, "simulator": 211003, "transpiler": 212003}
+  ]
+}

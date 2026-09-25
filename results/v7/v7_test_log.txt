@@ -1,0 +1,3 @@
+Command: .\.venv\Scripts\python.exe -m pytest tests\test_v7_qiskit_execution.py tests\test_v7_no_analytical_fallback.py tests\test_v7_seed_isolation.py tests\test_v7_measurement_covariance.py tests\test_v7_temporal_semantics.py tests\test_v7_separation_gates.py -q
+Result: 6 passed in 1.96s
+Date: 2026-09-24

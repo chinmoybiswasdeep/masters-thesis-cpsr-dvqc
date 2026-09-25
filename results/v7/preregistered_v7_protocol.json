@@ -1,0 +1,106 @@
+{
+  "protocol": "DQRC V7 independent memory/nonlinearity protocol",
+  "version": "1.0.0",
+  "created_utc": "2026-09-24T00:00:00Z",
+  "baseline_commit": "e893f65c8a6a52cf44efb8835774833106ecda7f",
+  "immutable_rule": "After this file is hashed, thresholds and success rules may not be weakened. A code defect may be corrected only in a hashed amendment written before rerunning the affected candidate.",
+  "seed_banks": {
+    "development": {"count": 4, "path": "results/v7/development_seeds.json", "sha256": "8afbd215be9d8e3db13087630e838eb72d5eec65857d92926fc6ff246918f1c5"},
+    "internal_validation": {"count": 4, "path": "results/v7/validation_seeds.json", "sha256": "4666e3e6a180d7ab2c882783c52abaed8eadd9d3a0d13b758d53b601f7d0a39a"},
+    "confirmation": {"count": 6, "path_before_freeze": null, "salted_sha256_commitment": "4db22168969a7447899f2d0ca619795a352453e1f4ab2384b1dda58b79aaebbe", "reveal_rule": "Only the confirm stage, after validating the frozen manifest, may copy the committed bank from .git/v7_confirmation_seeds.json into the result archive."},
+    "disjointness": "Every integer in every triple must be pairwise disjoint across all banks and from the V6 ledger. Tested before any run."
+  },
+  "data": {
+    "input_distribution": "iid Uniform[-1,1] generated only by the downstream experiment layer",
+    "sequence_length": 112,
+    "washout": 12,
+    "train": 56,
+    "gap": 12,
+    "test": 32,
+    "delay_horizon": 12,
+    "held_out_delay_pairs": [[7, 10], [8, 11], [9, 12]],
+    "m_levels": [0.0, 0.25, 0.5, 0.75, 1.0],
+    "g_levels": [0.0, 0.25, 0.5, 0.75, 1.0]
+  },
+  "simulators": {
+    "exact": "AerSimulator(method='density_matrix') with save_expectation_value instructions on replayed QuantumCircuits",
+    "finite_shot": "AerSimulator measurements and complete joint count dictionaries; all Z-product observables in a group are parities of the same bitstrings",
+    "grid_shots": 1000,
+    "shot_budgets": [1000, 10000, 100000],
+    "precisions": ["single", "double"],
+    "simulator_seeds_per_robustness_point": 2,
+    "transpiler_seeds_per_backend_point": 2,
+    "backend_noise": "NoiseModel.from_backend(current installed fake backend), with transpilation to that backend target"
+  },
+  "readouts": {
+    "raw_ols": "LinearRegression on raw persisted Aer features",
+    "standardized_ols": "StandardScaler then LinearRegression",
+    "ridge_cv": "StandardScaler then RidgeCV over [1e-6,1e-4,1e-2,1,100] using training data only",
+    "whitened_ols": "training-SVD orthonormal feature coordinates, relative cutoff 1e-10, then OLS",
+    "capacity": "1 - test MSE / training-mean test target sum of squares; never clipped"
+  },
+  "metrics": {
+    "memory_M": "sum of held-out linear capacities for delays 1..12 using memory-local features",
+    "nonlinearity_N": "sum of held-out current-input Legendre degree 2, 3, and 4 capacities using processor-local features",
+    "linear_memory_curve": "the 12 individual linear delayed capacities",
+    "nonlinear_degree_profile": "the three individual current degree capacities",
+    "delayed_nonlinear": "degree 2, 3, and 4 capacities at every delay 1..12",
+    "combined": "current nonlinear x delayed linear, delayed nonlinear, delayed x delayed, and delayed cubic families",
+    "geometry": ["effective rank", "singular values", "normalized Gram matrix", "linear CKA", "principal angles"],
+    "nulls": ["future inputs", "permuted inputs", "destroyed temporal order", "random labels"]
+  },
+  "statistics": {
+    "familywise_alpha": 0.01,
+    "confidence": "paired seed bootstrap with 20000 resamples and Bonferroni simultaneous bounds across mandatory components",
+    "equivalence": "two one-sided tests represented by a simultaneous confidence interval wholly inside the equivalence margin",
+    "common_random_numbers": true,
+    "confirmation_alpha_spending": "attempt k uses alpha 0.01/2^(k-1); failed banks are archived and never reused"
+  },
+  "thresholds": {
+    "main_effect_min": 0.15,
+    "main_effect_lower_bound_min": 0.10,
+    "cross_effect_equivalence_margin": 0.05,
+    "profile_component_equivalence_margin": 0.06,
+    "combined_hh_margin": 0.03,
+    "combined_hh_lower_bound_min": 0.0,
+    "per_delay_capacity_min": 0.03,
+    "claimed_delay_pass_fraction_min": 0.75,
+    "tail_delays": [9, 10, 11, 12],
+    "tail_capacity_min": 0.01,
+    "nonlinear_geometry_cka_max": 0.98,
+    "saturated_capacity": 0.995,
+    "saturated_fraction_max": 0.20,
+    "aggregate_capacity_max": 11.5,
+    "null_capacity_upper": 0.10
+  },
+  "mandatory_gates": {
+    "01_memory_main": "M(m=1)-M(m=0) >= 0.15 and simultaneous lower bound >= 0.10 for every readout and exact/finite-shot modes",
+    "02_nonlinearity_main": "N(g=1)-N(g=0) >= 0.15 and simultaneous lower bound >= 0.10 for every readout and exact/finite-shot modes",
+    "03_memory_to_nonlinearity_cross": "paired confidence interval for N(m=1)-N(m=0) lies inside +/-0.05",
+    "04_nonlinearity_to_memory_cross": "paired confidence interval for M(g=1)-M(g=0) lies inside +/-0.05",
+    "05_profile_preservation": "all nonlinear-degree components under m and all 12 memory-curve components under g satisfy simultaneous +/-0.06 equivalence",
+    "06_scale_invariance": "01-05 pass for raw, standardized, ridge-CV, whitened, exact, and finite-shot analyses",
+    "07_geometry": "normalized exact feature geometry changes with g (linear CKA <= 0.98), while the amplitude-rescaled control has CKA 1 within 1e-10",
+    "08_combined_hh": "for every claimed family/mode/readout HH exceeds max(LL,LH,HL) by 0.03 and its simultaneous lower bound is positive",
+    "09_per_delay_tail": "at least 75% of claimed delays meet 0.03 and every delay 9..12 has capacity >=0.01; report all delays 1..12",
+    "10_negative_controls": "future, permuted, destroyed-order, and random-label capacities <=0.10; reset/disabled/disconnected controls remove the corresponding effect",
+    "11_no_leakage_saturation": "chronological disjoint split, no future/target feature, aggregate metric below 11.5, and no more than 20% constituents exceed 0.995",
+    "12_backend_robustness": "main effects and HH ordering retain at least 50% of ideal effect under fake-backend circuit-level noise, both transpiler seeds, both simulator seeds",
+    "13_precision_shots": "qualitative gate decisions agree for single/double precision and 1000/10000/100000 shots where run",
+    "14_validation": "all gates pass unchanged on internal-validation seeds",
+    "15_confirmation": "all gates pass once on the untouched revealed confirmation bank at the allocated alpha"
+  },
+  "negative_controls": [
+    "future-input prediction", "random labels", "time-permuted input", "destroyed temporal order",
+    "memory reset every timestep", "processor interaction disabled", "m disconnected", "g disconnected",
+    "measurement-only classical features", "feature-count-matched classical baseline",
+    "parameter-count-matched classical reservoir", "memory/processor no-communication circuit",
+    "amplitude-rescaled subspace-identical features"
+  ],
+  "classical_baselines": [
+    "linear autoregression", "polynomial/Volterra regression", "classical echo-state network",
+    "feature-count-matched random features", "parameter-count-matched classical reservoir",
+    "classically tractable circuit variant", "V6.7 analytical architecture"
+  ],
+  "candidate_rule": "A candidate failing any mandatory development gate is rejected and archived. Only a candidate passing development and internal validation with thresholds unchanged may be frozen and see confirmation data. Quantum advantage is a separate claim and requires superiority to all matched baselines."
+}
