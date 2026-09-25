@@ -132,3 +132,10 @@ is not evidence of confirmation success.
 - Every remaining reset acts on a separable discarded or processor qubit.
   Current×past and held-out nonlinear combinations remain same-circuit Pauli
   correlations between independently encoded physical qubits.
+- The reset-safe V8.6 HH checkpoint on development seed 300000 completed from
+  commit `1fc7bcc`: all 165-feature mandatory and held-out capacities were
+  1.0 under all four readouts. Thirteen Aer MPS circuits used 15 peak logical
+  qubits, 131,664 logical SWAPs, and 1,799.7 wall seconds.
+- An actual five-level Aer processor sweep gave mean nonlinear capacities
+  0.00083, 0.8063, 0.8491, 0.9271, and 1.0000 for g=0, .25, .5, .75, and 1,
+  respectively, clearing the ordered-interior screen before the full grid.

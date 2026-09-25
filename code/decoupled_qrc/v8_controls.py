@@ -21,7 +21,7 @@ def _best_null_capacity(matrix, labels, train, test):
     )
 
 
-def evaluate_negative_controls(inputs, corner_rows, protocol, *, seed=8800):
+def evaluate_negative_controls(inputs, corner_rows, protocol, *, permuted_input_rows, seed=8800):
     """Evaluate registered nulls; ``corner_rows`` contains LL/HL/LH/HH rows."""
     values = np.asarray(inputs, dtype=float)
     train, test = _splits(protocol)
@@ -33,14 +33,15 @@ def evaluate_negative_controls(inputs, corner_rows, protocol, *, seed=8800):
     future[:-1] = values[1:]
     future[-1] = rng.uniform(-1.0, 1.0)
     random_labels = rng.uniform(-1.0, 1.0, len(values))
-    permuted_labels = values[rng.permutation(len(values))]
     destroyed = hh[rng.permutation(len(hh))]
+    _, permuted_input_matrix = feature_matrix(permuted_input_rows)
     random_features = rng.normal(size=hh.shape)
 
     combined = protocol["task_families"][4:]
     no_communication_columns = [
         index for index, name in enumerate(names) if name.startswith(("M:", "N:"))
     ]
+    measurement_only_columns = [index for index, name in enumerate(names) if name == "N:p1"]
 
     def worst_combined(matrix, columns=None):
         use = matrix if columns is None else matrix[:, columns]
@@ -49,19 +50,17 @@ def evaluate_negative_controls(inputs, corner_rows, protocol, *, seed=8800):
             for family in combined for delay in range(1, 13)
         )
 
-    time = np.arange(len(values), dtype=float)
-    measurement_only = np.column_stack((np.ones(len(values)), np.sin(time), np.cos(time)))
     controls = {
         "future": _best_null_capacity(hh, future, train, test),
         "random_labels": _best_null_capacity(hh, random_labels, train, test),
-        "time_permuted_inputs": _best_null_capacity(hh, permuted_labels, train, test),
+        "time_permuted_inputs": _best_null_capacity(permuted_input_matrix, values, train, test),
         "destroyed_temporal_order": _best_null_capacity(destroyed, values, train, test),
         "memory_reset_each_timestep": worst_combined(matrices["LH"]),
         "processor_interaction_disabled": worst_combined(matrices["HL"]),
         "m_disconnected": worst_combined(matrices["LH"]),
         "g_disconnected": worst_combined(matrices["HL"]),
         "memory_processor_no_communication": worst_combined(hh, no_communication_columns),
-        "measurement_only_classical": _best_null_capacity(measurement_only, values, train, test),
+        "measurement_only_classical": worst_combined(hh, measurement_only_columns),
         "feature_count_matched_random": _best_null_capacity(random_features, values, train, test),
         "amplitude_rescaled_subspace_error": abs(linear_cka(hh, 2.5 * hh) - 1.0),
     }

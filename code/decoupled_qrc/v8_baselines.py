@@ -48,7 +48,7 @@ def evaluate_classical_baselines(inputs, quantum_rows, protocol, *, seed=8700):
     volterra = np.column_stack((univariate, pairs))
     random_features = np.tanh(lags @ rng.normal(scale=0.5, size=(13, 201)) + rng.normal(size=201))
     echo_state = _reservoir(values, 201, rng, recurrent=True)
-    parameter_matched = _reservoir(values, 29, rng, recurrent=True)
+    parameter_matched = _reservoir(values, 23, rng, recurrent=True)
     names, quantum = feature_matrix(quantum_rows)
     local_columns = [index for index, name in enumerate(names) if name.startswith(("M:", "N:"))]
     tractable = quantum[:, local_columns]

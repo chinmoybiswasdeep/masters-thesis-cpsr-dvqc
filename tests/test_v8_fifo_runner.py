@@ -21,6 +21,9 @@ def test_physical_fifo_invokes_aer_for_every_route_and_replays_time():
         result = run_fifo(values, 1.0, 1.0)
     assert len(calls) == len(ROUTES)
     assert result["resources"]["peak_qubits"] == 15
+    assert result["resources"]["distinct_reservoir_circuits"] == len(ROUTES)
+    assert result["resources"]["dynamical_settings"] == len(ROUTES)
+    assert result["resources"]["measurement_bases"] == 1
     assert abs(result["features"][3]["M:d1"] - values[2]) < 1e-11
     assert abs(result["features"][3]["M:d2"] - values[1]) < 1e-11
     expected_cubic = 4 * values[2] ** 3 - 3 * values[2]

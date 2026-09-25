@@ -8,7 +8,10 @@ from pathlib import Path
 
 import numpy as np
 
-from .v8_metrics import COMBINED_FAMILIES, READOUTS, evaluate_point, feature_matrix, geometry, linear_cka
+from .v8_metrics import (
+    COMBINED_FAMILIES, READOUTS, evaluate_point, feature_matrix, geometry,
+    linear_cka, normalized_gram, principal_angles,
+)
 from .v8_protocol import load_open_bank, load_protocol
 
 
@@ -68,13 +71,18 @@ def build_corner_evidence(
 ):
     """Build paired seed rows without substituting or regenerating quantum data."""
     protocol = load_protocol()
-    seeds = load_open_bank(bank)["seeds"]
+    if bank == "confirmation":
+        seeds = _read(Path(directory).parent / "confirmation_seeds_revealed.json")["seeds"]
+    else:
+        seeds = load_open_bank(bank)["seeds"]
     root = Path(directory)
     seed_rows = []
     structural_memory = []
     structural_nonlinear = []
     geometry_values = []
     amplitude_values = []
+    gram_distances = []
+    angle_values = []
 
     for seed in seeds:
         points = {}
@@ -156,9 +164,11 @@ def build_corner_evidence(
         high = matrices["LH"][:, nonlinear_columns]
         geometry_values.append(linear_cka(low, high))
         amplitude_values.append(linear_cka(high, 3.75 * high))
+        gram_distances.append(float(np.linalg.norm(normalized_gram(low) - normalized_gram(high), "fro")))
+        angle_values.append(principal_angles(low, high))
 
     evidence = {
-        "stage": "internal_validation" if bank == "internal_validation" else "development",
+        "stage": "confirmation" if bank == "confirmation" else ("internal_validation" if bank == "internal_validation" else "development"),
         "expected_seed_count": len(seeds),
         "observed_seed_count": len(seed_rows),
         "structural_invariance": {
@@ -168,6 +178,8 @@ def build_corner_evidence(
         "geometry": {
             "cka_low_high_g": max(geometry_values, default=1.0),
             "amplitude_control_cka": min(amplitude_values, default=0.0),
+            "normalized_gram_distance_low_high_g": min(gram_distances, default=0.0),
+            "principal_angles_by_seed": angle_values,
         },
         "split_disjoint": True,
         "no_future_features": True,
@@ -281,4 +293,85 @@ def analyze_conditioning_and_learning(raw_path):
         "numerical_rank": numerical_rank,
         "training_rows": len(train),
         "geometry": diagnostics,
+    }
+
+
+def compare_precision(directory, input_seed):
+    """Compare all four single-precision corners with persisted double rows."""
+    root = Path(directory)
+    maximum_feature = 0.0
+    maximum_capacity = 0.0
+    for m, g in CORNERS.values():
+        double_raw = _read(root / _name(input_seed, m, g))
+        single_raw = _read(root / _name(input_seed, m, g, precision="single"))
+        names_double, matrix_double = feature_matrix(double_raw["features"])
+        names_single, matrix_single = feature_matrix(single_raw["features"])
+        if names_double != names_single:
+            raise ValueError("precision feature columns differ")
+        maximum_feature = max(maximum_feature, float(np.max(np.abs(matrix_double - matrix_single))))
+        double_metrics = _read(root / _name(input_seed, m, g, "_metrics"))
+        single_metrics = _read(root / _name(input_seed, m, g, "_metrics", precision="single"))
+        for readout in READOUTS:
+            for family in load_protocol()["task_families"]:
+                maximum_capacity = max(maximum_capacity, float(np.max(np.abs(
+                    np.asarray(double_metrics["capacities"][readout][family])
+                    - np.asarray(single_metrics["capacities"][readout][family])
+                ))))
+    return {
+        "precision_pass": bool(maximum_feature <= 1e-5 and maximum_capacity <= 0.01),
+        "maximum_feature_absolute_difference": maximum_feature,
+        "maximum_capacity_absolute_difference": maximum_capacity,
+    }
+
+
+def analyze_noise_robustness(noise_directory, ideal_directory, seed, *, shots=1000):
+    """Aggregate the frozen 2x2 simulator/transpiler fake-backend matrix."""
+    ideal = {}
+    for label, (m, g) in CORNERS.items():
+        ideal[label] = _read(Path(ideal_directory) / _name(seed["input"], m, g, "_metrics"))
+
+    def effects(points):
+        memory, nonlinear = [], []
+        for readout in READOUTS:
+            memory_scores = {label: _score(value, readout, "linear_delayed") for label, value in points.items()}
+            nonlinear_scores = {label: _nonlinear_score(value, readout) for label, value in points.items()}
+            memory.extend((memory_scores["HL"] - memory_scores["LL"], memory_scores["HH"] - memory_scores["LH"]))
+            nonlinear.extend((nonlinear_scores["LH"] - nonlinear_scores["LL"], nonlinear_scores["HH"] - nonlinear_scores["HL"]))
+        return np.asarray(memory + nonlinear)
+
+    ideal_effects = effects(ideal)
+    retentions = []
+    ordered = True
+    replicates = []
+    for simulator_offset in (0, 100000):
+        for transpiler_offset in (0, 100000):
+            simulator_seed = seed["simulator"] + simulator_offset
+            transpiler_seed = seed["transpiler"] + transpiler_offset
+            points = {}
+            for label, (m, g) in CORNERS.items():
+                filename = (
+                    f"seed_{seed['input']}_m{m:g}_g{g:g}_sim{simulator_seed}_"
+                    f"trans{transpiler_seed}_{shots}shots_metrics.json"
+                )
+                points[label] = _read(Path(noise_directory) / filename)
+            noisy_effects = effects(points)
+            retention = float(np.min(noisy_effects / ideal_effects))
+            retentions.append(retention)
+            for family in COMBINED_FAMILIES:
+                for readout in READOUTS:
+                    for delay in range(8, 12):
+                        hh = points["HH"]["capacities"][readout][family][delay]
+                        competitor = max(points[label]["capacities"][readout][family][delay] for label in ("LL", "HL", "LH"))
+                        ordered &= hh > competitor
+            replicates.append({
+                "simulator_seed": simulator_seed,
+                "transpiler_seed": transpiler_seed,
+                "minimum_main_effect_retention": retention,
+            })
+    return {
+        "noise_effect_retention": min(retentions),
+        "noise_hh_ordered": bool(ordered),
+        "replicates": replicates,
+        "fake_backend": "FakeGuadalupeV2",
+        "shots": shots,
     }

@@ -15,6 +15,7 @@ from .v8_measurements import PAIR_DELAYS, expectation_from_counts, local_z_produ
 
 
 TAPS = 13
+PREFIX_BATCH_SIZE = 32
 ROUTES = (
     "memory", "processor", "current1", "current2", "current3", "current4",
     "delayed2", "delayed3", "delayed4", "pair", "mix12", "mix23", "mix32",
@@ -35,6 +36,8 @@ class Resources:
     shots_per_setting: int
     total_shots: int
     gate_counts: dict
+    one_qubit_gates: int
+    two_qubit_gates: int
     swap_count: int
     measurement_basis_labels: tuple[str, ...]
     feature_count: int
@@ -196,26 +199,31 @@ def run_fifo(inputs, m, g, *, mode="exact", shots=1000, seed_simulator=0, precis
                 gate_counts[gate] = gate_counts.get(gate, 0) + count
         rows = tuple(rows)
         executions, preparations, encodings, total_shots = len(ROUTES), len(ROUTES), len(values) * 23, 0
+        aer_jobs = len(ROUTES)
     else:
         backend = AerSimulator(method="matrix_product_state", precision=precision)
         rows = [dict() for _ in values]
+        aer_jobs = 0
         for route in ROUTES:
-            circuits = []
-            for stop in range(1, len(values) + 1):
-                circuit = _new_circuit(route)
-                for value in values[:stop]:
-                    _append(circuit, route, value, m, g)
-                circuit.measure_all()
-                circuits.append(circuit)
-            depths.extend(circuit.depth() for circuit in circuits)
-            for circuit in circuits:
-                for gate, count in circuit.count_ops().items():
-                    gate_counts[gate] = gate_counts.get(gate, 0) + int(count)
-            result = backend.run(circuits, shots=shots, seed_simulator=seed_simulator).result()
-            if not result.success:
-                raise RuntimeError(result.status)
-            for timestep in range(len(values)):
-                rows[timestep].update(_extract_counts(route, result.get_counts(timestep)))
+            for first in range(0, len(values), PREFIX_BATCH_SIZE):
+                stops = range(first + 1, min(first + PREFIX_BATCH_SIZE, len(values)) + 1)
+                circuits = []
+                for stop in stops:
+                    circuit = _new_circuit(route)
+                    for value in values[:stop]:
+                        _append(circuit, route, value, m, g)
+                    circuit.measure_all()
+                    circuits.append(circuit)
+                depths.extend(circuit.depth() for circuit in circuits)
+                for circuit in circuits:
+                    for gate, count in circuit.count_ops().items():
+                        gate_counts[gate] = gate_counts.get(gate, 0) + int(count)
+                result = backend.run(circuits, shots=shots, seed_simulator=seed_simulator).result()
+                aer_jobs += 1
+                if not result.success:
+                    raise RuntimeError(result.status)
+                for index, stop in enumerate(stops):
+                    rows[stop - 1].update(_extract_counts(route, result.get_counts(index)))
         rows = tuple(rows)
         executions = preparations = len(ROUTES) * len(values)
         encodings = sum(range(1, len(values) + 1)) * 23
@@ -226,13 +234,15 @@ def run_fifo(inputs, m, g, *, mode="exact", shots=1000, seed_simulator=0, precis
         peak_qubits=15,
         dynamical_settings=len(ROUTES),
         measurement_bases=1,
-        aer_jobs=len(ROUTES),
+        aer_jobs=aer_jobs,
         circuit_executions=executions,
         state_preparations=preparations,
         input_encodings=encodings,
         shots_per_setting=0 if mode == "exact" else shots,
         total_shots=total_shots,
         gate_counts=gate_counts,
+        one_qubit_gates=gate_counts.get("ry", 0),
+        two_qubit_gates=gate_counts.get("swap", 0) + gate_counts.get("cx", 0),
         swap_count=gate_counts.get("swap", 0),
         measurement_basis_labels=("Z",),
         feature_count=len(rows[0]) if rows else 0,

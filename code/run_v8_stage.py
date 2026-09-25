@@ -14,6 +14,7 @@ from decoupled_qrc.v8_confirmation import reveal_confirmation
 from decoupled_qrc.v8_controls import evaluate_negative_controls
 from decoupled_qrc.v8_evidence import (
     analyze_conditioning_and_learning, analyze_response_surface, build_corner_evidence,
+    analyze_noise_robustness, compare_precision,
 )
 from decoupled_qrc.v8_freeze import freeze_candidate, verify_manifest
 from decoupled_qrc.v8_gates import evaluate_gates
@@ -30,8 +31,22 @@ STAGES = (
     "REPORT", "VERIFY",
 )
 
+FINITE_SHOT_CORE_GATES = (
+    "memory_main", "nonlinearity_main", "memory_to_nonlinearity_equivalence",
+    "nonlinearity_to_memory_equivalence", "degree_profile_preservation",
+    "memory_curve_preservation", "scale_invariant_separation", "nonlinear_geometry",
+    "per_delay_requirements", "combined_hh", "heldout_targets", "seed_completeness",
+    "target_completeness", "train_test_leakage",
+)
+
 
 def _seed(bank, index):
+    if bank == "confirmation":
+        revealed = RESULTS / "confirmation_seeds_revealed.json"
+        if not revealed.exists():
+            raise PermissionError("confirmation bank has not been revealed after freeze")
+        verify_manifest(RESULTS / "frozen_manifest.json")
+        return json.loads(revealed.read_text())["seeds"][index]
     return load_open_bank(bank)["seeds"][index]
 
 
@@ -52,7 +67,9 @@ def execute_point(args):
     protocol = load_protocol()
     seed = _seed(args.bank, args.seed_index)
     inputs = _inputs(seed["input"], protocol["data"]["sequence_length"])
-    if args.bank == "internal_validation":
+    if args.bank == "confirmation":
+        output = RESULTS / ("confirmation_shots" if args.mode == "shots" else "confirmation_exact")
+    elif args.bank == "internal_validation":
         output = RESULTS / ("validation_shots" if args.mode == "shots" else "validation")
     else:
         output = RESULTS / ("development_shots" if args.mode == "shots" else "development_exact")
@@ -118,18 +135,78 @@ def execute_negative_controls(args):
         raw = json.loads((directory / _point_name(seed["input"], m, g, "exact")).read_text())
         inputs = raw["inputs"]
         points[label] = raw["features"]
-    controls = evaluate_negative_controls(inputs, points, protocol, seed=seed["input"] + 8800)
     output = RESULTS / "negative_controls"
+    permutation = np.random.default_rng(seed["input"] + 8801).permutation(len(inputs))
+    permuted_path = output / f"seed_{seed['input']}_time_permuted_input.json"
+    if permuted_path.exists() and not args.force:
+        permuted = json.loads(permuted_path.read_text())
+    else:
+        result = run_fifo(
+            np.asarray(inputs)[permutation].tolist(), 1.0, 1.0,
+            seed_simulator=seed["simulator"], precision="double",
+        )
+        permuted = {
+            "candidate": "V8.6", "seed": seed, "permutation": permutation.tolist(),
+            "features": result["features"], "resources": result["resources"], "backend": result["backend"],
+        }
+        atomic_json(permuted_path, permuted)
+    controls = evaluate_negative_controls(
+        inputs, points, protocol, permuted_input_rows=permuted["features"], seed=seed["input"] + 8800,
+    )
     atomic_json(output / f"seed_{seed['input']}_controls.json", controls)
     baselines = evaluate_classical_baselines(inputs, points["HH"], protocol, seed=seed["input"] + 8700)
     atomic_json(output / f"seed_{seed['input']}_baselines.json", baselines)
     print(json.dumps({"controls": controls, "baseline_complete": baselines["baseline_complete"]}, indent=2))
 
 
+def finite_shot_matrix_status():
+    protocol = load_protocol()
+    directory = RESULTS / "development_shots"
+    seed = _seed("development", 0)
+    details = {}
+    passed = True
+    for shots in (1000, 10000):
+        evidence = build_corner_evidence(directory, "development", mode="shots", shots=shots)
+        gates = evaluate_gates(evidence, protocol)
+        core = all(gates.get(name, {}).get("passed", False) for name in FINITE_SHOT_CORE_GATES)
+        details[f"primary_{shots}"] = core
+        passed &= core
+        atomic_json(RESULTS / f"development_{shots}shots_evidence.json", evidence)
+        atomic_json(RESULTS / f"development_{shots}shots_gates.json", gates)
+
+    checks = ((1000, 100000), (10000, 100000), (100000, 0))
+    for shots, simulator_offset in checks:
+        points = {}
+        for label, (m, g) in {"LL": (0, 0), "HL": (1, 0), "LH": (0, 1), "HH": (1, 1)}.items():
+            path = directory / _point_name(
+                seed["input"], m, g, "shots", shots,
+                simulator_seed_offset=simulator_offset,
+            )
+            metric_path = path.with_name(path.stem + "_metrics.json")
+            if not metric_path.exists():
+                raise FileNotFoundError(metric_path)
+            points[label] = json.loads(metric_path.read_text())
+        ordered = True
+        for family in protocol["task_families"][4:]:
+            for readout in protocol["readouts"]:
+                for delay in range(8, 12):
+                    hh = points["HH"]["capacities"][readout][family][delay]
+                    other = max(points[label]["capacities"][readout][family][delay] for label in ("LL", "HL", "LH"))
+                    ordered &= hh > other
+        label = f"representative_{shots}_simplus{simulator_offset}"
+        details[label] = bool(ordered)
+        passed &= ordered
+    for shots in (1000, 10000):
+        center = directory / _point_name(seed["input"], 0.5, 0.5, "shots", shots)
+        details[f"center_{shots}"] = center.exists()
+        passed &= center.exists()
+    return {"finite_shot_pass": bool(passed), "details": details}
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("stage", choices=STAGES)
-    parser.add_argument("--bank", choices=("development", "internal_validation"), default="development")
+    parser.add_argument("--bank", choices=("development", "internal_validation", "confirmation"), default="development")
     parser.add_argument("--seed-index", type=int, default=0)
     parser.add_argument("--m", type=float, default=1.0)
     parser.add_argument("--g", type=float, default=1.0)
@@ -164,6 +241,8 @@ def main():
             "code/decoupled_qrc/v8_architectures/fifo.py",
             "code/decoupled_qrc/v8_qiskit_runner.py",
             "code/decoupled_qrc/v8_noise_runner.py",
+            "code/decoupled_qrc/v8_baselines.py",
+            "code/decoupled_qrc/v8_controls.py",
             "code/decoupled_qrc/v8_measurements.py",
             "code/decoupled_qrc/v8_metrics.py",
             "code/decoupled_qrc/v8_evidence.py",
@@ -173,12 +252,17 @@ def main():
             "code/decoupled_qrc/v8_freeze.py",
             "code/decoupled_qrc/v8_confirmation.py",
             "code/run_v8_stage.py",
+            "code/run_v8_matrix.py",
             "results/v8/preregistered_v8_protocol.json",
             "results/v8/amendment_001.json",
             "results/v8/amendment_002.json",
             "results/v8/amendment_003.json",
+            "results/v8/amendment_004.json",
+            "results/v8/candidate_registry.json",
+            "docs/V8_DEVELOPMENT_LOG.md",
             "requirements-lock.txt",
         ]
+        files.extend(path.relative_to(ROOT).as_posix() for path in (ROOT / "tests").glob("test_v8_*.py"))
         artifact_roots = (
             "architecture_screen", "development_exact", "development_shots",
             "validation", "validation_shots", "negative_controls", "robustness",
@@ -206,9 +290,13 @@ def main():
             args.manifest, require_committed=True,
         ))
     elif args.stage == "CONFIRM":
-        if not args.key:
-            raise SystemExit("--key is required")
-        print(reveal_confirmation(args.manifest, args.key.encode()))
+        revealed = RESULTS / "confirmation_seeds_revealed.json"
+        if not revealed.exists():
+            if not args.key:
+                raise SystemExit("--key is required for the one-time reveal")
+            print(reveal_confirmation(args.manifest, args.key.encode()))
+        args.bank = "confirmation"
+        execute_point(args)
     elif args.stage == "VERIFY":
         print(verify_manifest(args.manifest))
     elif args.stage == "ROBUSTNESS":
@@ -216,7 +304,9 @@ def main():
     elif args.stage == "NEGATIVE_CONTROLS":
         execute_negative_controls(args)
     elif args.stage == "REPORT":
-        if args.bank == "internal_validation":
+        if args.bank == "confirmation":
+            directory = RESULTS / ("confirmation_shots" if args.mode == "shots" else "confirmation_exact")
+        elif args.bank == "internal_validation":
             directory = RESULTS / ("validation_shots" if args.mode == "shots" else "validation")
         else:
             directory = RESULTS / ("development_shots" if args.mode == "shots" else "development_exact")
@@ -255,12 +345,42 @@ def main():
                     "learning_curve_pass": stability["learning_curve_pass"],
                     "stability": stability,
                 })
+            try:
+                precision = compare_precision(directory, _seed("development", 0)["input"])
+            except FileNotFoundError:
+                precision = None
+            if precision:
+                supplemental["precision_pass"] = precision["precision_pass"]
+                supplemental["precision"] = precision
+            try:
+                noise = analyze_noise_robustness(
+                    RESULTS / "robustness" / "fake_guadalupe_v2", directory,
+                    _seed("development", 0), shots=1000,
+                )
+            except FileNotFoundError:
+                noise = None
+            if noise:
+                supplemental.update({
+                    "noise_effect_retention": noise["noise_effect_retention"],
+                    "noise_hh_ordered": noise["noise_hh_ordered"],
+                    "noise": noise,
+                })
+            try:
+                finite_shots = finite_shot_matrix_status()
+            except (FileNotFoundError, ValueError):
+                finite_shots = None
+            if finite_shots:
+                supplemental["finite_shot_pass"] = finite_shots["finite_shot_pass"]
+                supplemental["finite_shots"] = finite_shots
         evidence = build_corner_evidence(
             directory, args.bank, supplemental, mode=args.mode, shots=args.shots,
             precision=args.precision, simulator_seed_offset=args.simulator_seed_offset,
         )
         gates = evaluate_gates(evidence, load_protocol())
-        prefix = "validation" if args.bank == "internal_validation" else "development"
+        prefix = {
+            "internal_validation": "validation",
+            "confirmation": "confirmation",
+        }.get(args.bank, "development")
         if args.mode == "shots":
             prefix += f"_{args.shots}shots"
         if args.precision != "double":

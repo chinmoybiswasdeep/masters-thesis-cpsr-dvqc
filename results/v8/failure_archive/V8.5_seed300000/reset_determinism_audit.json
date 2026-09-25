@@ -1,0 +1,12 @@
+{
+  "candidate": "V8.5",
+  "route": "past2",
+  "inputs": [-0.8, -0.2, 0.3, 0.9],
+  "m": 1.0,
+  "g": 1.0,
+  "precision": "double",
+  "simulator_seeds": [1, 999],
+  "maximum_absolute_feature_difference": 0.03906250000000014,
+  "decision": "reject",
+  "cause": "reset of an entangled control invokes stochastic pure-state MPS reset trajectories"
+}

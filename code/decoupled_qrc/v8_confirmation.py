@@ -22,5 +22,11 @@ def reveal_confirmation(manifest_path, escrow_key: bytes, output=None):
     except InvalidToken as error:
         raise PermissionError("invalid confirmation escrow key") from error
     destination = Path(output or RESULTS / "confirmation_seeds_revealed.json")
-    atomic_json(destination, {**bank, "frozen_version": manifest["version"]})
+    atomic_json(destination, {
+        **bank,
+        "frozen_version": manifest["version"],
+        "alpha_spending_attempt": 1,
+        "confirmation_alpha": 0.01,
+        "ciphertext_commitment_verified": commitment,
+    })
     return bank
