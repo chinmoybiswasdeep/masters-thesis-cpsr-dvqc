@@ -26,6 +26,11 @@ def valid_evidence():
         "geometry": {"cka_low_high_g": 0.8, "amplitude_control_cka": 1.0},
         "encoder_leakage_max": 0.0, "split_disjoint": True, "no_future_features": True,
         "saturated_fraction": 0.0,
+        "response_surface": {
+            "complete_points": 25, "memory_ordered": True, "nonlinear_ordered": True,
+            "memory_interior": True, "nonlinear_interior": True,
+        },
+        "conditioning_pass": True, "learning_curve_pass": True,
         "negative_controls": {"future": 0.0, "random": 0.0, "permuted": 0.0, "destroyed": 0.0},
         "finite_shot_pass": True, "noise_effect_retention": 0.8, "noise_hh_ordered": True,
         "precision_pass": True, "baseline_complete": True, "quantum_advantage": False,
@@ -77,6 +82,17 @@ def test_rejects_saturation_leakage_and_amplitude_only_geometry():
     assert not result["saturation"]["passed"]
     assert not result["encoder_leakage"]["passed"]
     assert not result["nonlinear_geometry"]["passed"]
+
+
+def test_rejects_incomplete_surface_conditioning_and_learning_curve():
+    protocol, evidence = valid_evidence()
+    evidence["response_surface"]["complete_points"] = 24
+    evidence["conditioning_pass"] = False
+    evidence["learning_curve_pass"] = False
+    result = evaluate_gates(evidence, protocol)
+    assert not result["response_surface"]["passed"]
+    assert not result["conditioning"]["passed"]
+    assert not result["learning_curve"]["passed"]
 
 
 def test_rejects_missing_seed_target_and_missing_evidence():

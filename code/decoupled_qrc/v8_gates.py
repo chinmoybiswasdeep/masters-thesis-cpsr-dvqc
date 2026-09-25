@@ -110,6 +110,15 @@ def evaluate_gates(evidence: dict, protocol: dict) -> dict:
         gates["encoder_leakage"] = _gate(evidence["encoder_leakage_max"] <= t["null_capacity_upper"])
         gates["train_test_leakage"] = _gate(bool(evidence["split_disjoint"] and evidence["no_future_features"]))
         gates["saturation"] = _gate(evidence["saturated_fraction"] <= t["saturated_fraction_max"])
+        surface = evidence["response_surface"]
+        gates["response_surface"] = _gate(
+            surface["complete_points"] == 25
+            and surface["memory_ordered"] and surface["nonlinear_ordered"]
+            and surface["memory_interior"] and surface["nonlinear_interior"],
+            **surface,
+        )
+        gates["conditioning"] = _gate(bool(evidence["conditioning_pass"]))
+        gates["learning_curve"] = _gate(bool(evidence["learning_curve_pass"]))
         nulls = evidence["negative_controls"]
         gates["negative_controls"] = _gate(all(value <= t["null_capacity_upper"] for value in nulls.values()), values=nulls)
         gates["finite_shot_robustness"] = _gate(bool(evidence["finite_shot_pass"]))

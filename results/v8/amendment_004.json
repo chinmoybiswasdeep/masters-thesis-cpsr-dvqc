@@ -1,0 +1,9 @@
+{
+  "amendment": 4,
+  "date": "2026-09-25",
+  "stage": "before the V8.5 response surface, multi-seed inference, or robustness stages",
+  "change": "Add explicit executable gates for complete 5x5 response-surface ordering/interiors, conditioning stability, and doubled-training learning-curve stability.",
+  "reason": "These requirements were present in the assignment but the preregistered engine represented only saturation and readout-stability parts of them. An explicit missing-evidence-fails gate is required for each requirement.",
+  "scientific_strength": "This adds mandatory failures and cannot turn a failed decision into a pass. No threshold or existing gate is weakened.",
+  "data_access": "One exact V8.5 HH point for development seed 300000 had completed; three other corner circuits were running. No response surface, paired multi-seed inference, finite-shot, noisy, validation, or confirmation result existed."
+}
