@@ -149,3 +149,12 @@ is not evidence of confirmation success.
 - Only after that corner checkpoint passed, the registered remaining 21
   seed-300000 points of the 5x5 exact response surface were started as three
   resumable shards.
+- The complete 5x5 exact response surface then passed every Amendment 004
+  advance condition: all 25 points were present; memory and nonlinear scores
+  were ordered along their intended axes; every interior score lay between
+  its endpoints; and the all-family, all-readout saturated fraction was
+  0.05778, below the frozen 0.20 ceiling. The memory means across m were
+  -0.000108, 0.160485, 0.408005, 0.741771, and 1.000000, invariant in g.
+  The nonlinear means across g were 0.000830, 0.806263, 0.849118, 0.927138,
+  and 1.000000, invariant in m. All three resumable shard logs had empty
+  stderr.
