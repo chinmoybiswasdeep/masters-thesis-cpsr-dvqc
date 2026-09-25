@@ -54,7 +54,7 @@ Long-sequence check (T = 40 000), from `results/v6/algebra/V5.4.json`:
 | V6.4 | SENTCAL | rejected | 22 features; maximum excess 0.0168 > 0.016 dev margin |
 | V6.5 | SENTCAL | rejected | 18 features; 0.0162 > 0.016 |
 | V6.6 | SENTCAL | rejected | 11 features, pure-product combined route; all class margins met on the quick dev check; 0.0176 from one future-sentinel row |
-| V6.7+ | SENTCAL | re-draws | The V6.6 design, unchanged, on fresh dev blocks 3–8 (user decision). |
+| V6.7 | CONFIRM | **confirmed** | The V6.6 design re-drawn on fresh dev block 3 (0.0100). Frozen `01b183eb`; all mandatory gates pass on the untouched bank. See `docs/DQRC_V6_RESULTS.md`. |
 
 ### Decisions and amendments after V6.3
 

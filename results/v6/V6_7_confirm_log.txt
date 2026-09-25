@@ -1,0 +1,82 @@
+=== V6 CONFIRM V6.7 ===
+  wrote results\v6\V6_7\structure_confirmation.json
+  wrote results\v6\V6_7\section6_confirmation.json
+    [conf] 25/500 points (22s)
+    [conf] 50/500 points (42s)
+    [conf] 75/500 points (62s)
+    [conf] 100/500 points (80s)
+    [conf] 125/500 points (98s)
+    [conf] 150/500 points (116s)
+    [conf] 175/500 points (136s)
+    [conf] 200/500 points (156s)
+    [conf] 225/500 points (174s)
+    [conf] 250/500 points (196s)
+    [conf] 275/500 points (216s)
+    [conf] 300/500 points (238s)
+    [conf] 325/500 points (258s)
+    [conf] 350/500 points (279s)
+    [conf] 375/500 points (299s)
+    [conf] 400/500 points (319s)
+    [conf] 425/500 points (339s)
+    [conf] 450/500 points (359s)
+    [conf] 475/500 points (379s)
+    [conf] 500/500 points (400s)
+  wrote results\v6\V6_7\invalid_controls_confirmation.json
+  robustness on confirmation seeds:
+      baseline               worst effect +0.274  worst HH adv +0.106  iso True  sat True  -> ok
+      longer_T3200           worst effect +0.267  worst HH adv +0.110  iso True  sat True  -> ok
+      half_training          worst effect +0.270  worst HH adv +0.103  iso True  sat True  -> ok
+      double_training        worst effect +0.269  worst HH adv +0.106  iso True  sat True  -> ok
+      float32_readout        worst effect +0.274  worst HH adv +0.106  iso True  sat True  -> ok
+      perturbed_controls     worst effect +0.270  worst HH adv +0.110  iso True  sat True  -> ok
+      ridge_0.05             worst effect +0.274  worst HH adv +0.106  iso True  sat True  -> ok
+      ridge_5.0              worst effect +0.274  worst HH adv +0.106  iso True  sat True  -> ok
+      delay_range_12         worst effect +0.188  worst HH adv +0.106  iso True  sat True  -> ok
+      degree_6               worst effect +0.274  worst HH adv +0.106  iso True  sat True  -> ok
+      shots_1000             worst effect +0.269  worst HH adv +0.093  iso True  sat True  -> ok
+      shots_10000            worst effect +0.274  worst HH adv +0.106  iso True  sat True  -> ok
+      shots_100000           worst effect +0.244  worst HH adv +0.107  iso True  sat True  -> ok
+      pR_max_x0.9            worst effect +0.238  worst HH adv +0.105  iso True  sat True  -> ok
+      pR_max_x1.1            worst effect +0.283  worst HH adv +0.106  iso True  sat True  -> ok
+      theta_max_x0.9         worst effect +0.274  worst HH adv +0.115  iso True  sat True  -> ok
+      theta_max_x1.1         worst effect +0.274  worst HH adv +0.092  iso True  sat True  -> ok
+      chi_max_x0.9           worst effect +0.225  worst HH adv +0.084  iso True  sat True  -> ok
+      chi_max_x1.1           worst effect +0.274  worst HH adv +0.115  iso True  sat True  -> ok
+      phi_x0.9               worst effect +0.243  worst HH adv +0.085  iso True  sat True  -> ok
+      phi_x1.1               worst effect +0.274  worst HH adv +0.115  iso True  sat True  -> ok
+      pQ_max_x0.9            worst effect +0.274  worst HH adv +0.105  iso True  sat True  -> ok
+      pQ_max_x1.1            worst effect +0.274  worst HH adv +0.107  iso True  sat True  -> ok
+      thetaQ_max_x0.9        worst effect +0.274  worst HH adv +0.106  iso True  sat True  -> ok
+      thetaQ_max_x1.1        worst effect +0.274  worst HH adv +0.106  iso True  sat True  -> ok
+      phiQ_x0.9              worst effect +0.274  worst HH adv +0.106  iso True  sat True  -> ok
+      phiQ_x1.1              worst effect +0.274  worst HH adv +0.106  iso True  sat True  -> ok
+      ibm_noise_FakeTorino   worst effect +0.276  worst HH adv +0.109  iso True  sat True  -> ok
+      exact_expectations_perturbed_controls worst effect +0.207  worst HH adv -0.001  iso True  sat True  -> FAIL
+  wrote results\v6\V6_7\robustness_confirmation.json
+  wrote results\v6\V6_7\gates.json
+  PASS  01_main_m_M
+  PASS  02_main_g_N
+  PASS  03_cross_m_N_equivalent
+  PASS  04_cross_g_M_equivalent
+  PASS  05_cross_main_ratio
+  PASS  06_degree_profile_under_m
+  PASS  07_memory_curve_under_g
+  PASS  08_separation_ols_raw
+  PASS  09_separation_ols_std
+  PASS  10_separation_ridge
+  PASS  11_interior_effects
+  PASS  11b_section6_intrinsic_P
+  PASS  12_combined_C1_C4_all_pass
+  PASS  13_HH_best_every_class
+  PASS  14_feature_counts_invariant
+  PASS  15_no_encoder_leakage
+  PASS  16_no_saturation
+  PASS  17_future_sentinel_null
+  PASS  18_unreachable_sentinel_null
+  PASS  19_isolation_and_contaminated_controls
+  PASS  20_invalid_controls_detected
+  PASS  21_seed_reproducibility
+  PASS  26_unit_tests_pass
+  PASS  22_25_robustness
+  SUCCESS (all mandatory gates): True
+  quantum-specific: General memory-nonlinearity separation succeeds, but the mechanism is classically reproducible.

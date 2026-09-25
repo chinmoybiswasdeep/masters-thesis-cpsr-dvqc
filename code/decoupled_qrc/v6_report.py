@@ -74,7 +74,9 @@ def figures(d: Path, rows, gates, rob, stamp) -> list:
         ax.axhline(np.mean([comb[c][meth]["null_q99"] for c in V6_CLASSES]) + 0.02, color=MUTED,
                    ls="--", lw=1)
         ax.set_xticks(range(4)); ax.set_xticklabels(["C1", "C2", "C3", "C4"])
-        ax.set_title(f"quadrant means — {meth}", loc="left")
+        top = max(max(comb[c][meth]["quadrant_means"].values()) for c in V6_CLASSES)
+        ax.set_ylim(top=top * 1.25)
+        ax.set_title(f"quadrant means — {meth}", loc="left", pad=10)
     axes[0].set_ylabel("class-mean capacity (unclipped)"); axes[0].legend(ncol=4, fontsize=7.5)
     fig.tight_layout(); _save(fig, fd, "fig03_class_quadrants", figs, stamp)
     # 4 degree-delay IPC at HH
@@ -90,6 +92,7 @@ def figures(d: Path, rows, gates, rob, stamp) -> list:
             for t in range(9):
                 ax.text(t, a + 1, f"{H[a, t]:.2f}", ha="center", va="center", fontsize=5.6,
                         color="#ffffff" if H[a, t] > 0.55 else INK)
+        ax.set_yticks([1, 2, 3, 4])
         ax.set_xlabel("delay τ"); ax.set_ylabel("degree d"); ax.set_title(f"C(d,τ) {key}", loc="left")
     fig.colorbar(im, ax=axes, fraction=0.02).outline.set_edgecolor(GRID)
     _save(fig, fd, "fig04_degree_delay_HH", figs, stamp)

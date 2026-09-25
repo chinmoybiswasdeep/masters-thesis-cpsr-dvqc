@@ -71,14 +71,30 @@
       "diagnosis": "",
       "next_command": "python run_v6_stage.py --stage CONFIRM --version V6.7",
       "utc": "2026-09-24T23:36:27Z"
+    },
+    {
+      "version": "V6.7",
+      "stage": "CONFIRM",
+      "status": "SUCCESS",
+      "diagnosis": "",
+      "next_command": "python run_v6_stage.py --stage REPORT --version V6.7",
+      "utc": "2026-09-25T00:08:54Z"
+    },
+    {
+      "version": "V6.7",
+      "stage": "CONFIRM+REPORT",
+      "status": "SUCCESS: all mandatory gates pass on untouched confirmation (attempt 1, alpha 0.01); quantum-specific FAILS (classically reproducible)",
+      "diagnosis": "see docs/DQRC_V6_RESULTS.md section 8 for limitations",
+      "next_command": "none (terminal condition A)",
+      "utc": "2026-09-25T00:16:17Z"
     }
   ],
   "current": {
     "version": "V6.7",
-    "stage": "FREEZE",
-    "status": "frozen, attempt 1, alpha 0.01",
-    "diagnosis": "",
-    "next_command": "python run_v6_stage.py --stage CONFIRM --version V6.7",
-    "utc": "2026-09-24T23:36:27Z"
+    "stage": "CONFIRM+REPORT",
+    "status": "SUCCESS: all mandatory gates pass on untouched confirmation (attempt 1, alpha 0.01); quantum-specific FAILS (classically reproducible)",
+    "diagnosis": "see docs/DQRC_V6_RESULTS.md section 8 for limitations",
+    "next_command": "none (terminal condition A)",
+    "utc": "2026-09-25T00:16:17Z"
   }
 }
