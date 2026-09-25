@@ -1,0 +1,11 @@
+{
+  "candidates": [
+    {"version": "V8.0", "family": "monolithic quantum FIFO", "status": "rejected", "reason": "56-qubit full-width expectation snapshots were infeasible"},
+    {"version": "V8.1", "family": "modular quantum FIFO", "status": "rejected", "reason": "27-qubit dual-register routes remained infeasible at the frozen scale"},
+    {"version": "V8.2", "family": "parallel polynomial delay", "status": "rejected", "reason": "execution refinement required before scaling"},
+    {"version": "V8.3", "family": "parallel polynomial delay", "status": "rejected", "reason": "direct delay addressing did not meet physical shift requirement"},
+    {"version": "V8.4", "family": "physical modular FIFO", "status": "rejected", "reason": "held-out nonlinear combination route was incomplete"},
+    {"version": "V8.5", "family": "physical modular FIFO plus generic nonlinear correlations", "status": "rejected", "reason": "entangled-control reset made the purported exact past routes stochastic"},
+    {"version": "V8.6", "family": "reset-safe physical modular FIFO plus generic nonlinear correlations", "status": "development"}
+  ]
+}

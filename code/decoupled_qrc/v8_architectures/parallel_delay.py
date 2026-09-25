@@ -9,6 +9,7 @@ from qiskit import QuantumCircuit
 from qiskit.quantum_info import SparsePauliOp
 
 from .fifo import transport_depth
+from ..v8_measurements import PAIR_DELAYS
 
 
 @dataclass(frozen=True)
@@ -66,15 +67,14 @@ def specifications(inputs, m: float, g: float) -> tuple[Observable, ...]:
                     _theta(values[t - delay]) if t >= delay and _available(m, delay) else pi / 2,
                 )
             )))
-    for left in range(1, 13):
-        for right in range(left + 1, 13):
-            specs.append(Observable(f"J:linear_pair:d{left}:d{right}", tuple(
-                angle
-                for t in range(len(values))
-                for delay in (left, right)
-                for angle in ((1 - g) * pi / 2 + g * _theta(values[t - delay])
-                              if t >= delay and _available(m, delay) else pi / 2,)
-            )))
+    for left, right in PAIR_DELAYS:
+        specs.append(Observable(f"J:linear_pair:d{left}:d{right}", tuple(
+            angle
+            for t in range(len(values))
+            for delay in (left, right)
+            for angle in ((1 - g) * pi / 2 + g * _theta(values[t - delay])
+                          if t >= delay and _available(m, delay) else pi / 2,)
+        )))
     return tuple(specs)
 
 
@@ -99,51 +99,22 @@ def observable_width(specification: Observable) -> int:
     return 2 if specification.name.startswith("J:") and not specification.name.startswith("J:delay_p") else 1
 
 
-def build_observable_batches(specs, maximum_qubits: int = 8):
-    """Pack independent feature routes without changing their quantum states."""
-    batches, current, used = [], [], 0
+def measurement_batches(specs, maximum_qubits=20):
+    batches, batch, used = [], [], 0
     for spec in specs:
         width = observable_width(spec)
-        if current and used + width > maximum_qubits:
-            batches.append(tuple(current))
-            current, used = [], 0
-        current.append((spec, used, width))
+        if batch and used + width > maximum_qubits:
+            batches.append(tuple(batch))
+            batch, used = [], 0
+        batch.append((spec, used, width))
         used += width
-    if current:
-        batches.append(tuple(current))
-
-    circuits = []
-    for batch in batches:
-        circuit = QuantumCircuit(sum(item[2] for item in batch))
-        length = len(batch[0][0].values) // batch[0][2]
-        for timestep in range(length):
-            for spec, offset, width in batch:
-                for local in range(width):
-                    circuit.reset(offset + local)
-                    circuit.ry(spec.values[timestep * width + local], offset + local)
-            circuit.save_probabilities(range(circuit.num_qubits), label=str(timestep))
-        circuit.metadata = {
-            "family": "parallel_polynomial_delay",
-            "features": [item[0].name for item in batch],
-        }
-        circuits.append(circuit)
-    return tuple(circuits), tuple(batches)
+    if batch:
+        batches.append(tuple(batch))
+    return tuple(batches)
 
 
-def build_serial_observable_circuit(specs):
-    """Serialize independent routes with resets to avoid Aer experiment overhead."""
-    circuit = QuantumCircuit(2)
-    for spec in specs:
-        width = observable_width(spec)
-        for timestep in range(len(spec.values) // width):
-            for qubit in range(width):
-                circuit.reset(qubit)
-                circuit.ry(spec.values[timestep * width + qubit], qubit)
-            circuit.save_expectation_value(
-                SparsePauliOp("Z" * width), range(width), label=f"{timestep}:{spec.name}"
-            )
-    circuit.metadata = {
-        "family": "parallel_polynomial_delay",
-        "dynamical_settings": len(specs),
-    }
-    return circuit
+def append_measurement_timestep(circuit, batch, timestep):
+    for spec, offset, width in batch:
+        for local in range(width):
+            circuit.reset(offset + local)
+            circuit.ry(spec.values[timestep * width + local], offset + local)

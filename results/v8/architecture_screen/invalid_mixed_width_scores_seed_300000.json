@@ -1,0 +1,262 @@
+{
+  "input_seed": 300000,
+  "metric": "squared Pearson screen only; not a development gate",
+  "rows": [
+    {
+      "combined": 1.8357744375514245e-05,
+      "current_quadratic": 0.00625968721035425,
+      "family": "quantum_fifo",
+      "g": 0.0,
+      "m": 0.0,
+      "memory_delay3": 0.011511729245242476
+    },
+    {
+      "combined": 0.03915645063705108,
+      "current_quadratic": 0.006259687210354242,
+      "family": "quantum_fifo",
+      "g": 0.0,
+      "m": 1.0,
+      "memory_delay3": 1.0
+    },
+    {
+      "combined": 0.005558712547788229,
+      "current_quadratic": 0.9999999999999991,
+      "family": "quantum_fifo",
+      "g": 1.0,
+      "m": 0.0,
+      "memory_delay3": 0.001867187246745024
+    },
+    {
+      "combined": 0.7589769941240493,
+      "current_quadratic": 0.9999999999999996,
+      "family": "quantum_fifo",
+      "g": 1.0,
+      "m": 1.0,
+      "memory_delay3": 1.0
+    },
+    {
+      "combined": 1.8357744375513516e-05,
+      "current_quadratic": 0.00625968721035425,
+      "family": "collision_multiscale",
+      "g": 0.0,
+      "m": 0.0,
+      "memory_delay3": 0.0
+    },
+    {
+      "combined": 0.00015449604156591356,
+      "current_quadratic": 0.006259687210354248,
+      "family": "collision_multiscale",
+      "g": 0.0,
+      "m": 1.0,
+      "memory_delay3": 0.0009479095918794673
+    },
+    {
+      "combined": 0.005558712547788334,
+      "current_quadratic": 0.9999999999999998,
+      "family": "collision_multiscale",
+      "g": 1.0,
+      "m": 0.0,
+      "memory_delay3": 0.0
+    },
+    {
+      "combined": 0.006112092189036145,
+      "current_quadratic": 1.0,
+      "family": "collision_multiscale",
+      "g": 1.0,
+      "m": 1.0,
+      "memory_delay3": 0.0011571522949852101
+    },
+    {
+      "combined": 1.8357744375512253e-05,
+      "current_quadratic": 0.0062596872103541975,
+      "family": "ancilla_shift",
+      "g": 0.0,
+      "m": 0.0,
+      "memory_delay3": 0.011511729245242497
+    },
+    {
+      "combined": 0.03915645063704861,
+      "current_quadratic": 0.006259687210354252,
+      "family": "ancilla_shift",
+      "g": 0.0,
+      "m": 1.0,
+      "memory_delay3": 1.0
+    },
+    {
+      "combined": 0.005558712547788148,
+      "current_quadratic": 0.9999999999999993,
+      "family": "ancilla_shift",
+      "g": 1.0,
+      "m": 0.0,
+      "memory_delay3": 0.0018671872467450426
+    },
+    {
+      "combined": 0.7589769941240464,
+      "current_quadratic": 1.0,
+      "family": "ancilla_shift",
+      "g": 1.0,
+      "m": 1.0,
+      "memory_delay3": 1.0
+    },
+    {
+      "combined": 0.005558712547788332,
+      "current_quadratic": 1.0,
+      "family": "coherent_recurrent",
+      "g": 0.0,
+      "m": 0.0,
+      "memory_delay3": 0.0018671872467450718
+    },
+    {
+      "combined": 0.014317318884139809,
+      "current_quadratic": 0.0007538761195544037,
+      "family": "coherent_recurrent",
+      "g": 0.0,
+      "m": 1.0,
+      "memory_delay3": 0.009120741891195683
+    },
+    {
+      "combined": 0.02157086485022241,
+      "current_quadratic": 0.04579315909726042,
+      "family": "coherent_recurrent",
+      "g": 1.0,
+      "m": 0.0,
+      "memory_delay3": 0.0057313813393302755
+    },
+    {
+      "combined": 0.036505118571753925,
+      "current_quadratic": 0.0428688469244344,
+      "family": "coherent_recurrent",
+      "g": 1.0,
+      "m": 1.0,
+      "memory_delay3": 0.04682292575219089
+    },
+    {
+      "combined": 1.8357744375512446e-05,
+      "current_quadratic": 0.006259687210354228,
+      "family": "dissipative_kraus",
+      "g": 0.0,
+      "m": 0.0,
+      "memory_delay3": 0.011511729245242505
+    },
+    {
+      "combined": 1.835774437551247e-05,
+      "current_quadratic": 0.006259687210354195,
+      "family": "dissipative_kraus",
+      "g": 0.0,
+      "m": 1.0,
+      "memory_delay3": 0.011511729245242526
+    },
+    {
+      "combined": 0.005558712547788103,
+      "current_quadratic": 0.9999999999999993,
+      "family": "dissipative_kraus",
+      "g": 1.0,
+      "m": 0.0,
+      "memory_delay3": 0.0018671872467450408
+    },
+    {
+      "combined": 0.005558712547788117,
+      "current_quadratic": 0.9999999999999996,
+      "family": "dissipative_kraus",
+      "g": 1.0,
+      "m": 1.0,
+      "memory_delay3": 0.0018671872467450384
+    },
+    {
+      "combined": 0.0,
+      "current_quadratic": 0.0,
+      "family": "parallel_polynomial_delay",
+      "g": 0.0,
+      "m": 0.0,
+      "memory_delay3": 0.0
+    },
+    {
+      "combined": 0.03915645063705077,
+      "current_quadratic": 8.040510997998493e-05,
+      "family": "parallel_polynomial_delay",
+      "g": 0.0,
+      "m": 1.0,
+      "memory_delay3": 0.006529545947354509
+    },
+    {
+      "combined": 0.0,
+      "current_quadratic": 0.0,
+      "family": "parallel_polynomial_delay",
+      "g": 1.0,
+      "m": 0.0,
+      "memory_delay3": 0.0
+    },
+    {
+      "combined": 0.7589769941240498,
+      "current_quadratic": 0.0024411134446396215,
+      "family": "parallel_polynomial_delay",
+      "g": 1.0,
+      "m": 1.0,
+      "memory_delay3": 0.11894702165705734
+    },
+    {
+      "combined": 1.8357744375514706e-05,
+      "current_quadratic": 0.006259687210354374,
+      "family": "interaction_network",
+      "g": 0.0,
+      "m": 0.0,
+      "memory_delay3": 0.01151172924524244
+    },
+    {
+      "combined": 1.8357744375507184e-05,
+      "current_quadratic": 0.006259687210354163,
+      "family": "interaction_network",
+      "g": 0.0,
+      "m": 1.0,
+      "memory_delay3": 0.011511729245242637
+    },
+    {
+      "combined": 0.005558712547787856,
+      "current_quadratic": 1.0,
+      "family": "interaction_network",
+      "g": 1.0,
+      "m": 0.0,
+      "memory_delay3": 0.0018671872467453598
+    },
+    {
+      "combined": 0.005558712547788241,
+      "current_quadratic": 1.0,
+      "family": "interaction_network",
+      "g": 1.0,
+      "m": 1.0,
+      "memory_delay3": 0.0018671872467450378
+    },
+    {
+      "combined": 1.83577443755164e-05,
+      "current_quadratic": 0.006259687210354371,
+      "family": "hybrid_modular",
+      "g": 0.0,
+      "m": 0.0,
+      "memory_delay3": 0.011511729245242497
+    },
+    {
+      "combined": 0.03915645063706816,
+      "current_quadratic": 0.00625968721036104,
+      "family": "hybrid_modular",
+      "g": 0.0,
+      "m": 1.0,
+      "memory_delay3": 1.0
+    },
+    {
+      "combined": 0.005558712547788355,
+      "current_quadratic": 1.0,
+      "family": "hybrid_modular",
+      "g": 1.0,
+      "m": 0.0,
+      "memory_delay3": 0.0018671872467450426
+    },
+    {
+      "combined": 0.7589769941240458,
+      "current_quadratic": 0.9999999999999998,
+      "family": "hybrid_modular",
+      "g": 1.0,
+      "m": 1.0,
+      "memory_delay3": 1.0
+    }
+  ]
+}

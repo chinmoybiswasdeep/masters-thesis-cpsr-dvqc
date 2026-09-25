@@ -7,6 +7,7 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "code"))
 
 from decoupled_qrc.v8_measurements import expectation_from_counts, parity
+from decoupled_qrc.v8_architectures.parallel_delay import measurement_batches, specifications
 from decoupled_qrc.v8_parallel_runner import run_parallel_delay
 
 
@@ -23,8 +24,8 @@ def test_scientific_features_invoke_real_aer_run_and_account_routes():
     with patch.object(AerSimulator, "run", instrumented):
         result = run_parallel_delay((-0.4, 0.2, 0.7), 1.0, 1.0)
     assert calls and result["resources"]["aer_jobs"] == 1
-    assert result["resources"]["distinct_reservoir_circuits"] == 202
-    assert len(result["features"][0]) == 202
+    assert result["resources"]["distinct_reservoir_circuits"] == 165
+    assert len(result["features"][0]) == 165
 
 
 def test_temporal_delay_and_exact_cross_invariance():
@@ -38,6 +39,7 @@ def test_temporal_delay_and_exact_cross_invariance():
     nonlinear = [name for name in low_g[0] if name.startswith("N:")]
     assert max(abs(low_g[t][name] - high_g[t][name]) for t in range(4) for name in memory) < 1e-12
     assert max(abs(low_m[t][name] - high_g[t][name]) for t in range(4) for name in nonlinear) < 1e-12
+    assert abs(high_g[3]["J:current_p2_x_linear:d1"] - (2 * values[3] ** 2 - 1) * values[2]) < 1e-12
 
 
 def test_same_bitstring_parity_and_qiskit_bit_ordering():
@@ -49,7 +51,8 @@ def test_same_bitstring_parity_and_qiskit_bit_ordering():
 
 def test_finite_shots_use_measurement_counts_and_prefix_replay():
     result = run_parallel_delay((-0.5, 0.25), 1.0, 1.0, mode="shots", shots=100, seed_simulator=91)
-    assert result["resources"]["circuit_executions"] == 202 * 2
-    assert result["resources"]["state_preparations"] == 202 * 2
-    assert result["resources"]["total_shots"] == 202 * 2 * 100
+    batches = len(measurement_batches(specifications((-0.5, 0.25), 1.0, 1.0)))
+    assert result["resources"]["circuit_executions"] == batches * 2
+    assert result["resources"]["state_preparations"] == batches * 2
+    assert result["resources"]["total_shots"] == batches * 2 * 100
     assert all(-1.0 <= value <= 1.0 for row in result["features"] for value in row.values())

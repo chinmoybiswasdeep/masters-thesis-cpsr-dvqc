@@ -6,7 +6,9 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "code"))
 
-from decoupled_qrc.v8_metrics import evaluate_point, linear_cka
+from decoupled_qrc.v8_metrics import (
+    _fit_predict, evaluate_point, linear_cka, normalized_gram, principal_angles,
+)
 from decoupled_qrc.v8_protocol import load_protocol
 
 
@@ -22,6 +24,8 @@ def test_amplitude_rescaling_has_unit_linear_cka():
     rng = np.random.default_rng(8)
     matrix = rng.normal(size=(100, 7))
     assert abs(linear_cka(matrix, matrix * 4.25) - 1.0) < 1e-12
+    assert np.allclose(normalized_gram(matrix), normalized_gram(matrix * 4.25), atol=1e-12)
+    assert max(principal_angles(matrix, matrix * 4.25), default=0.0) < 1e-7
 
 
 def test_missing_feature_column_is_rejected():
@@ -35,3 +39,12 @@ def test_missing_feature_column_is_rejected():
         assert "no features" in str(error)
     else:
         raise AssertionError("missing registered feature groups were accepted")
+
+
+def test_whitening_drops_roundoff_only_subspace():
+    rng = np.random.default_rng(4)
+    train = rng.normal(scale=1e-15, size=(32, 6))
+    test = rng.normal(scale=1e-15, size=(12, 6))
+    target = rng.normal(size=32)
+    prediction = _fit_predict(train, target, test, "whitened_ols")
+    assert np.allclose(prediction, target.mean())

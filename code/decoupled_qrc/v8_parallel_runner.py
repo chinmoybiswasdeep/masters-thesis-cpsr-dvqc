@@ -5,16 +5,16 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass
 from time import perf_counter
 
+from qiskit import QuantumCircuit
 from qiskit_aer import AerSimulator
 
 from .v8_architectures.parallel_delay import (
-    build_observable_batches,
+    append_measurement_timestep,
     build_observable_circuit,
-    build_serial_observable_circuit,
+    measurement_batches,
     observable_width,
     specifications,
 )
-from .v8_measurements import expectation_from_probabilities
 
 
 @dataclass(frozen=True)
@@ -42,49 +42,50 @@ def run_parallel_delay(inputs, m, g, *, mode="exact", shots=1000, seed_simulator
     backend = AerSimulator(method=method, precision=precision)
     started = perf_counter()
     if mode == "exact":
-        circuits = [build_serial_observable_circuit(specs)]
+        circuits = [build_observable_circuit(spec) for spec in specs]
         result = backend.run(circuits, shots=None, seed_simulator=seed_simulator).result()
         if not result.success:
             raise RuntimeError(result.status)
         rows = [dict() for _ in values]
-        data = result.data(0)
-        for spec in specs:
+        for index, spec in enumerate(specs):
+            data = result.data(index)
             for timestep in range(len(values)):
-                rows[timestep][spec.name] = float(data[f"{timestep}:{spec.name}"])
+                rows[timestep][spec.name] = float(data[str(timestep)])
         executions = preparations = len(circuits)
         encodings = sum(len(spec.values) for spec in specs)
         total_shots = 0
     else:
         circuits, identities = [], []
-        for spec in specs:
-            width = observable_width(spec)
+        batches = measurement_batches(specs)
+        for batch_index, batch in enumerate(batches):
+            width = sum(item[2] for item in batch)
+            circuit = QuantumCircuit(width)
             for timestep in range(len(values)):
-                circuit = build_observable_circuit(
-                    type(spec)(spec.name, spec.values[: (timestep + 1) * width])
-                )
-                circuit.measure_all()
-                circuits.append(circuit)
-                identities.append((spec.name, timestep, width))
+                append_measurement_timestep(circuit, batch, timestep)
+                measured = circuit.copy()
+                measured.measure_all()
+                circuits.append(measured)
+                identities.append((batch_index, timestep))
         result = backend.run(circuits, shots=shots, seed_simulator=seed_simulator).result()
         if not result.success:
             raise RuntimeError(result.status)
         rows = [dict() for _ in values]
-        for index, (name, timestep, width) in enumerate(identities):
+        for index, (batch_index, timestep) in enumerate(identities):
             counts = result.get_counts(index)
-            rows[timestep][name] = sum(
-                (-1 if bits.replace(" ", "").count("1") % 2 else 1) * count
-                for bits, count in counts.items()
-            ) / shots
+            for spec, offset, width in batches[batch_index]:
+                mask = tuple(range(offset, offset + width))
+                rows[timestep][spec.name] = sum(
+                    (-1 if sum((int(bits.replace(" ", ""), 2) >> bit) & 1 for bit in mask) % 2 else 1) * count
+                    for bits, count in counts.items()
+                ) / shots
         executions = preparations = len(circuits)
-        encodings = sum(
-            len(spec.values) // observable_width(spec)
-            * (len(spec.values) + observable_width(spec)) // 2
-            for spec in specs
-        )
+        encodings = sum(len(spec.values) for spec in specs) * (len(values) + 1) // 2
         total_shots = executions * shots
+    logical = ({"single_route": 1, "joint_route": 2} if mode == "exact" else
+               {f"batch_{index}": sum(item[2] for item in batch) for index, batch in enumerate(batches)})
     resources = ParallelResources(
         distinct_reservoir_circuits=len(specs),
-        logical_qubits_by_circuit={str(index): circuit.num_qubits for index, circuit in enumerate(circuits)},
+        logical_qubits_by_circuit=logical,
         peak_qubits=max(circuit.num_qubits for circuit in circuits),
         measurement_bases=1,
         aer_jobs=1,

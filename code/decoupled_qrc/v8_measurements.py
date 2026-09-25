@@ -7,11 +7,16 @@ from qiskit.quantum_info import SparsePauliOp
 
 MEMORY_FEATURES = tuple(f"M:d{delay}" for delay in range(1, 13))
 NONLINEAR_FEATURES = tuple(f"N:p{degree}" for degree in (1, 2, 3, 4))
+PAIR_DELAYS = tuple(sorted(
+    {(left, left + 1) for left in range(1, 12)}
+    | {(left, left + 3) for left in range(1, 10)}
+    | {(1, right) for right in range(2, 13)}
+))
 JOINT_FEATURES = tuple(
     [f"J:current_p{degree}_x_linear:d{delay}" for degree in (1, 2, 3, 4) for delay in range(1, 13)]
     + [f"J:delay_p{degree}:d{delay}" for degree in (2, 3, 4) for delay in range(1, 13)]
-    + [f"J:past_p{degree}_x_linear:d{delay}" for degree in (2, 3, 4) for delay in range(1, 13)]
-    + [f"J:linear_pair:d{left}:d{right}" for left in range(1, 13) for right in range(left + 1, 13)]
+    + [f"J:mix_p{current}_p{delayed}:d{delay}" for current, delayed in ((1, 2), (2, 3), (3, 2)) for delay in range(1, 13)]
+    + [f"J:linear_pair:d{left}:d{right}" for left, right in PAIR_DELAYS]
 )
 
 
