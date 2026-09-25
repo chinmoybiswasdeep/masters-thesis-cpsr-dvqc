@@ -1,0 +1,23 @@
+{
+  "amendment": 3,
+  "date": "2026-09-25",
+  "stage": "before any V8 finite-shot, precision, or noisy execution",
+  "change": "Freeze the simulator/transpiler replicate rule and the finite-shot/robustness execution matrix omitted from the original protocol.",
+  "reason": "The protocol registered shot levels and required multiple simulator/transpiler seeds but did not state the deterministic second-seed derivation or exactly which seed/point blocks receive each robustness mode.",
+  "scientific_strength": "No registered threshold or exact-backend requirement changes. This adds executions and fixes their selection before any finite-shot, precision, or noisy result exists.",
+  "data_access": "Only exact seed-300000 V8.5 development circuits had been executed. No finite-shot, single-precision, fake-backend, validation, or confirmation circuit had run.",
+  "replicate_rule": {
+    "simulator_seeds": ["bank simulator seed", "bank simulator seed + 100000"],
+    "transpiler_seeds": ["bank transpiler seed", "bank transpiler seed + 100000"]
+  },
+  "finite_shot_matrix": {
+    "development": "all four corners for all 16 seeds at 1000 and 10000 shots using the bank simulator seed",
+    "internal_validation": "all four corners for all 16 seeds at 1000 and 10000 shots using the bank simulator seed",
+    "confirmation": "all four corners for all 24 untouched seeds at 1000 and 10000 shots using the bank simulator seed",
+    "second_simulator_seed": "all four development corners for seed index 0 at 1000 and 10000 shots",
+    "representative_100000": "all four development corners for seed index 0",
+    "selected_interior": "m=0.5,g=0.5 for development seed index 0 at 1000 and 10000 shots"
+  },
+  "precision_matrix": "all four development corners for seed index 0 in exact single precision, compared with double precision",
+  "noise_matrix": "all four development corners for seed index 0 for the Cartesian product of two frozen transpiler seeds and two frozen simulator seeds on FakeGuadalupeV2"
+}
