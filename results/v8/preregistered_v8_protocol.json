@@ -1,0 +1,79 @@
+{
+  "protocol": "DQRC V8 Qiskit-backend memory-nonlinearity separation",
+  "version": "1.0.0",
+  "baseline_commit": "f892ee321be7d40460228303a820ae70046fa3e8",
+  "chronology_rule": "This protocol, gate engine, tests, open seed banks and encrypted confirmation commitment must be committed before any V8 scientific circuit execution.",
+  "amendment_rule": "Only independently justified implementation corrections may be made in a committed, hashed amendment; scientific thresholds may not be weakened after data access.",
+  "power_analysis": {
+    "design": "paired seed-level main effects",
+    "minimum_effect": 0.15,
+    "assumed_paired_sd": 0.10,
+    "familywise_alpha": 0.01,
+    "main_effect_comparisons": 8,
+    "target_power": 0.90,
+    "normal_approximation_required_n": 10,
+    "frozen_development_n": 16,
+    "frozen_validation_n": 16,
+    "frozen_confirmation_n": 24
+  },
+  "seed_banks": {
+    "development": {"count": 16, "sha256": "f280f4e948f8de20c7fceb24ca5dab885d8b36a60d97b0f3087dc06b3ab71502"},
+    "internal_validation": {"count": 16, "sha256": "92e7d18f8e0deef28e995a67cce6cce30531f3b2f8ba7dfa9b27da006c556b26"},
+    "confirmation": {"count": 24, "ciphertext": "results/v8/confirmation_seeds.fernet", "ciphertext_sha256": "8006057a0d21148ee208c6c2e5dae7496833b2983a147996d9cad995e2d43755", "escrow": "Fernet key retained outside the repository; reveal requires a valid frozen manifest"}
+  },
+  "data": {
+    "distribution": "iid Uniform[-1,1]",
+    "washout": 64,
+    "train": 512,
+    "gap": 12,
+    "test": 256,
+    "sequence_length": 844,
+    "delay_horizon": 12,
+    "grid": {"m": [0.0, 0.25, 0.5, 0.75, 1.0], "g": [0.0, 0.25, 0.5, 0.75, 1.0]},
+    "held_out_pairs": [[7, 10], [8, 11], [9, 12]]
+  },
+  "statistics": {
+    "familywise_alpha": 0.01,
+    "method": "paired seed bootstrap with Bonferroni simultaneous two-sided intervals",
+    "mandatory_comparisons": 400,
+    "bootstrap_resamples": 20000,
+    "two_sided_tail_rule": "alpha/(2*mandatory_comparisons)",
+    "confirmation_alpha_spending": "attempt k uses 0.01/2^(k-1)"
+  },
+  "thresholds": {
+    "main_effect_min": 0.15,
+    "main_effect_lower_bound_min": 0.10,
+    "cross_margin": 0.05,
+    "profile_margin": 0.06,
+    "feature_invariance_tolerance": 1e-9,
+    "hh_advantage_min": 0.03,
+    "per_delay_capacity_min": 0.03,
+    "tail_capacity_min": 0.01,
+    "delay_pass_fraction_min": 0.75,
+    "saturated_fraction_max": 0.20,
+    "null_capacity_upper": 0.10,
+    "nonlinear_geometry_cka_max": 0.98,
+    "noise_effect_retention_min": 0.50
+  },
+  "readouts": ["raw_ols", "standardized_ols", "ridge_cv", "whitened_ols"],
+  "simulator_modes": ["exact_mps", "shots_1000", "shots_10000", "shots_100000_representative", "fake_backend_noise", "single_precision", "double_precision"],
+  "task_families": [
+    "linear_delayed", "quadratic_delayed", "cubic_delayed", "quartic_delayed",
+    "current_quadratic_x_delayed_linear", "current_cubic_x_delayed_linear",
+    "current_quartic_x_delayed_linear", "delayed_linear_x_delayed_linear",
+    "delayed_nonlinear_x_delayed_linear"
+  ],
+  "required_targets": [
+    "linear_delays_1_12", "quadratic_delays_1_12", "cubic_delays_1_12", "quartic_delays_1_12",
+    "current_degree_2_x_delayed_linear", "current_degree_3_x_delayed_linear",
+    "current_degree_4_x_delayed_linear", "delayed_linear_x_delayed_linear",
+    "delayed_nonlinear_x_delayed_linear", "held_out_delay_pairs", "held_out_nonlinear_combinations",
+    "future_null", "random_label_null", "permuted_input_null", "destroyed_order_null"
+  ],
+  "architecture_families_required": 6,
+  "architecture_families": [
+    "quantum_fifo", "collision_multiscale", "ancilla_shift", "coherent_recurrent",
+    "dissipative_kraus", "parallel_polynomial_delay", "interaction_network", "hybrid_modular"
+  ],
+  "success_rule": "Every executable gate must pass on development and internal validation in exact and finite-shot modes; robustness and negative controls must pass; source must then be frozen and committed before one untouched confirmation reveal."
+}

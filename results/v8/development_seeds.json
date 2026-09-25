@@ -1,0 +1,21 @@
+{
+  "bank": "development",
+  "seeds": [
+    {"input": 300000, "simulator": 301000, "transpiler": 302000},
+    {"input": 300001, "simulator": 301001, "transpiler": 302001},
+    {"input": 300002, "simulator": 301002, "transpiler": 302002},
+    {"input": 300003, "simulator": 301003, "transpiler": 302003},
+    {"input": 300004, "simulator": 301004, "transpiler": 302004},
+    {"input": 300005, "simulator": 301005, "transpiler": 302005},
+    {"input": 300006, "simulator": 301006, "transpiler": 302006},
+    {"input": 300007, "simulator": 301007, "transpiler": 302007},
+    {"input": 300008, "simulator": 301008, "transpiler": 302008},
+    {"input": 300009, "simulator": 301009, "transpiler": 302009},
+    {"input": 300010, "simulator": 301010, "transpiler": 302010},
+    {"input": 300011, "simulator": 301011, "transpiler": 302011},
+    {"input": 300012, "simulator": 301012, "transpiler": 302012},
+    {"input": 300013, "simulator": 301013, "transpiler": 302013},
+    {"input": 300014, "simulator": 301014, "transpiler": 302014},
+    {"input": 300015, "simulator": 301015, "transpiler": 302015}
+  ]
+}
