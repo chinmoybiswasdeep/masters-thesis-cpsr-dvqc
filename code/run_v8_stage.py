@@ -21,7 +21,7 @@ from decoupled_qrc.v8_gates import evaluate_gates
 from decoupled_qrc.v8_metrics import evaluate_point
 from decoupled_qrc.v8_noise_runner import run_fifo_noisy
 from decoupled_qrc.v8_parallel_runner import run_parallel_delay
-from decoupled_qrc.v8_protocol import ROOT, RESULTS, atomic_json, load_open_bank, load_protocol
+from decoupled_qrc.v8_protocol import ROOT, RESULTS, atomic_json, environment_lock, load_open_bank, load_protocol
 from decoupled_qrc.v8_qiskit_runner import run_fifo
 
 
@@ -38,6 +38,7 @@ FINITE_SHOT_CORE_GATES = (
     "per_delay_requirements", "combined_hh", "heldout_targets", "seed_completeness",
     "target_completeness", "train_test_leakage",
 )
+EXACT_CORE_GATES = FINITE_SHOT_CORE_GATES + ("feature_structural_invariance",)
 
 
 def _seed(bank, index):
@@ -159,21 +160,28 @@ def execute_negative_controls(args):
     print(json.dumps({"controls": controls, "baseline_complete": baselines["baseline_complete"]}, indent=2))
 
 
-def finite_shot_matrix_status():
+def finite_shot_matrix_status(bank="development"):
     protocol = load_protocol()
-    directory = RESULTS / "development_shots"
-    seed = _seed("development", 0)
+    directory = RESULTS / {
+        "development": "development_shots",
+        "internal_validation": "validation_shots",
+        "confirmation": "confirmation_shots",
+    }[bank]
+    seed = _seed(bank, 0)
+    prefix = {"development": "development", "internal_validation": "validation", "confirmation": "confirmation"}[bank]
     details = {}
     passed = True
     for shots in (1000, 10000):
-        evidence = build_corner_evidence(directory, "development", mode="shots", shots=shots)
+        evidence = build_corner_evidence(directory, bank, mode="shots", shots=shots)
         gates = evaluate_gates(evidence, protocol)
         core = all(gates.get(name, {}).get("passed", False) for name in FINITE_SHOT_CORE_GATES)
         details[f"primary_{shots}"] = core
         passed &= core
-        atomic_json(RESULTS / f"development_{shots}shots_evidence.json", evidence)
-        atomic_json(RESULTS / f"development_{shots}shots_gates.json", gates)
+        atomic_json(RESULTS / f"{prefix}_{shots}shots_evidence.json", evidence)
+        atomic_json(RESULTS / f"{prefix}_{shots}shots_gates.json", gates)
 
+    if bank != "development":
+        return {"finite_shot_pass": bool(passed), "details": details}
     checks = ((1000, 100000), (10000, 100000), (100000, 0))
     for shots, simulator_offset in checks:
         points = {}
@@ -241,6 +249,7 @@ def main():
             "code/decoupled_qrc/v8_architectures/fifo.py",
             "code/decoupled_qrc/v8_qiskit_runner.py",
             "code/decoupled_qrc/v8_noise_runner.py",
+            "code/decoupled_qrc/v8_resources.py",
             "code/decoupled_qrc/v8_baselines.py",
             "code/decoupled_qrc/v8_controls.py",
             "code/decoupled_qrc/v8_measurements.py",
@@ -254,18 +263,26 @@ def main():
             "code/run_v8_stage.py",
             "code/run_v8_matrix.py",
             "results/v8/preregistered_v8_protocol.json",
+            "results/v8/preregistered_v8_protocol.sha256",
+            "results/v8/development_seeds.json",
+            "results/v8/internal_validation_seeds.json",
+            "results/v8/confirmation_seeds.fernet",
             "results/v8/amendment_001.json",
             "results/v8/amendment_002.json",
             "results/v8/amendment_003.json",
             "results/v8/amendment_004.json",
             "results/v8/candidate_registry.json",
+            "results/v8/environment.json",
             "docs/V8_DEVELOPMENT_LOG.md",
             "requirements-lock.txt",
+            ".gitattributes",
         ]
+        files.extend(path.relative_to(ROOT).as_posix() for path in RESULTS.glob("amendment_*.sha256"))
         files.extend(path.relative_to(ROOT).as_posix() for path in (ROOT / "tests").glob("test_v8_*.py"))
         artifact_roots = (
             "architecture_screen", "development_exact", "development_shots",
             "validation", "validation_shots", "negative_controls", "robustness",
+            "command_logs", "failure_archive",
         )
         for directory in artifact_roots:
             files.extend(
@@ -312,6 +329,7 @@ def main():
             directory = RESULTS / ("development_shots" if args.mode == "shots" else "development_exact")
         supplemental = json.loads(Path(args.supplemental).read_text()) if args.supplemental else {}
         if args.bank == "development" and args.mode == "exact" and args.precision == "double":
+            atomic_json(RESULTS / "environment.json", environment_lock())
             control_files = [
                 RESULTS / "negative_controls" / f"seed_{row['input']}_controls.json"
                 for row in load_open_bank("development")["seeds"]
@@ -366,12 +384,46 @@ def main():
                     "noise": noise,
                 })
             try:
-                finite_shots = finite_shot_matrix_status()
+                finite_shots = finite_shot_matrix_status("development")
             except (FileNotFoundError, ValueError):
                 finite_shots = None
             if finite_shots:
                 supplemental["finite_shot_pass"] = finite_shots["finite_shot_pass"]
                 supplemental["finite_shots"] = finite_shots
+            validation_gates = RESULTS / "validation_gates.json"
+            if validation_gates.exists():
+                supplemental["internal_validation_pass"] = bool(
+                    json.loads(validation_gates.read_text()).get("all_passed")
+                )
+        if args.bank in {"internal_validation", "confirmation"} and args.mode == "exact":
+            development_evidence = RESULTS / "development_evidence.json"
+            if development_evidence.exists():
+                inherited = json.loads(development_evidence.read_text())
+                for name in (
+                    "response_surface", "saturated_fraction", "conditioning_pass",
+                    "learning_curve_pass", "negative_controls", "encoder_leakage_max",
+                    "noise_effect_retention", "noise_hh_ordered", "precision_pass",
+                    "baseline_complete", "quantum_advantage",
+                ):
+                    supplemental[name] = inherited[name]
+            try:
+                shot_status = finite_shot_matrix_status(args.bank)
+            except (FileNotFoundError, ValueError):
+                shot_status = None
+            if shot_status:
+                supplemental["finite_shot_pass"] = shot_status["finite_shot_pass"]
+                supplemental["finite_shots"] = shot_status
+            preliminary = build_corner_evidence(directory, args.bank, supplemental)
+            preliminary_gates = evaluate_gates(preliminary, load_protocol())
+            core_pass = all(
+                preliminary_gates.get(name, {}).get("passed", False) for name in EXACT_CORE_GATES
+            ) and bool(supplemental.get("finite_shot_pass"))
+            if args.bank == "internal_validation":
+                supplemental["internal_validation_pass"] = core_pass
+            else:
+                validation = json.loads((RESULTS / "validation_gates.json").read_text())
+                supplemental["internal_validation_pass"] = bool(validation.get("all_passed"))
+                supplemental["confirmation_pass"] = core_pass and supplemental["internal_validation_pass"]
         evidence = build_corner_evidence(
             directory, args.bank, supplemental, mode=args.mode, shots=args.shots,
             precision=args.precision, simulator_seed_offset=args.simulator_seed_offset,

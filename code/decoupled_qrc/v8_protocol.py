@@ -3,8 +3,11 @@
 from __future__ import annotations
 
 import hashlib
+import importlib.metadata
 import json
 import os
+import platform
+import sys
 from pathlib import Path
 
 
@@ -55,3 +58,12 @@ def assert_disjoint(*banks):
                 raise AssertionError("seed banks overlap")
             seen |= values
 
+
+def environment_lock():
+    packages = ("qiskit", "qiskit-aer", "qiskit-ibm-runtime", "numpy", "scipy", "scikit-learn", "cryptography")
+    return {
+        "python": sys.version,
+        "platform": platform.platform(),
+        "packages": {name: importlib.metadata.version(name) for name in packages},
+        "requirements_lock_sha256": sha256_file(ROOT / "requirements-lock.txt"),
+    }

@@ -15,3 +15,11 @@ results/v5*/** -text
 code/decoupled_qrc/v6_*.py -text
 code/run_v6_stage.py -text
 results/v6/** -text
+code/decoupled_qrc/v8_*.py -text
+code/decoupled_qrc/v8_architectures/** -text
+code/run_v8_*.py -text
+tests/test_v8_*.py -text
+results/v8/** -text
+docs/V8_DEVELOPMENT_LOG.md -text
+docs/DQRC_V8_RESULTS.md -text
+requirements-lock.txt -text

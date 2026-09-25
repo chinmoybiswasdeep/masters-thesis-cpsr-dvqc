@@ -21,9 +21,10 @@ def freeze_candidate(
 ) -> dict:
     source_commit = _git("rev-parse", "HEAD") if require_committed else None
     if require_committed:
-        subprocess.run(["git", "diff", "--quiet", "HEAD", "--", *files], cwd=ROOT, check=True)
-        for name in files:
-            _git("ls-files", "--error-unmatch", name)
+        for first in range(0, len(files), 64):
+            batch = files[first:first + 64]
+            subprocess.run(["git", "diff", "--quiet", "HEAD", "--", *batch], cwd=ROOT, check=True)
+            _git("ls-files", "--error-unmatch", "--", *batch)
     manifest = {
         "status": "frozen",
         "version": version,

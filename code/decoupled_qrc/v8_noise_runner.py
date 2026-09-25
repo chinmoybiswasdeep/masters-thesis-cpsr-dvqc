@@ -13,6 +13,7 @@ from .v8_qiskit_runner import PREFIX_BATCH_SIZE, ROUTES, _append, _extract_count
 
 
 FAKE_BACKEND_NAME = "FakeGuadalupeV2"
+PHYSICAL_SUBGRAPH = tuple(range(16))
 
 
 def run_fifo_noisy(inputs, m, g, *, shots, seed_simulator, seed_transpiler):
@@ -77,6 +78,7 @@ def run_fifo_noisy(inputs, m, g, *, shots, seed_simulator, seed_transpiler):
             "method": "matrix_product_state",
             "noise_model_from": FAKE_BACKEND_NAME,
             "fake_backend_qubits": fake_backend.num_qubits,
+            "physical_subgraph": PHYSICAL_SUBGRAPH,
             "seed_simulator": seed_simulator,
             "seed_transpiler": seed_transpiler,
         },

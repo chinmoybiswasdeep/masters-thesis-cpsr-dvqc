@@ -50,6 +50,15 @@ def test_qpy_fingerprint_is_deterministic_and_configuration_sensitive():
     assert first != circuit_fingerprint("memory", inputs, 0.5, 1.0)
 
 
+def test_final_runner_has_no_analytical_or_numpy_quantum_fallback():
+    root = Path(__file__).resolve().parents[1]
+    source = (root / "code/decoupled_qrc/v8_qiskit_runner.py").read_text()
+    architecture = (root / "code/decoupled_qrc/v8_architectures/fifo.py").read_text()
+    forbidden = ("import numpy", "Statevector", "DensityMatrix", "binomial", "legendre", "target(")
+    assert not any(token in source for token in forbidden)
+    assert "target(" not in architecture
+
+
 def test_every_exact_route_is_seed_invariant_without_entangled_resets():
     values = (-0.7, 0.1, 0.8)
     for route in ROUTES:
