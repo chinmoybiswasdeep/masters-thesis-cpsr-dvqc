@@ -139,3 +139,13 @@ is not evidence of confirmation success.
 - An actual five-level Aer processor sweep gave mean nonlinear capacities
   0.00083, 0.8063, 0.8491, 0.9271, and 1.0000 for g=0, .25, .5, .75, and 1,
   respectively, clearing the ordered-interior screen before the full grid.
+- The complete seed-300000 exact corner checkpoint then passed its advance
+  screen. Feature-level memory and nonlinear cross-control errors were both
+  exactly 0; endpoint memory and nonlinear main effects were at least 1.0001
+  and 0.9991; both metric cross-effects were exactly 0; low/high nonlinear
+  CKA was 0.4796 while the amplitude-rescaling control was 1.0000. Every HH
+  main, tail, and held-out capacity was 1.0 under every readout, and the worst
+  combined-family tail advantage was 0.4636. All four logs had empty stderr.
+- Only after that corner checkpoint passed, the registered remaining 21
+  seed-300000 points of the 5x5 exact response surface were started as three
+  resumable shards.

@@ -1,6 +1,7 @@
 # Files whose sha256 is recorded in a preregistration / frozen artifact must keep
 # the exact bytes they were hashed with (-text: no EOL conversion); core.autocrlf would break
 # every hash on a fresh Windows checkout.
+.gitattributes -text
 code/decoupled_qrc/v4_*.py -text
 code/decoupled_qrc/v5_*.py -text
 code/decoupled_qrc/audit_*.py -text
