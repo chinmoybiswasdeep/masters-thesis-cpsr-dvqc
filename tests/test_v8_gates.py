@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "code"))
-from decoupled_qrc.v8_gates import evaluate_gates
+from decoupled_qrc.v8_gates import EFFECTIVE_MANDATORY_COMPARISONS, evaluate_gates
 from decoupled_qrc.v8_metrics import COMBINED_FAMILIES
 from decoupled_qrc.v8_protocol import load_protocol
 from decoupled_qrc.v8_statistics import bonferroni_tail_alpha
@@ -20,6 +20,7 @@ def valid_evidence():
         "memory_main": np.full((n, 8), 0.25), "nonlinearity_main": np.full((n, 8), 0.25),
         "memory_to_nonlinearity": np.zeros((n, 8)), "nonlinearity_to_memory": np.zeros((n, 8)),
         "degree_profile_differences": np.zeros((n, 3)), "memory_curve_differences": np.zeros((n, 12)),
+        "heldout_capacities": np.full((n, 20), 0.20),
         "structural_invariance": {"memory_max_abs": 1e-12, "nonlinearity_max_abs": 1e-12},
         "scale_invariant_pass": True,
         "geometry": {"cka_low_high_g": 0.8, "amplitude_control_cka": 1.0},
@@ -32,9 +33,9 @@ def valid_evidence():
         "confirmation_pass": False,
     }
     for family in protocol["task_families"]:
-        evidence["per_delay:" + family] = np.full((n, 12), 0.20)
+        evidence["per_delay:" + family] = np.full((n, 48), 0.20)
         if family in COMBINED_FAMILIES:
-            evidence["hh_advantage:" + family] = np.full((n, 12), 0.08)
+            evidence["hh_advantage:" + family] = np.full((n, 48), 0.08)
     return protocol, evidence
 
 
@@ -92,3 +93,4 @@ def test_rejects_missing_seed_target_and_missing_evidence():
 def test_two_sided_multiplicity_correction_is_not_uncorrected():
     assert bonferroni_tail_alpha(0.01, 400) == 0.01 / 800
     assert bonferroni_tail_alpha(0.01, 400) < 0.01 / 2
+    assert EFFECTIVE_MANDATORY_COMPARISONS == 5000

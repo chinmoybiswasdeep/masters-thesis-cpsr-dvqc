@@ -8,6 +8,9 @@ from .v8_metrics import COMBINED_FAMILIES
 from .v8_statistics import paired_interval, simultaneous_intervals
 
 
+EFFECTIVE_MANDATORY_COMPARISONS = 5000
+
+
 def _all_inside(intervals, margin):
     return all(item["lower"] > -margin and item["upper"] < margin for item in intervals)
 
@@ -36,7 +39,10 @@ def evaluate_gates(evidence: dict, protocol: dict) -> dict:
         if width is not None and values.shape[1] != width:
             raise ValueError(f"{name} must have {width} components")
         return simultaneous_intervals(
-            values, alpha=alpha, comparisons=stats["mandatory_comparisons"], resamples=resamples
+            values,
+            alpha=alpha,
+            comparisons=max(stats["mandatory_comparisons"], EFFECTIVE_MANDATORY_COMPARISONS),
+            resamples=resamples,
         )
 
     try:
@@ -71,26 +77,35 @@ def evaluate_gates(evidence: dict, protocol: dict) -> dict:
 
         per_delay_ok, hh_ok = True, True
         per_delay_details, hh_details = {}, {}
+        readout_count = len(protocol["readouts"])
         for family in protocol["task_families"]:
-            caps = intervals("per_delay:" + family, 12)
+            caps = intervals("per_delay:" + family, 12 * readout_count)
             estimates = [x["estimate"] for x in caps]
             delay_passes = [x >= t["per_delay_capacity_min"] for x in estimates]
+            tails = [12 * readout + delay for readout in range(readout_count) for delay in range(8, 12)]
             family_ok = (
-                sum(delay_passes) / 12 >= t["delay_pass_fraction_min"]
-                and all(estimates[index] >= t["tail_capacity_min"] for index in range(8, 12))
+                sum(delay_passes) / len(delay_passes) >= t["delay_pass_fraction_min"]
+                and all(estimates[index] >= t["tail_capacity_min"] for index in tails)
             )
             per_delay_ok &= family_ok
             per_delay_details[family] = {"intervals": caps, "passed": family_ok}
             if family in COMBINED_FAMILIES:
-                advantages = intervals("hh_advantage:" + family, 12)
+                advantages = intervals("hh_advantage:" + family, 12 * readout_count)
                 family_hh = all(
                     advantages[index]["estimate"] >= t["hh_advantage_min"]
-                    and advantages[index]["lower"] > 0.0 for index in range(8, 12)
+                    and advantages[index]["lower"] > 0.0
+                    for index in (12 * readout + delay for readout in range(readout_count) for delay in range(8, 12))
                 )
                 hh_ok &= family_hh
                 hh_details[family] = {"intervals": advantages, "passed": family_hh}
         gates["per_delay_requirements"] = _gate(per_delay_ok, families=per_delay_details)
         gates["combined_hh"] = _gate(hh_ok, families=hh_details)
+
+        heldout = intervals("heldout_capacities", 5 * readout_count)
+        gates["heldout_targets"] = _gate(
+            all(item["estimate"] >= t["per_delay_capacity_min"] and item["lower"] > 0.0 for item in heldout),
+            intervals=heldout,
+        )
 
         gates["encoder_leakage"] = _gate(evidence["encoder_leakage_max"] <= t["null_capacity_upper"])
         gates["train_test_leakage"] = _gate(bool(evidence["split_disjoint"] and evidence["no_future_features"]))

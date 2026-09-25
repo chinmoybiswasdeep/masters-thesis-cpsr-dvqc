@@ -1,0 +1,10 @@
+{
+  "amendment": 2,
+  "date": "2026-09-25",
+  "stage": "V8.5 single-seed exact development",
+  "change": "Increase the simultaneous Bonferroni comparison envelope from 400 to 5000 and require per-delay and HH gates to retain all four registered readouts.",
+  "reason": "A pre-scaling audit found that 400 does not cover the Cartesian family-by-delay-by-readout-by-simulator envelope. The executable gate also accepted one 12-delay block rather than explicitly requiring all four readout blocks.",
+  "scientific_strength": "This only makes inference more conservative. No threshold, task, delay, seed, readout, simulator mode, or comparison is removed, and no observed result is changed.",
+  "data_access": "One V8.5 high-memory/high-nonlinearity development point for seed 300000 had completed and the other three corner circuits were already running. No paired interval, response-surface, multi-seed, finite-shot, validation, robustness, or confirmation result existed.",
+  "effective_mandatory_comparisons": 5000
+}
