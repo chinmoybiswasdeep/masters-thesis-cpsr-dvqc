@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import numpy as np
 
+from .v8_metrics import COMBINED_FAMILIES
 from .v8_statistics import paired_interval, simultaneous_intervals
 
 
@@ -72,21 +73,22 @@ def evaluate_gates(evidence: dict, protocol: dict) -> dict:
         per_delay_details, hh_details = {}, {}
         for family in protocol["task_families"]:
             caps = intervals("per_delay:" + family, 12)
-            advantages = intervals("hh_advantage:" + family, 12)
             estimates = [x["estimate"] for x in caps]
             delay_passes = [x >= t["per_delay_capacity_min"] for x in estimates]
             family_ok = (
                 sum(delay_passes) / 12 >= t["delay_pass_fraction_min"]
                 and all(estimates[index] >= t["tail_capacity_min"] for index in range(8, 12))
             )
-            family_hh = all(
-                advantages[index]["estimate"] >= t["hh_advantage_min"]
-                and advantages[index]["lower"] > 0.0 for index in range(8, 12)
-            )
             per_delay_ok &= family_ok
-            hh_ok &= family_hh
             per_delay_details[family] = {"intervals": caps, "passed": family_ok}
-            hh_details[family] = {"intervals": advantages, "passed": family_hh}
+            if family in COMBINED_FAMILIES:
+                advantages = intervals("hh_advantage:" + family, 12)
+                family_hh = all(
+                    advantages[index]["estimate"] >= t["hh_advantage_min"]
+                    and advantages[index]["lower"] > 0.0 for index in range(8, 12)
+                )
+                hh_ok &= family_hh
+                hh_details[family] = {"intervals": advantages, "passed": family_hh}
         gates["per_delay_requirements"] = _gate(per_delay_ok, families=per_delay_details)
         gates["combined_hh"] = _gate(hh_ok, families=hh_details)
 
@@ -110,4 +112,3 @@ def evaluate_gates(evidence: dict, protocol: dict) -> dict:
     if evidence.get("stage") == "confirmation":
         gates["all_passed"] &= gates.get("confirmation", {"passed": False})["passed"]
     return gates
-

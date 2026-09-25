@@ -6,6 +6,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "code"))
 from decoupled_qrc.v8_gates import evaluate_gates
+from decoupled_qrc.v8_metrics import COMBINED_FAMILIES
 from decoupled_qrc.v8_protocol import load_protocol
 from decoupled_qrc.v8_statistics import bonferroni_tail_alpha
 
@@ -32,7 +33,8 @@ def valid_evidence():
     }
     for family in protocol["task_families"]:
         evidence["per_delay:" + family] = np.full((n, 12), 0.20)
-        evidence["hh_advantage:" + family] = np.full((n, 12), 0.08)
+        if family in COMBINED_FAMILIES:
+            evidence["hh_advantage:" + family] = np.full((n, 12), 0.08)
     return protocol, evidence
 
 
@@ -53,7 +55,7 @@ def test_rejects_weak_main_and_coupled_response():
 
 def test_rejects_hh_tail_failure_hidden_by_average():
     protocol, evidence = valid_evidence()
-    family = protocol["task_families"][0]
+    family = "current_quadratic_x_delayed_linear"
     evidence["hh_advantage:" + family][:, 11] = -0.01
     assert not evaluate_gates(evidence, protocol)["combined_hh"]["passed"]
 
@@ -90,4 +92,3 @@ def test_rejects_missing_seed_target_and_missing_evidence():
 def test_two_sided_multiplicity_correction_is_not_uncorrected():
     assert bonferroni_tail_alpha(0.01, 400) == 0.01 / 800
     assert bonferroni_tail_alpha(0.01, 400) < 0.01 / 2
-

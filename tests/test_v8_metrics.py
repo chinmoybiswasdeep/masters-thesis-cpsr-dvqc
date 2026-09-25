@@ -1,0 +1,37 @@
+import copy
+import sys
+from pathlib import Path
+
+import numpy as np
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "code"))
+
+from decoupled_qrc.v8_metrics import evaluate_point, linear_cka
+from decoupled_qrc.v8_protocol import load_protocol
+
+
+def test_split_has_gap_and_no_overlap_with_delay_12():
+    protocol = load_protocol()
+    data = protocol["data"]
+    train_end = data["washout"] + data["train"] - 1
+    test_start = data["washout"] + data["train"] + data["gap"]
+    assert test_start - train_end - 1 == 12
+
+
+def test_amplitude_rescaling_has_unit_linear_cka():
+    rng = np.random.default_rng(8)
+    matrix = rng.normal(size=(100, 7))
+    assert abs(linear_cka(matrix, matrix * 4.25) - 1.0) < 1e-12
+
+
+def test_missing_feature_column_is_rejected():
+    protocol = copy.deepcopy(load_protocol())
+    protocol["data"].update({"washout": 1, "train": 3, "gap": 12, "test": 2})
+    inputs = np.linspace(-1, 1, 18)
+    rows = [{"M:d1": value} for value in inputs]
+    try:
+        evaluate_point(inputs, rows, protocol)
+    except ValueError as error:
+        assert "no features" in str(error)
+    else:
+        raise AssertionError("missing registered feature groups were accepted")

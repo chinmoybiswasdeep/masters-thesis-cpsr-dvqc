@@ -1,0 +1,9 @@
+{
+  "amendment": 1,
+  "date": "2026-09-25",
+  "stage": "pre-scientific-execution",
+  "change": "Apply the HH superiority gate only to the five registered combined task families, while retaining per-delay gates for all nine families.",
+  "reason": "The gate implementation incorrectly applied the combined-task HH rule to invariant linear memory and pure nonlinear tasks. Section 10 of the frozen protocol request explicitly scopes HH superiority to every combined family. Requiring HH to exceed HL for X_M is mathematically incompatible with the registered exact g-invariance of X_M.",
+  "scientific_strength": "No threshold, task, delay, readout, simulator mode, alpha level, or combined-family comparison is removed or weakened.",
+  "data_access": "Only backend timing smoke tests of deterministic toy inputs had been run; no frozen-bank input, metric, gate decision, or scientific response-surface result existed."
+}
