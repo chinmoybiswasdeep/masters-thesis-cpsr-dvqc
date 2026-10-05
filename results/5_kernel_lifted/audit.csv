@@ -1,0 +1,90 @@
+check,pass,detail
+source audit: 1_QR_Qiskit.ipynb defines `class ReservoirConfig`,True,
+source audit: 1_QR_Qiskit.ipynb defines `def make_simulator`,True,
+source audit: 1_QR_Qiskit.ipynb defines `def chrono_split`,True,
+source audit: 1_QR_Qiskit.ipynb defines `def select_and_eval_ridge`,True,
+source audit: 1_QR_Qiskit.ipynb defines `def memory_capacity`,True,
+source audit: 1_QR_Qiskit.ipynb defines `def feature_ops_all`,True,
+source audit: 1_QR_Qiskit.ipynb defines `save_expectation_value`,True,
+source audit: 1_QR_Qiskit.ipynb defines `method='density_matrix'`,True,
+source audit: 1_QR_Qiskit.ipynb defines `def build_qelm_circuit`,True,
+source audit: 4_QR_MixedSYK_Qiskit.ipynb defines `def mixed_layer`,True,
+source audit: 4_QR_MixedSYK_Qiskit.ipynb defines `def kappa_to_gJ`,True,
+source audit: 4_QR_MixedSYK_Qiskit.ipynb defines `def sample_syk4_terms`,True,
+source audit: 4_QR_MixedSYK_Qiskit.ipynb defines `def pauli4_rotation`,True,
+source audit: 4_QR_MixedSYK_Qiskit.ipynb defines `def feature_ops_mem_all`,True,
+source audit: 4_QR_MixedSYK_Qiskit.ipynb defines `def level_spacing_ratio`,True,
+source audit: 4_QR_MixedSYK_Qiskit.ipynb defines `def operator_entanglement`,True,
+source audit: 4_QR_MixedSYK_Qiskit.ipynb defines `def scrambling_time`,True,
+source audit: 4_QR_MixedSYK_Qiskit.ipynb defines `def build_trajectory_circuit_haar`,True,
+"source audit: 4_QR_MixedSYK_Qiskit.ipynb defines `REPS_GRID = np.array([1, 2, 3, 4, 6, 8, 12, 16])`",True,
+source audit: 4_QR_MixedSYK_Qiskit.ipynb defines `def _run_mixed_unit_tests`,True,
+all unit tests pass (pytest tests/test_klqrc.py),True,[32m[32m[1m27 passed[0m[32m in 31.06s[0m[0m
+regression: nb4 temporal-edge NARMA2 (0.2706) reproduced,True,0.27060
+"recurrent n_input=1: resets only on input qubits, once per step",True,{0: 25}
+"recurrent n_input=2: resets only on input qubits, once per step",True,"{0: 25, 1: 25}"
+"QELM n_input=1: resets only on all qubits, once per step",True,"{0: 25, 1: 25, 2: 25, 3: 25, 4: 25, 5: 25}"
+"exact equivalence: scalar T=600, chunk=37 < 1e-9",True,max|dX| = 0.00e+00
+"exact equivalence: scalar T=600, chunk=128 < 1e-9",True,max|dX| = 0.00e+00
+"exact equivalence: scalar T=600, chunk=256 < 1e-9",True,max|dX| = 0.00e+00
+"exact equivalence: multichannel T=300, chunk=64 < 1e-9",True,max|dX| = 0.00e+00
+exact equivalence: fused unitary vs gate-level mixed_layer < 1e-9,True,max|dX| = 3.63e-13
+exact equivalence: nb4 save_expectation_value circuit vs runner < 1e-9,True,max|dX| = 2.53e-13
+mackey_glass seed 0: train/val are separate trajectories (no shared 32-sample segment; min L_inf segment distance 0.00889),True,
+mackey_glass seed 1: train/val are separate trajectories (no shared 32-sample segment; min L_inf segment distance 0.00471),True,
+mackey_glass seed 2: train/val are separate trajectories (no shared 32-sample segment; min L_inf segment distance 0.0128),True,
+lorenz seed 0: train/val are separate trajectories (no shared 32-sample segment; min L_inf segment distance 0.915),True,
+lorenz seed 1: train/val are separate trajectories (no shared 32-sample segment; min L_inf segment distance 0.263),True,
+lorenz seed 2: train/val are separate trajectories (no shared 32-sample segment; min L_inf segment distance 0.392),True,
+identical evaluation length for every split/seed/dataset,True,
+"no target inside an input window (windows end at t, targets start at t+1)",True,
+QRC causality: perturbing inputs from t=40 leaves features t<40 unchanged,True,0.0e+00; after: 0.23
+mackey_glass s0: lift/scaler/projection fitted on the training trajectory only,True,
+mackey_glass s0: test inputs clipped by train scaling < 5% (0.00%),True,
+"mackey_glass s0: RBF Gram not constant/diagonal, no duplicate centres",True,offdiag mean 0.264
+"mackey_glass s0: EDMD rollout stable (|eig A| max 1.001, finite bounded rollout)",True,
+mackey_glass s1: lift/scaler/projection fitted on the training trajectory only,True,
+mackey_glass s1: test inputs clipped by train scaling < 5% (0.40%),True,
+"mackey_glass s1: RBF Gram not constant/diagonal, no duplicate centres",True,offdiag mean 0.275
+"mackey_glass s1: EDMD rollout stable (|eig A| max 0.996, finite bounded rollout)",True,
+mackey_glass s2: lift/scaler/projection fitted on the training trajectory only,True,
+mackey_glass s2: test inputs clipped by train scaling < 5% (0.00%),True,
+"mackey_glass s2: RBF Gram not constant/diagonal, no duplicate centres",True,offdiag mean 0.261
+"mackey_glass s2: EDMD rollout stable (|eig A| max 0.995, finite bounded rollout)",True,
+lorenz s0: lift/scaler/projection fitted on the training trajectory only,True,
+lorenz s0: test inputs clipped by train scaling < 5% (2.40%),True,
+lorenz s0: polynomial feature count <= 600,True,164
+"lorenz s0: EDMD rollout stable (|eig A| max 0.985, finite bounded rollout)",True,
+lorenz s1: lift/scaler/projection fitted on the training trajectory only,True,
+lorenz s1: test inputs clipped by train scaling < 5% (0.00%),True,
+lorenz s1: polynomial feature count <= 600,True,164
+"lorenz s1: EDMD rollout stable (|eig A| max 0.973, finite bounded rollout)",True,
+lorenz s2: lift/scaler/projection fitted on the training trajectory only,True,
+lorenz s2: test inputs clipped by train scaling < 5% (0.60%),True,
+lorenz s2: polynomial feature count <= 600,True,164
+"lorenz s2: EDMD rollout stable (|eig A| max 0.982, finite bounded rollout)",True,
+mackey_glass s0: train/val/test share no 32-sample segment (min distance 0.00177),True,
+mackey_glass s1: train/val/test share no 32-sample segment (min distance 0.00294),True,
+mackey_glass s2: train/val/test share no 32-sample segment (min distance 0.00516),True,
+lorenz s0: train/val/test share no 32-sample segment (min distance 0.346),True,
+lorenz s1: train/val/test share no 32-sample segment (min distance 0.263),True,
+lorenz s2: train/val/test share no 32-sample segment (min distance 0.162),True,
+mackey_glass: every model scored on identical test indices,True,
+"mackey_glass: factorial QRCs matched (qubits, inputs, memory qubits, observables, units, disorder seeds)",True,"{(6, 1, 5, 132, ((0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)), (0, 1, 2))}"
+mackey_glass: multichannel QRCs matched,True,
+mackey_glass: recurrent factorial QRCs are not QELM,True,
+lorenz: every model scored on identical test indices,True,
+"lorenz: factorial QRCs matched (qubits, inputs, memory qubits, observables, units, disorder seeds)",True,"{(6, 1, 5, 132, ((0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)), (0, 1, 2))}"
+lorenz: multichannel QRCs matched,True,
+lorenz: recurrent factorial QRCs are not QELM,True,
+"every recurrent QRC used AerSimulator(method=""density_matrix"")",True,
+deterministic seeds: data regeneration identical,True,
+deterministic seeds: Aer re-run identical,True,
+"test set released exactly once per dataset, after the lock",True,
+criteria unchanged since the start (hash),True,
+hyperparameter budget: memory/hybrid side <= EOC side,True,"{'eoc_side_val_evals': 174, 'memory_side_val_evals': 88}"
+bootstrap block >= |error| autocorrelation length,True,"{'mackey_glass': 69, 'lorenz': 57}"
+no NaN/inf in any test prediction,True,
+"feature rank of every factorial QRC > 1, condition numbers finite",True,
+external delay memory (d taps) and QRC memory (measured MC) both recorded separately,True,
+source notebooks unmodified,True,
